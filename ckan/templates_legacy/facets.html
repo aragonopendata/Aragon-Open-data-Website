@@ -1,0 +1,314 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip=""
+  >
+
+<!--!
+Construct a facet <div> populated with links to filtered results.
+
+name
+  The field name identifying the facet field, eg. "tags"
+
+title
+  The title of the facet, eg. "Tags", or "Tag Cloud"
+
+label_function
+  Renders the human-readable label for each facet value.
+  If defined, this should be a callable that accepts a `facet_item`.
+  eg. lambda facet_item: facet_item.display_name.upper()
+  By default it displays the facet item's display name, which should
+  usually be good enough
+
+if_empty
+  A string, which if defined, and the list of possible facet items is empty,
+  is displayed in lieu of an empty list.
+
+count_label
+  A callable which accepts an integer, and returns a string.  This controls
+  how a facet-item's count is displayed.
+  
+-->
+<py:def function="facet_div(name, title, limit=10, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+    <div py:if="if_empty is not None or h.unselected_facet_items(name, limit)" class="facet-box">
+        <h2>${h.get_facet_title(title)}</h2>
+        <ul class="facet-options">
+            ${facet_li(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label)}
+        </ul>
+        <p py:if="not h.unselected_facet_items(name, limit)">${if_empty}</p>
+    </div>
+</py:def>
+
+<!--!
+Generate <li>s for facet items.  The generated tags are not wrapped by any
+other tag, ie - it's up to the caller to wrap them in something suitable.
+
+name
+  The field name identifying the facet field, eg. "tags"
+
+label_function
+  Renders the human-readable label for each facet value.
+  If defined, this should be a callable that accepts a `facet_item`.
+  eg. lambda facet_item: facet_item.display_name.upper()
+  By default it displays the facet item's display name, which should
+  usually be good enough
+
+if_empty
+  A string, which if defined, and the list of possible facet items is empty,
+  is displayed in a <li> tag in lieu of an empty list.
+
+count_label
+  A callable which accepts an integer, and returns a string.  This controls
+  how a facet-item's count is displayed.
+  
+-->
+<py:def function="facet_li(name, limit=5, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+
+    <li py:if="if_empty and not h.unselected_facet_items(name, limit)">${if_empty}</li>
+
+    <li py:for="facet_item in h.unselected_facet_items(name, limit)">
+        <a href="${c.drill_down_url(**{name: facet_item.name})}">
+            ${label_function(facet_item)}
+        </a>
+        ${count_label(facet_item['count'])}
+    </li>
+</py:def>
+
+
+<py:def function="field_list()">
+    <div class="filter-list" py:if="c.fields">
+        <div class="filter-entry" py:for="(field, value) in c.fields">
+            <span class="name">${h.get_facet_title(field)}</span>
+            <span class="value" py:choose="">
+                <py:when test="c.translated_fields and c.translated_fields.has_key((field,value))">
+                    ${c.translated_fields[(field,value)]}
+                </py:when>
+                <py:otherwise>
+                    ${value}
+                </py:otherwise>
+            </span>
+            <a href="${c.remove_field(field, value)}">
+                ${h.icon('unfilter')}
+            </a>
+        </div>  
+    </div>
+</py:def>
+
+<py:def function="facet_div_AOD(name, title, limit=10, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+    <div py:if="if_empty is not None or h.unselected_facet_items(name, limit)">
+        <ul class="facet-options">
+            ${facet_li(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label)}
+        </ul>
+        <p py:if="not h.unselected_facet_items(name, limit)">${if_empty}</p>
+    </div>
+</py:def>
+
+
+<py:def function="facet_div_AOD_tags()">
+  <div class="lat_subsecc">
+	<ul>
+    ${itemResaltaTagSiEsta(valorAResaltar='administracion-publica', txt='Administraci&oacute;n P&uacute;blica')}
+  	${itemResaltaTagSiEsta(valorAResaltar='asuntos-sociales', txt='Asuntos Sociales')}
+  	${itemResaltaTagSiEsta(valorAResaltar='ciencia-y-tecnologia', txt='Ciencia y Tecnolog&iacute;a')}
+  	${itemResaltaTagSiEsta(valorAResaltar='cultura', txt='Cultura')}
+		${itemResaltaTagSiEsta(valorAResaltar='demografia', txt='Demograf&iacute;a')}
+  	${itemResaltaTagSiEsta(valorAResaltar='deporte', txt='Deporte')}
+    ${itemResaltaTagSiEsta(valorAResaltar='economia', txt='Econom&iacute;a')}
+    ${itemResaltaTagSiEsta(valorAResaltar='educacion', txt='Educaci&oacute;n')}
+    ${itemResaltaTagSiEsta(valorAResaltar='empleo', txt='Empleo')}
+    ${itemResaltaTagSiEsta(valorAResaltar='interior-y-justicia', txt='Interior y Justicia')}
+  	${itemResaltaTagSiEsta(valorAResaltar='medio-ambiente', txt='Medio Ambiente')}
+    ${itemResaltaTagSiEsta(valorAResaltar='movilidad-e-infraestructuras', txt='Movilidad e infraestructuras')}
+  	${itemResaltaTagSiEsta(valorAResaltar='ordenacion-del-territorio', txt='Ordenaci&oacute;n del Territorio')}
+    ${itemResaltaTagSiEsta(valorAResaltar='salud', txt='Salud')}
+    ${itemResaltaTagSiEsta(valorAResaltar='turismo', txt='Turismo')}
+    ${itemResaltaTagSiEsta(valorAResaltar='urbanismo-y-vivienda', txt='Urbanismo y vivienda')}
+	</ul>
+	</div>
+</py:def>
+
+<py:def function="facet_div_AOD_publicador()">
+  <div class="lat_subsecc">
+	<ul>
+    ${itemResaltaPublicadorSiEsta(valorAResaltar='Boletín Oficial de Aragón', txt='Bolet&iacute;n Oficial de Arag&oacute;n (BOA)')}
+		${itemResaltaPublicadorSiEsta(valorAResaltar='Centro de Información Territorial de Aragón', txt='Centro de Informaci&oacute;n Territorial de Arag&oacute;n (CINTA)')}
+    ${itemResaltaPublicadorSiEsta(valorAResaltar='Agricultura, Ganadería y Medioambiente', txt='Departamento de Agricultura, Ganader&iacute;a y Medio Ambiente')}
+    ${itemResaltaPublicadorSiEsta(valorAResaltar='Aragón Hoy', txt='D. G. de Comunicaci&oacute;n')}
+    ${itemResaltaPublicadorSiEsta(valorAResaltar='Nuevas Tecnologías', txt='D. G. de Nuevas Tecnolog&iacute;as')}
+		${itemResaltaPublicadorSiEsta(valorAResaltar='Dirección General de Presupuestos', txt='D. G. de Presupuestos')}
+		${itemResaltaPublicadorSiEsta(valorAResaltar='IAEST', txt='Instituto Aragon&eacute;s de Estad&iacute;stica (IAEST)')}
+    ${itemResaltaPublicadorSiEsta(valorAResaltar='Intervención General', txt='Intervenci&oacute;n General')}
+	</ul>
+	</div>
+</py:def>
+
+<py:def function="facet_div_AOD_formatos(name, title, limit=10, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+  <div class="lat_subsecc">
+	<ul>
+	<li>
+    <table class="facet-options">
+		${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='CSV', txt='Comma-separated values')}
+		${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='DXF', txt='Drawing eXchange Format')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='GML', txt='Geography Markup Language')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='JPG', txt='Joint Photographic Experts Group')}
+		${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='JSON', txt='JavaScript Object Notation')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='KMZ', txt='Keyhole Markup Language')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='RSS', txt='Really Simple Syndication')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='SHP', txt='Shapefile')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='SIG', txt='Formato SIG')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='XLS', txt='Microsoft Office Excel')}
+    ${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='XML', txt='eXtensible Markup Language')}
+		${itemResaltaSiEsta(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar='ZIP', txt='ZIP File Format')}
+		</table>
+	</li>
+	</ul>
+	</div>
+</py:def>
+
+<py:def function="facet_compacto_AOD_formatos(name, title, limit=10, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+  <div py:if="if_empty is not None or h.unselected_facet_items(name, limit)">
+    <table class="facet-options">
+			<tr>
+		   <td py:for="facet_item in h.unselected_facet_items(name, limit)">
+	        ${itemResaltaSiEstaCompacto(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label, valorAResaltar=facet_item.display_name.upper(), txt='')}
+		    </td>
+ 			</tr>
+    </table>
+  </div>
+</py:def>
+
+<py:def function="itemResaltaSiEsta(name, limit=5, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c,valorAResaltar=None, txt=None, aux=[])">
+	<div py:for="(field, value) in c.fields">
+  	<tr py:if="valorAResaltar == value">
+			<td class="iconoMenuIzquierdo">
+        <a href="${c.remove_field(field, value)}"><img src="/i/formatos/${valorAResaltar}-ON.png"/></a>
+			</td>
+			<td class="txtMenuIzquierdo menu_tableNormal">
+				<a href="${c.remove_field(field, value)}">${txt}</a>
+			</td>
+			${aux.append(9999)}
+		</tr>
+	</div>
+
+  <py:if test="len(aux)==0">
+		<tr>
+			<td class="iconoMenuIzquierdo">
+				<a href="/dataset?res_format=${valorAResaltar}"><img width="32" height="15" src="/i/formatos/${valorAResaltar}-OFF.png"/></a>
+			</td>
+			<td class="txtMenuIzquierdo menu_tableNormal">
+				<a href="/dataset?res_format=${valorAResaltar}">${txt}</a>
+			</td>
+		</tr>
+   </py:if>
+</py:def>
+
+<py:def function="itemResaltaSiEstaCompacto(name, limit=5, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c,valorAResaltar=None, txt=None, aux=[])">
+	<div py:for="(field, value) in c.fields">
+    <a py:if="valorAResaltar == value.upper()"  href="${c.remove_field(field, value)}">
+			<img src="/i/formatos/${valorAResaltar}-ON.png"/>
+			${aux.append(9999)}
+		</a>
+	</div>
+
+  <div py:if="len(aux)==0">
+		<a href="${c.drill_down_url(**{name: valorAResaltar})}"><img src="/i/formatos/${valorAResaltar}-OFF.png"/></a>
+   </div>
+</py:def>
+
+
+<py:def function="itemResaltaSiEstaCompacto2(valorAResaltar=None, aux=[])">
+	<div py:for="(field, value) in c.fields">
+    <a py:if="valorAResaltar == value.upper()" href="${c.remove_field(field, value)}">
+			<img src="/i/formatos/${valorAResaltar}-ON.png"/>
+			${aux.append(9999)}
+		</a>
+	</div>
+
+  <div py:if="len(aux)==0">
+		<a href="/dataset?res_format=${valorAResaltar}"><img src="/i/formatos/${valorAResaltar}-OFF.png"/></a>
+   </div>
+</py:def>
+
+<py:def function="itemResaltaTagSiEsta(valorAResaltar=None, txt=None)">
+  <li class="itemIzqNoResaltado" align="left"><a id="categoriaId_${valorAResaltar}" class="itemIzqNoResaltado" href="/group/${valorAResaltar}">${txt}</a></li>
+</py:def>
+
+<py:def function="itemResaltaPublicadorSiEsta(valorAResaltar=None, txt=None)">
+  <li class="itemIzq" align="left"><a id="publicadorId_${valorAResaltar}" class="itemIzqNoResaltado" href="/dataset?q=author:${valorAResaltar}">${txt}</a></li>
+</py:def>
+
+<py:def function="obtenRecursosCompactoPackList(listaAux=[])">
+  <py:for each="resource in package.resources">
+    <py:if test="resource.get('format')">
+			<py:if test="resource.get('format') not in listaAux">
+				<td class="huecoPeq">
+					${itemResaltaSiEstaCompacto2(valorAResaltar=resource.get('format').upper(), txt='')}
+					${listaAux.append(resource.get('format'))}
+				</td>
+                <py:if test="resource.get('format') == 'XLS'">
+                    <py:if test="'XML' not in listaAux">
+                        <td class="huecoPeq">
+                            ${itemResaltaSiEstaCompacto2(valorAResaltar='XML', txt='')}
+                            ${listaAux.append('XML')}
+                        </td>
+                    </py:if>
+                    <py:if test="'CSV' not in listaAux">
+                        <td class="huecoPeq">
+                            ${itemResaltaSiEstaCompacto2(valorAResaltar='CSV', txt='')}
+                            ${listaAux.append('CSV')}
+                        </td>
+                    </py:if>
+                    <py:if test="'JSON' not in listaAux">
+                        <td class="huecoPeq">
+                            ${itemResaltaSiEstaCompacto2(valorAResaltar='JSON', txt='')}
+                            ${listaAux.append('JSON')}
+                        </td>
+                    </py:if>
+                </py:if>
+	    </py:if>
+    </py:if>
+  </py:for>
+</py:def>
+
+<py:def function="field_list_AOD_tags()">
+    <div class="filter-list" py:if="c.fields">
+        <div class="filter-entry" py:for="(field, value) in c.fields">
+            <span class="name">${h.facet_title(field)}</span>
+            <span class="value" py:choose="">
+                <py:when test="c.translated_fields and c.translated_fields.has_key((field,value))">
+                    ${c.translated_fields[(field,value)]}
+                </py:when>
+                <py:otherwise>
+                    ${value}
+                </py:otherwise>
+            </span>
+            <a href="${c.remove_field(field, value)}">
+                ${h.icon('unfilter')}
+            </a>
+        </div>
+    </div>
+</py:def>
+
+<py:def function="facet_compacto_AOD_tags(name, title, limit=10, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+    <div py:if="if_empty is not None or h.unselected_facet_items(name, limit)">
+      <table cellpadding="0" cellspacing="2">
+				<tr>
+					<td>${title}</td>
+            ${facet_li_tag(name, limit=limit, label_function=label_function, if_empty=None, count_label=count_label)}
+				</tr>
+			</table>
+    </div>
+</py:def>
+
+<py:def function="facet_li_tag(name, limit=5, label_function=lambda item: item.display_name, if_empty=None, count_label=lambda c: ' (%d)'%c)">
+    <td py:if="if_empty and not h.unselected_facet_items(name, limit)">${if_empty}</td>
+
+    <td py:for="facet_item in h.unselected_facet_items(name, limit)">
+        <a href="${c.drill_down_url(**{name: facet_item.name})}">
+            ${label_function(facet_item)}
+        </a>
+    </td>
+</py:def>
+
+</html>

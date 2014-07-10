@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+{% import 'macros/form.html' as form %}
+
+{% set sorting = sorting if sorting else [(_('Name Ascending'), 'name asc'), (_('Name Descending'), 'name desc')] %}
+
+{% block subtitle %}{{ _("Search for a Dataset") }}{% endblock %}
+
+{% block primary_content %}
+<div class="buscaDatos">
+  <h1><img class="logoBuscaDatos" src="/public/i/buscaDatos/buscarDatos.png" title="Buscar datos" alt="BUSCAR DATOS"><span class="altLogoBuscaDatos">BUSCAR DATOS</span></h1>
+
+	<div id="logoHomerCabecera" class="d_d"><img src="/public/i/buscaDatos/logoHomer.jpg" alt="HOMER" title="HOMER"></div>
+  <div class="huecoInicioPagina"></div>
+  
+  <section class="module">
+    <div class="module-content">
+      {% block form %}
+        {% snippet 'snippets/search_form.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, no_title=True %}
+      {% endblock %}
+    </div>
+  </section>
+
+<div class="huecoInicioPagina"></div>
+  <section>
+        {% block datos_homer %}
+          {{ h.snippet('snippets/homer_list.html', query=c.q) }}
+        {% endblock %}
+  </section>
+
+ </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+
+    {% set isFirst = 0 %}
+
+    {% for extra in h.sorted_extras(pkg_dict.extrasIAEST) %}
+        {% set key, value = extra %}
+
+        {% if value != "" and value != "-1" %}
+          {% if isFirst != 1 %}
+	  				<section class="additional-info">
+		  			<div class="metadataZone">
+			  	  <h3>PROPIEDADES ADICIONALES DE LOS METADATOS</h3>
+						{% set isFirst = 1 %}
+          {% endif %}
+
+            <div>
+              <div class="fieldName" property="rdfs:label">{{ key.split("_IAEST_")[1] }}</div>
+              <div class="fieldValue" property="rdf:value">{{ value }}</div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% if isFirst != 0 %}
+					  </section>
+					  </div>
+    {% endif %}

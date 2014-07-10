@@ -1,0 +1,204 @@
+{#
+Adds a block of custom form fields.
+
+extras - The fields to add.
+errors - A dict of errors for the fields.
+limit  - The total number of fields that should be output.
+Example:
+
+  {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
+
+#}
+{% import "macros/form.html" as form %}
+
+<div data-module="custom-fields">
+
+  {% set nombre = ["Ámbito Geográfico", "Cobertura temporal", "Frecuencia", "Diccionario de datos", "Calidad","Idioma","Detalle"]%}
+
+  {# CREANDO NUEVO #}
+  {% if not extras %}
+        {% for extra in range(0, 7) %}
+            {% set index = loop.index0%}
+            {% set prefix = 'extras__%d__' % index %}
+            {% set prefixField = 'field-extras-%d-' % index %}
+            <div class="control-group">
+                <label class="control-label" for="{{prefixField ~ 'value'}}">{{nombre[index]}}</label>
+                <div class="controls">
+                    <input id="{{prefixField ~ 'key'}}" name="{{prefix ~ 'key'}}" type="hidden" value="{{nombre[index]}}" />
+                    <input id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}" type="text" value="" />
+              </div>
+            </div>
+        {% endfor %}
+  {% endif %}
+
+  {# NUESTROS EXTRAS #}
+  {% for extra in extras %}
+    {% set prefix = 'extras__%d__' % loop.index0 %}
+    {% set prefixField = 'field-extras-%d-' % loop.index %}
+    {% if extra.key in nombre%}
+        <div class="control-group">
+            <label class="control-label" for="{{prefixField ~ 'value'}}">{{extra.key}}</label>
+            <div class="controls">
+                <input id="{{prefixField ~ 'key'}}" name="{{prefix ~ 'key'}}" type="hidden" value="{{extra.key}}" />
+                <input id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}" type="text" value="{{extra.value}}" />
+          </div>
+        </div>
+    {% endif %}
+  {% endfor %}
+
+  {# EXTRAS NORMALES #}
+  {% for extra in extras %}
+    {% set prefix = 'extras__%d__' % loop.index0 %}
+    {% set prefixField = 'field-extras-%d-' % loop.index0 %}
+    {% if extra.key not in nombre and not (extra.key.split("_IAEST_")|length) == 2%}
+    {{ form.custom(
+      names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+      id='field-extras-%d' % loop.index,
+      label=_('Custom Field'),
+      values=(extra.key, extra.value, extra.deleted),
+      error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+    ) }}
+    {% endif %}
+  {% endfor %}
+
+  {# EXTRAS DE MAS #}
+  {# Add a max of 3 empty columns #}
+  {% set total_extras = extras|count + 7 %}
+
+  {% set empty_extras = (limit or 3) - total_extras %}
+  {% if empty_extras <= 0 %}{% set empty_extras = 1 %}{% endif %}
+
+  {% for extra in range(total_extras, total_extras + empty_extras) %}
+    {% set index = loop.index0 + (extras|count) + 7  %}
+    {% set prefix = 'extras__%d__' % index %}
+    {{ form.custom(
+      names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+      id='field-extras-%d' % index,
+      label=_('Custom Field'),
+      values=(extra.key, extra.value, extra.deleted),
+      error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+    ) }}
+  {% endfor %}
+
+</div>
+
+{# EXTRAS DE IAEST #}
+<div data-module="custom-fields2">
+
+  {% set totalMio = 100 %}
+
+  {% set ponerExtrasIaest = false %}
+  {% set nombreOrg = h.get_package_org(pkg_name) %}
+  {% if h.get_package_org(pkg_name)=="org-iaest" %}
+        {% set ponerExtrasIaest = true %}
+  {% endif %}
+
+  {# SOLO SI ESTAMOS EN UN DATASET DE IAEST #}
+  {% if ponerExtrasIaest %}
+    <input id="clickMe" type="button" style="float: right;" class="floatDcha btn btn-primary" value="Información adicional" onclick="mostrarExtrasIAEST();" />
+    <div id="extrasIAEST" style="display:none;">
+        <br>
+        <span style="color: #187794;font-weight: bold;font-size: 14pt;"> DATOS EXTRA</span><br><br>
+
+        {% set index = totalMio %}
+        {% set prefix = 'extras__%d__' % index %}
+
+            {# SI HABIA YA GUARDADOS.... #}
+        {% if extrasIAEST %}
+         {% for extra in extrasIAEST %}
+            {% set numero = loop.index0 + totalMio%}
+            {% set prefix = 'extras__%d__' % numero %}
+            {% set prefixField = 'field-extras-%d-' % numero %}
+
+            <div class="control-group">
+                        <label class="control-label" for="{{prefixField ~ 'value'}}">{{extra.key.split("_IAEST_")[1]}}</label>
+                        <div class="controls">
+                            <input id="{{prefixField ~ 'key'}}" name="{{prefix ~ 'key'}}" type="hidden" value="{{extra.key}}" />
+
+
+                    {# TEXTAREAS #}
+                    {% if extra.key.split("_IAEST_")[0] == "5" %}
+                            <textarea id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}" >{{extra.value}}</textarea>
+                    {% elif extra.key.split("_IAEST_")[0] == "7" %}
+                             <select id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}">
+                                <option {% if extra.value =="-1" %} selected="selected" {% endif %} value="-1"></option>
+                                <option {% if extra.value =="Estructural" %} selected="selected" {% endif %} value="Estructural">Estructural</option>
+                                <option {% if extra.value =="Coyuntural" %} selected="selected" {% endif %} value="Coyuntural">Coyuntural</option>
+                                <option {% if extra.value =="Infraestructura" %} selected="selected" {% endif %} value="Infraestructura">Infraestructura (creación y desarrollo de BD)</option>
+                                <option {% if extra.value =="Recopilación" %} selected="selected" {% endif %} value="Recopilación">Recopilación</option>
+                            </select>
+                    {% elif extra.key.split("_IAEST_")[0] == "8" %}
+                             <select id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}">
+                                <option {% if extra.value =="-1" %} selected="selected" {% endif %} value="-1"></option>
+                                <option {% if extra.value =="Datos estadísticos censales" %} selected="selected" {% endif %} value="Datos estadísticos censales">Datos estadísticos censales</option>
+                                <option {% if extra.value =="Datos estadísticos muestrales" %} selected="selected" {% endif %} value="Datos estadísticos muestrales">Datos estadísticos muestrales</option>
+                                <option {% if extra.value =="Datos estadísticos combinados de censo y muestra" %} selected="selected" {% endif %} value="Datos estadísticos combinados de censo y muestra">Datos estadísticos combinados de censo y muestra</option>
+                                <option {% if extra.value =="Datos de origen administrativo" %} selected="selected" {% endif %} value="Datos de origen administrativo">Datos de origen administrativo</option>
+                                <option {% if extra.value =="Tablas estadísticas previamente elaboradas" %} selected="selected" {% endif %} value="Tablas estadísticas previamente elaboradas">Tablas estadísticas previamente elaboradas</option>
+                                <option {% if extra.value =="Recopilación de resultados estadísticos" %} selected="selected" {% endif %} value="Recopilación de resultados estadísticos">Recopilación de resultados estadísticos</option>
+                            </select>
+                    {% elif extra.key.split("_IAEST_")[0] == "10" %}
+                             <select id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}">
+                                <option {% if extra.value =="-1" %} selected="selected" {% endif %} value="-1"></option>
+                                <option {% if extra.value =="Microdato origen muestral" %} selected="selected" {% endif %} value="Microdato origen muestral"> Microdato origen muestral</option>
+                                <option {% if extra.value =="Microdato Registro administrativo" %} selected="selected" {% endif %} value="Microdato Registro administrativo">Microdato Registro administrativo</option>
+                                <option {% if extra.value =="Conjunto de datos no tabulados" %} selected="selected" {% endif %} value="Conjunto de datos no tabulados">Conjunto de datos no tabulados</option>
+                                <option {% if extra.value =="Tablas estadísticas" %} selected="selected" {% endif %} value="Tablas estadísticas">Tablas estadísticas</option>
+                                <option {% if extra.value =="Varios" %} selected="selected" {% endif %} value="Varios">Varios</option>
+                            </select>
+                    {% elif extra.key.split("_IAEST_")[0] == "11" %}
+                             <select id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}">
+                                <option {% if extra.value =="-1" %} selected="selected" {% endif %} value="-1"></option>
+                                <option {% if extra.value =="Explotación y tabulación de BD con datos individualizados con factor o sin factor de elevación" %} selected="selected" {% endif %} value="Explotación y tabulación de BD con datos individualizados con factor o sin factor de elevación">Explotación y tabulación de BD con datos individualizados con factor o sin factor de elevación</option>
+                                <option {% if extra.value =="Compilación y tabulación de datos de origen diverso elaborados estadísticamente por otros organismos" %} selected="selected" {% endif %} value="Compilación y tabulación de datos de origen diverso elaborados estadísticamente por otros organismos">Compilación y tabulación de datos de origen diverso elaborados estadísticamente por otros organismos</option>
+                                <option {% if extra.value =="Recopilación, tabulación o integración en BD de de operaciones/productos del IAEST" %} selected="selected" {% endif %} value="Recopilación, tabulación o integración en BD de de operaciones/productos del IAEST">Recopilación, tabulación o integración en BD de de operaciones/productos del IAEST</option>
+                                <option {% if extra.value =="Procedimientos estadísticos de síntesis o estimación" %} selected="selected" {% endif %} value="Procedimientos estadísticos de síntesis o estimación">Procedimientos estadísticos de síntesis o estimación</option>
+                            </select>
+
+                    {% elif extra.key.split("_IAEST_")[0] == "12" %}
+                             <select id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}">
+                                <option {% if extra.value =="-1" %} selected="selected" {% endif %} value="-1"></option>
+                                <option {% if extra.value =="10.1. Comunicados" %} selected="selected" {% endif %} value="10.1. Comunicados">10.1. Comunicados</option>
+                                <option {% if extra.value =="10.2. Publicaciones" %} selected="selected" {% endif %} value="10.2. Publicaciones">10.2. Publicaciones</option>
+                                <option {% if extra.value =="10.2A Datos Básicos" %} selected="selected" {% endif %} value="10.2A Datos Básicos">10.2A Datos Básicos</option>
+                                <option {% if extra.value =="10.3. Base de Datos On-line" %} selected="selected" {% endif %} value="10.3. Base de Datos On-line">10.3. Base de Datos On-line</option>
+                                <option {% if extra.value =="10.3A. Base de Datos On-line SECA" %} selected="selected" {% endif %} value="10.3A. Base de Datos On-line SECA">10.3A. Base de Datos On-line SECA</option>
+                                <option {% if extra.value =="10.3B. Base de Datos On-line DWH" %} selected="selected" {% endif %} value="10.3B. Base de Datos On-line DWH">10.3B. Base de Datos On-line DWH</option>
+                                <option {% if extra.value =="10.3C. Base de Datos On-line PC-AXIS" %} selected="selected" {% endif %} value="10.3C. Base de Datos On-line PC-AXIS">10.3C. Base de Datos On-line PC-AXIS</option>
+                                <option {% if extra.value =="10.4 Acceso a micro-datos" %} selected="selected" {% endif %} value="10.4 Acceso a micro-datos">10.4 Acceso a micro-datos</option>
+                                <option {% if extra.value =="10.5. Otras" %} selected="selected" {% endif %} value="10.5. Otras">10.5. Otras</option>
+                            </select>
+                    {% else %}
+                            <input id="{{prefixField ~ 'value'}}" name="{{prefix ~ 'value'}}" type="text" value="{{extra.value}}" />
+                    {% endif %}
+
+                    </div>
+                </div>
+
+         {% endfor %}
+
+        {# DATASET NUEVO #}
+        {% else %}
+            {% set numero = totalMio%}
+            {% set prefix = 'extras__%d__' % numero %}
+            {% set prefixField = 'field-extras-%d-' % numero %}
+            {% snippet 'snippets/datos_iaest.html', numero=totalMio %}
+        {% endif %}
+    </div>
+    {% endif %}
+
+  <input id="organizacionDataset" value="{{ h.get_package_org(pkg_name) }}" type="hidden"/>
+
+</div>
+
+          <!-- Lorena: extras IAEST -->
+<script type="text/javascript">
+
+	function mostrarExtrasIAEST(){
+		var divExtrasIaest = document.getElementById('extrasIAEST');
+		var boton = document.getElementById('clickMe');
+		divExtrasIaest.style.display = (divExtrasIaest.style.display == 'none') ? 'block' : 'none';
+		boton.value = (divExtrasIaest.style.display == 'none') ? 'Información adicional' : 'Ocultar Información adicional';
+	}
+
+</script>

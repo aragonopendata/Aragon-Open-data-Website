@@ -3,12 +3,12 @@
 
 ##Catálogo de datos abiertos de Aragón Open Data
 
-Este repositorio contiene el código de la aplicación de visualización de [Catálogo de datos abiertos][1], desarrollada como parte del proyecto [Aragón Open Data][2].
+Este repositorio contiene el código de la aplicación de [Catálogo de datos abiertos][1], desarrollada como parte del proyecto [Aragón Open Data][2].
 
 ### Introducción
 El catálogo de Aragón Open Data recoge el conjunto de datos recopilados por la iniciativa Aragón Open Data.
 
-Aragón Open Data es el repositorio estructurado de datos abiertos y en formatos reutilizables de Argón. Los datos se sirven para que puedan ser manipulados y enriquecidos por ciudanos en general y desarrolladores en particular. El catálogo de datos de Aragón Open Data se forma sobre el vocabulario DCAT, vocabulario reconocido por las principales organizaciones independientes que velan por la neutralidad e interoperabilidad tecnológica de internet en el largo plazo. 
+Aragón Open Data es el repositorio estructurado de datos abiertos y en formatos reutilizables de Aragón. Los datos se sirven para que puedan ser manipulados y enriquecidos por ciudanos en general y desarrolladores en particular. El catálogo de datos de Aragón Open Data se forma sobre el vocabulario DCAT, vocabulario reconocido por las principales organizaciones independientes que velan por la neutralidad e interoperabilidad tecnológica de internet en el largo plazo. 
 
 Este catálogo se basa en la versión 2.1.1 del software de código abierto [CKAN][3] (Comprehensive Knowledge Archive Network), desarrollado por la [Open Knowledge Foundation (OKFN)][4]. Entre los principales argumentos que han motivado la utilización de CKAN destacan: 
 * Es la solución adoptada por muchas iniciativas similares a nivel internacional.
@@ -44,7 +44,7 @@ Para instalar la aplicación en local es necesario seguir los siguientes pasos:
 
         (default)$ pip install xlrd
 
-* Tener en cuenta que el catálogo está pensado que se incluya en un portal con más contenidos (hojas de estilo, imágenes, etc.) gestionados por un CMS. El catálogo está previsto que se ubique bajo la ruta host/catalogo (por lo que debes configurar el servidor web para que CKAN cuelgue a partir de esa ruta). Si se utiliza apache con wsgi esta configuración quedaría similar a:
+* Tener en cuenta que el catálogo está pensado que se incluya en un portal con más contenidos (hojas de estilo, imágenes, etc.) gestionados por un CMS. El catálogo está previsto que se ubique bajo la ruta http://host/catalogo (por lo que debes configurar el servidor web para que CKAN cuelgue a partir de esa ruta). Si se utiliza apache con wsgi esta configuración quedaría similar a:
 
         WSGIScriptAlias /catalogo /etc/ckan/default/apache.wsgi
 

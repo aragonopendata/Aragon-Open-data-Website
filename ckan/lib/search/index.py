@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import socket
 import string
 import logging
@@ -18,6 +19,12 @@ import ckan.model as model
 from ckan.plugins import (PluginImplementations,
                           IPackageController)
 import ckan.logic as logic
+
+import unicodedata
+
+def remove_accents(input_str):
+    nkfd_form = unicodedata.normalize('NFKD', input_str)
+    return u"".join([c for c in nkfd_form if not unicodedata.combining(c)])
 
 log = logging.getLogger(__name__)
 
@@ -251,6 +258,12 @@ class PackageSearchIndex(SearchIndex):
         # add a unique index_id to avoid conflicts
         import hashlib
         pkg_dict['index_id'] = hashlib.md5('%s%s' % (pkg_dict['id'],config.get('ckan.site_id'))).hexdigest()
+
+        # based on http://stackoverflow.com/questions/517923/what-is-the-best-way-to-remove-accents-in-a-python-unicode-string
+        # and https://lists.okfn.org/pipermail/ckan-dev/2014-June/007780.html
+        title = pkg_dict['title']
+        if title:
+            pkg_dict['title_string'] = remove_accents(title).lower()
 
         for item in PluginImplementations(IPackageController):
             pkg_dict = item.before_index(pkg_dict)

@@ -543,7 +543,10 @@ class StorageAPIController(BaseController):
         else:
             data = []
 
-        return json.dumps(data)
+        def date_handler(obj):
+            return obj.isoformat() if hasattr(obj, 'isoformat') else obj
+
+        return json.dumps(data, default=date_handler)
 
 
 

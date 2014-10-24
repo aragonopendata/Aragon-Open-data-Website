@@ -81,7 +81,13 @@
 	  </div>
         {% elif key == 'Data Dictionary' %}
 	  <div class="fieldName">Diccionario de datos</div>
-          <div class="fieldValue">{{ value }}</div>
+          <div class="fieldValue">
+          	{% if value.startswith('http://') %}
+             <a href="{{value}}" title="Enlace">Enlace</a>
+           	{% else %}
+         			{{ value }}
+       			{% endif %}
+          </div>
         {% elif key == 'References' %}
 	  <div class="fieldName">Referencia</div>
           <div class="fieldValue">{{ value }}</div>

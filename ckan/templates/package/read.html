@@ -29,20 +29,23 @@
      {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None } %}
 
      {% for resource in pkg.resources %}
+       {% set hayFormatoConBarra = resource.format.find('/') %}
+       {% set elFormato = resource.format if (hayFormatoConBarra == -1) else resource.format[0:resource.format.find('/')] %}
+
        {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
-         {% if (resource.format|upper == 'XLS') %}
+         {% if (elFormato|upper == 'XLS') %}
             {% if resource.size|int > 2000000  %}
             {% else %}
-               {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+               {% if vars.update({elFormato|upper: resource}) %}{% endif %}
 	    			{% endif %}
-         {% elif (resource.format|upper == 'XML') %}
+         {% elif (elFormato|upper == 'XML') %}
             {% if resource.size|int > 2000000  %}
             {% elif resource.url.startswith('http://sitar.aragon.es/datosdescarga/descarga.php?file=') %}
             {% else %}
-               {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+               {% if vars.update({elFormato|upper: resource}) %}{% endif %}
 	    			{% endif %}
          {% else %}
-             {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
          {% endif %}
        {% endif %}
      {% endfor %}

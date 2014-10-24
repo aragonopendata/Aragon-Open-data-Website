@@ -1510,6 +1510,10 @@ def resource_preview(resource, package):
                        reason=_(u'The resource url is not specified.'))
 
     format_lower = datapreview.res_format(resource)
+    # dportoles: cambio esto para soportar preview sobre formato xls/1
+    if (format_lower.find('/') != -1):
+       format_lower = format_lower[0:format_lower.find('/')]
+
     directly = False
     data_dict = {'resource': resource, 'package': package}
 

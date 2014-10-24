@@ -46,7 +46,14 @@ this.ckan.module('reclinepreview', function (jQuery, _) {
       // 2 situations
       // a) something was posted to the datastore - need to check for this
       // b) csv or xls (but not datastore)
-      resourceData.formatNormalized = this.normalizeFormat(resourceData.format);
+      
+      //dportoles: cambio esto para que funcione con los xls/1
+
+      var auxFormat = resourceData.format;
+      if (auxFormat.indexOf('/') != -1) {
+         auxFormat = auxFormat.split('/')[0];
+      }
+      resourceData.formatNormalized = this.normalizeFormat(auxFormat);
 
       resourceData.url  = this.normalizeUrl(resourceData.url);
       if (resourceData.formatNormalized === '') {

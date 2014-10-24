@@ -30,6 +30,11 @@ class ReclinePreview(p.SingletonPlugin):
         if data_dict['resource'].get('datastore_active'):
             return True
         format_lower = data_dict['resource']['format'].lower()
+
+        # dportoles: cambio esto para soportar preview sobre formato xls/1
+        if (format_lower.find('/') != -1):
+          format_lower = format_lower[0:format_lower.find('/')]
+
         return format_lower in ['csv', 'xls', 'tsv']
 
     def preview_template(self, context, data_dict):

@@ -391,7 +391,8 @@ def make_map():
         m.connect('/dataset/showVista', action='showVista')
         m.connect('/dataset/index/catalogo_opendata.{format}', action='show_index')
         m.connect('/render/resource/{resource_id}', action='render_resource')
-
+        m.connect('/data/{dataset}/{formato}', action='data_resource')
+        m.connect('/data/{dataset}/{formato}/{version}', action='data_resource')
         m.connect('/downloadIaest', action='downloadIaest')
 
         m.connect('/searchHOMER', action='searchHOMER')

@@ -1533,15 +1533,18 @@ class PackageController(base.BaseController):
         qTipo = None
         if tipo is not None:
              if tipo == 'hojas-de-calculo':
-                 qTipo = "res_format:CSV || res_format:XLS || presupuesto"
+                 qTipo = "res_format:CSV* || res_format:XLS* || res_format:csv* || res_format:xls* || presupuesto"
              elif tipo == 'texto-plano':
-                 qTipo = "res_format:JSON || res_format:XLS || res_format:XML || res_format:px"
+                 qTipo = "res_format:JSON* || res_format:XLS* || res_format:XML* || res_format:PX* ||"
+                 qTipo += "res_format:json* || res_format:xls* || res_format:xml* || res_format:px*"
              elif tipo == 'mapas':
-                 qTipo = "res_format:KMZ || res_format:GML || res_format:DGN || res_format:SHP || res_format:kmz || res_format:gml || res_format:dgn || res_format:shp || Geodato"
+                 qTipo = "res_format:KMZ* || res_format:GML* || res_format:DGN* || res_format:SHP* || "
+                 qTipo += "res_format:kmz* || res_format:gml* || res_format:dgn* || res_format:shp* || "
+                 qTipo += "Geodato";
              elif tipo == 'fotos':
-                 qTipo = "res_format:JPG || res_format:jpg || anejo+fotografico"
+                 qTipo = "res_format:JPG* || res_format:jpg* || anejo+fotografico"
              elif tipo == 'rss':
-                 qTipo = "res_format:RSS || res_format:rss"
+                 qTipo = "res_format:RSS* || res_format:rss*"
              elif tipo == 'informacion-estadistica':
                  qTipo = "author:iaest"
 
@@ -1743,7 +1746,37 @@ class PackageController(base.BaseController):
 
         return render('package/resource_render.html', loader_class=NewTextTemplate)
 
+    def data_resource(self, dataset, formato, version):
+        """ Filter to resource rendering or download
+                If resource doesn't exist, but a file with same name
+                in XLS format does, it should be transformed to
+                the required format (XML, JSON or CVS)
+            """
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user or c.author}
 
+        fq = ' +dataset_type:dataset'
+        q = 'name:' + dataset
+
+        data_dict = {
+                'q': q,
+                'fq': fq.strip()
+        }
+
+        try:
+            dataset_rsc = get_action('package_search')(context, data_dict)
+           
+            for res in dataset_rsc['results']:
+              for resource in res['resources']:
+                if version is None:
+                  if resource.get('format') == formato:
+                    return redirect(resource.get('url'))
+#                     return redirect(resource['url'])
+                else:
+                  if resource.get('format') == formato + "/" + version:
+                    return redirect(resource.get('url'))
+        except NotFound:
+            abort(404, _('Resource not found'))
 
 
     def render_resource(self, resource_id):

@@ -39,19 +39,21 @@
   
     {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}
-        {% if key == 'Frequency' %}
-	  <div class="fieldName">Frecuencia</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% elif key == 'Spatial' %}
-	  <div class="fieldName">Cobertura espacial / geogr&aacute;fica</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% elif key == 'Temporal' %}
-	  <div class="fieldName">Cobertura temporal</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% elif  key == 'Language' %}
-	  <div class="fieldName">Idioma</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% endif %}
+        {% if value != "" %}
+		      {% if key == 'Frequency' %}
+						<div class="fieldName">Frecuencia</div>
+		        <div class="fieldValue">{{ value }}</div>
+		      {% elif key == 'Spatial' %}
+						<div class="fieldName">Cobertura espacial / geogr&aacute;fica</div>
+		        <div class="fieldValue">{{ value }}</div>
+		      {% elif key == 'Temporal' %}
+						<div class="fieldName">Cobertura temporal</div>
+		        <div class="fieldValue">{{ value }}</div>
+		      {% elif  key == 'Language' %}
+						<div class="fieldName">Idioma</div>
+		        <div class="fieldValue">{{ value }}</div>
+		      {% endif %}
+		    {% endif %}
     {% endfor %}
 
   <div class="fieldName">Licencia</div>
@@ -67,32 +69,30 @@
     {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}
         {% if value != "" %}
-        {% if key == 'Granularity' %}
-	  <div class="fieldName">Nivel de detalle</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% elif key == 'Data Quality' %}
-	  <div class="fieldName">Calidad de los datos</div>
-          <div class="fieldValue">
-	    {% if value.startswith('http') %}
-	       <a href="{{value}}" title="Enlace">Enlace</a>
-	     {% else %}
-	        {{ value }}
-	     {% endif %}
-	  </div>
-        {% elif key == 'Data Dictionary' %}
-	  <div class="fieldName">Diccionario de datos</div>
-          <div class="fieldValue">
-          	{% if value.startswith('http://') %}
-             <a href="{{value}}" title="Enlace">Enlace</a>
-           	{% else %}
-         			{{ value }}
-       			{% endif %}
-          </div>
-        {% elif key == 'References' %}
-	  <div class="fieldName">Referencia</div>
-          <div class="fieldValue">{{ value }}</div>
-        {% endif %}
-    {% endif %}
+		      {% if key == 'Granularity' %}
+						<div class="fieldName">Nivel de detalle</div>
+		        <div class="fieldValue">{{ value|safe }}</div>
+		      {% elif key == 'Data Quality' %}
+						<div class="fieldName">Calidad de los datos</div>
+		        <div class="fieldValue">
+			  
+			   			{{ value|safe }}
+			   
+						</div>
+		      {% elif key == 'Data Dictionary' %}
+						<div class="fieldName">Diccionario de datos</div>
+		        <div class="fieldValue">
+						
+						
+		        	{{ value|safe }}
+		     			
+		     			
+		        </div>
+		      {% elif key == 'References' %}
+						<div class="fieldName">Referencia</div>
+		        <div class="fieldValue">{{ value }}</div>
+        	{% endif %}
+    		{% endif %}
     {% endfor %}
 
 

@@ -37,6 +37,8 @@ import xml.etree.ElementTree as ET
 from json import JSONEncoder
 import csv
 import urllib
+import htmllib
+
 
 
 BLACKLIST = ("id", "package_id", "vocabulary_id", "revision_id",
@@ -84,6 +86,27 @@ def asciify(st):
     aux = aux.replace(u'Ñ','n')
     return aux
 
+#Esta función recibe un str y si tiene url (http://) lo metemos como si fuese enlaces en html. Con href
+def url2HREF(str):
+    dev=""
+    if str.find('http://') != -1:
+        iniURL = 0
+        longURL = 0
+        iniURL = str.find("http://");
+        while (iniURL!= -1):
+            longURL=str[iniURL:].find(" ");
+            if (longURL==-1):
+                longURL =len(str[iniURL:])
+            dev = dev + str[:iniURL-1]+ ' <a href="'+str[iniURL:iniURL+longURL]+ '">'+str[iniURL:iniURL+longURL]+'</a>'
+            if iniURL+longURL <= len(str):
+                str = str[iniURL+longURL:]
+                iniURL = str.find("http://");
+                if (iniURL==-1):
+                    dev = dev +str
+            else:
+                str=""
+        return dev
+    return str
 
 def _encode_params(params):
     return [(k, v.encode('utf-8') if isinstance(v, basestring) else str(v))
@@ -404,6 +427,10 @@ class PackageController(base.BaseController):
         # check if package exists
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
+            #Recorremos todos los extras para que modifique los value que tiene una uri dentro de ella  para que les añada el href
+            for extra in c.pkg_dict['extras']:
+                extra['value']=url2HREF(extra['value'])
+
             c.pkg = context['package']
         except NotFound:
             abort(404, _('Dataset not found'))
@@ -1452,7 +1479,7 @@ class PackageController(base.BaseController):
         ctype, extension, loader = self._content_type_from_extension('rdf')
         response.headers['Content-Type'] = ctype
 
-	fq = ' +dataset_type:dataset'
+        fq = ' +dataset_type:dataset'
 
         try:
             context = {'model': model, 'user': c.user or c.author}
@@ -1469,8 +1496,8 @@ class PackageController(base.BaseController):
                 'start': 0
         }
 
-	query = get_action('package_search')(context, data_dict)
-	c.pkg = query['results']
+        query = get_action('package_search')(context, data_dict)
+        c.pkg = query['results']
 
         return render('package/catalogo.rdf', loader_class=loader)
 

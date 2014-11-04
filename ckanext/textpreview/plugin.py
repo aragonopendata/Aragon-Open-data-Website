@@ -12,7 +12,7 @@ except ImportError:
     pass
 
 
-DEFAULT_TEXT_FORMATS = ['text/plain', 'txt', 'plain']
+DEFAULT_TEXT_FORMATS = ['text/plain', 'txt', 'plain', 'px']
 DEFAULT_XML_FORMATS = ['xml', 'rdf', 'rdf+xm', 'owl+xml', 'atom', 'rss']
 DEFAULT_JSON_FORMATS = ['json', 'gjson', 'geojson']
 DEFAULT_JSONP_FORMATS = ['jsonp']
@@ -94,4 +94,10 @@ class TextPreview(p.SingletonPlugin):
             p.toolkit.c.resource['url'] = url
 
     def preview_template(self, context, data_dict):
-        return 'text.html'
+        resource = data_dict['resource']
+        format_lower = resource['format'].lower()
+
+        if format_lower == 'px':
+            return 'pcaxis.html'
+        else:
+            return 'text.html'

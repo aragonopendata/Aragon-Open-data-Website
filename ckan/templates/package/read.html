@@ -26,7 +26,7 @@
   {% endblock %}
 
   {% block data_preview %}
-     {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None } %}
+     {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None, 'PX': None  } %}
 
      {% for resource in pkg.resources %}
        {% set hayFormatoConBarra = resource.format.find('/') %}
@@ -37,13 +37,13 @@
             {% if resource.size|int > 2000000  %}
             {% else %}
                {% if vars.update({elFormato|upper: resource}) %}{% endif %}
-	    			{% endif %}
+            {% endif %}
          {% elif (elFormato|upper == 'XML') %}
             {% if resource.size|int > 2000000  %}
             {% elif resource.url.startswith('http://sitar.aragon.es/datosdescarga/descarga.php?file=') %}
             {% else %}
                {% if vars.update({elFormato|upper: resource}) %}{% endif %}
-	    			{% endif %}
+            {% endif %}
          {% else %}
              {% if vars.update({elFormato|upper: resource}) %}{% endif %}
          {% endif %}
@@ -120,6 +120,8 @@
          <div class="previewZone">{{h.resource_preview(vars.XML, pkg)}}</div>
      {% elif (vars.JPG != None) %}
          <div class="previewZone">{{h.resource_preview(vars.JPG, pkg)}}</div>
+     {% elif (vars.PX != None) %}
+        <div class="previewZone">{{h.resource_preview(vars.PX, pkg)}}</div>
      {% else %}
          <div class="failWarning">Previsualizaci&oacute;n no disponible</div>
       {% endif %}

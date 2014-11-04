@@ -97,7 +97,10 @@ def url2HREF(str):
             longURL=str[iniURL:].find(" ");
             if (longURL==-1):
                 longURL =len(str[iniURL:])
-            dev = dev + str[:iniURL-1]+ ' <a href="'+str[iniURL:iniURL+longURL]+ '">'+str[iniURL:iniURL+longURL]+'</a>'
+            if (iniURL==0):
+                dev = dev + "<a href=\""+str[iniURL:iniURL+longURL]+ "\">"+str[iniURL:iniURL+longURL]+"</a>"
+            else:
+                dev = dev + str[:iniURL-1]+ " <a href=\""+str[iniURL:iniURL+longURL]+ "\">"+str[iniURL:iniURL+longURL]+"</a>"
             if iniURL+longURL <= len(str):
                 str = str[iniURL+longURL:]
                 iniURL = str.find("http://");

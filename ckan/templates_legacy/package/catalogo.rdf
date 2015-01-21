@@ -10,8 +10,10 @@
   <dct:title xml:lang="es">Catálogo de Aragón Open Data</dct:title>
   <dct:description xml:lang="es">Descripción del Catálogo de Aragón Open Data</dct:description>
   <dct:publisher rdf:resource="http://www.aragon.es/"/>
-  <dct:issued rdf:datatype="xsd:dateTime">2013-11-26T12:00:00CET</dct:issued>
-  <dct:modified rdf:datatype="xsd:dateTime">2013-11-26T12:00:00CET</dct:modified>
+  <dct:issued rdf:datatype="xsd:dateTime">2013-02-06T00:00:00CET</dct:issued>
+<py:if test="len(c.pkg) > 0">
+  <dct:modified rdf:datatype="xsd:dateTime">${ c.pkg[0].metadata_modified }CET</dct:modified>
+</py:if>
   <dct:language>es</dct:language>
   <dcat:themeTaxonomy rdf:resource="http://opendata.aragon.es/temas"/>
   <foaf:homepage rdf:resource="http://opendata.aragon.es/"/>

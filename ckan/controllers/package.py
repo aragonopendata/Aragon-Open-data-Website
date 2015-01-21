@@ -1492,10 +1492,14 @@ class PackageController(base.BaseController):
 
         q = c.q = request.params.get('q', u'')
 
+#        c.fecha = datetime.datetime.now().isoformat()
+#        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+
         data_dict = {
                 'q': q,
                 'fq': fq.strip(),
                 'rows': 999999,
+                'sort': 'metadata_modified desc',
                 'start': 0
         }
 
@@ -1503,6 +1507,38 @@ class PackageController(base.BaseController):
         c.pkg = query['results']
 
         return render('package/catalogo.rdf', loader_class=loader)
+
+    def federador_catalog(self):
+        ctype, extension, loader = self._content_type_from_extension('rdf')
+        response.headers['Content-Type'] = ctype
+
+        fq = ' +dataset_type:dataset'
+
+        try:
+            context = {'model': model, 'user': c.user or c.author}
+            check_access('site_read', context)
+        except NotAuthorized:
+            abort(401, _('Not authorized to see this page'))
+
+        q = c.q = request.params.get('q', u'')
+
+#        c.fecha = datetime.datetime.now().isoformat()
+#        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+        c.urlenco = urllib.quote
+
+        data_dict = {
+                'q': q,
+                'fq': fq.strip(),
+                'rows': 999999,
+                'sort': 'metadata_modified desc',
+                'start': 0
+        }
+
+        query = get_action('package_search')(context, data_dict)
+        c.pkg = query['results']
+
+        return render('package/federador.rdf', loader_class=loader)
+
 
     def homer_catalog(self):
         ctype, extension, loader = self._content_type_from_extension('rdf')

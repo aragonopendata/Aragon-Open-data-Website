@@ -406,7 +406,7 @@ def make_map():
         m.connect('/catalogo.html', action='search', highlight_actions='index search')
 
         m.connect('/catalogoHOMER.xml', action='homer_catalog')
-
+        m.connect('/federador.rdf', action='federador_catalog')
         m.connect('/ciencia-tecnologia', action='searchAOD', tema='ciencia-tecnologia')
         m.connect('/comercio', action='searchAOD', tema='comercio')
         m.connect('/cultura-ocio', action='searchAOD', tema='cultura-ocio')

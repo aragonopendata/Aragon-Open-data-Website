@@ -608,7 +608,7 @@ class ApiController(base.BaseController):
 
     def mostDownloadedDataset(self, ver=None):
         data_dict = {
-                'q': 'state: active',
+                'q': 'state: active && type:dataset',
                 'rows': 5,
                 'sort': 'views_recent desc'
         }
@@ -624,7 +624,7 @@ class ApiController(base.BaseController):
 
     def mostRecentDataset(self, ver=None):
         data_dict = {
-                'q': 'state: active',
+                'q': 'state: active && type:dataset',
                 'rows': 5,
                 'sort': 'metadata_modified desc'
         }

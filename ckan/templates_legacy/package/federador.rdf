@@ -230,6 +230,9 @@
         <py:when test="rsc_dict.get('format').lower() == 'dxf'">
 				<dct:format><dct:IMT rdf:value="application/dxf" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/dxf</dcat:mediaType>
         </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'elp'">
+				<dct:format><dct:IMT rdf:value="application/elp" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/elp</dcat:mediaType>
+        </py:when>
         <py:when test="rsc_dict.get('format').lower() == 'html'">
 				<dct:format><dct:IMT rdf:value="text/html" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/html</dcat:mediaType>
         </py:when>
@@ -262,6 +265,9 @@
         </py:when>
         <py:when test="rsc_dict.get('format').lower() == 'rss'">
 				<dct:format><dct:IMT rdf:value="application/rss+xml" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/rss+xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'scorm'">
+				<dct:format><dct:IMT rdf:value="application/scorm" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/scorm</dcat:mediaType>
         </py:when>
         <py:when test="rsc_dict.get('format').lower() == 'shp'">
 				<dct:format><dct:IMT rdf:value="application/x-zipped-shp" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/x-zipped-shp</dcat:mediaType>
@@ -302,6 +308,9 @@
         <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'dxf'">
 				<dct:format><dct:IMT rdf:value="application/dxf" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>application/dxf</dcat:mediaType>
         </py:when>
+        <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'elp'">
+				<dct:format><dct:IMT rdf:value="application/elp" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>application/elp</dcat:mediaType>
+        </py:when>
         <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'html'">
 				<dct:format><dct:IMT rdf:value="text/html" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>text/html</dcat:mediaType>
         </py:when>
@@ -334,6 +343,9 @@
         </py:when>
         <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'rss'">
 				<dct:format><dct:IMT rdf:value="application/rss+xml" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>application/rss+xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'scorm'">
+				<dct:format><dct:IMT rdf:value="application/scorm" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>application/scorm</dcat:mediaType>
         </py:when>
         <py:when test="rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() == 'shp'">
 				<dct:format><dct:IMT rdf:value="application/x-zipped-shp" rdfs:label="${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')]}" /></dct:format><dcat:mediaType>application/x-zipped-shp</dcat:mediaType>

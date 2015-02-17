@@ -1812,7 +1812,7 @@ class PackageController(base.BaseController):
 
         return render('package/resource_render.html', loader_class=NewTextTemplate)
 
-    def data_resource(self, dataset, formato, version):
+    def data_resource(self, dataset, formato, version=None):
         """ Filter to resource rendering or download
                 If resource doesn't exist, but a file with same name
                 in XLS format does, it should be transformed to
@@ -1835,11 +1835,11 @@ class PackageController(base.BaseController):
             for res in dataset_rsc['results']:
               for resource in res['resources']:
                 if version is None:
-                  if resource.get('format') == formato:
+                  if resource.get('format').lower() == formato.lower():
                     return redirect(resource.get('url'))
 #                     return redirect(resource['url'])
                 else:
-                  if resource.get('format') == formato + "/" + version:
+                  if resource.get('format').lower() == formato.lower() + "/" + version:
                     return redirect(resource.get('url'))
         except NotFound:
             abort(404, _('Resource not found'))

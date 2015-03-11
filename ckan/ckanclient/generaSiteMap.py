@@ -125,19 +125,37 @@ def main():
 			
 			if str(aux.lower())=='instantánea':
 				frecuencia='always'
+			if str(aux.lower())=='horaria':
+				frecuencia='hourly'
 			elif str(aux.lower())=='diaria':
 				frecuencia='daily'
+			elif str(aux.lower())=='trisemanal':
+				frecuencia='weekly'
+			elif str(aux.lower())=='bisemanal':
+				frecuencia='weekly'
 			elif str(aux.lower())=='semanal':
 				frecuencia='weekly'
-			elif str(aux.lower())=='trimestral':
+			elif str(aux.lower())=='trimensual':
+				frecuencia='monthly'
+			elif str(aux.lower())=='quincenal':
+				frecuencia='monthly'
+			elif str(aux.lower())=='bimensual':
 				frecuencia='monthly'
 			elif str(aux.lower())=='mensual':
 				frecuencia='monthly'
+			elif str(aux.lower())=='bimestral':
+				frecuencia='yearly'
+			elif str(aux.lower())=='trimestral':
+				frecuencia='yearly'
+			elif str(aux.lower())=='cuatrimestral':
+				frecuencia='yearly'
+				elif str(aux.lower())=='semestral':
+				frecuencia='yearly'
 			elif str(aux.lower())=='anual':
 				frecuencia='yearly'
 			else:
 				frecuencia=''
-			#print 'La frecuencia es '+ aux +' y fechfreq es '+ frecuencia
+			
 			strFechaDataset = str(fechaDataset)[:10]
 			
 			if frecuencia=='':

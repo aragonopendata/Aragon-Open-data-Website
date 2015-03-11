@@ -19,7 +19,7 @@ AST1_PASS="xxxx"
 AST2_USR="xxxx"
 AST2_PASS="xxxx"
 
-OPENDATA_POSTGRE_CONEXION_BD=
+OPENDATA_POSTGRE_CONEXION_BD="host='xxx' dbname='ckan_ddbb'  port='xxxx' user='userckan' password='passckan'"
 
 USR_ADMIN="xxxx"
 API_KEY="xxxx"

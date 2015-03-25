@@ -14,7 +14,7 @@
     <dct:description xml:lang="es">${c.pkg_dict['notes']}</dct:description>
  
    <py:for each="group in c.pkg_dict['groups']">
-    <dcat:theme rdf:resource="http://opendata.aragon.es/${group.get('title')}">${group.get('title')}</dcat:theme>
+    <dcat:theme rdf:resource="http://opendata.aragon.es/catalogo/${group.get('name')}">${group.get('title')}</dcat:theme>
    </py:for>
 
    <py:for each="tag_dict in c.pkg_dict['tags']">

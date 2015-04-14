@@ -328,22 +328,10 @@ $(document).ready(function() {
 			}
 		     });
 
-	$.ajax({
-			url: "/catalogo/api/getDataCount",
-			dataType: "jsonp",
-			success: function (data) {
-				var htmlCodeDatasets = getContadorHTML(data[0].datasetCount);
-				var htmlCodeRecursos = getContadorHTML(data[0].resourceCount);
-				$('#numDatasets').html(htmlCodeDatasets);
-				$('#numRecursos').html(htmlCodeRecursos);
-			},
-			error: function (data) {
-				var htmlCodeDatasets = getContadorHTML(1709);
-				var htmlCodeRecursos = getContadorHTML(2724);
-				$('#numDatasets').html(htmlCodeDatasets);
-				$('#numRecursos').html(htmlCodeRecursos);
-			}
-	   });
+	var htmlCodeDatasets =getContadorHTML(datasetCount);
+        var htmlCodeRecursos = getContadorHTML(resourceCount);
+        $('#numDatasets').html(htmlCodeDatasets);
+        $('#numRecursos').html(htmlCodeRecursos);
 
 	if ($("#homerResults").html() != null) {
 		doQueryHomer();

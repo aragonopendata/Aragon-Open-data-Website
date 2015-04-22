@@ -227,7 +227,7 @@ def generaSiteMapRecursos(dataset, tema_organizacion, conexion):
 				fechaMasNueva=fechaMasActual(fechaMasNueva, fechaRecurso)
 			#Hay que añadir el rdf que tendrá la fecha mayor de los recursos
 			#sentencia = generaSentenciaSiteMap("http://opendata.aragon.es/catalogo/"+dataset+".rdf",'url', fechaMasNueva, frecuencia, '1' )
-			sentencia = generaSentenciaSiteMap("http://opendata.aragon.es/catalogo/"+dataset+".rdf",'url', '', '', '', dataset)
+			sentencia = generaSentenciaSiteMap("http://opendata.aragon.es/catalogo/"+dataset+".rdf",'url', '', '', '')
 			sitemap.write(sentencia)
 			sitemap.write("</urlset>\n")
 			sitemap.close()

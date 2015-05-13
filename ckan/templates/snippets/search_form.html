@@ -321,6 +321,41 @@
 					</select>
 				</div>
 			</div>
+			
+			
+			<div id="zonaBBDD" class="filtros oculto">
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/bbddSobre.png" alt="ACCESO EN TIEMPO REAL A BASES DE DATOS DE" title="ACCESO EN TIEMPO REAL A BASES DE DATOS DE">
+					<label for="bbddFilter" class="oculto">DATOS SOBRE</label>
+					<select id="bbddFilter" name="bbddFilter">
+						<option value="" selected="selected">Todos los temas</option>
+						<option value="ciencia-tecnologia">Ciencia y tecnolog&iacute;a</option>
+						<option value="comercio">Comercio</option>
+						<option value="cultura-ocio">Cultura y ocio</option>
+						<option value="demografia">Demograf&iacute;a</option>
+						<option value="deporte">Deporte</option>
+						<option value="economia">Econom&iacute;a</option>
+						<option value="educacion">Educaci&oacute;n</option>
+						<option value="empleo">Empleo</option>
+						<option value="energia">Energ&iacute;a</option>
+						<option value="hacienda">Hacienda</option>
+						<option value="industria">Industria</option>
+						<option value="legislacion-justicia">Legislaci&oacute;n y justicia</option>
+						<option value="medio-ambiente">Medio ambiente</option>
+						<option value="medio-rural-pesca">Medio rural</option>
+						<option value="salud">Salud</option>
+						<option value="sector-publico">Sector p&uacute;blico</option>
+						<option value="seguridad">Seguridad</option>
+						<option value="sociedad-bienestar">Sociedad y bienestar</option>
+						<option value="transporte">Transporte</option>
+						<option value="turismo">Turismo</option>
+						<option value="urbanismo-infraestructuras">Urbanismo e infraestructuras</option>
+						<option value="vivienda">Vivienda</option>
+					</select>
+				</div>
+				
+			</div>
+			
 
 			<div class="filtros oculto" id="zonaHOMER">
 				<div class="filtro">
@@ -370,11 +405,13 @@
 		<li class="d_d width220">
 			<select id="tipoBusquedaFilter" name="tipoBusquedaFilter">
 				<option value="zonaTemaYTipo" selected="selected">Tema y tipo</option>
+				<option value="zonaBBDD">Base de datos</option>
 				<option value="zonaInfoEstadistica">Informaci&oacute;n estad&iacute;stica</option>
 				<option value="zonaLibre">B&uacute;squeda libre</option>
 				<option value="zonaHOMER" data_img_src="/public/i/buscaDatos/logoHomerHorizontal.jpg">HOMER</option>
 				<option value="zonaSPARQL">SPARQL</option>
 				<option value="zonaAPI">API</option>
+				
 			</select>
 		</li>
 	</ul>

@@ -799,7 +799,7 @@
                 above = false;
                 if (!enoughRoomBelow && enoughRoomAbove) above = true;
             }
-
+above=false;
             if (above) {
                 dropTop = offset.top - dropHeight;
                 this.container.addClass("select2-drop-above");
@@ -1063,7 +1063,7 @@
             }
 
             if (search.val().length < opts.minimumInputLength && checkFormatter(opts.formatInputTooShort, "formatInputTooShort")) {
-                render("<li class='select2-no-results'>" + opts.formatInputTooShort(search.val(), opts.minimumInputLength) + "</li>");
+                //render("<li class='select2-no-results'>" + opts.formatInputTooShort(search.val(), opts.minimumInputLength) + "</li>");
                 return;
             }
 
@@ -1093,7 +1093,7 @@
                 }
 
                 if (data.results.length === 0 && checkFormatter(opts.formatNoMatches, "formatNoMatches")) {
-                    render("<li class='select2-no-results'>" + opts.formatNoMatches(search.val()) + "</li>");
+                    //render("<li class='select2-no-results'>" + opts.formatNoMatches(search.val()) + "</li>");
                     return;
                 }
 
@@ -1224,9 +1224,10 @@
                 "   <div><b></b></div>" ,
                 "</a>",
                 "    <div class='select2-drop select2-offscreen'>" ,
-                "   <div class='select2-search'>" ,
+                "   <li class='select2-search'>" ,
+                "       Comience a escribir la etiqueta que desee (se mostrará como sugerencias las ya almacenadas en el sistema):",
                 "       <input type='text' autocomplete='off' class='select2-input'/>" ,
-                "   </div>" ,
+                "   </li>" ,
                 "   <ul class='select2-results'>" ,
                 "   </ul>" ,
                 "</div>"].join(""));
@@ -1602,6 +1603,7 @@
                 "    <ul class='select2-choices'>",
                 //"<li class='select2-search-choice'><span>California</span><a href="javascript:void(0)" class="select2-search-choice-close"></a></li>" ,
                 "  <li class='select2-search-field'>" ,
+                "       <p>Comience a escribir la etiqueta que desee (se mostrará como sugerencias las ya almacenadas en el sistema):</p>" ,
                 "    <input type='text' autocomplete='off' style='width: 25px;' class='select2-input'>" ,
                 "  </li>" ,
                 "</ul>" ,
@@ -1653,7 +1655,7 @@
                         selected = selection.find(".select2-search-choice-focus");
                     if (selected.length > 0) {
                         this.unselect(selected.first());
-                        this.search.width(10);
+                        this.search.width(765);
                         killEvent(e);
                         return;
                     }
@@ -1773,7 +1775,7 @@
             } else {
                 // we set this to " " instead of "" and later clear it on focus() because there is a firefox bug
                 // that does not properly render the caret when the field starts out blank
-                this.search.val(" ").width(10);
+                this.search.val(" ").width(765);
             }
         },
 
@@ -1840,9 +1842,9 @@
 
             if (this.opts.closeOnSelect) {
                 this.close();
-                this.search.width(10);
+                this.search.width(765);
             } else {
-                this.search.width(10);
+                this.search.width(765);
                 this.resizeSearch();
 
                 if (this.countSelectableResults()>0) {

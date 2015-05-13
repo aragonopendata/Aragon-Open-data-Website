@@ -34,7 +34,8 @@ def main():
     QUERY = QUERY + "IAES.MET_OPERACION.CONTACT_ORGANISATION AS Autor, "
     QUERY = QUERY + "IAES.MET_OPERACION.CONTACT_EMAIL AS Email_autor, "
     QUERY = QUERY + "NVL(IAES.MET_PRODUCTO.DATA_DESCR, IAES.MET_OPERACION.DATA_DESCR) AS Descripcion, "
-    QUERY = QUERY + "IAES.MET_DATASET.REF_AREA AS Spatial,  "
+    QUERY = QUERY + "NVL(IAES.MET_DATASET.REF_AREA, IAES.MET_PRODUCTO.REF_AREA) AS Spatial,   "
+    #QUERY = QUERY + "IAES.MET_DATASET.REF_AREA AS Spatial,  "
     QUERY = QUERY + "NVL(IAES.MET_DATASET.CODIGO_COVERAGE_TIME, IAES.MET_PRODUCTO.COVERAGE_TIME) AS Temporal,  "
     QUERY = QUERY + "IAES.MET_PRODUCTO.FREQ_DISS AS Frecuencia, "
     QUERY = QUERY + "IAES.MET_PRODUCTO.ACCURACY AS Calidad, "
@@ -239,7 +240,7 @@ def main():
         fichero = fichero + "\t\t<dct:issued>" + str(f_creacion) + "</dct:issued>\n"
 
         #// Publicador
-        fichero = fichero + "\t\t<dcat:author_email>" + email_autor + "</dcat:author_email>\n"
+        fichero = fichero + "\t\t<dcat:author_email>" + str(email_autor) + "</dcat:author_email>\n"
         fichero = fichero + "\t\t<dct:publisher>\n"
         fichero = fichero + "\t\t\t<foaf:Organization>\n" + "\t\t\t\t<dct:title>"
         fichero = fichero + organizacion + "</dct:title>\n"

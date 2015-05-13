@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''API functions for updating existing data in CKAN.'''
 
 import logging
@@ -600,6 +601,15 @@ def user_update(context, data_dict):
     if errors:
         session.rollback()
         raise ValidationError(errors)
+
+    if (data_dict.get('current_password')):
+      if user_obj.validate_password(data_dict.get('current_password')):
+        log.info("El password anterior es OK. Puede procederse al cambio")
+      else:
+        raise ValidationError(
+            {'error': 'La contraseña actual no es '
+                      'correcta'}
+        )
 
     user = model_save.user_dict_save(data, context)
 

@@ -164,7 +164,7 @@ class GroupController(base.BaseController):
         )
         return render(self._index_template(group_type))
 
-    def read(self, id, limit=20):
+    def read(self, id, limit=20, offset=0):
         group_type = self._get_group_type(id.split('@')[0])
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author,
@@ -183,10 +183,10 @@ class GroupController(base.BaseController):
         except NotAuthorized:
             abort(401, _('Unauthorized to read group %s') % id)
 
-        self._read(id, limit)
+        self._read(id, limit, offset)
         return render(self._read_template(c.group_dict['type']))
 
-    def _read(self, id, limit):
+    def _read(self, id, limit, offset=0):
         ''' This is common code used by both read and bulk_process'''
         group_type = self._get_group_type(id.split('@')[0])
         context = {'model': model, 'session': model.Session,
@@ -204,6 +204,10 @@ class GroupController(base.BaseController):
         c.description_formatted = h.render_markdown(c.group_dict.get('description'))
 
         context['return_query'] = True
+
+        # added this for showing activity on same page
+        c.group_activity_stream = get_action('group_activity_list_html')(
+            context, {'id': c.group_dict.get('id'), 'offset': offset})
 
         # c.group_admins is used by CKAN's legacy (Genshi) templates only,
         # if we drop support for those then we can delete this line.
@@ -523,8 +527,8 @@ class GroupController(base.BaseController):
 
             if id != group['name']:
                 self._force_reindex(group)
-
-            h.redirect_to('%s_read' % group['type'], id=group['name'])
+            return 'OK'
+#            h.redirect_to('%s_read' % group['type'], id=group['name'])
         except NotAuthorized:
             abort(401, _('Unauthorized to read group %s') % id)
         except NotFound, e:

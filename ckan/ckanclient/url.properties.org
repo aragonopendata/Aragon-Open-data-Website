@@ -1,2 +1,0 @@
-http://sitar.aragon.es/BD_GIS/consultaRDF.jsp
-http://opendata.aragon.es/catalogo/downloadIaest

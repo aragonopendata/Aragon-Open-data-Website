@@ -1,0 +1,102 @@
+{# This snippet shows and edit the information about the organization of user
+#}
+<form id="updateOrganizationForm" class="" method="post" action="/catalogo/organizacion/edit/{{group_dict.id}}">
+  <input id="organization-name" type="hidden" name="name" value="{{group_dict.name}}" placeholder="">
+
+  <table>
+    <tr>
+      <td style="width:454px">
+        <label for="title" class="fieldName">Nombre de organización:</label>
+      </td>
+      <td>
+        <input type="text" placeholder="Nombre de la organización" value="{{group_dict.title}}" name="title" style="width:480px" id="field-organization-name" autocomplete="off">
+      </td>
+    </tr>
+    {% set webpageList = [] %}
+    {% set addressList = [] %}
+    {% set personList = [] %}
+
+    {% for extra in h.sorted_extras(group_dict.extras) %}
+        {% set key, value = extra %}
+        {% if key == 'webpage' %}
+          {% do webpageList.append(value) %}
+        {% elif key == 'address' %}
+          {% do addressList.append(value) %}
+        {% elif key == 'person' %}
+          {% do personList.append(value) %}
+        {% endif %}
+    {% endfor %}
+
+    <tr>
+      <td>
+        <label for="extras__0__key" class="fieldName">Página Web de la Organización:</label>
+      </td>
+      <td>
+        <input id="extras__0__key" class="oculto" type="text" name="extras__0__key" value="webpage" placeholder="">
+      {% if webpageList|length > 0 %}
+        <input id="extras__0__value" type="text" name="extras__0__value" value="{{webpageList[0]}}" placeholder="Página Web de la organización" style="width:480px" autocomplete="off">
+      {% else %}
+        <input id="extras__0__value" type="text" name="extras__0__value" value="" placeholder="Página Web de la organización" style="width:480px" autocomplete="off">
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="description" class="fieldName">Descripción de la Organización:</label>
+      </td>
+      <td>
+<input id="field-description" placeholder="Un poco de información acerca de mi organizacin..." style="width:480px;" name="description" autocomplete="off" value="{{group_dict.description}}"></input>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="extras__1__key" class="fieldName">Dirección de la Organización:</label>
+      </td>
+      <td>
+        <input id="extras__1__key" class="oculto" type="text" name="extras__1__key" value="address" placeholder="">
+      {% if addressList|length > 0 %}
+        <input id="extras__1__value" type="text" name="extras__1__value" value="{{addressList[0]}}" placeholder="Dirección de la Organización" style="width:480px" autocomplete="off">
+      {% else %}
+        <input id="extras__1__value" type="text" name="extras__1__value" value="" placeholder="Dirección de la Organización" style="width:480px" autocomplete="off">
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="extras__2__key" class="fieldName">Persona responsable dentro de la Organización:</label>
+      </td>
+      <td>
+        <input id="extras__2__key" class="oculto" type="text" name="extras__2__key" value="person" placeholder="">
+      {% if personList|length > 0 %}
+        <input id="extras__2__value" type="text" name="extras__2__value" value="{{personList[0]}}" placeholder="Persona responsable dentro de la Organización" style="width:480px" autocomplete="off">
+      {% else %}
+        <input id="extras__2__value" type="text" name="extras__2__value" value="" placeholder="Persona responsable dentro de la Organización" style="width:480px" autocomplete="off">
+      {% endif %}
+        <input type="hidden" name="save">
+      </td>
+    </tr>
+   </table>
+</form>
+
+<form id="updateEmailForm" class="" method="post" action="/catalogo/user/edit">
+  <input type="hidden" value="{{user}}" name="name" id="field-username">
+  <input type="hidden" value="{{email}}" name="previousEmail" id="field-previous-email">
+  <table>
+    <tr>
+      <td style="width:454px">
+        <label for="field-username-email" class="fieldName">Email de contacto:</label>
+        <div class="mandatory" title="Obligatorio">*</div>
+      </td>
+      <td>
+        <input type="email" placeholder="nombre@dominio.com" value="{{email}}" name="email" style="width:480px" id="field-username-email" autocomplete="off">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a class="recuadroRecto letraGrande bigButton d_d" href="javascript:updateOrganizationInfo();">Actualizar información</a>
+        <input type="hidden" name="save">
+      </td>
+    </tr>
+   </table>
+</form>

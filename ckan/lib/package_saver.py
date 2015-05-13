@@ -47,6 +47,12 @@ class PackageSaver(object):
                 v = ", ".join(map(unicode, v))
             c.pkg_extras.append((k, v))
 
+            #dportoles: duplicate and format markdown for 
+            if k == 'Data Dictionary':
+                c.pkg_dataDictionary_formatted = h.render_markdown(v)
+            if k == 'Data Quality':
+                c.pkg_dataQuality_formatted = h.render_markdown(v)
+
         # lorena Extras IAEST
         c.pkg_extrasIAEST = []
         for extra in sorted(pkg.get('extrasIAEST',[]), key=lambda x:x['key']):

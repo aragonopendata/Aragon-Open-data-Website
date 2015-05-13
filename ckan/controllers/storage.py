@@ -253,6 +253,7 @@ class StorageAPIController(BaseController):
 
         try:
             b = self.ofs._require_bucket(bucket)
+
         except:
             abort(409)
 
@@ -504,7 +505,14 @@ class StorageAPIController(BaseController):
         else:
             print(datosVista[0][0])
             print(datosVista[0][1])
-            connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.OPENDATA_CONEXION_BD)
+
+	    if (datosVista[0][1] =='APP1'):
+		#connection2 = cx_Oracle.connect(configuracion.AST_USR + "/" + configuracion.AST_PASS + "@" + configuracion.AST1_CONEXION_BD)
+		connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.AST1_CONEXION_BD)
+	    else:
+		#connection2 = cx_Oracle.connect(configuracion.AST2_USR + "/" + configuracion.AST2_PASS + "@" + configuracion.AST2_CONEXION_BD)
+                connection2 = cx_Oracle.connect(configuracion.AST1_USR + "/" + configuracion.AST1_PASS + "@" + configuracion.AST2_CONEXION_BD)
+
             cursor2 = connection2.cursor()
 
             sentencia = 'SELECT * FROM ' + datosVista[0][0];
@@ -547,6 +555,8 @@ class StorageAPIController(BaseController):
             return obj.isoformat() if hasattr(obj, 'isoformat') else obj
 
         return json.dumps(data, default=date_handler)
+
+
 
 
 

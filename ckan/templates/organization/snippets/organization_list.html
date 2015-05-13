@@ -8,8 +8,19 @@ Example:
     {% snippet "organization/snippets/organization_list.html" %}
 
 #}
-<ul class="media-grid" data-module="media-grid">
+       <table class="tablaResultadosDataset">
+         <tr>
+          <th class="cabeceraTablaResultadosDataset">
+           <div class="labelCabeceraTablaResultadosDataset">Hay {{organizations|length}} organizaciones</div>
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+            <div class="labelCabeceraTablaResultadosDataset">N&ordm; Datasets</div>
+          </th>
+        </tr>
   {% for organization in organizations %}
     {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
   {% endfor %}
-</ul>
+</table>
+
+<div class="huecoInicioPagina"></div>
+

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 from urllib import quote
 from urlparse import urlparse
@@ -14,6 +15,8 @@ import ckan.lib.captcha as captcha
 import ckan.lib.mailer as mailer
 import ckan.lib.navl.dictization_functions as dictization_functions
 import ckan.plugins as p
+
+import ckan.controllers as controllers
 
 from ckan.common import _, c, g, request
 
@@ -33,6 +36,7 @@ ValidationError = logic.ValidationError
 DataError = dictization_functions.DataError
 unflatten = dictization_functions.unflatten
 
+asciify = h.asciify
 
 class UserController(base.BaseController):
     def __before__(self, action, **env):
@@ -287,8 +291,10 @@ class UserController(base.BaseController):
                 data_dict['activity_streams_email_notifications'] = False
 
             user = get_action('user_update')(context, data_dict)
-            h.flash_success(_('Profile updated'))
-            h.redirect_to(controller='user', action='read', id=user['name'])
+#            h.flash_success(_('Profile updated'))
+
+            return 'OK'
+#            h.redirect_to(controller='user', action='read', id=user['name'])
         except NotAuthorized:
             abort(401, _('Unauthorized to edit user %s') % id)
         except NotFound, e:
@@ -298,7 +304,22 @@ class UserController(base.BaseController):
         except ValidationError, e:
             errors = e.error_dict
             error_summary = e.error_summary
-            return self.edit(id, data_dict, errors, error_summary)
+            log.error("ERROR ACTUALIZANDO USUARIO")
+            log.error(error_summary)
+            log.error("#####")
+
+            msg = ''
+            for item in e.error_dict:
+              msg += e.error_dict.get(item)[0] + '.'
+
+            if (errors.get('error')):
+              return errors.get('error')
+            else:
+              if (msg):
+                return msg
+              else:
+                return error_summary
+#            return self.edit(id, data_dict, errors, error_summary)
 
     def login(self, error=None):
         # Do any plugin login stuff
@@ -341,8 +362,8 @@ class UserController(base.BaseController):
 
             user_dict = get_action('user_show')(context, data_dict)
 
-            h.flash_success(_("%s is now logged in") %
-                            user_dict['display_name'])
+#            h.flash_success(_("%s is now logged in") %
+ #                           user_dict['display_name'])
             return self.me()
         else:
             err = _('Login failed. Bad username or password.')
@@ -578,23 +599,128 @@ class UserController(base.BaseController):
             'dict': None,
         }
 
-    def dashboard(self, id=None, offset=0):
+    def dashboard(self, id=None, offset=0, page_offset=1):
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author, 'for_view': True}
         data_dict = {'id': id, 'user_obj': c.userobj, 'offset': offset}
         self._setup_template_variables(context, data_dict)
 
         q = request.params.get('q', u'')
-        filter_type = request.params.get('type', u'')
-        filter_id = request.params.get('name', u'')
+   #     filter_type = request.params.get('type', u'')
+  #      filter_id = request.params.get('name', u'')
 
-        c.followee_list = get_action('followee_list')(
-            context, {'id': c.userobj.id, 'q': q})
-        c.dashboard_activity_stream_context = self._get_dashboard_context(
-            filter_type, filter_id, q)
-        c.dashboard_activity_stream = h.dashboard_activity_stream(
-            c.userobj.id, filter_type, filter_id, offset
+#        c.followee_list = get_action('followee_list')(
+ #           context, {'id': c.userobj.id, 'q': q})
+  #      c.dashboard_activity_stream_context = self._get_dashboard_context(
+   #         filter_type, filter_id, q)
+    #    c.dashboard_activity_stream = h.dashboard_activity_stream(
+     #       c.userobj.id, filter_type, filter_id, offset
+      #  )
+
+        context2 = {'model': model, 'session': model.Session,
+                   'user': c.user or c.author, 'for_view': True}
+
+        def pager_url(q=None, page=None):
+            params = list(params_nopage)
+            params.append(('page', page))
+            return '/catalogo/dashboard/datos/%d' % page
+
+        try:
+#            page = int(request.params.get('page', 1))
+            page = int(page_offset)
+        except ValueError, e:
+            abort(400, ('"page" parameter must be an integer'))
+
+        log.info("page es")
+        log.info(page)
+        limit = g.datasets_per_page
+        fq = ' +dataset_type:dataset'
+        # most search operations should reset the page counter:
+        params_nopage = [(k, v) for k, v in request.params.items()
+                         if k != 'page']
+
+        ## empieza sort ##
+        sort_by = request.params.get('sort', None)
+        if (sort_by):
+          sort_by = h.unquote_decode(request.params.get('sort')).replace('+', ' ')
+        params_nosort = [(k, v) for k, v in params_nopage if k != 'sort']
+
+        def _sort_by(fields):
+            """
+            Sort by the given list of fields.
+
+            Each entry in the list is a 2-tuple: (fieldname, sort_order)
+
+            eg - [('metadata_modified', 'desc'), ('name', 'asc')]
+
+            If fields is empty, then the default ordering is used.
+            """
+            params = params_nosort[:]
+
+            if fields:
+                sort_string = ', '.join('%s %s' % f for f in fields)
+                params.append(('sort', sort_string))
+            return search_url(params, package_type)
+
+        c.sort_by = _sort_by
+        if sort_by is None:
+            c.sort_by_fields = []
+        else:
+            c.sort_by_fields = [field.split()[0]
+                                for field in sort_by.split(',')]
+
+        ## fin sort ##
+
+
+        aux_q = ''
+        first_org = ''
+        for item in h.organizations_available():
+            if aux_q:
+              aux_q += ' || organization:%s' % item.get('name')
+            else:
+              aux_q = 'organization:%s' % item.get('name')
+              first_org =  item.get('name')
+
+        query_q = asciify(request.params.get('q', u''))
+        if query_q:
+            c.query_q = request.params.get('q', u'')
+            aux_q += ' && ' + query_q
+        else:
+            c.query_q = ''
+
+        log.error(aux_q)
+        c.search_result = get_action('package_search')(context, {'q': aux_q, 'rows': limit, 'start': (page -1) * limit, 'sort': sort_by, 'fq': fq.strip()})
+        c.sort_by_selected = c.search_result['sort']
+
+
+        c.q = aux_q
+        c.page = h.Page(
+          collection=c.search_result['results'],
+          page=page,
+          url=pager_url,
+          item_count=c.search_result['count'],
+          items_per_page=limit
         )
+        c.facets = c.search_result['facets']
+        c.search_facets = c.search_result['search_facets']
+        c.page.items = c.search_result['results']
+
+        c.dashboard = True
+        c.dashboard_activity_stream2 = get_action('organization_activity_list_html')(
+            context, {'id': first_org, 'offset': offset})
+
+        context3 = {'model': model, 'session': model.Session,
+                   'user': c.user or c.author,
+                   'for_view': True }
+        data_dict3 = {'id': first_org}
+
+#        try:
+        c.group_dict = get_action('group_show')(context3, data_dict3)
+ #       except NotFound:
+  #      except NotAuthorized:
+
+        #c.page.items = c.dashboard_activity_stream_context.dict.packages
+        #c.page.item_count = c.dashboard_activity_stream_context.dict.package_count
 
         # Mark the user's new activities as old whenever they view their
         # dashboard page.

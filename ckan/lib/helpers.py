@@ -20,6 +20,7 @@ from webhelpers.html import escape, HTML, literal, url_escape
 from webhelpers.html.tools import mail_to
 from webhelpers.html.tags import *
 from webhelpers.markdown import markdown
+from webhelpers.html.converters import format_paragraphs
 from webhelpers import paginate
 from webhelpers.text import truncate
 import webhelpers.date as date
@@ -614,6 +615,11 @@ def check_access(action, data_dict=None):
 def user_logged():
     return c.user
 
+def user_displayname_logged():
+    user_name = unicode(c.user)
+    user = model.User.get(user_name)
+    return user.display_name
+
 def get_action(action_name, data_dict=None):
     '''Calls an action function from a template.'''
     if data_dict is None:
@@ -638,6 +644,22 @@ def linked_user(user, maxlength=0, avatar=20):
         return icon + u' ' + link_to(displayname,
                                      url_for(controller='user', action='read', id=name))
 
+def linked_user_without_gravatar(user, maxlength=0, avatar=20):
+    if user in [model.PSEUDO_USER__LOGGED_IN, model.PSEUDO_USER__VISITOR]:
+        return user
+    if not isinstance(user, model.User):
+        user_name = unicode(user)
+        user = model.User.get(user_name)
+        if not user:
+            return user_name
+    if user:
+        name = user.name if model.User.VALID_NAME.match(user.name) else user.id
+        icon = gravatar(email_hash=user.email_hash, size=avatar)
+        displayname = user.display_name
+        if maxlength and len(user.display_name) > maxlength:
+            displayname = displayname[:maxlength] + '...'
+        return link_to(displayname,
+                                     url_for(controller='user', action='read', id=name))
 
 def group_name_to_title(name):
     group = model.Group.by_name(name)
@@ -905,10 +927,54 @@ class _RFC2282TzInfo(datetime.tzinfo):
         return None
 
 
+# original from http://stackoverflow.com/questions/1551382/user-friendly-time-format-in-python
+def custom_time_ago_in_words(time=False):
+    """
+    Get a datetime object or a int() Epoch timestamp and return a
+    pretty string like 'an hour ago', 'Yesterday', '3 months ago',
+    'just now', etc
+    """
+    from datetime import datetime
+    now = datetime.now()
+    if type(time) is int:
+        diff = now - datetime.fromtimestamp(time)
+    elif isinstance(time,datetime):
+        diff = now - time
+    elif not time:
+        diff = now - now
+    second_diff = diff.seconds
+    day_diff = diff.days
+
+    if day_diff < 0:
+        return ''
+
+    if day_diff == 0:
+        if second_diff < 10:
+            return "just now"
+        if second_diff < 60:
+            return str(second_diff) + " seconds ago"
+        if second_diff < 120:
+            return "a minute ago"
+        if second_diff < 3600:
+            return str(second_diff / 60) + " minutes ago"
+        if second_diff < 7200:
+            return "an hour ago"
+        if second_diff < 86400:
+            return str(second_diff / 3600) + " hours ago"
+    if day_diff == 1:
+        return "Yesterday"
+    if day_diff < 7:
+        return str(day_diff) + " days ago"
+    if day_diff < 31:
+        return str(day_diff / 7) + " weeks ago"
+    if day_diff < 365:
+        return str(day_diff / 30) + " months ago"
+    return str(day_diff / 365) + " years ago"
+
 def time_ago_in_words_from_str(date_str, granularity='month'):
     if date_str:
-        return date.time_ago_in_words(date_str_to_datetime(date_str),
-                                      granularity=granularity)
+        #return custom_time_ago_in_words(date_str_to_datetime(date_str))
+        return (date_str_to_datetime(date_str).strftime('%d.%m.%Y'))
     else:
         return _('Unknown')
 
@@ -1452,7 +1518,8 @@ def render_markdown(data, auto_link=True):
     if not data:
         return ''
     data = RE_MD_HTML_TAGS.sub('', data.strip())
-    data = markdown(data, safe_mode=True)
+#    data = markdown(data, safe_mode=True)
+    data = format_paragraphs(data, preserve_lines=True)
     # tags can be added by tag:... or tag:"...." and a link will be made
     # from it
     if auto_link:
@@ -1591,6 +1658,39 @@ def get_package_org(id):
         else:
             return "general"
 
+
+def get_username_from_id(id):
+    user = model.User.get(id)
+    if not user:
+        return id
+
+    if user.display_name:
+      return user.display_name
+    else:
+      name = user.name if model.User.VALID_NAME.match(user.name) else user.id
+      return name
+
+def unquote_decode(st):
+    return urllib.unquote(st).encode('latin-1').decode('utf8')
+
+def asciify(st):
+    aux = urllib.unquote(st).encode('latin-1').decode('utf-8')
+    aux = aux.replace(u'á','a')
+    aux = aux.replace(u'é','e')
+    aux = aux.replace(u'í','i')
+    aux = aux.replace(u'ó','o')
+    aux = aux.replace(u'ú','u')
+    aux = aux.replace(u'ü','u')
+    aux = aux.replace(u'Á','A')
+    aux = aux.replace(u'É','E')
+    aux = aux.replace(u'Í','I')
+    aux = aux.replace(u'Ó','O')
+    aux = aux.replace(u'Ú','U')
+    aux = aux.replace(u'Ü','U')
+    aux = aux.replace(u'ñ','n')
+    aux = aux.replace(u'Ñ','n')
+    return aux
+
 # add some formatter functions
 localised_number = formatters.localised_number
 localised_SI_number = formatters.localised_SI_number
@@ -1617,6 +1717,7 @@ __allowed_functions__ = [
     'check_access',
     'get_action',
     'linked_user',
+    'linked_user_without_gravatar',
     'group_name_to_title',
     'markdown_extract',
     'icon',
@@ -1694,5 +1795,7 @@ __allowed_functions__ = [
     'asbool',
     'resource_url_for',
     'user_logged',
+    'user_displayname_logged',
     'get_package_org',
+    'unquote_decode',
 ]

@@ -42,7 +42,7 @@ function refinaAutocomplete() {
 	};	
 }
 
-function changeOrder(newOrder) {
+function changeOrder(newOrder, destinationUrl) {
 	var txtToFind = '';
 	var aux = window.location.search;
 	var paramStr = aux.split('?');
@@ -58,12 +58,16 @@ function changeOrder(newOrder) {
 		}
 	}
    
-	if (currentUrl) {
-		 // mirar si tiene ?
-		if (currentUrl.indexOf('?') != -1) {
-			window.location = currentUrl + "&" + txtToFind + "&" + newOrder ;
-		} else {
-			window.location = currentUrl + "?" + txtToFind + "&" + newOrder;
+	if (destinationUrl) {
+		window.location = currentUrl + "?" + txtToFind + "&" + newOrder ;		
+	} else {
+		if (currentUrl) {
+			 // mirar si tiene ?
+			if (currentUrl.indexOf('?') != -1) {
+				window.location = currentUrl + "&" + txtToFind + "&" + newOrder ;
+			} else {
+				window.location = currentUrl + "?" + txtToFind + "&" + newOrder;
+			}
 		}
 	}
 }
@@ -104,6 +108,7 @@ function changeHomerLabels(valorLang) {
 }
 
 $(document).ready(function() {
+	pintaMenuBuscador();
 	refinaAutocomplete();
 
       //al inicio, quitarlo si tiene valor porque lo autorrellene el navegador de otras visitas	
@@ -120,8 +125,6 @@ $(document).ready(function() {
 	var config  = {
 		disable_search: true
 	};
-	
-	//var valueIsEstadist = "bienal";
 
 	var fOnChgChosen_changeLangHomer = function onChgChosen_changeLangHomer() {
 		var idx = $("#langHOMERFilter")[0].selectedIndex;
@@ -133,6 +136,10 @@ $(document).ready(function() {
 	
 	var fOnChgChosen = function onChgChosen() {
 		var urlToGo = "/catalogo";
+		var idxBBDD = $("#bbddFilter")[0].selectedIndex;
+		if (idxBBDD != 0) {
+			urlToGo += "/base-datos/" + $("#bbddFilter")[0][idxBBDD].value;
+		}
 		var idxTema = $("#temaFilter")[0].selectedIndex;
 		if (idxTema != 0) {
 			urlToGo += "/" + $("#temaFilter")[0][idxTema].value;
@@ -151,11 +158,29 @@ $(document).ready(function() {
 			window.location = "/portal/cliente-sparql";
 		} else if ($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaAPI") {
 			window.location = "/portal/desarrolladores/api-ckan";
-		} else {
+		}
+		else if($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaBBDD"){
+			//modicamos para que las options se queden seleccionadas
+			/*$('#tipoBusquedaFilter').find('option:selected').removeAttr('selected');
+			$('#tipoBusquedaFilter option[value=zonaBBDD]').attr('selected',true);
+			$('#tipoBusquedaFilter_chosen .chosen-single span').text('Base de datos');*/
+			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
+			//Vamos a la url correspondiente
+			window.location = "/catalogo/base-datos";
+		}
+		else {
 			var newZone = $("#tipoBusquedaFilter")[0][idxTipo].value;
 			if (newZone == "zonaInfoEstadistica") {
 				window.location = "/catalogo/informacion-estadistica";
-			} else {
+			}
+			else if (newZone == "zonaTemaYTipo") {
+				window.location = "/catalogo/catalogo.html";
+			}
+			else if (newZone == "zonaLibre") {
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
+				window.location = "/catalogo/busqueda-libre";
+			}
+			else {
 				toggleZona($("#tipoBusquedaFilter")[0][idxTipo].value);
 			}
 		}
@@ -199,18 +224,33 @@ $(document).ready(function() {
 					// o es info estadistica
 				toggleZona("zonaInfoEstadistica");
 				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaInfoEstadistica");
-			} else {
+			}
+			else if (urlListParam[2] == "base-datos") {
+					// o es bbdd
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
+			}
+			else if (urlListParam[2] == "busqueda-libre") {
+					// o es búsqueda libre
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
+			}  
+			else {
 					// O es tema o es tipo
 				tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
 				tryToSelectItem($("#tipoFilter")[0], urlListParam[2]);
 			}
 	} else if (urlListParam.length == 4) {
-				// O es tema+tipo o es tipo-estadistico/num
+				// O es tema+tipo o es tipo-estadistico/num o es base-datos/tipobbdd
+			
 			tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
 			var idxTema = $("#temaFilter")[0].selectedIndex;
 			if (idxTema != 0) {
 					// es tema+tipo
 				tryToSelectItem($("#tipoFilter")[0], urlListParam[3]);
+			}
+			//alert('cargado '+urlListParam[2]+'/'+urlListParam[3]);
+			if (urlListParam[2] == "busqueda-libre"){
+				var txtBusqueda = utf8_decode(unescape(urlListParam[3]));
+				$("#cajaDeBusqInputLibre").val(txtBusqueda);
 			}
 
 			if (urlListParam[2] == "tema-estadistico") {
@@ -228,10 +268,20 @@ $(document).ready(function() {
 					}
 				}
 			}
+			else if (urlListParam[2] == "base-datos") {
+				tryToSelectItem($("#bbddFilter")[0], urlListParam[3]);
+			}
+			
 		}
 
 		if (urlListParam.length >= 3) {
 			if (urlListParam[2] != "informacion-estadistica") {
+				activateZoneTipoBusqueda(urlListParam[2]);
+			}
+			else if (urlListParam[2] != "base-datos") {
+				activateZoneTipoBusqueda(urlListParam[2]);
+			}
+			else if (urlListParam[2] != "busqueda-libre") {
 				activateZoneTipoBusqueda(urlListParam[2]);
 			}
 		} else {
@@ -247,6 +297,7 @@ $(document).ready(function() {
 
 	$("#temaFilter").chosen(config).change(fOnChgChosen);
 	$("#tipoFilter").chosen(config).change(fOnChgChosen);
+	$("#bbddFilter").chosen(config).change(fOnChgChosen);
 
 //	$("#tipoBusquedaFilter").chosenImage(config).change(fOnChgChosen_toggle);
 	$("#tipoBusquedaFilter").chosen(config).chosenImage().change(fOnChgChosen_toggle);
@@ -267,12 +318,12 @@ $(document).ready(function() {
         }
     });
 
-	$( "#cajaDeBusqInput" ).autocomplete({
+    $( "#cajaDeBusqInput" ).autocomplete({
 		source:function(request, response) {
 			$.ajax({
-			url: "/catalogo/api/2/util/dataset/autocomplete?incomplete=%" + $("#cajaDeBusqInput").val() + "%",
-			dataType: "jsonp",
-			success: function (data) {
+  			  url: "/catalogo/api/2/util/dataset/autocomplete?incomplete=%" + $("#cajaDeBusqInput").val() + "%",
+			  dataType: "jsonp",
+			  success: function (data) {
 				response($.map(data.ResultSet.Result, 
 					function(item)	{
 						return {
@@ -282,8 +333,8 @@ $(document).ready(function() {
 						};
 					}
 				));
-			}			
-		     })
+			  }			
+		        })
 		   },
 		minLength: 1,
 		open: function(event, ui) {
@@ -296,8 +347,16 @@ $(document).ready(function() {
 			$("#cajaDeBusqInput").val("");
 			$("#cajaBusqBanner").submit();
 		}
-	});
-	
+    });
+    
+    
+
+
+    initializeDashboard();
+    initializeEditor();
+    loadComboboxesVistas();
+
+    if (document.getElementById("zonaVentanaDatosDescargados1")) {
 	$.ajax({
 			url: "/catalogo/api/mostDownloadedDataset",
 			dataType: "jsonp",
@@ -312,7 +371,9 @@ $(document).ready(function() {
 				$('#zonaVentanaDatosDescargados1').html(htmlCode);
 			}
 		     });
+    }
 
+    if (document.getElementById("zonaVentanaDatosRecientes1")) {
 	$.ajax({
 			url: "/catalogo/api/mostRecentDataset",
 			dataType: "jsonp",
@@ -327,15 +388,35 @@ $(document).ready(function() {
 				$('#zonaVentanaDatosRecientes1').html(htmlCode);
 			}
 		     });
+    }
 
-	var htmlCodeDatasets =getContadorHTML(datasetCount);
-        var htmlCodeRecursos = getContadorHTML(resourceCount);
-        $('#numDatasets').html(htmlCodeDatasets);
-        $('#numRecursos').html(htmlCodeRecursos);
+    if (document.getElementById("numDatasets")) {
+//	$.ajax({
+//			url: "/catalogo/api/getDataCount",
+//			dataType: "jsonp",
+//			success: function (data) {
+//				var htmlCodeDatasets = getContadorHTML(data[0].datasetCount);
+//				var htmlCodeRecursos = getContadorHTML(data[0].resourceCount);
+//				$('#numDatasets').html(htmlCodeDatasets);
+//				$('#numRecursos').html(htmlCodeRecursos);
+//			},
+//			error: function (data) {
+//				var htmlCodeDatasets = getContadorHTML(1709);
+//				var htmlCodeRecursos = getContadorHTML(2724);
+//				$('#numDatasets').html(htmlCodeDatasets);
+//				$('#numRecursos').html(htmlCodeRecursos);
+//			}
+//	   });
+			var htmlCodeDatasets =getContadorHTML(datasetCount);
+			var htmlCodeRecursos = getContadorHTML(resourceCount);
+			$('#numDatasets').html(htmlCodeDatasets);
+			$('#numRecursos').html(htmlCodeRecursos);
+    }
 
 	if ($("#homerResults").html() != null) {
 		doQueryHomer();
 	}
+	
 });
 
 function activateZoneTipoBusqueda(txtParam) {
@@ -361,7 +442,26 @@ function activateZoneTipoBusqueda(txtParam) {
 	} else if (txtParam == "tema-estadistico") {
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaInfoEstadistica");
 		toggleZona("zonaInfoEstadistica");
-	} else if (queriedTxt != '') {
+	}
+	else if (txtParam == "informacion-estadistica") {
+		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaInfoEstadistica");
+		toggleZona("zonaInfoEstadistica");
+	}
+	else if (txtParam == "base-datos") {
+		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
+		toggleZona("zonaBBDD");
+		
+		
+		urlListParam = currentUrl.split("/");
+		if (urlListParam.length==6){
+			tryToSelectItem($("#bbddFilter")[0], urlListParam[5]);
+		}
+	}
+	else if (txtParam == "busqueda-libre") {
+		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
+		toggleZona("zonaLibre");
+	}
+	else if (queriedTxt != '') {
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
 		toggleZona("zonaLibre");
 		$("#cajaDeBusqInputLibre").val(queriedTxt);
@@ -376,6 +476,7 @@ function toggleAllZones() {
 	$("#zonaInfoEstadistica").addClass("oculto");
 	$("#zonaLibre").addClass("oculto");
 	$("#zonaHOMER").addClass("oculto");
+	$("#zonaBBDD").addClass("oculto");
 }
 
 function toggleZona(id) {
@@ -426,18 +527,190 @@ function submitTxtQuery() {
 }
 
 function disEnableAllItemsForm(disEnab) {
-	$('div.oculto > input').attr("disabled",disEnab);
-	$('div.oculto > select').attr("disabled",disEnab);
-	$('div.oculto > div > input').attr("disabled",disEnab);
-	$('div.oculto > div > select').attr("disabled",disEnab);
-	$('div.oculto > div > ul > li > input').attr("disabled",disEnab);
-	$('div.oculto > div > ul > li > select').attr("disabled",disEnab);
-	$('#tipoBusquedaFilter').attr("disabled",disEnab);
-	$('form > select:hidden').attr("disabled",disEnab);
+  $('div.oculto > input').attr("disabled",disEnab);
+  $('div.oculto > select').attr("disabled",disEnab);
+  $('div.oculto > div > input').attr("disabled",disEnab);
+  $('div.oculto > div > select').attr("disabled",disEnab);
+  $('div.oculto > div > ul > li > input').attr("disabled",disEnab);
+  $('div.oculto > div > ul > li > select').attr("disabled",disEnab);
+  $('#tipoBusquedaFilter').attr("disabled",disEnab);
+  $('form > select:hidden').attr("disabled",disEnab);
+  
+  if ($("#autocomplete_eurovoc")){
+    $('#autocomplete_eurovoc').attr("disabled",disEnab);
+  }
 }
 
 function submitQuery() {
 	disEnableAllItemsForm(true);
-	$("#searchFormId").submit();
+	if (document.getElementById("tipoBusquedaFilter").value == "zonaHOMER"){
+		$("#searchFormId").submit();
+	}
+	else{
+		if (document.getElementsByName("q").length==1){
+			window.location = '/catalogo/busqueda-libre/'+document.getElementsByName("q")[0].value;
+		}
+		else{
+			window.location = '/catalogo/busqueda-libre/'+document.getElementsByName("q")[1].value;
+		}
+	}
 	return false;
 }
+
+
+function utf8_encode(argString) {
+  //  discuss at: http://phpjs.org/functions/utf8_encode/
+  // original by: Webtoolkit.info (http://www.webtoolkit.info/)
+  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: sowberry
+  // improved by: Jack
+  // improved by: Yves Sucaet
+  // improved by: kirilloid
+  // bugfixed by: Onno Marsman
+  // bugfixed by: Onno Marsman
+  // bugfixed by: Ulrich
+  // bugfixed by: Rafal Kukawski
+  // bugfixed by: kirilloid
+  //   example 1: utf8_encode('Kevin van Zonneveld');
+  //   returns 1: 'Kevin van Zonneveld'
+
+  if (argString === null || typeof argString === 'undefined') {
+    return '';
+  }
+
+  var string = (argString + ''); // .replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  var utftext = '',
+    start, end, stringl = 0;
+
+  start = end = 0;
+  stringl = string.length;
+  for (var n = 0; n < stringl; n++) {
+    var c1 = string.charCodeAt(n);
+    var enc = null;
+
+    if (c1 < 128) {
+      end++;
+    } else if (c1 > 127 && c1 < 2048) {
+      enc = String.fromCharCode(
+        (c1 >> 6) | 192, (c1 & 63) | 128
+      );
+    } else if ((c1 & 0xF800) != 0xD800) {
+      enc = String.fromCharCode(
+        (c1 >> 12) | 224, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+      );
+    } else { // surrogate pairs
+      if ((c1 & 0xFC00) != 0xD800) {
+        throw new RangeError('Unmatched trail surrogate at ' + n);
+      }
+      var c2 = string.charCodeAt(++n);
+      if ((c2 & 0xFC00) != 0xDC00) {
+        throw new RangeError('Unmatched lead surrogate at ' + (n - 1));
+      }
+      c1 = ((c1 & 0x3FF) << 10) + (c2 & 0x3FF) + 0x10000;
+      enc = String.fromCharCode(
+        (c1 >> 18) | 240, ((c1 >> 12) & 63) | 128, ((c1 >> 6) & 63) | 128, (c1 & 63) | 128
+      );
+    }
+    if (enc !== null) {
+      if (end > start) {
+        utftext += string.slice(start, end);
+      }
+      utftext += enc;
+      start = end = n + 1;
+    }
+  }
+
+  if (end > start) {
+    utftext += string.slice(start, stringl);
+  }
+
+  return utftext;
+}
+
+function utf8_decode(str_data) {
+  //  discuss at: http://phpjs.org/functions/utf8_decode/
+  // original by: Webtoolkit.info (http://www.webtoolkit.info/)
+  //    input by: Aman Gupta
+  //    input by: Brett Zamir (http://brett-zamir.me)
+  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: Norman "zEh" Fuchs
+  // bugfixed by: hitwork
+  // bugfixed by: Onno Marsman
+  // bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // bugfixed by: kirilloid
+  //   example 1: utf8_decode('Kevin van Zonneveld');
+  //   returns 1: 'Kevin van Zonneveld'
+
+  var tmp_arr = [],
+    i = 0,
+    ac = 0,
+    c1 = 0,
+    c2 = 0,
+    c3 = 0,
+    c4 = 0;
+
+  str_data += '';
+
+  while (i < str_data.length) {
+    c1 = str_data.charCodeAt(i);
+    if (c1 <= 191) {
+      tmp_arr[ac++] = String.fromCharCode(c1);
+      i++;
+    } else if (c1 <= 223) {
+      c2 = str_data.charCodeAt(i + 1);
+      tmp_arr[ac++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63));
+      i += 2;
+    } else if (c1 <= 239) {
+      // http://en.wikipedia.org/wiki/UTF-8#Codepage_layout
+      c2 = str_data.charCodeAt(i + 1);
+      c3 = str_data.charCodeAt(i + 2);
+      tmp_arr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+      i += 3;
+    } else {
+      c2 = str_data.charCodeAt(i + 1);
+      c3 = str_data.charCodeAt(i + 2);
+      c4 = str_data.charCodeAt(i + 3);
+      c1 = ((c1 & 7) << 18) | ((c2 & 63) << 12) | ((c3 & 63) << 6) | (c4 & 63);
+      c1 -= 0x10000;
+      tmp_arr[ac++] = String.fromCharCode(0xD800 | ((c1 >> 10) & 0x3FF));
+      tmp_arr[ac++] = String.fromCharCode(0xDC00 | (c1 & 0x3FF));
+      i += 4;
+    }
+  }
+
+  return tmp_arr.join('');
+}
+
+
+// cookies function from http://www.w3schools.com/js/js_cookies.asp
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1);
+    if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+
+
+function isEmpty(value){
+  return (value == null || value === '');
+}
+//Esta funcion pinta el menu de buscador según si esta usuario logueado o no
+function pintaMenuBuscador(){
+	var login=getCookie('auth_tkt');
+	//Borramos el menu para pintarlo según el resultado de la cookien que contiene si estamos logueados
+	$(".bannerBuscador").empty();
+	if (isEmpty(login)){
+		//Pintamos el menu para loguearse
+		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><button class="btn-search" type="submit">Buscar</button><a href="/catalogo/user/login" title="Iniciar Sesión"><img src="/public/i/login.jpg" alt="Iniciar Sesión" class="btn-login"></a></form>');
+	}
+	else{
+		//Pintamos el menu cuando estamos logueados
+		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><a href="/catalogo/pizarra" title="Pizarra de administración"><img src="/public/i/dashboard.jpg" alt="Pizarra de administración" class="btn-login"></a><a href="/catalogo/user/_logout" title="Salir"><img src="/public/i/logout.jpg" alt="Salir" class="btn-login"></a></form>');
+	}
+}
+
+

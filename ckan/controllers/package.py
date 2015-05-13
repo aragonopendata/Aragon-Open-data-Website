@@ -25,6 +25,8 @@ from ckan.common import OrderedDict, _, json, request, c, g, response
 from home import CACHE_PARAMETERS
 
 import cx_Oracle
+import psycopg2
+
 from ckan.ckanclient import config as configuracion
 
 import re
@@ -38,7 +40,7 @@ from json import JSONEncoder
 import csv
 import urllib
 import htmllib
-
+from StringIO import StringIO
 
 
 BLACKLIST = ("id", "package_id", "vocabulary_id", "revision_id",
@@ -68,23 +70,7 @@ flatten_to_string_key = logic.flatten_to_string_key
 
 lookup_package_plugin = ckan.lib.plugins.lookup_package_plugin
 
-def asciify(st):
-    aux = urllib.unquote(st).encode('latin-1').decode('utf-8')
-    aux = aux.replace(u'á','a')
-    aux = aux.replace(u'é','e')
-    aux = aux.replace(u'í','i')
-    aux = aux.replace(u'ó','o')
-    aux = aux.replace(u'ú','u')
-    aux = aux.replace(u'ü','u')
-    aux = aux.replace(u'Á','A')
-    aux = aux.replace(u'É','E')
-    aux = aux.replace(u'Í','I')
-    aux = aux.replace(u'Ó','O')
-    aux = aux.replace(u'Ú','U')
-    aux = aux.replace(u'Ü','U')
-    aux = aux.replace(u'ñ','n')
-    aux = aux.replace(u'Ñ','n')
-    return aux
+asciify = h.asciify
 
 #Esta función recibe un str y si tiene url (http://) lo metemos como si fuese enlaces en html. Con href
 def url2HREF(str):
@@ -606,7 +592,18 @@ class PackageController(base.BaseController):
             data = data or clean_dict(dict_fns.unflatten(tuplize_dict(parse_params(
                 request.POST))))
             # we don't want to include save as it is part of the form
-            del data['save']
+            #del data['save']
+
+            if (data['resource_type'] == 'vista'):
+                try:
+                    data['url'] = self._save_vista(data['vistas_value'], data['filtro'])
+                    #data['name'] = "Vista"
+                except:
+                    msg = _('Debe seleccionar una vista de las disponibles u otro tipo de recurso')
+                    errors = {}
+                    error_summary = {_('Error'): msg}
+                    abort( 500, msg)
+                    #return self.new_resource(id, data, errors, error_summary)
 
             context = {'model': model, 'session': model.Session,
                        'api_version': 3,
@@ -626,8 +623,10 @@ class PackageController(base.BaseController):
                                           errors, error_summary)
             except NotAuthorized:
                 abort(401, _('Unauthorized to edit this resource'))
-            redirect(h.url_for(controller='package', action='resource_read',
-                               id=id, resource_id=resource_id))
+            #redirect(h.url_for(controller='package', action='resource_read',
+            #                   id=id, resource_id=resource_id))
+
+            return 'OK'
 
         context = {'model': model, 'session': model.Session,
                    'api_version': 3,
@@ -674,15 +673,16 @@ class PackageController(base.BaseController):
             if (data['resource_type'] == 'vista'):
                 try:
                     data['url'] = self._save_vista(data['vistas_value'], data['filtro'])
-                    data['name'] = "Vista"
+                    #data['name'] = "Vista"
                 except:
                     msg = _('Debe seleccionar una vista de las disponibles u otro tipo de recurso')
                     errors = {}
                     error_summary = {_('Error'): msg}
-                    return self.new_resource(id, data, errors, error_summary)
+                    abort( 500, msg)
+                    #return self.new_resource(id, data, errors, error_summary)
 
 
-            del data['save']
+            #del data['save']
             resource_id = data['id']
             del data['id']
 
@@ -721,6 +721,8 @@ class PackageController(base.BaseController):
                         errors = {}
                         error_summary = {_('Error'): msg}
                         return self.new_resource(id, data, errors, error_summary)
+
+                return msg
                 # we have a resource so let them add metadata
                 redirect(h.url_for(controller='package',
                                    action='new_metadata', id=id))
@@ -731,7 +733,9 @@ class PackageController(base.BaseController):
                     data['id'] = resource_id
                     get_action('resource_update')(context, data)
                 else:
-                    get_action('resource_create')(context, data)
+                    response_res_create = get_action('resource_create')(context, data)
+                    if (response_res_create['id']):
+                      return response_res_create['id'] 
             except ValidationError, e:
                 errors = e.error_dict
                 error_summary = e.error_summary
@@ -740,7 +744,12 @@ class PackageController(base.BaseController):
                 abort(401, _('Unauthorized to create a resource'))
             except NotFound:
                 abort(404,
-                    _('The dataset {id} could not be found.').format(id=id))
+                    _('The dataset {id} could not be found.').format(id=resource_id))
+
+            #ignore rest of code and end now
+            #it should be never reach this point
+            return 'OK'
+
             if save_action == 'go-metadata':
                 # go to final stage of add dataset
                 redirect(h.url_for(controller='package',
@@ -1057,13 +1066,17 @@ class PackageController(base.BaseController):
         try:
             data_dict = clean_dict(dict_fns.unflatten(
                 tuplize_dict(parse_params(request.POST))))
-            if '_ckan_phase' in data_dict:
+            #if '_ckan_phase' in data_dict:
                 # we allow partial updates to not destroy existing resources
-                context['allow_partial_update'] = True
-                data_dict['tags'] = self._tag_string_to_list(
+                #context['allow_partial_update'] = True
+                #data_dict['tags'] = self._tag_string_to_list(
+                    #data_dict['tag_string'])
+                #del data_dict['_ckan_phase']
+                #del data_dict['save']
+                
+            context['allow_partial_update'] = True
+            data_dict['tags'] = self._tag_string_to_list(
                     data_dict['tag_string'])
-                del data_dict['_ckan_phase']
-                del data_dict['save']
             context['message'] = data_dict.get('log_message', '')
             if not context['moderated']:
                 context['pending'] = False
@@ -1163,15 +1176,16 @@ class PackageController(base.BaseController):
         try:
             if request.method == 'POST':
                 get_action('resource_delete')(context, {'id': resource_id})
-                h.flash_notice(_('Resource has been deleted.'))
-                h.redirect_to(controller='package', action='read', id=id)
+                #h.flash_notice(_('Resource has been deleted.'))
+                #h.redirect_to(controller='package', action='read', id=id)
+                return 'Resource has been deleted.'
             c.resource_dict = get_action('resource_show')(context, {'id': resource_id})
             c.pkg_id = id
         except NotAuthorized:
             abort(401, _('Unauthorized to delete resource %s') % '')
         except NotFound:
             abort(404, _('Resource not found'))
-        return render('package/confirm_delete_resource.html')
+        #return render('package/confirm_delete_resource.html')
 
     def autocomplete(self):
         # DEPRECATED in favour of /api/2/util/dataset/autocomplete
@@ -1559,7 +1573,7 @@ class PackageController(base.BaseController):
         c.pkg = query['results']
         return render('package/catalogoHOMER.xml', loader_class=loader)
 
-    def searchAOD(self, tema=None, tipo=None, subtipo=None, temaEstadistico=None):
+    def searchAOD(self, tema=None, tipo=None, subtipo=None, temaEstadistico=None, temaBBDD=None, queryLibre=None):
         from ckan.lib.search import SearchError
 
         #package_type = self._guess_package_type()
@@ -1612,7 +1626,14 @@ class PackageController(base.BaseController):
              elif tipo == 'rss':
                  qTipo = "res_format:RSS* || res_format:rss*"
              elif tipo == 'informacion-estadistica':
-                 qTipo = "author:iaest"
+                 qTipo = "organization:instituto_aragones_de_estadistica"
+             elif tipo == 'base-datos':
+                 qTipo = "extras_Frequency:Instantanea"
+             elif tipo == 'busqueda-libre':
+                 if queryLibre is None:
+                     qtipo = "*:*"
+                 else:
+                     qTipo = "%s" % queryLibre
 
         if auxq is not None:
              if qTipo is not None:
@@ -1620,11 +1641,14 @@ class PackageController(base.BaseController):
         else:
              auxq = qTipo
 
+        if temaBBDD is not None:
+             auxq += " && groups:%s" % temaBBDD
+            
         if subtipo is not None:
              if auxq  is not None:
                  auxq += " && author:%s" % subtipo
              else:
-                 auxq = "author:%s" % subtipo 
+                 auxq = "author:%s" % subtipo
 
         q = c.q = auxq
 
@@ -1831,11 +1855,11 @@ class PackageController(base.BaseController):
 
         try:
             dataset_rsc = get_action('package_search')(context, data_dict)
-           
+
             for res in dataset_rsc['results']:
               for resource in res['resources']:
                 if version is None:
-                  if resource.get('format').lower() == formato.lower():
+                  if resource.get('format').lower() == formato.lower() :
                     return redirect(resource.get('url'))
 #                     return redirect(resource['url'])
                 else:
@@ -2026,21 +2050,24 @@ class PackageController(base.BaseController):
     #Mostrar una vista guardada
     def showVista(self):
         import os
-
         params = dict(request.params.items())
         if params:
             vistaId = params.get('id')
-            vistaNombre = params.get('name')
-            vistaFormato = params.get('formato')
+            #Ckan revisando los recursos que tiene, en los recursos showVista no tiene añadido ni el name ni el formato entonces da el error del mail
+            if params.get('name'):
+                vistaNombre = params.get('name').encode('utf8')
+            if params.get('formato'):
+                vistaFormato = params.get('formato')
 
         if vistaNombre is None and vistaFormato is None:
             #relleno para la rdf_spider cuando comprueba que existe (no le llegan parametros)
             vistaFormato = "JSON"
-            vistaNombre = "nombre"
+            vistaNombre = "Descarga"
 
         vistaFormato = vistaFormato.upper()
 
         connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+
         cursor = connection.cursor()
         registros = cursor.execute(
             "SELECT VISTA,FILTRO,FORMATO FROM opendata_v_resourceVista where id_resourcevista=" + vistaId)
@@ -2068,8 +2095,18 @@ class PackageController(base.BaseController):
 
             cursor.close()
             connection.close()
+
             #obtenemos los datos
-            connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+	    #para las descargas de ficheros correspondientes a las vistas identificamos el tipo de conexion a utilizar
+	
+            if (datosVista[0][1] =='APP1'):
+		print '############CONEXION1'
+		connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.AST1_CONEXION_BD)
+	    else:
+		print '############CONEXION2'
+		connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.AST2_CONEXION_BD)
+
+           
             cursor2 = connection2.cursor()
 
             sentencia = 'SELECT * FROM ' + datosVista[0][0];
@@ -2099,17 +2136,20 @@ class PackageController(base.BaseController):
             connection2.close()
 
             if (vistaFormato == 'CSV'):
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + ".csv" + '\"'),
-                                    ('Content-Type', 'text/csv')]
+                #response.headers['Content-Type'] = 'text/csv;charset=utf-8'
+                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) + ".csv" + '\"'),('Content-Type', 'text/csv')]
                 s = StringIO()
-                writer = csv.writer(s, dialect='excel')
+                writer = csv.writer(s,dialect='excel')
+
+                def date_handler(obj):
+                   return obj.isoformat() if hasattr(obj, 'isoformat') else obj
 
                 for item in resultados:
-                    writer.writerow(json.dumps(item))
+                    writer.writerow(json.dumps(item, default=date_handler))
 
                 nombreFichero = vistaNombre + str(datetime.datetime.now()).replace(" ", "_") + '.csv'
                 with open(configuracion.DOWNLOAD_PATH + '/' + nombreFichero, 'w+') as csvfile:
-                    spamwriter = csv.writer(csvfile)
+                    spamwriter = csv.writer(csvfile, delimiter=';')
                     for item in resultados:
                         spamwriter.writerow(item)
                     csvfile.close()
@@ -2124,14 +2164,22 @@ class PackageController(base.BaseController):
                 return stream
 
             if (vistaFormato == 'JSON'):
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + ".json" + '\"'),
-                                    ('Content-Type', 'text/json')]
-                return json.dumps(resultados)
+
+                #response.headers['Content-Type'] = 'application/json;charset=utf-8'
+                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) + ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
+
+                def date_handler(obj):
+                   return obj.isoformat() if hasattr(obj, 'isoformat') else obj
+
+                return json.dumps(resultados, default=date_handler)
+
 
             if (vistaFormato == 'XML'):
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + ".xml" + '\"'),
-                                    ('Content-Type', 'application/xml; charset=utf8')]
-                response.content_type = 'application/xml; charset=utf8'
+                response.headers['Content-Type'] = 'application/xml;charset=utf-8';
+                response.headers['Content-Disposition'] = 'attachment; filename=' + str(vistaNombre) + '.xml';
+                #response.headers['Content-Type'] = 'application/xml;charset=utf-8'
+                #response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + ".xml" + '\"'), ('Content-Type', 'application/xml; charset=utf8')]
+                #response.content_type = 'application/xml; charset=utf8'
                 root = ET.Element("root")
                 nombreLista = list(nombres)
                 date_xml = ET.Element("date")

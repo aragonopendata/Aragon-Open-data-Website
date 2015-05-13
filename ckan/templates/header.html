@@ -5,29 +5,45 @@
 <div id="cabeceraRelacionados">
 	<ul>
 		<li class="clear visible-xs tamCero"></li>
-                <li><a href="http://transparencia.aragon.es/" title="Transparencia" target="_blank">TRANSPARENCIA</a></li>
-                <li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana" target="_blank">PARTICIPACI&Oacute;N CIUDADANA</a></li>
-                <li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
+		<li><a href="http://transparencia.aragon.es" title="Transparencia" target="_blank">TRANSPARENCIA</a></li>
+		<li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana" target="_blank">PARTICIPACI&Oacute;N CIUDADANA</a></li>
+		<li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
 	</ul>
 </div>
 <div id="cabecera">
 	<ul>
-		<li><a href="http://www.aragon.es" target="_blank"><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></a></li>
+		<li><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></li>
 	</ul>
 </div>
 
 <div class="banner">
 	<div class="bannerInline bannerLogo" style="text-align: right;" >
-		<a href="/" title="ARAGÓN OPEN DATA"><img class=""  id="idTotal" src="http://opendata.aragon.es/public/i/logo_aod.png" alt="ARAGÓN OPEN DATA"></a>
+		<a href="/" title="ARAGÓN OPEN DATA"><img class=""  id="idTotal" src="/public/i/logo_aod.png" alt="ARAGÓN OPEN DATA"></a>
 	</div>
-	<div class="bannerInline bannerBuscador" style="text-align: left; padding-top: 1.5%;">
-		<form id="cajaBusqBanner" action="/catalogo" method="get">
-<!--			<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
+	<div class="bannerInline bannerBuscador" style="text-align: left; margin-top:0.5%;">
+		
+			<form id="cajaBusqBanner" action="/catalogo" method="get">
+<!--				<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
 			
-			<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner" type="text">
-			<button class="btn-search" type="submit">Buscar</button>
-			<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
-		</form>
+				<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput" type="text">
+				<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
+      {% if not c.userobj %}
+              <button class="btn-search" type="submit">Buscar</button>
+              <a href="{{ h.url_for('/user/login') }}" title="{{ _('Log in') }}">
+                <img src="/public/i/login.jpg" alt="{{ _('Log in') }}" class="btn-login">
+              </a>
+      {% else %}
+            {% block header_account_log_out_link %}
+              <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="Pizarra de administración">
+                <img src="/public/i/dashboard.jpg" alt="Pizarra de administración" class="btn-login">
+              </a>
+              <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+                <img src="/public/i/logout.jpg" alt="{{ _('Log out') }}" class="btn-login">
+              </a>
+            {% endblock %}
+      {% endif %}
+			</form>
+
 	</div>
 </div>
 <div class="clear"></div>
@@ -65,48 +81,3 @@
       </ul>
   </div>
 </nav>
-
-    <div class="container">
-      {% if c.userobj %}
-        <div class="account avatar authed d_d" data-module="me" data-me="{{ c.userobj.id }}">
-          <ul class="optionsLogged">
-            {% block header_account_logged %}
-            {% if c.userobj.sysadmin %}
-              <li>
-                <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
-                  <i class="icon-legal"></i>
-                </a>
-              </li>
-            {% endif %}
-            <li>
-              <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
-                {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''), size=22) }}
-                <span class="username">{{ c.userobj.display_name }}</span>
-              </a>
-            </li>
-            <li class="notifications {% if c.new_activities > 0 %}notifications-important{% endif %}">
-              {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', c.new_activities) %}
-              <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
-                <i class="icon-dashboard"></i>
-                <span>{{ c.new_activities }}</span>
-              </a>
-            </li>
-            {% block header_account_settings_link %}
-            <li>
-              <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
-                <i class="icon-cog"></i>
-              </a>
-            </li>
-            {% endblock %}
-            {% block header_account_log_out_link %}
-            <li>
-              <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
-                <i class="icon-signout"></i>
-              </a>
-            </li>
-            {% endblock %}
-            {% endblock %}
-          </ul>
-        </div>
-      {% endif %}
-    </div>

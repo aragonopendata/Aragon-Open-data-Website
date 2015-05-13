@@ -11,14 +11,14 @@ Example:
 #}
 
 <ul class="d_d">
-         <li><a href="javascript:changeOrder('sort={{orderType}}+asc')"  title="Orden ascendente">
+         <li><a href="javascript:changeOrder('sort={{orderType}}+asc', '{{destination}}')"  title="Orden ascendente">
 		{% if asc_selected %}
 			<img src="/public/i/buscaDatos/flechaBlancaUp.png" alt="Orden ascendente">
 		{% else %}
 			<img src="/public/i/buscaDatos/flechaAzulUp.png" alt="Orden ascendente">
 		{% endif %}
 	</a></li>
-         <li><a href="javascript:changeOrder('sort={{orderType}}+desc')"  title="Orden descendente">
+         <li><a href="javascript:changeOrder('sort={{orderType}}+desc', '{{destination}}')"  title="Orden descendente">
 		{% if desc_selected %}
 			<img src="/public/i/buscaDatos/flechaBlancaDown.png" alt="Orden descendente">
 		{% else %}

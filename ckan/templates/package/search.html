@@ -53,15 +53,15 @@
          <tr>
           <th class="cabeceraTablaResultadosDataset">
            <div class="labelCabeceraTablaResultadosDataset">{% snippet 'snippets/search_result_text.html', query=None, count=c.page.item_count, type='dataset' %}</div>
-	   {% snippet 'snippets/orderButtons.html', orderType='title_string', asc_selected=vars.title_string_asc, desc_selected=vars.title_string_desc %}
+	   {% snippet 'snippets/orderButtons.html', orderType='title_string', asc_selected=vars.title_string_asc, desc_selected=vars.title_string_desc, destination='' %}
           </th>
           <th class="cabeceraTablaResultadosDataset tamEstrecho">
             <div class="labelCabeceraTablaResultadosDataset">N&ordm; ACCESOS</div>
-	    {% snippet 'snippets/orderButtons.html', orderType='views_total', asc_selected=vars.views_total_asc, desc_selected=vars.views_total_desc  %}
+	    {% snippet 'snippets/orderButtons.html', orderType='views_total', asc_selected=vars.views_total_asc, desc_selected=vars.views_total_desc, destination=''  %}
           </th>
           <th class="cabeceraTablaResultadosDataset tamEstrecho">
            <div class="labelCabeceraTablaResultadosDataset">FECHA (ACT)</div>
-           {% snippet 'snippets/orderButtons.html', orderType='metadata_modified', asc_selected=vars.metadata_modified_asc, desc_selected=vars.metadata_modified_desc  %}
+           {% snippet 'snippets/orderButtons.html', orderType='metadata_modified', asc_selected=vars.metadata_modified_asc, desc_selected=vars.metadata_modified_desc, destination=''  %}
           </th>
         </tr>
       

@@ -10,25 +10,53 @@ Example:
   {% snippet "package/snippets/info.html", pkg=pkg %}
 
 #}
-{% if pkg and h.check_access('package_update', {'id':pkg.id }) %}
-  <section class="module module-narrow">
-    <h2 class="module-heading"><i class="icon-sitemap"></i> {{ _("Edit Dataset") }}</h2>
-    <ul class="unstyled nav nav-simple">
-      <li class="nav-item{% if action == 'package_edit' %} active{% endif %}">
-        {% link_for h.dataset_display_name(pkg)|truncate(30), controller='package', action='edit', id=pkg.name %}
-      </li>
-    </ul>
-    {% set resources = pkg.resources or [] %}
-    <h2 class="module-heading"><i class="icon-reorder"></i> {{ _("Edit Resources") }}</h2>
-    <ul class="unstyled nav nav-simple">
-      {% block package_resource_list %}
-      {% for resource in resources %}
-        <li class="nav-item{{ ' active' if active == resource.id }}">
-          {% link_for h.resource_display_name(resource)|truncate(30), controller='package', action='resource_edit', id=pkg.name, resource_id=resource.id, inner_span=true %}
-        </li>
-      {% endfor %}
-      {% endblock %}
-      <li class="nav-btn"><a href="{{ h.url_for(controller='package', action='new_resource', id=pkg.name)  }}" class="btn{% if action == 'resource_new' %} disabled{% endif %}"><i class="icon-plus"></i> {{ _('Add New Resource') }}</a></li>
-    </ul>
-  </section>
-{% endif %}
+
+{% import 'macros/form.html' as form %}
+
+
+{% set data = data or {} %}
+{% set errors = errors or {} %}
+{% set action = form_action or h.url_for(controller='package', action='new_resource', id=pkg.id) %}
+{% set pkg_id = pkg.id or '' %}
+
+<section class="module module-narrow">
+  {% set resources = pkg.resources or [] %}
+
+  <script>
+    var resourceCount = {{resources|length}}
+    var changedResource = new Array();
+    for (var i = 0; i < resourceCount+10; i++) {
+       changedResource[i] = false;
+    }
+    var currentViewResource = new Array();
+    var currentUser = '{{h.user_logged()}}';
+  </script>
+
+  {% for resource in resources %}
+    <div id="existing_resource{{ loop.index0 }}">
+      {% set actionExisting = h.url_for(controller='package', action='resource_edit', id=pkg.name, resource_id=resource.id) %}
+      {{ form.resourceItem(pkg_id=pkg.id, action=actionExisting, name=resource.name, format=resource.format, mimetype=resource.mimetype, mimetype_inner=resource.format, resource_type=resource.resource_type, url=resource.url, resource_id=resource.id, idx=loop.index0) }}
+
+      {% if resource.vista_id %}
+        <script>
+          currentViewResource[{{loop.index0}}] = '{{resource.vista_id}}';
+        </script>
+      {% else %}
+        <script>
+          currentViewResource[{{loop.index0}}] = '-1';
+        </script>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% for prefix in range(0, 10) %}
+    {% set aux_idx = prefix + resources|length %}
+    <div id="new_resource{{ aux_idx }}" class="oculto">
+      {{ form.resourceItem(pkg_id=pkg.id, action=action, name='', format='', mimetype='', mimetype_inner='', resource_type='', url='', resource_id='', idx=(aux_idx)) }}
+    </div>
+  {% endfor %}
+
+  <br>
+  <div style="padding-left:10px"><a class="hintPopup hintPopupAdd" title="Añadir" href="javascript:addResource();">+</a></div>
+
+</section>

@@ -31,11 +31,13 @@ Example:
 
         <div>
         <ul>
+           {% if not '/showVista' in url %}
            <li><a class="recuadroNoResaltado" href="{{ url }}" title="{{ res.name or res.description }}">
 
-           <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span>
+                <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span>
 
-        </a></li>
+            </a></li>
+           {% endif %}
         {% if elFormato.lower() == 'xls' %}
            {% set urlConversionFormato = '/catalogo/render/resource/' + res.name %}
            <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.xml' }}" title="{{ res.name or res.description }}">
@@ -68,6 +70,18 @@ Example:
            <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.ttl'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
              <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">TTL</span>
           </a></li>
+         {% endif %}
+
+         {% if '/showVista' in url %}
+           <li><a class="recuadroNoResaltado" href="{{ url +  '&formato=XML&name=' + res.name }}" title="{{ res.name or res.description }}">
+             <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">XML</span>
+           </a></li>
+           <li><a class="recuadroNoResaltado" href="{{ url +  '&formato=CSV&name=' + res.name }}" title="{{ res.name or res.description }}">
+             <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">CSV</span>
+           </a></li>
+           <li><a class="recuadroNoResaltado" href="{{  url + '&formato=JSON&name=' + res.name }}" title="{{ res.name or res.description }}">
+             <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">JSON</span>
+           </a></li>
          {% endif %}
          </ul>
          </div>

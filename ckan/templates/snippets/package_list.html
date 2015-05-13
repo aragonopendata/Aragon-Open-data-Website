@@ -16,6 +16,6 @@ Example:
 #}
 {% if packages %}
     {% for package in packages %}
-      {% snippet 'snippets/package_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title %}
+      {% snippet 'snippets/package_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title, edit_mode=edit_mode %}
     {% endfor %}
 {% endif %}

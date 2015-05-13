@@ -249,10 +249,10 @@ def make_map():
 
     # organizations these basically end up being the same as groups
     with SubMapper(map, controller='organization') as m:
-        m.connect('organizations_index', '/organization', action='index')
-        m.connect('/organization/list', action='list')
-        m.connect('/organization/new', action='new')
-        m.connect('/organization/{action}/{id}',
+        m.connect('organizations_index', '/organizacion', action='index')
+        m.connect('/organizacion/list', action='list')
+        m.connect('/organizacion/new', action='new')
+        m.connect('/organizacion/{action}/{id}',
                   requirements=dict(action='|'.join([
                       'delete',
                       'admins',
@@ -260,19 +260,21 @@ def make_map():
                       'member_delete',
                       'history'
                   ])))
-        m.connect('organization_activity', '/organization/activity/{id}',
+        m.connect('organization_activity', '/organizacion/actividad/{id}',
                   action='activity', ckan_icon='time')
-        m.connect('organization_read', '/organization/{id}', action='read')
-        m.connect('organization_about', '/organization/about/{id}',
+        m.connect('organization_read', '/organizacion/{id}', action='read')
+        m.connect('organization_about', '/organizacion/about/{id}',
                   action='about', ckan_icon='info-sign')
-        m.connect('organization_read', '/organization/{id}', action='read',
+ #       m.connect('organization_read', '/organizacion/{id}', action='read',
+#                  ckan_icon='sitemap')
+        m.connect('organization_read_actividad', '/organizacion/{id}/actividad/{offset}', action='read',
                   ckan_icon='sitemap')
-        m.connect('organization_edit', '/organization/edit/{id}',
+        m.connect('organization_edit', '/organizacion/edit/{id}',
                   action='edit', ckan_icon='edit')
-        m.connect('organization_members', '/organization/members/{id}',
+        m.connect('organization_members', '/organizacion/members/{id}',
                   action='members', ckan_icon='group')
         m.connect('organization_bulk_process',
-                  '/organization/bulk_process/{id}',
+                  '/organizacion/bulk_process/{id}',
                   action='bulk_process', ckan_icon='sitemap')
     register_package_plugins(map)
     register_group_plugins(map)
@@ -294,15 +296,19 @@ def make_map():
         m.connect('/user/activity/{id}/{offset}', action='activity')
         m.connect('user_activity_stream', '/user/activity/{id}',
                   action='activity', ckan_icon='time')
-        m.connect('user_dashboard', '/dashboard', action='dashboard',
+        m.connect('user_dashboard', '/pizarra', action='dashboard',
                   ckan_icon='list')
-        m.connect('user_dashboard_datasets', '/dashboard/datasets',
-                  action='dashboard_datasets', ckan_icon='sitemap')
-        m.connect('user_dashboard_groups', '/dashboard/groups',
+        m.connect('user_dashboard_datasets', '/pizarra/datos',
+                  action='dashboard', ckan_icon='sitemap')
+        m.connect('user_dashboard_groups', '/pizarra/groups',
                   action='dashboard_groups', ckan_icon='group')
-        m.connect('user_dashboard_organizations', '/dashboard/organizations',
+        m.connect('user_dashboard_organizations', '/pizarra/organizations',
                   action='dashboard_organizations', ckan_icon='building')
-        m.connect('/dashboard/{offset}', action='dashboard')
+        m.connect('/pizarra/info-organizacion', action='dashboard', offset=0)
+        m.connect('/pizarra/actividad', action='dashboard', offset=0)
+        m.connect('/pizarra/actividad/{offset}', action='dashboard')
+        m.connect('/pizarra/datos', action='dashboard', page_offset=1)
+        m.connect('/pizarra/datos/{page_offset}', action='dashboard')
         m.connect('user_follow', '/user/follow/{id}', action='follow')
         m.connect('/user/unfollow/{id}', action='unfollow')
         m.connect('user_followers', '/user/followers/{id:.*}',
@@ -444,6 +450,11 @@ def make_map():
         m.connect('/{tema}/informacion-estadistica', action='searchAOD', tipo='informacion-estadistica') 
 
         m.connect('/tema-estadistico/{temaEstadistico}', action='searchAOD')
+        
+        m.connect('/base-datos', action='searchAOD', tipo='base-datos')
+        m.connect('/base-datos/{temaBBDD}', action='searchAOD', tipo='base-datos')
+        m.connect('/busqueda-libre', action='searchAOD', tipo='busqueda-libre')
+        m.connect('/busqueda-libre/{queryLibre}', action='searchAOD', tipo='busqueda-libre')
 
         m.connect('add dataset', '/new', action='new')
 

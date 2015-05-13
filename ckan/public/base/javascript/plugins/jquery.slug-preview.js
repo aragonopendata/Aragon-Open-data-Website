@@ -37,7 +37,7 @@
         value.text(val);
       }
 
-      preview.find('strong').text(options.i18n['URL'] + ':');
+      preview.find('label').text(options.i18n['URL']);
       preview.find('.slug-preview-prefix').text(options.prefix);
       preview.find('button').text(options.i18n['Edit']).click(function (event) {
         event.preventDefault();
@@ -67,9 +67,10 @@
     },
     template: [
       '<div class="slug-preview">',
-      '<strong></strong>',
+      '  <div style="height:22px"></div>',
+      '<label class="control-label fieldName" for="field-title"></label><div style="height:44px"></div>',
       '<span class="slug-preview-prefix"></span><span class="slug-preview-value"></span>',
-      '<button class="btn btn-mini"></button>',
+      '<button class="recuadroRedondeado"></button>',
       '</div>'
     ].join('\n')
   };

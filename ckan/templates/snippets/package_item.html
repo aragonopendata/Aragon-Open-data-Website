@@ -38,14 +38,21 @@ Example:
         {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
       </h3>
       </td>
-      <td>
-	{{ package.tracking_summary.total }}
-      </td>
-     <td>
-      {% if package.metadata_modified %}
-        {% set aux = (package.metadata_modified.split("T"))[0].split("-") %}
-        {{aux[2]+'.'+aux[1]+'.'+aux[0]}}
+      {% if not edit_mode %}
+        <td>
+          {{ package.tracking_summary.total }}
+        </td>
       {% endif %}
-    </td>
+      <td>
+        {% if package.metadata_modified %}
+          {% set aux = (package.metadata_modified.split("T"))[0].split("-") %}
+          {{aux[2]+'.'+aux[1]+'.'+aux[0]}}
+        {% endif %}
+      </td>
+      {% if edit_mode %}
+        <td>
+          <a href="{{h.url_for(controller='package', action='edit', id=package.name)}}" title="Editar"><img src="/public/i/edit.png" alt="Editar"></a>
+        </td>
+      {% endif %}
   {% endblock %}
 </tr>

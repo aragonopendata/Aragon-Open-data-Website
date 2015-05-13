@@ -1,5 +1,10 @@
 {% extends "package/base.html" %}
 
+{% block scripts %}
+  {{ super() }}
+  {% resource 'vendor/fileupload' %}
+{% endblock %}
+
 {% block primary_content %}
   <section class="module">
     <div class="module-content">

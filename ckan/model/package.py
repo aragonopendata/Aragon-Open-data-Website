@@ -24,9 +24,9 @@ __all__ = ['Package', 'package_table', 'package_revision_table',
            'PACKAGE_NAME_MAX_LENGTH', 'PACKAGE_NAME_MIN_LENGTH',
            'PACKAGE_VERSION_MAX_LENGTH', 'PackageTagRevision', 'PackageRevision']
 
-PACKAGE_NAME_MAX_LENGTH = 100
+PACKAGE_NAME_MAX_LENGTH = 200
 PACKAGE_NAME_MIN_LENGTH = 2
-PACKAGE_VERSION_MAX_LENGTH = 100
+PACKAGE_VERSION_MAX_LENGTH = 200
 
 ## Our Domain Object Tables
 package_table = Table('package', meta.metadata,

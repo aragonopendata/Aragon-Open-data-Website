@@ -38,7 +38,7 @@
        <py:if test="rsc_dict.get('description')">
          <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
        </py:if>
-         <dct:license rdf:resource="${c.pkg_dict['license_url']}" />
+         <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
        </dcat:Distribution>
      </dcat:distribution>
     </py:for>

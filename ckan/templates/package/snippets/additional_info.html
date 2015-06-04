@@ -28,14 +28,12 @@
         {% endif %}
     {% endfor %}
 
+  {% if pkg_dict.organization %}
   <div class="fieldName">Publicador</div>
-  <div class="fieldValue">  
-     {% if pkg_dict.url != '' %}
-		<a href="{{pkg_dict.url}}" title="{{c_aux.pkg_author_link}}">{{c_aux.pkg_author_link}}</a>
-      {% else %}
-		{{c_aux.pkg_author_link}}
-      {% endif %}
+  <div class="fieldValue">
+    <a href="/catalogo/organizacion/{{pkg_dict.organization.name}}" title="{{pkg_dict.organization.title}}">{{pkg_dict.organization.title}}</a>
   </div>
+  {% endif %}
   
     {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}

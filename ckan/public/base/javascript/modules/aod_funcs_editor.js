@@ -298,7 +298,7 @@ function initializeAutocompletes() {
         response( $.grep( comarca, function( value ) {
           value = value.label || value.value || value;
           return matcher.test( value ) || matcher.test( normalize( value ) );
-        }) );
+        }).slice(0, 10) );
       },
       change: function( event, ui ) {
         var valid = false;
@@ -332,7 +332,7 @@ function initializeAutocompletes() {
         response( $.grep( munis, function( value ) {
           value = value.label || value.value || value;
           return matcher.test( value ) || matcher.test( normalize( value ) );
-        }) );
+        }).slice(0, 10) );
       },
       change: function( event, ui ) {
         var valid = false;

@@ -623,7 +623,7 @@ class UserController(base.BaseController):
         def pager_url(q=None, page=None):
             params = list(params_nopage)
             params.append(('page', page))
-            return '/catalogo/dashboard/datos/%d' % page
+            return '/catalogo/pizarra/datos/%d' % page
 
         try:
 #            page = int(request.params.get('page', 1))

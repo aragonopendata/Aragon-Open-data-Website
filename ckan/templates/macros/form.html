@@ -604,14 +604,14 @@ Example
   <input autocomplete="off" name="package_id" value="{{ pkg_id }}" type="hidden"/>
 
         <table style="table-layout:fixed;padding:10px;width:100%;">
-          <tr><td class="fieldNameName"><p class="i_i">NOMBRE DEL RECURSO</p></td><td style="width:100px"></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE DESCARGA</p></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE ACCESO</p></td><td style="width:20px"></td></tr>
+          <tr><td class="fieldNameName"><p class="i_i">NOMBRE DEL RECURSO</p></td><td style="width:100px"></td><td class="fieldNameNotName"><p class="i_i">MODO DE ACCESO</p></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE DESCARGA</p></td><td style="width:20px"></td></tr>
           <tr>
             <td colspan="2"><input onchange="changesOnResource({{idx}})" autocomplete="off" id="nameRes{{ idx }}" style="width:350px;" type="text" name="name" value="{{ name }}" placeholder="Nombre" /></td>
             <td>
-              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeRes{{ idx }}" style="width:170px;" type="text" name="mimetype" value="{{ mimetype }}" placeholder="Formato de descarga" />
+              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeRes{{ idx }}" style="width:170px;" type="text" name="mimetype" value="{{ mimetype }}" placeholder="Modo de acceso" />
             </td>
             <td>
-              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeInnerRes{{ idx }}" style="width:170px;" type="text" name="format" value="{{ mimetype_inner }}" placeholder="Formato de acceso" />
+              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeInnerRes{{ idx }}" style="width:170px;" type="text" name="format" value="{{ mimetype_inner }}" placeholder="Formato de descarga" />
             </td>
             <td>
             {% if resource_id %}

@@ -6,7 +6,6 @@
   {% else %}
     var isEditing = false;
   {% endif %}
-
   {% if h.check_access('sysadmin') %}
     var isSysAdmin = true;
   {% else %}
@@ -96,21 +95,21 @@ then itself be extended to add/remove blocks of functionality. #}
 
   {% call form.input_block(for='', label="Ficheros de datos", error="", classes=[], control_classes=[], extra_html="", mandatory="*", moreInfo='Ejemplo 1:
 "Nombre: OASIEncuestaTICHogares2010"
+"Modo de acceso: ZIP"
 "Formato de descarga: XLS"
-"Formato de acceso: ZIP"
 "Enlaza a un archivo, ruta: http://xxxxxxxxxx.zip"
 
 Ejemplo2:
 "Nombre: Cafeterías y restaurantes en la Comunidad Autónoma de Aragón"
+"Modo de acceso:" En este caso lo dejamos en blanco ya que no hay un formato intermedio para acceder al formato de descarga
 "Formato de descarga: JSON"
-"Formato de acceso:" En este caso lo dejamos en blanco ya que no hay un formato intermedio para acceder al formato de descarga
 "Vista de base de datos, http://xxxxxxxxxx.id=xxx"', showLabel=true) %}
   {% endcall %}
 <div>
 <ul style="list-style:disc;padding-left:30px; padding-right:10px">
 <li>Nombre del recurso: Introduce un nombre descriptivo del archivo descargable, puedes utilizar el mismo nombre que para el conjunto de datos</li>
+<li>Modo de acceso: Si a tu descargable se accede a través de algún formato intermedio (por ejemplo, a través de una página web => HTML, de un fichero comprimido => ZIP…) indícanoslo en este campo. Si no existe un formato intermedio deja este campo en blanco</li>
 <li>Formato de descarga: Introduce el formato del recurso que contiene la información</li>
-<li>Formato de acceso: Si a tu descargable se accede a través de algún formato intermedio (por ejemplo, a través de una página web => HTML, de un fichero comprimido => ZIP…) indícanoslo en este campo. Si no existe un formato intermedio deja este campo en blanco</li>
 <li>Acceso al recurso: Elige si enlazar a una URL de descarga, conectar con una vista de base de datos o subir un recurso a nuestro servidor (este último caso lo desaconsejamos y sólo se realizará si no existe otra forma de suministrar la información)</li>
 </ul>
 </div>
@@ -140,9 +139,7 @@ function ocultarDatos(bool, id){
     }
 }
 */
-
  var usrLogged = "{{h.user_logged()}}";
-
 </script>
 </div>
 </div>

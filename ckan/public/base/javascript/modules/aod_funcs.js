@@ -1,34 +1,36 @@
 	// mover la cabecera superior al hacer scroll
 $(function(){
 	$(window).scroll(function() {
-		$html = $("html");
+		if ($(window).width()>1024){
+			$html = $("html");
 		
-		//Esto se debe de modificar ya que todos los navegadores lo pueden hacer de modo diferente
-		/*if($html.hasClass('webkit')){
-			var scrollTop = $("body")[0].scrollTop;
-		}else if($html.hasClass('firefox')){
-			var scrollTop = $("html")[0].scrollTop;
-		}else{
-			var scrollTop = $(document).scrollTop();
+			//Esto se debe de modificar ya que todos los navegadores lo pueden hacer de modo diferente
+			/*if($html.hasClass('webkit')){
+				var scrollTop = $("body")[0].scrollTop;
+			}else if($html.hasClass('firefox')){
+				var scrollTop = $("html")[0].scrollTop;
+			}else{
+				var scrollTop = $(document).scrollTop();
 			
-			//var scrollTop = $("body")[0].scrollTop;
-			//var scrollTop = $("html")[0].scrollTop;
-		}*/
+				//var scrollTop = $("body")[0].scrollTop;
+				//var scrollTop = $("html")[0].scrollTop;
+			}*/
 
 		
-		//Con window creo que pilla La barra de scroll ya que el lÃ­mite esta en 754 con lo que esta barra tiene 14 pixeles
-		//if (($( window ).width()>754) && ( scrollTop >= 160)){
-		if (($( window ).width()>754) && ($(document).scrollTop() >= 160)){
-			$('body').addClass('mini');
+			//Con window creo que pilla La barra de scroll ya que el lÃ­mite esta en 754 con lo que esta barra tiene 14 pixeles
+			//if (($( window ).width()>754) && ($(document).scrollTop() >= 160)){
+			if ($(document).scrollTop() >= 160){
+				$('body').addClass('mini');
+			}
+			else{
+				$('body').removeClass('mini');
+			}
+			/*if( scrollTop < 160 ){
+				$('body').removeClass('mini');
+			}else{
+				$('body').addClass('mini');
+			}*/
 		}
-		else{
-			$('body').removeClass('mini');
-		}
-		/*if( scrollTop < 160 ){
-			$('body').removeClass('mini');
-		}else{
-			$('body').addClass('mini');
-		}*/
 	});
 	$("body").trigger('scroll');
 });
@@ -121,7 +123,23 @@ $(document).ready(function() {
       $("#cajaDeBusqInput").css("background", "#FFFFFF");
     }
   });
-
+//  var ancho = $(window).width();
+//  var alto = $(window).height();
+//	alert('Ancho '+ancho+' y de alto '+alto);
+	modificaComboBusqueda();
+	
+	resposiveResultadosDatasets();
+	responsiveVisorDataset();
+	
+	
+	$(window).resize(function() {
+		modificaComboBusqueda();
+		resposiveResultadosDatasets();
+		responsiveVisorDataset();
+	});
+	
+	
+	
 	var config  = {
 		disable_search: true
 	};
@@ -714,3 +732,179 @@ function pintaMenuBuscador(){
 }
 
 
+//Función que sirve para redimensionar el segundo combobox en la búsqueda de estadística
+function redimensionaComboEstadistica(){
+	if ($('select#estadisNivel1_Filter').val()!=null){
+		$('select#estadisNivel1_Filter').on('change',function(){
+			var filtro = $(this).val();;
+			var selector = "#estadisNivel2_grp"+filtro+"_Filter_chosen";
+			//alert('holaholahola asdf '+selector);
+			if ($(window).width()<840) {
+				var ancho = $('.tablaResultadosDataset').width();
+				$(selector).css('width', ancho+'px');
+			}
+			else{
+				$(selector).css('width', '180px');
+			}
+		});
+	}
+}
+
+
+//Esta función mueve el combobox de búsqueda si es inferior a 840 px
+function modificaComboBusqueda(){
+	if ($('.chosen-single span:contains("Base de datos")').length){
+		//alert('Hacemos grandre el filtro de base de datos');
+		//$('.filtro').attr("style","width: 525px !important;");
+		//$('.filtro').width(525);
+	}
+	
+	if (($(window).width()<=840) && ($(".searchTypesOptions .d_d ").length)){
+		//$(".buscaDatos .module").prepend('<div class="busquedaTipo"><img src="/public/i/buscaDatos/filtradoPor.png" alt="FILTRADO POR" title="Filtrado por" style="height:11px;"></div>');
+		$(".buscaDatos .module").prepend('<div class="busquedaTipo"></div>');
+		$(".busquedaTipo").css('padding-bottom', '15px');
+		$(".busquedaTipo").append($(".searchTypesOptions .d_d "));
+		$(".busquedaTipo").append($('.busquedaTipo li select'));
+		$(".busquedaTipo").append($('.busquedaTipo li #tipoBusquedaFilter_chosen'));
+		$(".busquedaTipo li").remove();
+	}
+	//else if (($(window).width()>840) && ($(".searchTypesOptions .d_d ").length==0)) {
+	else if (($(window).width()>840) && ($(".busquedaTipo").length>0)) {
+		location.reload();
+	}
+	
+	//Esto lo uso para cuando tenga que recargar la web
+	if (($(window).width()<684) && ($('.filtro img').is(":visible"))){
+		$(".busquedaTipo").prepend('<div class="recargando"></div>');
+	}
+	
+	//if ($(window).width()<684) {
+	if ($(window).width()<840) {
+		$('.filtro img').hide();
+		$('.busquedaTipo img').hide();
+		//El mismo ancho que la tabla
+		var ancho = $('.tablaResultadosDataset').width();
+		if (ancho == null){
+			ancho = $(window).width()-20;
+		}
+		$('.busquedaTipo').removeAttr('style');
+		$('.busquedaTipo').css('width', ancho+'px');
+		$('.chosen-container').css('width', ancho+'px');
+		$('.chosen-drop').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('.busquedaTipo');
+		$('#tipoBusquedaFilter').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#tipoBusquedaFilter');
+		$('.filtro').removeAttr('style');
+		$('.filtro').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('.filtro');
+		$('#temaFilter').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#temaFilter');
+		$('#tipoFilter').css('width', ancho+'px'); 
+		aniadePropertiesParaAlinearInputYSelect('#tipoFilter');
+		$('#bbddFilter').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#bbddFilter');
+		$('#estadisNivel1_Filter').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel1_Filter');
+		$('#cajaDeBusqInputLibre').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#cajaDeBusqInputLibre');
+		$('#cajaDeBusqInputLibre').attr("placeholder", "Término de búsqueda  ");
+		$('#txtHOMER').css('width', ancho+'px');
+		$('#txtHOMER').css('margin-bottom', '15px');
+		$('#txtHOMER').attr("placeholder", "Término de búsqueda en HOMER  ");
+		$('#txtHOMER').css('height','20px');
+		aniadePropertiesParaAlinearInputYSelect('#txtHOMER');
+		$('#langHOMERFilter').css('width', (ancho*85)/100+'px');
+		
+		
+		$('#estadisNivel2_grp01_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp02_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp03_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp04_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp05_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp06_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp07_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp08_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp09_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp10_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp11_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp12_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp13_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp14_Filter').css('width', ancho+'px');
+		$('#estadisNivel2_grp15_Filter').css('width', ancho+'px');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp01_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp02_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp03_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp04_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp05_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp06_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp07_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp08_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp09_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp10_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp11_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp12_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp13_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp14_Filter');
+		aniadePropertiesParaAlinearInputYSelect('#estadisNivel2_grp15_Filter');
+		$('img[alt="BUSCAR EN HOMER"]').removeClass('i_i');
+		$('img[alt="BUSCAR EN HOMER"]').css('float', 'right');
+		$('img[alt="BUSCAR EN HOMER"]').css('margin-top', '-36px');
+	}
+	if(($(window).width()>=840) && ($('.recargando').length>0 ))  {
+		location.reload();
+	}
+}
+
+//Esta función añade a las properties necesarias para que los input y los combos se vean alineados, selector sera el el selector por ejemplo .filtro
+function aniadePropertiesParaAlinearInputYSelect(selector){
+	//$(selector).css('padding', '0');
+	//$(selector).css('margin', '0');
+	$(selector).css('-moz-box-sizing', 'border-box');
+	$(selector).css('-webkit-box-sizing', 'border-box');
+	$(selector).css('box-sizing', 'border-box');
+	//$(selector).css('float', 'right');
+}
+
+//Esta función borra la columna según cual sea su ancho
+function resposiveResultadosDatasets(){
+	
+	$(".tablaResultadosDataset th:nth-child(2)").show();
+	$(".tablaResultadosDataset td:nth-child(2)").show();
+	$(".tablaResultadosDataset th:nth-child(3)").show();
+	$(".tablaResultadosDataset td:nth-child(3)").show();
+	
+	//Borramos la columna de nº de accesos
+	if ($(window).width()<800) {
+		$(".tablaResultadosDataset th:nth-child(2)").hide();
+		$(".tablaResultadosDataset td:nth-child(2)").hide();
+		
+		//Borramos la fecha
+		if ($(window).width()<741) {
+			$(".tablaResultadosDataset th:nth-child(3)").hide();
+			$(".tablaResultadosDataset td:nth-child(3)").hide();
+		}
+	}
+}
+
+
+//Esta funcion sirve para hacer responsive o no 
+function responsiveVisorDataset(){
+	if ($(".previewZone").length>0 ){
+		if ($(window).width()<1024) {
+			$(".previewZone").hide();
+			$('.metadataZone').css('margin','auto');
+			$('.resourceZone').css({
+				'width': $('.metadataZone').width()+'px',
+				'margin-right':'auto',
+				'margin-left':'auto',
+				'margin-bottom':'10px',
+				'margin-top':'10px'
+			});
+		}
+		else{
+			$(".previewZone").show();
+			$('.metadataZone').removeAttr('style');
+			$('.resourceZone').removeAttr('style');
+		}
+	}
+}

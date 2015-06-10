@@ -12,7 +12,6 @@
     </tr>
     {% set webpageList = [] %}
     {% set addressList = [] %}
-    {% set emailList = [] %}
     {% set personList = [] %}
 
     {% for extra in h.sorted_extras(group_dict.extras) %}
@@ -21,8 +20,6 @@
           {% do webpageList.append(value) %}
         {% elif key == 'address' %}
           {% do addressList.append(value) %}
-        {% elif key == 'email' %}
-          {% do emailList.append(value) %}
         {% elif key == 'person' %}
           {% do personList.append(value) %}
         {% endif %}

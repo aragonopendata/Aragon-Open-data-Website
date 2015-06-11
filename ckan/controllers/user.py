@@ -631,8 +631,6 @@ class UserController(base.BaseController):
         except ValueError, e:
             abort(400, ('"page" parameter must be an integer'))
 
-        log.info("page es")
-        log.info(page)
         limit = g.datasets_per_page
         fq = ' +dataset_type:dataset'
         # most search operations should reset the page counter:

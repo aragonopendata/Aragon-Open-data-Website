@@ -1206,6 +1206,7 @@ function updateOrganizationInfo() {
 function updateUserInfo() {
   if (checkUserInfoRequired()) {
     showPleaseWait();
+    $("#field-email-for-password").val($("#field-username-email").val());
     $.ajax({
        async: false,
        url: $("#updatePasswordForm")[0].action,

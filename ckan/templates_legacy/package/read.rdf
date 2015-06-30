@@ -25,22 +25,42 @@
     <dct:publisher><foaf:name>${ c.pkg_dict['author'] }</foaf:name></dct:publisher>
 
     <py:for each="rsc_dict in c.pkg_dict['resources']">
-    <dcat:distribution>
-       <dcat:Distribution rdf:about="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format').lower()}">
-         <dcat:accessURL rdf:resource="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '.' + rsc_dict.get('format').lower()}" />
-         <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
-         <dct:format py:if="rsc_dict.get('format')">
-           <dct:IMT>
+      <dcat:distribution>
+      <py:choose>
+      <py:when test="rsc_dict.get('format').find('/') != -1">
+        <dcat:Distribution rdf:about="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() + rsc_dict.get('format')[rsc_dict.get('format').find('/'):]}">
+          <dcat:accessURL rdf:resource="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() + rsc_dict.get('format')[rsc_dict.get('format').find('/'):]}" />
+          <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
+          <dct:format py:if="rsc_dict.get('format')">
+            <dct:IMT>
+              <rdf:value>${rsc_dict.get('mimetype')}</rdf:value>
+              <rdfs:label>${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower()}</rdfs:label>
+            </dct:IMT>
+          </dct:format>
+        <py:if test="rsc_dict.get('description')">
+          <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
+        </py:if>
+          <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
+        </dcat:Distribution>
+      </py:when>
+      <py:otherwise>
+        <dcat:Distribution rdf:about="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format').lower()}">
+        <dcat:accessURL rdf:resource="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '.' + rsc_dict.get('format').lower()}" />
+          <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
+          <dct:format py:if="rsc_dict.get('format')">
+            <dct:IMT>
               <rdf:value>${rsc_dict.get('mimetype')}</rdf:value>
               <rdfs:label>${rsc_dict.get('format')}</rdfs:label>
-           </dct:IMT>
-         </dct:format>
-       <py:if test="rsc_dict.get('description')">
-         <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
-       </py:if>
-         <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
-       </dcat:Distribution>
-     </dcat:distribution>
+            </dct:IMT>
+          </dct:format>
+          <py:if test="rsc_dict.get('description')">
+            <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
+          </py:if>
+          <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
+         </dcat:Distribution>
+      </py:otherwise>
+      </py:choose>
+      </dcat:distribution>
     </py:for>
 
     <dct:identifier rdf:datatype="xsd:anyURI">http://opendata.aragon.es/catalogo/${c.pkg_dict['name']}</dct:identifier>

@@ -39,6 +39,10 @@
 
       preview.find('label').text(options.i18n['URL']);
       preview.find('.slug-preview-prefix').text(options.prefix);
+
+      if (options.allowmodification) {
+        preview.find('button').removeClass("oculto");
+      }
       preview.find('button').text(options.i18n['Edit']).click(function (event) {
         event.preventDefault();
         element.show();
@@ -70,7 +74,7 @@
       '  <div style="height:22px"></div>',
       '<label class="control-label fieldName" for="field-title"></label><div style="height:44px"></div>',
       '<span class="slug-preview-prefix"></span><span class="slug-preview-value"></span>',
-      '<button class="recuadroRedondeado"></button>',
+      '<button class="oculto recuadroRecto"></button>',
       '</div>'
     ].join('\n')
   };

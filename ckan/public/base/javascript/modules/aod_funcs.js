@@ -61,7 +61,7 @@ function changeOrder(newOrder, destinationUrl) {
 	}
    
 	if (destinationUrl) {
-		window.location = currentUrl + "?" + txtToFind + "&" + newOrder ;		
+		window.location = destinationUrl + "?" + txtToFind + "&" + newOrder ;		
 	} else {
 		if (currentUrl) {
 			 // mirar si tiene ?

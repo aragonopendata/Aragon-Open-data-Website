@@ -28,18 +28,21 @@ Example:
         {% set hayFormatoConBarra = res.format.find('/') %}
         {% set elFormato = res.format if (hayFormatoConBarra == -1) else res.format[0:res.format.find('/')] %}
         {% set restoFormato = '' if (hayFormatoConBarra == -1) else res.format[res.format.find('/'):] %}
+        {% set modoAcceso = res.mimetype %}
 
         <div>
         <ul>
            {% if not '/showVista' in url %}
-           <li><a class="recuadroNoResaltado" href="{{ url }}" title="{{ res.name or res.description }}">
+           <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">
 
                 <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span>
 
             </a></li>
            {% endif %}
         {% if elFormato.lower() == 'xls' %}
-           {% set urlConversionFormato = '/catalogo/render/resource/' + res.name %}
+           {# Si se tiene algún modo de acceso (zip, html...) no se mostraran las conversiones a xml, csv y json que se generan al vuelo, en caso de tenerlo si #}
+           {% if not modoAcceso  %}
+              {% set urlConversionFormato = '/catalogo/render/resource/' + res.name %}
            <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.xml' }}" title="{{ res.name or res.description }}">
              <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">XML</span>
            </a></li>
@@ -55,6 +58,7 @@ Example:
             <a py:if="res.get('format') == 'XLS'" class="recuadroNoResaltado" href="${h.resource_url_for(res, 'csv')}" title="${h.resource_display_name(res)} (${res.get('format')})">CSV</a>
             <a py:if="res.get('format') == 'XLS'" class="recuadroNoResaltado" href="${h.resource_url_for(res, 'json')}" title="${h.resource_display_name(res)} (${res.get('format')})">JSON</a>
 %#}
+           {% endif %}
          {% endif %}
          {% if '/recurso/territorio/' in url %}
            {% set splitURL = url.split("?") %}

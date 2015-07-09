@@ -8,107 +8,200 @@
   xmlns:dcat="http://www.w3.org/ns/dcat#"
   xmlns:dct="http://purl.org/dc/terms/"
   xmlns:adms="http://www.w3.org/ns/adms#"
->
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:time="http://www.w3.org/2006/time#"
+  xmlns:dbpedia="http://dbpedia.org/ontology/"
+  xmlns:aragodef="http://opendata.aragon.es/def/Aragopedia.html"
+  >
+  
   <dcat:Dataset rdf:about="${ h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}">
-    <dct:title xml:lang="es">${c.pkg_dict['title']}</dct:title>
-    <dct:description xml:lang="es">${c.pkg_dict['notes']}</dct:description>
+   
+    <dct:title py:if="c.pkg_dict['title']" xml:lang="es">${c.pkg_dict['title']}</dct:title>
+    
+    <dct:description py:if="c.pkg_dict['notes']" xml:lang="es">${c.pkg_dict['notes']}</dct:description>
  
    <py:for each="group in c.pkg_dict['groups']">
     <dcat:theme rdf:resource="http://opendata.aragon.es/catalogo/${group.get('name')}">${group.get('title')}</dcat:theme>
    </py:for>
 
    <py:for each="tag_dict in c.pkg_dict['tags']">
-    <dcat:keyword>${ tag_dict["name"] }</dcat:keyword>
+    <dcat:keyword  xml:lang="es">${ tag_dict["name"] }</dcat:keyword>
    </py:for>
+   
+   <dct:identifier py:if="c.pkg_dict['name']" rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://opendata.aragon.es/catalogo/${c.pkg_dict['name']}</dct:identifier>
+   
+   <dct:issued py:if="c.pkg_dict['metadata_created']" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${c.pkg_dict['metadata_created']}</dct:issued>
+   
+   <dct:modified py:if="c.pkg_dict['metadata_modified']" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${c.pkg_dict['metadata_modified']}</dct:modified> 
+   
+   <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+       <py:if test="extra_dict.get('key', '') == 'Data Frequency'">
+         <dct:accrualPeriodicity>
+          <dct:Frequency>
+           <rdfs:label xml:lang="es">${extra_dict.get('value','')}</rdfs:label> 
+          </dct:Frequency>
+         </dct:accrualPeriodicity>
+       </py:if>
+    </py:for>
+    
+    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+      
+      <dc:language py:if="extra_dict.get('key', '') == 'langES'">es</dc:language>
+      <dc:language py:if="extra_dict.get('key', '') == 'langEN'">en</dc:language>
+      <dc:language py:if="extra_dict.get('key', '') == 'langAR'">an</dc:language>
+      <dc:language py:if="extra_dict.get('key', '') == 'langFR'">fr</dc:language>
+      <dc:language py:if="extra_dict.get('key', '') == 'langOtherValue'">${extra_dict.get('value','')}</dc:language>
+    </py:for>
 
-    <dct:publisher rdf:resource="${c.pkg_dict['url']}" />
-    <dct:publisher><foaf:name>${ c.pkg_dict['author'] }</foaf:name></dct:publisher>
+    <dct:publisher py:if="c.pkg_dict.get('organization', None)" rdf:resource="${'http://opendata.aragon.es/catalogo/'+ c.pkg_dict.get('organization').get('name') }"/>
+
+    <dct:license rdf:resource="http://creativecommons.org/licenses/by/4.0/rdf" /> 
+    <dct:license rdf:resource="http://creativecommons.org/licenses/by/4.0" /> 
+    
+    <dct:spatial>
+    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+        <dct:title py:if="extra_dict.get('key', '') == 'nameAragopedia'" xml:lang="es">${extra_dict.get('value','')} </dct:title>
+        <py:choose>
+            <py:when test="extra_dict.get('key', '') == 'typeAragopedia'">
+               <py:choose>
+                 <py:when test="extra_dict.get('value', '') == 'Aragón'">
+                   <aragodef:ComunidadAutonoma xml:lang="es">Aragón</aragodef:ComunidadAutonoma>
+                 </py:when>
+                 <py:when test="extra_dict.get('value', '') == 'Provincia'">
+                   <dbpedia:Province xml:lang="es">Provincia</dbpedia:Province>
+                 </py:when>
+                 <py:when test="extra_dict.get('value', '') == 'Comarca'">
+                    <aragodef:Comarca xml:lang="es">Comarca</aragodef:Comarca>
+                 </py:when>
+                 <py:when test="extra_dict.get('value', '') == 'Municipio'">
+                   <dbpedia:Municipality xml:lang="es">Municipio</dbpedia:Municipality>
+                 </py:when>
+                 <py:when test="extra_dict.get('value', '') == 'Otro'">
+                  </py:when>
+                </py:choose>
+            </py:when>
+        </py:choose>
+        <py:choose>
+          <py:when test="extra_dict.get('key', '') == 'uriAragopedia'">
+             <rdf:resource>${extra_dict.get('value','')+'?api_key=e103dc13eb276ad734e680f5855f20c6'}</rdf:resource>
+          </py:when>
+        </py:choose>
+    </py:for>
+    </dct:spatial>
+    
+    <dct:temporal>
+      <time:Interval>
+        <rdf:type rdf:resource="http://purl.org/dc/terms/PeriodOfTime" /> 
+        <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+          <py:choose>
+            <py:when test="extra_dict.get('key', '') == 'TemporalFrom'">
+              <time:hasBeginning>
+                <time:Instant>
+                  <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                   ${extra_dict.get('value','')}
+                  </time:inXSDDate>
+                </time:Instant>
+              </time:hasBeginning> 
+            </py:when>
+            <py:when test="extra_dict.get('key', '') == 'TemporalUntil'">
+              <time:hasEnd> 
+                <time:Instant>
+                  <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"> 
+                  <py:choose>
+                      <py:when test="extra_dict.get('value','')==''">
+                       9999-12-31
+                      </py:when>
+                      <py:otherwise>
+                        ${extra_dict.get('value','')}
+                      </py:otherwise>
+                    </py:choose>
+                    
+                  </time:inXSDDate> 
+                </time:Instant>
+              </time:hasEnd>
+            </py:when>
+          </py:choose>
+        </py:for>
+      </time:Interval>
+    </dct:temporal>
+
+    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+       <dct:references py:if="extra_dict.get('key', '') == 'Granularity'">
+        <rdf:Description>
+          <rdfs:label xml:lang="es">${extra_dict.get('key','')}</rdfs:label>
+          <rdfs:value xml:lang="es">${extra_dict.get('value','')}</rdfs:value> 
+        </rdf:Description>
+       </dct:references>
+    </py:for>
+    
+    
+<?python
+  dataQualityURLs=[]
+  dataDictionaryURLs=[]
+  for extra_dict in c.pkg_dict.get('extras',None):
+    for i in range(0, 9):
+      if extra_dict.get('key', '') == 'Data Quality URL'+str(i):
+        dataQualityURLs.append(extra_dict.get('value', ''))
+      if extra_dict.get('key', '') == 'Data Dictionary URL'+str(i):
+        dataDictionaryURLs.append(extra_dict.get('value', ''))
+  
+?>
+    
+    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+       <py:if test="extra_dict.get('key', '') == 'Data Quality'">
+         <dct:references>
+          <rdf:Description>
+            <rdfs:label xml:lang="es">${extra_dict.get('key','')}</rdfs:label>
+            <rdfs:value xml:lang="es">${extra_dict.get('value','')}</rdfs:value>
+            <py:for each="dataQualityURL in dataQualityURLs">
+              <rdf:resource>${dataQualityURL}</rdf:resource> 
+            </py:for>
+          </rdf:Description>
+         </dct:references>
+       </py:if> 
+    </py:for>
+    
+    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
+       <py:if test="extra_dict.get('key', '') == 'Data Dictionary'">
+         <dct:references>
+          <rdf:Description>
+            <rdfs:label xml:lang="es">${extra_dict.get('key','')}</rdfs:label>
+            <rdfs:value xml:lang="es">${extra_dict.get('value','')}</rdfs:value>
+            <py:for each="dataDictionaryURL in dataDictionaryURLs">
+              <rdf:resource>${dataDictionaryURL} </rdf:resource> 
+            </py:for>
+          </rdf:Description>
+         </dct:references>
+       </py:if> 
+    </py:for>
 
     <py:for each="rsc_dict in c.pkg_dict['resources']">
-      <dcat:distribution>
-      <py:choose>
-      <py:when test="rsc_dict.get('format').find('/') != -1">
-        <dcat:Distribution rdf:about="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() + rsc_dict.get('format')[rsc_dict.get('format').find('/'):]}">
-          <dcat:accessURL rdf:resource="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower() + rsc_dict.get('format')[rsc_dict.get('format').find('/'):]}" />
-          <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
-          <dct:format py:if="rsc_dict.get('format')">
-            <dct:IMT>
-              <rdf:value>${rsc_dict.get('mimetype')}</rdf:value>
-              <rdfs:label>${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower()}</rdfs:label>
-            </dct:IMT>
-          </dct:format>
+      <dcat:Distribution rdf:about="${rsc_dict.get('url')}">
+        <dct:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${rsc_dict.get('url')}</dct:identifier>
+        <dct:title xml:lang="es">${rsc_dict.get('name')}</dct:title>
         <py:if test="rsc_dict.get('description')">
           <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
         </py:if>
-          <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
-        </dcat:Distribution>
-      </py:when>
-      <py:otherwise>
-        <dcat:Distribution rdf:about="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '/' + rsc_dict.get('format').lower()}">
-        <dcat:accessURL rdf:resource="${'http://opendata.aragon.es/catalogo/data/'+ c.pkg_dict['name'] + '.' + rsc_dict.get('format').lower()}" />
-          <dcat:accessURL rdf:resource="${ rsc_dict['url'] }"/>
-          <dct:format py:if="rsc_dict.get('format')">
-            <dct:IMT>
-              <rdf:value>${rsc_dict.get('mimetype')}</rdf:value>
-              <rdfs:label>${rsc_dict.get('format')}</rdfs:label>
-            </dct:IMT>
-          </dct:format>
-          <py:if test="rsc_dict.get('description')">
-            <dct:description xml:lang="es">${rsc_dict.get('description')}</dct:description>
-          </py:if>
-          <dct:license rdf:resource="http://www.opendefinition.org/licenses/cc-by" />
-         </dcat:Distribution>
-      </py:otherwise>
-      </py:choose>
-      </dcat:distribution>
+        
+        <dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${rsc_dict.get('url')}</dcat:accessURL>
+        
+        <dct:format py:if="rsc_dict.get('format')">
+          <dct:MediaType>
+            <py:choose>
+              <py:when test="rsc_dict.get('format').find('/') != -1">
+                <rdfs:label>${rsc_dict.get('format')[0:rsc_dict.get('format').find('/')].lower()}</rdfs:label>
+              </py:when>
+              <py:otherwise>
+                <rdfs:label>${rsc_dict.get('format')}</rdfs:label>
+              </py:otherwise>
+            </py:choose>
+          </dct:MediaType>
+        </dct:format> 
+        
+        <py:if test="rsc_dict.get('size')">
+          <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">${rsc_dict.get('size')}</dcat:byteSize> 
+        </py:if>
+      </dcat:Distribution>
     </py:for>
-
-    <dct:identifier rdf:datatype="xsd:anyURI">http://opendata.aragon.es/catalogo/${c.pkg_dict['name']}</dct:identifier>
-    
-    <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
-      <dct:accrualPeriodicity  py:if="extra_dict.get('key', '') == 'Frequency'">${extra_dict.get('value','')}</dct:accrualPeriodicity>
-      <dct:language py:if="extra_dict.get('key', '') == 'Language'">${extra_dict.get('value','')}</dct:language>
-      <dct:temporal py:if="extra_dict.get('key', '') == 'Temporal'">${extra_dict.get('value','')}</dct:temporal>
-      <dct:spatial py:if="extra_dict.get('key', '') == 'Spatial'">${extra_dict.get('value','')}</dct:spatial>
-      <dct:references py:if="extra_dict.get('key', '') == 'Data Quality'">${extra_dict.get('value','')}</dct:references>
-      <dct:issued py:if="extra_dict.get('key', '') == 'issuedDate'">${extra_dict.get('value','')}</dct:issued>
-      <dct:modified py:if="extra_dict.get('key', '') == 'modifiedDate'">${extra_dict.get('value','')}</dct:modified>
-    </py:for>
-
-      <dcat:landingPage>http://opendata.aragon.es</dcat:landingPage>
-      <foaf:homepage rdf:resource="${ h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}"/>
-
-      <adms:identifier rdf:resource="urn:uuid:${c.pkg_dict['id']}"/>
-    
-      <adms:version rdf:resource="${c.pkg_dict['version']}"/>
-    
-      <rdfs:label>${c.pkg_dict['name']}</rdfs:label>
-
-      <dct:creator py:if="c.pkg_dict.get('author', None)">
-        <rdf:Description>
-          <foaf:name>${ c.pkg_dict['author'] }</foaf:name>
-          <foaf:mbox  py:if="c.pkg_dict.get('maintainer_email', None)" rdf:resource="mailto:${c.pkg_dict['author_email']}"/>
-        </rdf:Description>
-      </dct:creator>
-
-      <dct:organization py:if="c.pkg_dict.get('organization', None)">${c.pkg_dict.get('organization').get('title')}</dct:organization>
-
-      <dct:contributor py:if="c.pkg_dict.get('maintainer', None)">
-        <rdf:Description>
-          <foaf:name>${ c.pkg_dict['maintainer'] }</foaf:name>
-          <foaf:mbox  py:if="c.pkg_dict.get('maintainer_email', None)" rdf:resource="mailto:${c.pkg_dict['maintainer_email']}"/>
-        </rdf:Description>
-      </dct:contributor>
-
-      <dct:rights py:if="c.pkg_dict.get('license_url', None)" rdf:resource="${c.pkg_dict['license_url']}"/>
-     <py:for each="extra_dict in c.pkg_dict.get('extras',None)">
-      <dct:relation>
-          <rdf:Description>
-            <rdfs:label>${extra_dict.get('key','')}</rdfs:label>
-            <rdf:value>${extra_dict.get('value','')}</rdf:value>
-          </rdf:Description>
-       </dct:relation>
-     </py:for>
-      <owl:sameAs rdf:resource="urn:uuid:${c.pkg_dict['id']}"/>
   </dcat:Dataset>
 </rdf:RDF>

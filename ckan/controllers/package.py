@@ -183,8 +183,9 @@ class PackageController(base.BaseController):
             abort(401, _('Not authorized to see this page'))
 
         # unicode format (decoded from utf8)
-#        q = c.q = request.params.get('q', u'')
+#		q = c.q = request.params.get('q', u'')
         q = c.q = asciify(request.params.get('q', u''))
+        #log.error('######La consulta en SolR: %s.', q)
         c.query_error = False
         try:
             page = int(request.params.get('page', 1))
@@ -416,9 +417,11 @@ class PackageController(base.BaseController):
         # check if package exists
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
+            #Ejemplo de como cambiar la licencia
+            #c.pkg_dict['license_title']='perico'
             #Recorremos todos los extras para que modifique los value que tiene una uri dentro de ella  para que les añada el href
-            for extra in c.pkg_dict['extras']:
-                extra['value']=url2HREF(extra['value'])
+#            for extra in c.pkg_dict['extras']:
+#                extra['value']=url2HREF(extra['value'])
 
             c.pkg = context['package']
         except NotFound:
@@ -1506,8 +1509,8 @@ class PackageController(base.BaseController):
 
         q = c.q = request.params.get('q', u'')
 
-#        c.fecha = datetime.datetime.now().isoformat()
-#        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+#		c.fecha = datetime.datetime.now().isoformat()
+        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
         data_dict = {
                 'q': q,
@@ -1536,8 +1539,8 @@ class PackageController(base.BaseController):
 
         q = c.q = request.params.get('q', u'')
 
-#        c.fecha = datetime.datetime.now().isoformat()
-#        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+#		c.fecha = datetime.datetime.now().isoformat()
+        c.fecha = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         c.urlenco = urllib.quote
 
         data_dict = {
@@ -1598,11 +1601,11 @@ class PackageController(base.BaseController):
              else:
                  auxq = "01_IAEST_Temaestadstico:%s* " % temaEstadistico
 
-#        if author is not None:
-#             if auxq  is not None:
-#                 auxq += " && author:%s" % author
-#             else:
-#                 auxq = "author:%s " % author
+#		if author is not None:
+#			 if auxq  is not None:
+#				 auxq += " && author:%s" % author
+#			 else:
+#				 auxq = "author:%s " % author
 
         # tabla si tiene CSV y XLS
         # arboles de datos: JSON y XLS
@@ -1651,6 +1654,7 @@ class PackageController(base.BaseController):
                  auxq = "author:%s" % subtipo
 
         q = c.q = auxq
+        #log.error('La consulta en SolR: %s', q)
 
         c.query_error = False
         try:
@@ -1735,14 +1739,14 @@ class PackageController(base.BaseController):
             context = {'model': model, 'session': model.Session,
                        'user': c.user or c.author, 'for_view': True}
 
-#            if package_type and package_type != 'catalogo':
-#                # Only show datasets of this particular type
-#                fq += ' +dataset_type:{type}'.format(type=package_type)
-#            else:
-#                # Unless changed via config options, don't show non standard
-#                # dataset types on the default search page
-#                if not asbool(config.get('ckan.search.show_all_types', 'False')):
-#                    fq += ' +dataset_type:dataset'
+#			if package_type and package_type != 'catalogo':
+#				# Only show datasets of this particular type
+#				fq += ' +dataset_type:{type}'.format(type=package_type)
+#			else:
+#				# Unless changed via config options, don't show non standard
+#				# dataset types on the default search page
+#				if not asbool(config.get('ckan.search.show_all_types', 'False')):
+#					fq += ' +dataset_type:dataset'
 
             facets = OrderedDict()
 
@@ -1861,7 +1865,7 @@ class PackageController(base.BaseController):
                 if version is None:
                   if resource.get('format').lower() == formato.lower() :
                     return redirect(resource.get('url'))
-#                     return redirect(resource['url'])
+#					 return redirect(resource['url'])
                 else:
                   if resource.get('format').lower() == formato.lower() + "/" + version:
                     return redirect(resource.get('url'))
@@ -2053,11 +2057,8 @@ class PackageController(base.BaseController):
         params = dict(request.params.items())
         if params:
             vistaId = params.get('id')
-            #Ckan revisando los recursos que tiene, en los recursos showVista no tiene añadido ni el name ni el formato entonces da el error del mail
-            if params.get('name'):
-                vistaNombre = params.get('name').encode('utf8')
-            if params.get('formato'):
-                vistaFormato = params.get('formato')
+            vistaNombre = params.get('name').encode('utf8')
+            vistaFormato = params.get('formato')
 
         if vistaNombre is None and vistaFormato is None:
             #relleno para la rdf_spider cuando comprueba que existe (no le llegan parametros)
@@ -2097,26 +2098,51 @@ class PackageController(base.BaseController):
             connection.close()
 
             #obtenemos los datos
-	    #para las descargas de ficheros correspondientes a las vistas identificamos el tipo de conexion a utilizar
-	
-            if (datosVista[0][1] =='APP1'):
-		print '############CONEXION1'
-		connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.AST1_CONEXION_BD)
-	    else:
-		print '############CONEXION2'
-		connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.AST2_CONEXION_BD)
 
-           
+            #connection2 = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+            if (datosVista[0][1] =='APP1'):
+		print '.....CONEXION1..packageE'
+                connection2 = cx_Oracle.connect(configuracion.AST_USR + "/" + configuracion.AST_PASS + "@" + configuracion.AST1_CONEXION_BD)
+	    elif (datosVista[0][1] =='APP2'):
+		print '.....CONEXION2..package'
+                connection2 = cx_Oracle.connect(configuracion.AST_USR + "/" + configuracion.AST_PASS + "@" + configuracion.AST2_CONEXION_BD)
+	    else:
+		print '.....CONEXION3..package'
+		connection2 = psycopg2.connect(configuracion.AST3_CONEXION_BD)
+
             cursor2 = connection2.cursor()
 
             sentencia = 'SELECT * FROM ' + datosVista[0][0];
+	    #sentencia3 = 'SELECT itinerary, route_type FROM ' + datosVista[0][0] + " limit 2";
+	    sentencia3 = 'SELECT itinerary, route_type FROM ' + datosVista[0][0];
 
-            if (filtro is not None and filtro != ''):
-                sentencia = sentencia + " WHERE " + str(filtro);
 
-            registros = cursor2.execute(sentencia)
-            nombres = ()
-            resultados = []
+	    
+	    print "Sentencia3..." + sentencia3 
+	
+            if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):		
+            	##vistasNormales
+		print '.....vistasNormales..package'
+            	if (filtro is not None and filtro != ''):
+                		sentencia = sentencia + " WHERE " + str(filtro);
+
+            	registros = cursor2.execute(sentencia)
+            	nombres = ()
+            	resultados = []
+	    else:
+            	##vistasAPP3
+		print '.....vistasPSQL..package'
+            	if (filtro is not None and filtro != ''):
+                		sentencia3 = sentencia3 + " WHERE " + str(filtro);
+				print "sentencia3.B..." + sentencia3
+
+            	registros = cursor2.execute(sentencia3)
+	    	registros = cursor2.fetchall()
+            	nombres = ()
+            	resultados = []
+	##final seleccion conexion
+
+
 
             # Obtener los nombres de las columnas
             descripcion = cursor2.description
@@ -2134,19 +2160,20 @@ class PackageController(base.BaseController):
 
             cursor2.close()
             connection2.close()
+            
 
             if (vistaFormato == 'CSV'):
                 #response.headers['Content-Type'] = 'text/csv;charset=utf-8'
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) + ".csv" + '\"'),('Content-Type', 'text/csv')]
+                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre)+ "__ad"+ ".csv" + '\"'),('Content-Type', 'text/csv')]
                 s = StringIO()
                 writer = csv.writer(s,dialect='excel')
 
                 def date_handler(obj):
                    return obj.isoformat() if hasattr(obj, 'isoformat') else obj
 
+		
                 for item in resultados:
                     writer.writerow(json.dumps(item, default=date_handler))
-
                 nombreFichero = vistaNombre + str(datetime.datetime.now()).replace(" ", "_") + '.csv'
                 with open(configuracion.DOWNLOAD_PATH + '/' + nombreFichero, 'w+') as csvfile:
                     spamwriter = csv.writer(csvfile, delimiter=';')
@@ -2166,19 +2193,49 @@ class PackageController(base.BaseController):
             if (vistaFormato == 'JSON'):
 
                 #response.headers['Content-Type'] = 'application/json;charset=utf-8'
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) + ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
-
+                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) +"__ad" +  ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
+                
+			
                 def date_handler(obj):
-                   return obj.isoformat() if hasattr(obj, 'isoformat') else obj
+                 return obj.isoformat() if hasattr(obj, 'isoformat') else obj
+
 
                 return json.dumps(resultados, default=date_handler)
 
+###########
+		#print "aquiiiiiiiiiiii"
+		#print "aquiiiiiiiiiiii"
+
+                ###pintamos resultados
+                
+		#print "** ANTES DE REEMPLAZAR" 
+		#print resultados
+ 
+		#print "** DESPUES DE REEMPLAZAR"
+		#listado = resultados
+	
+		#cadena_final =map(lambda x: cadena_final.replace(x, "a", "aaa"), listado)	
+		#cadena_final =map(lambda x:x if x!= 'a' else 'aaa',listado)
+		#cadena_final = ["aaa" if x=="a" else x for x in listado]
+
+		#print "cadena final***"
+
+		#print cadena_final
+
+		#print "*************"
+		#print resultados_final
+		#print "*************"  
+
+                ###pintamos resultados
+###########
+
+                #return json.dumps(resultados, default=date_handler)
 
             if (vistaFormato == 'XML'):
                 response.headers['Content-Type'] = 'application/xml;charset=utf-8';
                 response.headers['Content-Disposition'] = 'attachment; filename=' + str(vistaNombre) + '.xml';
                 #response.headers['Content-Type'] = 'application/xml;charset=utf-8'
-                #response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + ".xml" + '\"'), ('Content-Type', 'application/xml; charset=utf8')]
+                #response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + "__ad" + ".xml" + '\"'), ('Content-Type', 'application/xml; charset=utf8')]
                 #response.content_type = 'application/xml; charset=utf8'
                 root = ET.Element("root")
                 nombreLista = list(nombres)
@@ -2199,5 +2256,4 @@ class PackageController(base.BaseController):
                 return self._indent_xml(root)
         else:
             abort(404)
-
 

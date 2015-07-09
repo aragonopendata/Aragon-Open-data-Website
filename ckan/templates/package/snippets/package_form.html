@@ -162,10 +162,10 @@ function ocultarDatos(bool, id){
           <li><a class="btn-danger pull-left recuadroRecto letraGrande bigButton" href="javascript:confirmRemove('{% url_for controller='package', action='delete', id=data.id %}')" >{% block delete_button_text %}{{ _('Delete') }}{% endblock %}</a></li>
         {% endif %}
       {% endblock %}
-      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(false)" name="save">Guarda y finaliza</a>
-      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(true)" name="saveContinue">Guarda y sigue</a>
-      <input type="hidden" name="save"></li>
+      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(false)" name="save">Guarda y finaliza</a></li>
+      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(true)" name="saveContinue">Guarda y sigue</a></li>
      </ul>
+     <input type="hidden" name="save">
     </div>
   {% endblock %}
 

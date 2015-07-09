@@ -507,6 +507,7 @@ function checkTemporal(id, idHidden, title) {
       return false;
     }
   } else {
+    $('#' + idHidden).val(isoDate);
     return true;
   }
 }

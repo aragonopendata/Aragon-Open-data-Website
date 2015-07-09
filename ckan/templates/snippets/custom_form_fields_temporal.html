@@ -104,16 +104,20 @@ Ejemplo 2: "Instantánea"', 'metadata_created': '', 'metadata_modified': '', 'Te
 
   {% for extra in extras %}
     {% if 'TemporalFrom' == extra.key %}
-      {{ form.inputTime('TemporalFrom', id='TemporalFrom', label=nombre['TemporalFrom'], value=extra.value, error='', classes=[], attrs={}, content=detail['TemporalFrom'], moreInfo=hint['TemporalFrom'], showLabel=true) }}
-      {{ form.input('extras__1101__key', id='extras__1101__key', value='TemporalFrom', error='', classes=['oculto'], attrs={}) }}
-      {{ form.input('extras__1101__value', id='extras__1101__value', value='', error='', classes=['oculto'], attrs={}) }}
-      {% do hasFrom.append(1) %}
+      {% if extra.value %}
+        {{ form.inputTime('TemporalFrom', id='TemporalFrom', label=nombre['TemporalFrom'], value=extra.value, error='', classes=[], attrs={}, content=detail['TemporalFrom'], moreInfo=hint['TemporalFrom'], showLabel=true) }}
+        {{ form.input('extras__1101__key', id='extras__1101__key', value='TemporalFrom', error='', classes=['oculto'], attrs={}) }}
+        {{ form.input('extras__1101__value', id='extras__1101__value', value='', error='', classes=['oculto'], attrs={}) }}
+        {% do hasFrom.append(1) %}
+      {% endif %}
     {% endif %}
     {% if 'TemporalUntil' == extra.key %}
-      {{ form.inputTime('TemporalUntil', id='TemporalUntil', label=nombre['TemporalUntil'], value=extra.value, error='', classes=[], attrs={}, content=detail['TemporalUntil'], moreInfo=hint['TemporalUntil'], showLabel=false) }}
-      {{ form.input('extras__1102__key', id='extras__1102__key', value='TemporalUntil', error='', classes=['oculto'], attrs={}) }}
-      {{ form.input('extras__1102__value', id='extras__1102__value', value='', error='', classes=['oculto'], attrs={}) }}
-      {% do hasUntil.append(1) %}
+      {% if extra.value  %}
+        {{ form.inputTime('TemporalUntil', id='TemporalUntil', label=nombre['TemporalUntil'], value=extra.value, error='', classes=[], attrs={}, content=detail['TemporalUntil'], moreInfo=hint['TemporalUntil'], showLabel=false) }}
+        {{ form.input('extras__1102__key', id='extras__1102__key', value='TemporalUntil', error='', classes=['oculto'], attrs={}) }}
+        {{ form.input('extras__1102__value', id='extras__1102__value', value='', error='', classes=['oculto'], attrs={}) }}
+        {% do hasUntil.append(1) %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 

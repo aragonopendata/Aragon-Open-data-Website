@@ -111,10 +111,10 @@ def main():
         formato_descarga3 = sheet.cell(42,columna).value
 
         #Variables comunes a todos los DataSets
-        mainteiner = "Dirección General de Política Educativa"
-        author = "Dirección General de Política Educativa"
-        organizacion_code  = "direccion_general_de_politica_educativa"
-        organizacion = "Dirección General de Política Educativa"
+        mainteiner = "Dirección General de Planificación y Formación Profesional"
+        author = "Dirección General de Planificación y Formación Profesional"
+        organizacion_code  = "direccion_general_de_planificacion_y_formacion_profesional"
+        organizacion = "Dirección General de Planificación y Formación Profesional"
         organizacionURL = "http://www.aragon.es/DepartamentosOrganismosPublicos/Departamentos/EducacionUniversidadCulturaDeporte"
 
         # Cabecera del Fichero RDF
@@ -128,16 +128,16 @@ def main():
         #Mensual(P1M) Diaria(P1D) Anual(P1Y)
         if frecuencia != None:
             if "diaria" in frecuencia.lower() or "p1d" in frecuencia.lower():
-                frecuenciaValue = "P1D"
+                frecuenciaValue = "Diaria"
                 frecuenciaLabel = "Diaria"
             elif "mensual" in frecuencia.lower() or "p1m" in frecuencia.lower():
-                frecuenciaValue = "P1M"
+                frecuenciaValue = "Mensual"
                 frecuenciaLabel = "Mensual"
             elif "anual" in frecuencia.lower() or "p1y" in frecuencia.lower():
-                frecuenciaValue = "P1Y"
+                frecuenciaValue = "Anual"
                 frecuenciaLabel = "Anual"
             else:
-                frecuenciaValue = "P1Y"
+                frecuenciaValue = "Anual"
                 frecuenciaLabel = "Anual"
 
         if(debug_xls == 1):
@@ -239,11 +239,18 @@ def main():
 
                 ficheroDataSet = ficheroDataSet + "\t\t<dct:spatial>"+ cobertura_espacial +"</dct:spatial>\n"
                 ficheroDataSet = ficheroDataSet + "\t\t<dct:temporal>" + str(intervalo) + "</dct:temporal>\n"
-                ficheroDataSet = ficheroDataSet + "\t\t<dct:language>" + str(idioma) + "</dct:language>\n"
+                ficheroDataSet = ficheroDataSet + "\t\t<dct:language>" + str(idioma).upper() + "</dct:language>\n"
                 ficheroDataSet = ficheroDataSet + "\t\t<dct:license rdf:resource=\"" + str(licencia) + "\"></dct:license>\n"
                 ficheroDataSet = ficheroDataSet + "\t\t<dcat:granularity>" + nivel_detalle + "</dcat:granularity>\n"
                 ficheroDataSet = ficheroDataSet + "\t\t<dcat:dataQuality>" + str(calidad) + "</dcat:dataQuality>\n"
                 ficheroDataSet = ficheroDataSet + "\t\t<dcat:dataDictionary>" + str(calidad) + "</dcat:dataDictionary>\n"
+                
+                #Aragopedia, tienen todos el valor por defecto que es aragon
+                ficheroDataSet = ficheroDataSet + "\t\t<dcat:name_aragopedia>Aragón</dcat:name_aragopedia>\n"
+                ficheroDataSet = ficheroDataSet + "\t\t<dcat:short_uri_aragopedia>Aragón</dcat:short_uri_aragopedia>\n"
+                ficheroDataSet = ficheroDataSet + "\t\t<dcat:type_aragopedia>Aragón</dcat:type_aragopedia>\n"
+                ficheroDataSet = ficheroDataSet + "\t\t<dcat:uri_aragopedia>http://opendata.aragon.es/recurso/territorio/ComunidadAutonoma/Aragón</dcat:uri_aragopedia>\n"
+                
                 #ficheroDataSet = ficheroDataSet + "\t\t<dct:status></dct:status>\n"
 
                 '''
@@ -286,13 +293,13 @@ def main():
                         PDsID = row2[6]
                         formato = ""
                         if campo == "wpcf-actividades-zip":
-                            formato = "application/zip"
-                            formato_text = "ZIP"
+                            formato = "ZIP"
+                            formato_text = "HTML"
                         if campo == "wpcf-actividades-elp":
-                            formato = "application/elp"
+                            formato = ""
                             formato_text = "ELP"
                         if campo == "wpcf-actividades-scorm":
-                            formato = "application/scorm"
+                            formato = ""
                             formato_text = "SCORM"
                         if(debug_pds == 1):
                             print("\t\t--BEGIN--")

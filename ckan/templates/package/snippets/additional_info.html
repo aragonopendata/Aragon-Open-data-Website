@@ -35,30 +35,47 @@
   </div>
   {% endif %}
   
+  {% set nameAragopedia = "" %}
+  {% set typeAragopedia = "" %}
+  {% set uriAragopedia = "" %}
   
   {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}
         {% if value != "" %}
           {% if key == 'nameAragopedia' %}
+            {% set nameAragopedia = value %}
             <div class="fieldName">Cobertura geogr&aacute;fica</div>
-            <div class="fieldValue">{{ value }}</div>
-          {% elif key == 'Frequency' %}
-            <div class="fieldName">Frecuencia</div>
-            <div class="fieldValue">{{ value }}</div>
-          {% elif key == 'Spatial' %}
-            <div class="fieldName">Cobertura espacial</div>
-            <div class="fieldValue">{{ value }}</div>
+            <div class="fieldValue">{{ nameAragopedia }}</div>
+          {% elif key == 'typeAragopedia' %}
+            {% set typeAragopedia = value %}
+          {% elif key == 'uriAragopedia' %}
+            {% set uriAragopedia = value %}
+            {% if typeAragopedia !='Otro' %}
+                <div class="fieldValue">URI del recurso <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">{{ nameAragopedia }}</a> en aragopedia</div>
+              {% endif %}
           {% endif %}
         {% endif %}
   {% endfor %}
   
   
-  {% set coberturaTemporal="De " %}
+  
+  
+  {% for extra in h.sorted_extras(pkg_dict.extras) %}
+        {% set key, value = extra %}
+        {% if value != "" %}
+          {% if key == 'Frequency' %}
+            <div class="fieldName">Frecuencia</div>
+            <div class="fieldValue">{{ value }}</div>
+          {% endif %}
+        {% endif %}
+  {% endfor %}
+  
+  {% set coberturaTemporal="" %}
   {% for extra in h.sorted_extras(pkg_dict.extras) %}
      {% set key, value = extra %}
        {% if key == 'TemporalFrom' %}
          {% if value != "" %}
-           {% set coberturaTemporal= coberturaTemporal + value %}
+           {% set coberturaTemporal= coberturaTemporal+ "De " + value %}
          {% endif %}
        {% endif %}
        {% if key == 'TemporalUntil' %}

@@ -133,6 +133,9 @@ def augment_data(data, schema):
                 raise DataError('Only lists of dicts can be placed against '
                                 'subschema %s, not %s' % (key,type(data[key])))
 
+        if key[0] == 'extrasIAEST':
+            continue
+
         if key[:-1] in key_combinations:
             extras_key = key[:-1] + ('__extras',)
             extras = new_data.get(extras_key, {})

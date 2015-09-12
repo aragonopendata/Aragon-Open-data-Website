@@ -241,9 +241,73 @@ def resource_create(context, data_dict):
     package_id = _get_or_bust(data_dict, 'package_id')
     data_dict.pop('package_id')
 
+    theFormat = _get_or_bust(data_dict, 'format').upper()
+
     pkg_dict = _get_action('package_show')(context, {'id': package_id})
 
     _check_access('resource_create', context, data_dict)
+
+    # update format position in resource&package
+    indexMaxPositionCurrentFormat = -1
+    indexMaxPositionXML = -1
+    indexMaxPositionCSV = -1
+    indexMaxPositionJSON = -1
+    indexMaxPositionTTL = -1
+
+    for index, extra in enumerate(pkg_dict['extras']):
+      if extra['key'] == theFormat + '_maxPosition':
+        indexMaxPositionCurrentFormat = index
+      elif extra['key'] == 'XML_maxPosition':
+        indexMaxPositionXML = index
+      elif extra['key'] == 'CSV_maxPosition':
+        indexMaxPositionCSV = index
+      elif extra['key'] == 'JSON_maxPosition':
+        indexMaxPositionJSON = index
+      elif extra['key'] == 'TTL_maxPosition':
+        indexMaxPositionTTL = index
+
+    if indexMaxPositionCurrentFormat != -1:
+      aux = int(pkg_dict['extras'][indexMaxPositionCurrentFormat]['value'])
+      pkg_dict['extras'][indexMaxPositionCurrentFormat]['value'] = aux+1
+      data_dict[theFormat + '_position'] = pkg_dict['extras'][indexMaxPositionCurrentFormat]['value']
+    else:
+      pkg_dict['extras'].append({'value': '1', 'key': theFormat + '_maxPosition'})
+      data_dict[theFormat + '_position'] = 1
+
+    if theFormat == 'URL':
+      if indexMaxPositionTTL != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionTTL]['value'])
+        pkg_dict['extras'][indexMaxPositionTTL]['value'] = aux+1
+        data_dict['TTL_position'] = pkg_dict['extras'][indexMaxPositionTTL]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'TTL_maxPosition'})
+        data_dict['TTL_position'] = 1
+
+    if theFormat == 'XLS' or theFormat == 'URL':
+      if indexMaxPositionXML != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionXML]['value'])
+        pkg_dict['extras'][indexMaxPositionXML]['value'] = aux+1
+        data_dict['XML_position'] = pkg_dict['extras'][indexMaxPositionXML]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'XML_maxPosition'})
+        data_dict['XML_position'] = 1
+
+      if indexMaxPositionCSV != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionCSV]['value'])
+        pkg_dict['extras'][indexMaxPositionCSV]['value'] = aux+1
+        data_dict['CSV_position'] = pkg_dict['extras'][indexMaxPositionCSV]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'CSV_maxPosition'})
+        data_dict['CSV_position'] = 1
+
+      if indexMaxPositionJSON != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionJSON]['value'])
+        pkg_dict['extras'][indexMaxPositionJSON]['value'] = aux+1
+        data_dict['JSON_position'] = pkg_dict['extras'][indexMaxPositionJSON]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'JSON_maxPosition'})
+        data_dict['JSON_position'] = 1
+     
 
     if not 'resources' in pkg_dict:
         pkg_dict['resources'] = []

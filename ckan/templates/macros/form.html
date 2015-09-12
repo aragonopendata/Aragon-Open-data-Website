@@ -598,20 +598,32 @@ Example
 {%- endmacro -%}
 
 
-{% macro resourceItem(pkg_id, action, name='', format='', mimetype='', mimetype_inner='', resource_type='', url='', resource_id='', idx) %}
+{% macro resourceItem(pkg_id, action, name='', format='', mimetype='', mimetype_inner='', resource_type='', url='', resource_id='', idx, formatLabelList=[], formatValueList=[]) %}
 <form autocomplete="off" class="dataset-form dataset-resource-form form-horizontal" method="post" action="{{ action }}" id="resourceForm{{idx}}" target="hiddenIframe">
   <input autocomplete="off" name="id" value="{{ resource_id }}" type="hidden"/>
   <input autocomplete="off" name="package_id" value="{{ pkg_id }}" type="hidden"/>
 
+  <input autocomplete="off" id="format{{idx}}" name="format" value="{{ format }}" type="hidden"/>
+
         <table style="table-layout:fixed;padding:10px;width:100%;">
-          <tr><td class="fieldNameName"><p class="i_i">NOMBRE DEL RECURSO</p></td><td style="width:100px"></td><td class="fieldNameNotName"><p class="i_i">MODO DE ACCESO</p></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE DESCARGA</p></td><td style="width:20px"></td></tr>
+          <tr><td class="fieldNameName"><p class="i_i">NOMBRE DEL RECURSO</p></td><td style="width:100px"></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE DESCARGA</p></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE ACCESO</p></td><td style="width:20px"></td></tr>
           <tr>
             <td colspan="2"><input onchange="changesOnResource({{idx}})" autocomplete="off" id="nameRes{{ idx }}" style="width:350px;" type="text" name="name" value="{{ name }}" placeholder="Nombre" /></td>
-            <td>
-              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeRes{{ idx }}" style="width:170px;" type="text" name="mimetype" value="{{ mimetype }}" placeholder="Modo de acceso" />
+            <td class="small">
+              <select id="mimetype_innerSelect{{idx}}" name="mimetype_inner" onchange="changesOnResource({{idx}})">
+                <option value="" {% if mimetype_inner == '' %} selected {% endif %}>-</option>
+                {% for option in formatLabelList %}
+                  <option value="{{ option }}"{% if mimetype_inner == option %} selected {% endif %} >{{ formatValueList[option] }}</option>
+                {% endfor %}
+              </select>
             </td>
-            <td>
-              <input onchange="changesOnResource({{idx}})" autocomplete="off" id="mimeTypeInnerRes{{ idx }}" style="width:170px;" type="text" name="format" value="{{ mimetype_inner }}" placeholder="Formato de descarga" />
+            <td class="small">
+              <select id="mimetypeSelect{{idx}}" name="mimetype" onchange="changesOnResource({{idx}})">
+                <option value="" {% if mimetype == '' %} selected {% endif %}>-</option>
+                {% for option in formatLabelList %}
+                  <option value="{{ option }}"{% if mimetype == option %} selected {% endif %} >{{ formatValueList[option] }}</option>
+                {% endfor %}
+              </select>
             </td>
             <td>
             {% if resource_id %}

@@ -34,10 +34,24 @@ Ejemplo2: "http://xxxxxxxxxxx" En este caso referenciamos a un enlace externo en
 
 
   {% set granul = [] %}
+  {% set datQual = [] %}
+  {% set datQualURL = [] %}
+  {% set datDicti = [] %}
+  {% set datDictiURL = [] %}
 
   {% for extra in extras %}
-    {% if 'Granularity' == extra.key %}
-      {% do granul.append(extra.value) %}
+    {% if extra.key %}
+      {% if 'Granularity' == extra.key %}
+        {% do granul.append(extra.value) %}
+      {% elif 'Data Quality' == extra.key %}
+        {% do datQual.append(extra.value) %}
+      {% elif extra.key.startswith('Data Quality URL') %}
+        {% do datQualURL.append(extra.value) %}
+      {% elif 'Data Dictionary' == extra.key %}
+        {% do datDicti.append(extra.value) %}
+      {% elif extra.key.startswith('Data Dictionary URL') %}
+        {% do datDictiURL.append(extra.value) %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
@@ -49,19 +63,6 @@ Ejemplo2: "http://xxxxxxxxxxx" En este caso referenciamos a un enlace externo en
 
   <div style="height:22px"></div>
 
-  {% set datQual = [] %}
-  {% set datQualURL = [] %}
-  {% for extra in extras %}
-    {% if extra.key %}
-      {% if 'Data Quality' == extra.key %}
-        {% do datQual.append(extra.value) %}
-      {% endif %}
-      {% if extra.key.startswith('Data Quality URL') %}
-        {% do datQualURL.append(extra.value) %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
   {% if datQual %}
     {{ form.inputExtra('Data Quality', id='extras__4001', label=nombre["Data Quality"], placeholder=placehol["Data Quality"], value=datQual[0], error='', classes=[], attrs={}, content=detail["Data Quality"], moreInfo=hint["Data Quality"], isTextArea=true) }}
   {% else %}
@@ -72,19 +73,6 @@ Ejemplo2: "http://xxxxxxxxxxx" En este caso referenciamos a un enlace externo en
 
   <div style="height:22px"></div>
 
-  {% set datDicti = [] %}
-  {% set datDictiURL = [] %}
-  {% for extra in extras %}
-    {% if extra.key %}
-      {% if 'Data Dictionary' == extra.key %}
-        {% do datDicti.append(extra.value) %}
-      {% endif %}
-      {% if extra.key.startswith('Data Dictionary URL') %}
-        {% do datDictiURL.append(extra.value) %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
   {% if datDicti %}
     {{ form.inputExtra('Data Dictionary', id='extras__4002', label=nombre["Data Dictionary"], placeholder=placehol["Data Dictionary"], value=datDicti[0], error='', classes=[], attrs={}, content=detail["Data Dictionary"], moreInfo=hint["Data Dictionary"], isTextArea=true) }}
   {% else %}
@@ -93,13 +81,21 @@ Ejemplo2: "http://xxxxxxxxxxx" En este caso referenciamos a un enlace externo en
 
   {{ form.inputList('Data Dictionary URL', id='extras__4020', label=nombre["Data Dictionary URL"], placeholder=placehol["Data Dictionary URL"], value=datDictiURL, error='', classes=[], attrs={}, content=detail["Data Dictionary URL"], moreInfo=hint["Data Dictionary URL"]) }}
 
-<span class="oculto">
-  {% for extra in extrasIAEST %}
+  <span id="extrasMaxPositionZone" class="oculto">
+  {% for extra in extras %}
     {% if extra.key %}
-        {{ form.inputExtra(extra.key, id='extras__4050%d' % (loop.index), label=extra.key, value=extra.value, error='', classes=[], attrs={}) }}
+      {% if extra.key.endswith('_maxPosition') %}
+          {{ form.inputExtra(extra.key, id='extras__4040%d' % (loop.index), label=extra.key, value=extra.value, error='', classes=[], attrs={}) }}
+      {% endif %}
     {% endif %}
   {% endfor %}
-</span>
+ </span>
 
-
+  <span class="oculto">
+    {% for extra in extrasIAEST %}
+      {% if extra.key %}
+        {{ form.inputExtra(extra.key, id='extras__4050%d' % (loop.index), label=extra.key, value=extra.value, error='', classes=[], attrs={}) }}
+      {% endif %}
+    {% endfor %}
+  </span>
 </div>

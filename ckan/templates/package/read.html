@@ -29,8 +29,8 @@
      {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None, 'PX': None  } %}
 
      {% for resource in pkg.resources %}
-       {% set hayFormatoConBarra = resource.format.find('/') %}
-       {% set elFormato = resource.format if (hayFormatoConBarra == -1) else resource.format[0:resource.format.find('/')] %}
+       {% set elFormatoMimetype = resource.mimetype_inner %}
+       {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
 
        {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
          {% if (elFormato|upper == 'XLS') %}

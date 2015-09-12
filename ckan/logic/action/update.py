@@ -199,6 +199,8 @@ def resource_update(context, data_dict):
     model = context['model']
     user = context['user']
     id = _get_or_bust(data_dict, "id")
+    package_id = _get_or_bust(data_dict, 'package_id')
+    theFormat = _get_or_bust(data_dict, 'format').upper()
 
     resource = model.Resource.get(id)
     context["resource"] = resource
@@ -206,6 +208,8 @@ def resource_update(context, data_dict):
     if not resource:
         logging.error('Could not find resource ' + id)
         raise NotFound(_('Resource was not found.'))
+
+    pkg_dict = _get_action('package_show')(context, {'id': package_id})
 
     _check_access('resource_update', context, data_dict)
 
@@ -216,10 +220,81 @@ def resource_update(context, data_dict):
             resource.resource_group.package.type)
         schema = package_plugin.update_package_schema()['resources']
 
+    # update format position in resource&package
+    indexMaxPositionCurrentFormat = -1
+    indexMaxPositionXML = -1
+    indexMaxPositionCSV = -1
+    indexMaxPositionJSON = -1
+    indexMaxPositionTTL = -1
+
+    for index, extra in enumerate(pkg_dict['extras']):
+      if extra['key'] == theFormat + '_maxPosition':
+        indexMaxPositionCurrentFormat = index
+      elif extra['key'] == 'XML_maxPosition':
+        indexMaxPositionXML = index
+      elif extra['key'] == 'CSV_maxPosition':
+        indexMaxPositionCSV = index
+      elif extra['key'] == 'JSON_maxPosition':
+        indexMaxPositionJSON = index
+      elif extra['key'] == 'TTL_maxPosition':
+        indexMaxPositionTTL = index
+
+    if indexMaxPositionCurrentFormat != -1:
+      aux = int(pkg_dict['extras'][indexMaxPositionCurrentFormat]['value'])
+      pkg_dict['extras'][indexMaxPositionCurrentFormat]['value'] = aux+1
+      data_dict[theFormat + '_position'] = pkg_dict['extras'][indexMaxPositionCurrentFormat]['value']
+    else:
+      pkg_dict['extras'].append({'value': '1', 'key': theFormat + '_maxPosition'})
+      data_dict[theFormat + '_position'] = 1
+
+    if theFormat == 'URL':
+      if indexMaxPositionTTL != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionTTL]['value'])
+        pkg_dict['extras'][indexMaxPositionTTL]['value'] = aux+1
+        data_dict['TTL_position'] = pkg_dict['extras'][indexMaxPositionTTL]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'TTL_maxPosition'})
+        data_dict['TTL_position'] = 1
+
+    if theFormat == 'XLS' or theFormat == 'URL':
+      if indexMaxPositionXML != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionXML]['value'])
+        pkg_dict['extras'][indexMaxPositionXML]['value'] = aux+1
+        data_dict['XML_position'] = pkg_dict['extras'][indexMaxPositionXML]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'XML_maxPosition'})
+        data_dict['XML_position'] = 1
+
+      if indexMaxPositionCSV != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionCSV]['value'])
+        pkg_dict['extras'][indexMaxPositionCSV]['value'] = aux+1
+        data_dict['CSV_position'] = pkg_dict['extras'][indexMaxPositionCSV]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'CSV_maxPosition'})
+        data_dict['CSV_position'] = 1
+
+      if indexMaxPositionJSON != -1:
+        aux = int(pkg_dict['extras'][indexMaxPositionJSON]['value'])
+        pkg_dict['extras'][indexMaxPositionJSON]['value'] = aux+1
+        data_dict['JSON_position'] = pkg_dict['extras'][indexMaxPositionJSON]['value']
+      else:
+        pkg_dict['extras'].append({'value': '1', 'key': 'JSON_maxPosition'})
+        data_dict['JSON_position'] = 1
+     
+## end positions
+
     data, errors = _validate(data_dict, schema, context)
     if errors:
         model.Session.rollback()
         raise ValidationError(errors)
+
+## update package positions
+    try:
+        pkg_dict = _get_action('package_update')(context, pkg_dict)
+    except ValidationError, e:
+        errors = e.error_dict['resources'][-1]
+        raise ValidationError(errors)
+## end update package positions
 
     rev = model.repo.new_revision()
     rev.author = user

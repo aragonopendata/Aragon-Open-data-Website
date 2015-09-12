@@ -1691,6 +1691,145 @@ def asciify(st):
     aux = aux.replace(u'Ñ','n')
     return aux
 
+formatList = [
+	'text/csv',
+	'image/vnd.dgn',
+	'image/vnd.dwg',
+	'application/dxf',
+	'application/elp',
+	'application/vnd.geo+json',
+	'application/gml+xml',
+	'text/html',
+	'text/calendar',
+	'image/jpeg',
+	'application/json',
+	'application/vnd.google-earth.kmz',
+	'application/vnd.oasis.opendocument.spreadsheet',
+	'image/png',
+	'text/pc-axis',
+	'application/rss+xml',
+	'application/scorm',
+	'application/x-zipped-shp',
+	'application/pgp-signature',
+	'text/plain',
+	'text/uri-list',
+	'application/vnd.ms-excel',
+	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+	'application/xml',
+	'application/zip',
+]
+
+formatToMimetypeList = {
+	'CSV': 'text/csv', 
+	'DGN': 'image/vnd.dgn',
+	'DWG': 'image/vnd.dwg',
+	'DXF': 'application/dxf',
+	'ELP': 'application/elp',
+	'GEOJSON': 'application/vnd.geo+json',
+	'GML': 'application/gml+xml',
+	'HTML': 'text/html',
+	'ICS': 'text/calendar',
+	'JPG': 'image/jpeg',
+	'JSON': 'application/json',
+	'KMZ': 'application/vnd.google-earth.kmz',
+	'ODS': 'application/vnd.oasis.opendocument.spreadsheet',
+	'PNG': 'image/png',
+	'PX': 'text/pc-axis',
+	'RSS': 'application/rss+xml',
+	'SCORM': 'application/scorm',
+	'SHP': 'application/x-zipped-shp',
+	'SIG': 'application/pgp-signature',
+	'TXT': 'text/plain',
+	'URL': 'text/uri-list',
+	'XLS': 'application/vnd.ms-excel',
+	'XLSX': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+	'XML': 'application/xml',
+	'ZIP': 'application/zip'
+}
+
+mimetypeToFormatList = { 
+	'text/csv': 'CSV', 
+	'image/vnd.dgn': 'DGN',
+	'image/vnd.dwg': 'DWG',
+	'application/dxf': 'DXF',
+	'application/elp': 'ELP',
+	'application/vnd.geo+json': 'GEOJSON',
+	'application/gml+xml': 'GML',
+	'text/html': 'HTML',
+	'text/calendar': 'ICS',
+	'image/jpeg': 'JPG',
+	'application/json': 'JSON',
+	'application/vnd.google-earth.kmz': 'KMZ',
+	'application/vnd.oasis.opendocument.spreadsheet': 'ODS',
+	'image/png': 'PNG',
+	'text/pc-axis': 'PX',
+	'application/rss+xml': 'RSS',
+	'application/scorm': 'SCORM',
+	'application/x-zipped-shp': 'SHP',
+	'application/pgp-signature': 'SIG',
+	'text/plain': 'TXT',
+	'text/uri-list': 'URL',
+	'application/vnd.ms-excel': 'XLS',
+	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'XLSX',
+	'application/xml': 'XML', 
+	'application/zip': 'ZIP'
+}
+
+formatToMimetypeDistributionList = {
+	'CSV': '', 
+	'DGN': '',
+	'DWG': '',
+	'DXF': '',
+	'ELP': '',
+	'GEOJSON': '',
+	'GML': '',
+	'HTML': '',
+	'ICS': '',
+	'JPG': '',
+	'JSON': '',
+	'KMZ': '',
+	'ODS': '',
+	'PNG': '',
+	'PX': '',
+	'RSS': '',
+	'SCORM': '',
+	'SHP': 'application/zip',
+	'SIG': '',
+	'TXT': '',
+	'URL': '',
+	'XLS': '',
+	'XLSX': '',
+	'XML': '',
+	'ZIP': ''
+}
+
+def getFormatList():
+  return formatList
+
+def getMimetypeToFormatList():
+  return mimetypeToFormatList
+
+def getFormatToMimetypeList():
+  return formatToMimetypeList
+
+def getFormatFromMimetype(st):
+  if st in mimetypeToFormatList:
+    return mimetypeToFormatList[st]
+  else:
+    return ''
+
+def getMimetypeFromFormat(st):
+  if st in formatToMimetypeList:
+    return formatToMimetypeList[st]
+  else:
+    return ''
+
+def getMimetypeDistributionFromFormat(st):
+  if st in formatToMimetypeDistributionList:
+    return formatToMimetypeDistributionList[st]
+  else:
+    return ''
+
 # add some formatter functions
 localised_number = formatters.localised_number
 localised_SI_number = formatters.localised_SI_number
@@ -1798,4 +1937,10 @@ __allowed_functions__ = [
     'user_displayname_logged',
     'get_package_org',
     'unquote_decode',
+    'getFormatList',
+    'getMimetypeToFormatList',
+    'getFormatToMimetypeList',
+    'getMimetypeFromFormat',
+    'getMimetypeDistributionFromFormat',
+    'getFormatFromMimetype',
 ]

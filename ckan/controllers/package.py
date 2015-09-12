@@ -597,7 +597,8 @@ class PackageController(base.BaseController):
             # we don't want to include save as it is part of the form
             #del data['save']
 
-            if (data['resource_type'] == 'vista'):
+            if hasattr(data, 'resource_type'):
+              if (data['resource_type'] == 'vista'):
                 try:
                     data['url'] = self._save_vista(data['vistas_value'], data['filtro'])
                     #data['name'] = "Vista"
@@ -684,7 +685,11 @@ class PackageController(base.BaseController):
                     abort( 500, msg)
                     #return self.new_resource(id, data, errors, error_summary)
 
-
+            if (data['mimetype_inner'] == ''):
+              data['mimetype_inner'] = h.getMimetypeFromFormat(data['format'])
+            if (data['mimetype'] == ''):
+              data['mimetype'] = h.getMimetypeDistributionFromFormat(data['format'])
+            
             #del data['save']
             resource_id = data['id']
             del data['id']
@@ -1090,6 +1095,10 @@ class PackageController(base.BaseController):
                     context, data_dict)
             c.pkg = context['package']
             c.pkg_dict = pkg
+
+            if 'customEditor' in request.params:
+              # we don't need all this stuff
+              return 'OK'
 
             self._form_save_redirect(pkg['name'], 'edit', package_type=package_type)
         except NotAuthorized:
@@ -1844,7 +1853,8 @@ class PackageController(base.BaseController):
         """ Filter to resource rendering or download
                 If resource doesn't exist, but a file with same name
                 in XLS format does, it should be transformed to
-                the required format (XML, JSON or CVS)
+                the required format (XML, JSON or CSV).
+                Idem for Aragopedia resources
             """
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author}
@@ -1859,16 +1869,31 @@ class PackageController(base.BaseController):
 
         try:
             dataset_rsc = get_action('package_search')(context, data_dict)
-
+            xlsAuto = {'csv', 'xml', 'json'}
+            urlAuto = {'csv', 'xml', 'json', 'ttl'}
             for res in dataset_rsc['results']:
               for resource in res['resources']:
-                if version is None:
-                  if resource.get('format').lower() == formato.lower() :
+                if resource.get('format').lower() == formato.lower():
+                  if version is None:
                     return redirect(resource.get('url'))
-#					 return redirect(resource['url'])
-                else:
-                  if resource.get('format').lower() == formato.lower() + "/" + version:
-                    return redirect(resource.get('url'))
+                  else:
+                    if resource.get(formato.upper() + '_position') ==  version:
+                      return redirect(resource.get('url'))
+
+                if resource.get('format').lower() == 'xls' and formato.lower() in xlsAuto:
+                  if version is None:
+                    return redirect(unicode('http://opendata.aragon.es/catalogo/render/resource/' + resource.get('name') + '.' + formato).encode('utf8'))
+                  else:
+                    if resource.get(formato.upper() + '_position') ==  version:
+                      return redirect(unicode('http://opendata.aragon.es/catalogo/render/resource/' + resource.get('name') + '.' + formato).encode('utf8'))
+
+                if resource.get('format').lower() == 'url' and formato.lower() in urlAuto:
+                  if version is None:
+                    return redirect(unicode((resource['url'].split("?"))[0]+  '.ttl?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa').encode('utf8'))
+                  else:
+                    if resource.get(formato.upper() + '_position') ==  version:
+                      return redirect(unicode((resource['url'].split("?"))[0]+  '.ttl?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa').encode('utf8'))
+
         except NotFound:
             abort(404, _('Resource not found'))
 
@@ -1877,7 +1902,7 @@ class PackageController(base.BaseController):
         """ Filter to resource rendering or download
                 If resource doesn't exist, but a file with same name
                 in XLS format does, it should be transformed to
-                the required format (XML, JSON or CVS)
+                the required format (XML, JSON or CSV)
             """
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author}

@@ -59,7 +59,8 @@ def diffDatasets(ckan, dataset):
             #REVISO LOS EXTRAS
             if datoARevisarLista == 'extras':
                 # Extras a revisar
-                sublista = ['Frequency','Spatial','Temporal','Language','Granularity','References','Data Quality','Data Dictionary']
+                #sublista = ['Frequency','Spatial','Temporal','Language','Granularity','References','Data Quality','Data Dictionary']
+                sublista = ['Frequency','Spatial','TemporalFrom', 'TemporalUntil','LangEs','Granularity','References','Data Quality', 'Data Quality URL0','Data Dictionary', 'Data Dictionary URL0', 'nameAragopedia', 'shortUriAragopedia', 'typeAragopedia', 'uriAragopedia']
 
                 #Conversion a dictionary
                 listaDict = dict((x[0], x[1]) for x in dataset.get(datoARevisarLista)[0:])
@@ -129,7 +130,8 @@ def diffDatasets(ckan, dataset):
 
                 #Comprobamos cada resource
                 if coinciden:
-                    sublista = ['name','description','type','mimetype','format','size','url']
+                    sublista = ['name','description','type','mimetype','format','mimetype_inner','size','url']
+                    #sublista = ['name','description','type','mimetype','format','size','url']
                     for resource in resourcesNuevos:
                         encontradoResource = False
                         for resourceOld in resourcesAntiguos:
@@ -160,7 +162,7 @@ def diffDatasets(ckan, dataset):
 
 
 
-def upload_dataset(dataset, script):
+def upload_dataset(dataset, script=None):
     ckan = ckanclient.CkanClient(base_location=config.BASE_LOCATION, api_key=config.API_KEY)
     try:
 
@@ -177,32 +179,36 @@ def upload_dataset(dataset, script):
             ckan.package_entity_put(dataset)
             print ("Dataset {0} updated".format(dataset['name']))
             #guardo el log con los actualizados
-            with open("uploads" + str(script) + ".log","a+") as f:
-                f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Dataset {0} updated".format(dataset['name']))
-                f.write("\n");
-            f.close()
+            if script:
+		          with open("uploads" + str(script) + ".log","a+") as f:
+		              f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Dataset {0} updated".format(dataset['name']))
+		              f.write("\n");
+		          f.close()
 
     except ckanclient.CkanApiNotFoundError:
         try:
             ckan.package_register_post(dataset)
             print ("Dataset {0} created".format(dataset['name']))
-            with open("uploads" + str(script) + ".log","a+") as f:
-                f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " NUEVO - Dataset {0} created".format(dataset['name']))
-                f.write("\n");
-            f.close()
+            if script:
+		          with open("uploads" + str(script) + ".log","a+") as f:
+		              f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " NUEVO - Dataset {0} created".format(dataset['name']))
+		              f.write("\n");
+		          f.close()
         except Exception as e:
             print ("Error while creating {0}:".format(dataset['name']))
-            with open("uploads" + str(script) + ".log","a+") as f:
-                f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Error while creating {0}:".format(dataset['name']))
-                f.write("\n");
-            f.close()
+            if script:
+		          with open("uploads" + str(script) + ".log","a+") as f:
+		              f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Error while creating {0}:".format(dataset['name']))
+		              f.write("\n");
+		          f.close()
             print e
     except Exception as e:
         print ("Error while updating {0}:".format(dataset['name']))
-        with open("uploads" + str(script) + ".log","a+") as f:
-            f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Error while updating {0}:".format(dataset['name']))
-            f.write("\n");
-        f.close()
+        if script:
+		      with open("uploads" + str(script) + ".log","a+") as f:
+		          f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Error while updating {0}:".format(dataset['name']))
+		          f.write("\n");
+		      f.close()
         print e
 
 def upload_group(group):
@@ -245,13 +251,53 @@ def get_tag_text_basic(xml, tag):
     else:
         return ""
 
+
+#Esta funcion se le mete el formato y el modo de acceso. Devuelve  mimetype_inner
+def correctMimetypeInner(formato):
+	devolver=''
+	formatValueList_inner = {
+		'CSV': 'text/csv', 
+		'DGN': 'image/vnd.dgn',
+		'DWG': 'image/vnd.dwg',
+		'DXF': 'application/dxf',
+		'ELP': 'application/elp',
+		'GEOJSON': 'application/vnd.geo+json',
+		'GML': 'application/gml+xml',
+		'HTML': 'text/html',
+		'ICS': 'text/calendar',
+		'JPG': 'image/jpeg',
+		'JSON': 'application/json',
+		'KMZ': 'application/vnd.google-earth.kmz',
+		'ODS': 'application/vnd.oasis.opendocument.spreadsheet',
+		'PNG': 'image/png',
+		'PX': 'text/pc-axis',
+		'RSS': 'application/rss+xml',
+		'SCORM': 'application/scorm',
+		'SHP': 'application/x-zipped-shp',
+		'SIG': 'application/pgp-signature',
+		'TXT': 'text/plain',
+		'URL': 'text/uri-list',
+		'XLS': 'application/vnd.ms-excel',
+		'XLSX': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+		'XML': 'application/xml',
+		'XSLX': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+		'ZIP': 'application/zip'
+	}
+	
+	if formato.upper() in formatValueList_inner:
+		devolver=formatValueList_inner[formato.upper()]
+	else:
+		print 'Error con el mimetype'
+	
+	return devolver
+
 def create_resources(distributions_xml):
     resources = []
     for resources_xml in distributions_xml:
         for resource_xml in resources_xml:
             resource = {}
             # resource name
-            resource['name'] = get_tag_text(resource_xml, rdfs_tag('label'))
+            resource['name'] = get_tag_text(resource_xml, dct_tag('title'))
             # resource description
             resource['description'] = get_tag_text(resource_xml, dct_tag('description'))
             # resource type
@@ -264,23 +310,27 @@ def create_resources(distributions_xml):
                 value_tag = '{0}//{1}'.format(dct_tag('IMT'), rdf_tag('value'))
                 resource['mimetype'] = get_tag_text(format_xml, value_tag)
                 label_tag = '{0}//{1}'.format(dct_tag('IMT'), rdfs_tag('label'))
-                resource['format'] = get_tag_text(format_xml, label_tag)
+                formato = get_tag_text(format_xml, label_tag)
+                resource['format'] = formato
+                resource['mimetype_inner'] = correctMimetypeInner(formato)
+#                resource['format'] = get_tag_text(format_xml, label_tag)
             # resource size
-            size_tag = '{0}//{1}//{2}'.format(
-                    dcat_tag('size'),
-                    rdf_tag('Description'),
-                    dcat_tag('bytes'))
-            size_xml = resource_xml.find(size_tag)
-            if size_xml is not None and size_xml.text is not None and  size_xml.text !=" ":
-                if "Mb" in size_xml.text:
-                    size_xml.text=str(float(size_xml.text.split("Mb")[0])* 1024 *1024)
-                resource['size'] = int(round(float(size_xml.text.replace(',','.'))))
-            else:
-		resource['size'] = ""
-	    # resource url
+#            size_tag = '{0}//{1}//{2}'.format(
+#                    dcat_tag('size'),
+#                    rdf_tag('Description'),
+#                    dcat_tag('bytes'))
+#            size_xml = resource_xml.find(size_tag)
+#            if size_xml is not None and size_xml.text is not None and  size_xml.text !=" ":
+#                if "Mb" in size_xml.text:
+#                    size_xml.text=str(float(size_xml.text.split("Mb")[0])* 1024 *1024)
+#                resource['size'] = int(round(float(size_xml.text.replace(',','.'))))
+#            else:
+            
+            resource['size'] = ""
+            # resource url
             access_url_xml = resource_xml.find(dcat_tag('accessURL'))
             #resource['url'] = clean_url(access_url_xml.get(rdf_tag('resource')))
-	    resource['url'] = access_url_xml.get(rdf_tag('resource'))
+            resource['url'] = access_url_xml.get(rdf_tag('resource'))
             resources.append(resource)
     return resources
 
@@ -302,13 +352,16 @@ def create_dataset(xml):
     extras = []
     resources = []
     # name
-    dataset['name'] = get_tag_text(xml, dct_tag('identifier')).replace("ñ","ny")
+#    dataset['name'] = get_tag_text(xml, dct_tag('identifier')).replace("ñ","ny").
+    dataset['name'] = get_tag_text(xml, dct_tag('identifier')).replace("ñ","ny").replace(":","")
 
     ckan = ckanclient.CkanClient(base_location=config.BASE_LOCATION, api_key=config.API_KEY)
 
     organizacion =""
+    
     try:
         organizacion = ckan.group_entity_get(get_tag_text(xml, dct_tag('organization')))
+        
         if (organizacion != ""):
             dataset['owner_org'] = organizacion.get('id')
 
@@ -341,11 +394,14 @@ def create_dataset(xml):
     # spatial
     extra = ['Spatial', get_tag_text(xml, dct_tag('spatial'))]
     if (extra[1] != ""): extras.append(extra)
-    # temporal
-    extra = ['Temporal', get_tag_text_basic(xml, dct_tag('temporal'))]
+    # Temporal_from
+    extra = ['TemporalFrom', get_tag_text_basic(xml, dct_tag('temporalFrom'))]
+    if (extra[1] != ""): extras.append(extra)
+    # Temporal_until
+    extra = ['TemporalUntil', get_tag_text_basic(xml, dct_tag('temporalUntil'))]
     if (extra[1] != ""): extras.append(extra)
     # language
-    extra = ['Language', get_tag_text(xml, dct_tag('language'))]
+    extra = ['LangES', get_tag_text(xml, dct_tag('language'))]
     if (extra[1] != ""): extras.append(extra)
     # references
     extra = ['References', get_tag_text(xml, dct_tag('references'))]
@@ -356,8 +412,28 @@ def create_dataset(xml):
     # data quality
     extra = ['Data Quality', get_tag_text(xml, dcat_tag('dataQuality')).replace('/','-')]
     if (extra[1] != ""): extras.append(extra)
+    # data quality URL
+    extra = ['Data Quality URL0', get_tag_text_basic(xml, dcat_tag('urlQuality'))]
+    if (extra[1] != ""): extras.append(extra)
     # data dictionary
     extra = ['Data Dictionary', get_tag_text_basic(xml, dcat_tag('dataDictionary'))]
+    if (extra[1] != ""): extras.append(extra)
+    # data dictionary URL
+    extra = ['Data Dictionary URL0', get_tag_text_basic(xml, dcat_tag('urlDictionary'))]
+    if (extra[1] != ""): extras.append(extra)
+    
+    #Extras de Aragopedia
+    # nameAragopedia
+    extra = ['nameAragopedia', get_tag_text(xml, dcat_tag('name_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # shortUriAragopedia
+    extra = ['shortUriAragopedia', get_tag_text(xml, dcat_tag('short_uri_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # typeAragopedia
+    extra = ['typeAragopedia', get_tag_text(xml, dcat_tag('type_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # uriAragopedia
+    extra = ['uriAragopedia', get_tag_text_basic(xml, dcat_tag('uri_aragopedia'))]
     if (extra[1] != ""): extras.append(extra)
 
 
@@ -461,6 +537,9 @@ def parse_rdfs():
                 #check si esta en el hashmap. Si esta: 1 si no esta: 2
                 #upload_dataset(ds,script)
 
+        print "El script es "+script+" y el fichero con el rdf esta en "+rdf
+
+        
         tree = ET.parse(rdf)
         contador = 0;
         for dataset in tree.findall(dataset_tag):
@@ -484,6 +563,7 @@ def parse_rdfs():
         if script == "CINTA":
             for key,value in datasetsEnBD.items():
                 if (value == "2"):
+                    print 'Se inserta '+str(key)
                     cursor.callproc('OPENDATA_PCK_ACCIONES.OPENDATA_PR_REGISTRO_IAEST_ADD', [key, 'NUEVO',None])
                     with open("uploads" + str(script) + ".log","a+") as f:
                         f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Añado como borrado :" + key)

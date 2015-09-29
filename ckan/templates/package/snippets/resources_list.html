@@ -32,14 +32,18 @@ Example:
         <div>
         <ul>
            {% if not '/showVista' in url %}
-           <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">
+             {% if 'text/html' in modoAcceso %}
+               <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
+             {% else %}
+               <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">
+             {% endif %}
 
                 <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span>
 
             </a></li>
            {% endif %}
         {% if elFormato.lower() == 'xls' %}
-           {# Si se tiene algún modo de acceso (zip, html...) no se mostraran las conversiones a xml, csv y json que se generan al vuelo, en caso de tenerlo si #}
+           {# Si se tiene alg&uacute;n modo de acceso (zip, html...) no se mostraran las conversiones a xml, csv y json que se generan al vuelo, en caso de tenerlo si #}
            {% if not modoAcceso  %}
               {% set urlConversionFormato = '/catalogo/render/resource/' + res.name %}
            <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.xml' }}" title="{{ res.name or res.description }}">

@@ -32,7 +32,9 @@ Example:
         <div>
         <ul>
            {% if not '/showVista' in url %}
-             {% if 'text/html' in modoAcceso %}
+             {% if modoAcceso == None %}
+               <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">             
+             {% elif 'text/html' in modoAcceso %}
                <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
              {% else %}
                <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">

@@ -11,30 +11,35 @@ Example:
 #}
 <section id="dataset-resources" class="resources">
   <h3>DESCARGAS</h3>
-  <div class="negrita">Metadato de la colecci&oacute;n</div>
+  <div class="fieldName">Metadato de la colecci&oacute;n</div>
   <div>
    <ul><li><a class="recuadroNoResaltado" title="Metadato de la colecci&oacute;n en RDF" href="{{h.url_for(controller='package', action='read', id=pkg.name)}}.rdf">RDF</a></li></ul>
 </div>
 	
   {% block resource_list %}
   {% if resources %}
+      <div class="fieldName">Archivos con los datos</div>
       {% block resource_list_inner %}
       {% for res in resources %}
-
-        <div>{{ h.resource_display_name(res) | truncate(50) }}</div>
-
         {#% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %#}
         {% set url = res.url %}
         {% set elFormatoMimetype = res.mimetype_inner %}
         {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
         {% set modoAcceso = res.mimetype %}
 
+        
+        
+        <div class="negrita">{{ h.resource_display_name(res) | truncate(50) }}</div>
+
+        
         <div>
         <ul>
            {% if not '/showVista' in url %}
              {% if modoAcceso == None %}
                <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">             
              {% elif 'text/html' in modoAcceso %}
+               <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
+             {% elif 'application/zip' in modoAcceso %}
                <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
              {% else %}
                <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">
@@ -94,6 +99,14 @@ Example:
          {% endif %}
          </ul>
          </div>
+         
+         {% if modoAcceso == None %}
+         {% elif 'text/html' in modoAcceso %}
+           <div>El archivo se sirve desde otra web</div>
+         {% elif 'application/zip' in modoAcceso %}
+           <div>El archivo se sirve a través de un fichero comprimido</div>
+         {% endif %}
+         
         {#% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %#}
       {% endfor %}
       {% endblock %}

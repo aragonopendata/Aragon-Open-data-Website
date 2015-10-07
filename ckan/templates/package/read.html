@@ -26,35 +26,57 @@
   {% endblock %}
 
   {% block data_preview %}
+     
+     <script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2015-03-26T12:54:49.60/jquery.min.js"></script>
+     
      {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None, 'PX': None  } %}
 
+     
      {% for resource in pkg.resources %}
        {% set elFormatoMimetype = resource.mimetype_inner %}
        {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
-
-       {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
-         {% if (elFormato|upper == 'XLS') %}
-            {% if resource.size|int > 2000000  %}
-            {% else %}
-               {% if vars.update({elFormato|upper: resource}) %}{% endif %}
-            {% endif %}
-         {% elif (elFormato|upper == 'XML') %}
-            {% if resource.size|int > 2000000  %}
-            {% elif resource.url.startswith('http://sitar.aragon.es/datosdescarga/descarga.php?file=') %}
-            {% else %}
-               {% if vars.update({elFormato|upper: resource}) %}{% endif %}
-            {% endif %}
-         {% else %}
-             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
-         {% endif %}
-       {% endif %}
+       {% set modoAcceso = resource.mimetype %}
+       
+       
+	     {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
+	       {% if (elFormato|upper == 'XLS') %}
+	          {% if resource.size|int > 2000000  %}
+	          {% else %}
+	             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	          {% endif %}
+	       {% elif (elFormato|upper == 'XML') %}
+	          {% if resource.size|int > 2000000  %}
+	          {% elif resource.url.startswith('http://sitar.aragon.es/datosdescarga/descarga.php?file=') %}
+	          {% else %}
+	             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	          {% endif %}
+	       {% else %}
+	           {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	       {% endif %}
+	     {% endif %}
+		     
      {% endfor %}
      
      {% if (vars.XLS != None) %}
+        
+       {% if ((vars.XLS['mimetype'] == None) or(vars.XLS['mimetype']|length==0)) %}
          <div class="previewZone">{{h.resource_preview(vars.XLS, pkg)}}</div>
+       {% else%}
+       	<script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script>
+       {% endif %}
      {% elif (vars.CSV != None) %}
-          <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+       {% if ((vars.CSV['mimetype'] == None) or (vars.CSV['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+       {% else %}          
+          <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
       {% elif vars.GML  != None %}
+        {% if ((vars.GML['mimetype'] == None) or (vars.GML['mimetype']|length!=0)) %}
+      
       	
         <div id="mapaDiv"><div id="loadingDataMap"><img alt="Cargando..." src="/catalogo/fanstatic/ckanext-reclinepreview/img/ajaxload-circle.gif"/></div><div id="mapa"></div></div>
 	<script type="text/javascript" src="/public/OpenLayers-2.12/OpenLayers.js"></script>
@@ -116,15 +138,40 @@
 }
 
 </script>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
      {% elif (vars.XML != None) %}
+       {% if ((vars.XML['mimetype'] == None) or (vars.XML['mimetype']|length==0)) %}
          <div class="previewZone">{{h.resource_preview(vars.XML, pkg)}}</div>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
      {% elif (vars.JPG != None) %}
+       {% if ((vars.JPG['mimetype'] == None) or (vars.JPG['mimetype']|length==0)) %}
          <div class="previewZone">{{h.resource_preview(vars.JPG, pkg)}}</div>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
      {% elif (vars.PX != None) %}
-        <div class="previewZone">{{h.resource_preview(vars.PX, pkg)}}</div>
+       {% if ((vars.PX['mimetype'] == None) or (vars.PX['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.PX, pkg)}}</div>
+       {% elif (vars.PX['mimetype']|length==0) %}
+        <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
      {% else %}
          <div class="failWarning">Previsualizaci&oacute;n no disponible</div>
       {% endif %}
+      
+      
   {% endblock %}  
   
   <div class="metadataZone">

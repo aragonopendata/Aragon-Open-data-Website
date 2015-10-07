@@ -152,13 +152,27 @@
         {% endif %}
     {% endfor %}
     
+    
+
+    {% set dataQuality = "" %}
+    {% set dataDictionary = "" %}
     {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}
+        
         {% if value != "" %}
-          {% if key == 'Data Quality' %}
-            <div class="fieldName">Calidad del dato</div>
-            <div class="fieldValue"> {{ value }} </div>
-          {% elif key == 'Data Quality URL0' %}
+          {% if key == 'Data Quality'  %}
+            {% set dataQuality = value %}
+          {% elif key == 'Data Dictionary' %}
+            {% set dataDictionary = value %}
+          {% endif %}
+          {% if key == 'Data Quality URL0' %}
+            {% if dataQuality == '' %}
+              <div class="fieldName">Calidad del dato</div>
+              <div class="fieldValue"> La calidad del dato se encuentra en la siguiente url </div>
+            {% else %}
+              <div class="fieldName">Calidad del dato</div>
+              <div class="fieldValue"> {{dataQuality}} </div>
+            {% endif %}
             <div class="fieldValue"><a href="{{ value }}" title="Url de calidad de datos">[1] {{ value }}</a></div>
           {% elif key == 'Data Quality URL1' %}
             <div class="fieldValue"><a href="{{ value }}" title="Url de calidad de datos">[2] {{ value }}</a></div>
@@ -178,10 +192,14 @@
             <div class="fieldValue"><a href="{{ value }}" title="Url de calidad de datos">[9] {{ value }}</a></div>
           {% elif key == 'Data Quality URL9' %}
             <div class="fieldValue"><a href="{{ value }}" title="Url de calidad de datos">[10] {{ value }}</a></div>
-          {% elif key == 'Data Dictionary' %}
-            <div class="fieldName">Diccionario de datos</div>
-            <div class="fieldValue"> {{ value }} </div>
           {% elif key == 'Data Dictionary URL0' %}
+            {% if dataDictionary == '' %}
+              <div class="fieldName">Diccionario de datos</div>
+              <div class="fieldValue"> El diccionario del dato se encuentra en la siguiente url </div>
+            {% else %}
+              <div class="fieldName">Diccionario de datos</div>
+              <div class="fieldValue"> {{dataDictionary}} </div>
+            {% endif %}
             <div class="fieldValue"><a href="{{ value }}" title="Url de diccionario de datos">[1] {{ value }}</a></div>
           {% elif key == 'Data Dictionary URL1' %}
             <div class="fieldValue"><a href="{{ value }}" title="Url de diccionario de datos">[2] {{ value }}</a></div>

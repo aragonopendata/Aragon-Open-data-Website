@@ -1624,19 +1624,22 @@ class PackageController(base.BaseController):
         # Info estadistica: publicador IAEst
         qTipo = None
         if tipo is not None:
-             if tipo == 'hojas-de-calculo':
-                 qTipo = "res_format:CSV* || res_format:XLS* || res_format:csv* || res_format:xls* || presupuesto"
-             elif tipo == 'texto-plano':
-                 qTipo = "res_format:JSON* || res_format:XLS* || res_format:XML* || res_format:PX* ||"
-                 qTipo += "res_format:json* || res_format:xls* || res_format:xml* || res_format:px*"
-             elif tipo == 'mapas':
-                 qTipo = "res_format:KMZ* || res_format:GML* || res_format:DGN* || res_format:SHP* || "
-                 qTipo += "res_format:kmz* || res_format:gml* || res_format:dgn* || res_format:shp* || "
-                 qTipo += "Geodato";
+             if tipo == 'calendario':
+                 qTipo = "(res_format:ICS || res_format:ics) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
              elif tipo == 'fotos':
-                 qTipo = "res_format:JPG* || res_format:jpg* || anejo+fotografico"
+                 qTipo = "(res_format:jpeg || res_format:JPEG || res_format:jpg || res_format:JPG || res_format:png || res_format:PNG || res_format:gif || res_format:GIF || anejo+fotografico) && dataset_type:dataset && entity_type:package && state:active && capacity:public" #El anejo lo quitaremos cuando vaya lo del igear
+             elif tipo == 'hojas-de-calculo':
+                 qTipo = "(res_format:XLS || res_format:xls || res_format:ods || res_format:ODS || res_format:xlsx || res_format:XLSX) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
+             elif tipo == 'mapas':
+                 qTipo = "(res_format:dxf || res_format:DXF || res_format:gml || res_format:GML || res_format:geojson || res_format:GEOJSON || res_format:kmz || res_format:KMZ || res_format:shp || res_format:SHP || res_format:dgn || res_format:DGN || res_format:dwg || res_format:DWG || Geodato) && dataset_type:dataset && entity_type:package && state:active && capacity:public" #Geodato lo quitaremos cuando vaya lo del igear
+             elif tipo == 'recursos-educativos':
+                 qTipo ="(name:recurso-educativo*) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
+             elif tipo == 'recursos-web':
+                 qTipo ="(res_format:html || res_format:HTML || res_format:url || res_format:URL) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
              elif tipo == 'rss':
-                 qTipo = "res_format:RSS* || res_format:rss*"
+                 qTipo = "(res_format:rss || res_format:RSS) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
+             elif tipo == 'texto-plano':
+                 qTipo = "(((res_format:XLS || res_format:xls ) && (res_url:http*.xls )) || res_format:json || res_format:JSON || res_format:xml || res_format:XML || res_format:csv || res_format:CSV || res_format:px || res_format:PX || res_format:url || res_format:URL) && dataset_type:dataset && entity_type:package && state:active && capacity:public"
              elif tipo == 'informacion-estadistica':
                  qTipo = "organization:instituto_aragones_de_estadistica"
              elif tipo == 'base-datos':

@@ -435,17 +435,27 @@ def make_map():
         m.connect('/turismo', action='searchAOD', tema='turismo')
         m.connect('/urbanismo-infraestructuras', action='searchAOD', tema='urbanismo-infraestructuras')
         m.connect('/vivienda', action='searchAOD', tema='vivienda')
-
-        m.connect('/hojas-de-calculo', action='searchAOD', tipo='hojas-de-calculo')
-        m.connect('/{tema}/hojas-de-calculo', action='searchAOD', tipo='hojas-de-calculo')
-        m.connect('/texto-plano', action='searchAOD', tipo='texto-plano')
-        m.connect('/{tema}/texto-plano', action='searchAOD', tipo='texto-plano')
-        m.connect('/mapas', action='searchAOD', tipo='mapas')
-        m.connect('/{tema}/mapas', action='searchAOD', tipo='mapas')
+        
+        #Busquedas por tema y tipo
+        m.connect('/calendario', action='searchAOD', tipo='calendario')
+        m.connect('/{tema}/calendario', action='searchAOD', tipo='calendario')
         m.connect('/fotos', action='searchAOD', tipo='fotos')
         m.connect('/{tema}/fotos', action='searchAOD', tipo='fotos')
+        m.connect('/hojas-de-calculo', action='searchAOD', tipo='hojas-de-calculo')
+        m.connect('/{tema}/hojas-de-calculo', action='searchAOD', tipo='hojas-de-calculo')
+        m.connect('/mapas', action='searchAOD', tipo='mapas')
+        m.connect('/{tema}/mapas', action='searchAOD', tipo='mapas')
+        m.connect('/recursos-educativos', action='searchAOD', tipo='recursos-educativos')
+        m.connect('/{tema}/recursos-educativos', action='searchAOD', tipo='recursos-educativos')
+        m.connect('/recursos-web', action='searchAOD', tipo='recursos-web')
+        m.connect('/{tema}/recursos-web', action='searchAOD', tipo='recursos-web')
         m.connect('/rss', action='searchAOD', tipo='rss')
         m.connect('/{tema}/rss', action='searchAOD', tipo='rss')
+        m.connect('/texto-plano', action='searchAOD', tipo='texto-plano')
+        m.connect('/{tema}/texto-plano', action='searchAOD', tipo='texto-plano')
+        
+        
+        
         m.connect('/informacion-estadistica', action='searchAOD', tipo='informacion-estadistica')
         m.connect('/{tema}/informacion-estadistica', action='searchAOD', tipo='informacion-estadistica') 
 

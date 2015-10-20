@@ -310,7 +310,7 @@ class PackageSearchQuery(SearchQuery):
             query['q'] = "*:*"
 
         # number of results
-        rows_to_return = min(3000, int(query.get('rows', 10)))
+        rows_to_return = min(5000, int(query.get('rows', 10)))
         if rows_to_return > 0:
             # #1683 Work around problem of last result being out of order
             #       in SOLR 1.4

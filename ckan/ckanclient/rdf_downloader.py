@@ -29,15 +29,21 @@ def extract_rdf(jsp):
     write = False
     file = open(jsp)
     dest_file = re.sub("\.jsp", ".rdf", jsp)
+    print  'Fichero de destino', dest_file
+    
+    print  'Fichero de jsp es', jsp
     dest = open(dest_file, 'wb')
     dest.write(header)
     for line in file:
-        if re.match("    <rdf:RDF?", line):
+        if '<rdf:RDF' in line:
+            print 'Se comienza a escriber'
             write = True
         elif re.match("^ ?<\/rdf:", line):
             dest.write(line)
             write = False
         if write:
+            if (line.find('&')>=0):
+                line = line.replace('&', '&amp;')
             dest.write(line)
     file.close()
     dest.close()
@@ -49,8 +55,10 @@ def main():
     for url in urls:
         print(url)
         download(url)
+    print 'Comienza el extract'
     for jsp in glob.glob(config.DOWNLOAD_PATH + "/*.jsp"):
         extract_rdf(jsp)
+    print 'Antes de parsear'
     print(rdf_parser.parse_rdfs());
     
 main()

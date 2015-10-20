@@ -8,6 +8,7 @@ import datetime
 import sys
 import config
 import cx_Oracle
+import psycopg2
 
 def clean_tag(tag):
     res = tag.encode('utf-8')
@@ -43,6 +44,7 @@ def diffDatasets(ckan, dataset):
     coinciden=True;
 
     for datoARevisar in datosARevisar:
+#        print 'Se va a comparar ', dataset.get(datoARevisar),'con',datasetBD.get(datoARevisar).encode('utf-8')
         if (datoARevisar == 'owner_org'):
             if (dataset.get(datoARevisar) is not None and dataset.get(datoARevisar) != datasetBD.get(datoARevisar) is not  None):
                  if (dataset.get(datoARevisar) != datasetBD.get(datoARevisar).encode('utf-8')):
@@ -252,9 +254,10 @@ def get_tag_text_basic(xml, tag):
         return ""
 
 
-#Esta funcion se le mete el formato y el modo de acceso. Devuelve  mimetype_inner
+#Esta funcion se le mete el formato. Devuelve  mimetype_inner
 def correctMimetypeInner(formato):
 	devolver=''
+	print 'El formato es ', formato
 	formatValueList_inner = {
 		'CSV': 'text/csv', 
 		'DGN': 'image/vnd.dgn',
@@ -287,17 +290,42 @@ def correctMimetypeInner(formato):
 	if formato.upper() in formatValueList_inner:
 		devolver=formatValueList_inner[formato.upper()]
 	else:
-		print 'Error con el mimetype'
+		print 'Error con el mimetype_inner el formato es ', formato 
 	
 	return devolver
 
-def create_resources(distributions_xml):
+#Esta funcion se le mete el modo de acceso. Devuelve  mimetype
+def correctMimetype(formato):
+	devolver=''
+	print 'El modo de acceso es ', formato
+	formatValueList = {
+		'HTML': 'text/html',
+		'SHP': 'application/zip',
+		'ZIP': 'application/zip',
+		'APPLICATION/ZIP' : 'application/zip',
+		'':'',
+		'APPLICATION-ZIP' : 'application/zip'
+		
+	}
+	
+	if formato.upper() in formatValueList:
+		devolver=formatValueList[formato.upper()]
+	else:
+		print 'Error con el modo de acceso el formato es ', formato
+	
+	return devolver
+
+def create_resources(distributions_xml, title):
     resources = []
     for resources_xml in distributions_xml:
         for resource_xml in resources_xml:
             resource = {}
             # resource name
-            resource['name'] = get_tag_text(resource_xml, dct_tag('title'))
+            name= get_tag_text(resource_xml, dct_tag('title'))
+            if (name==None) | (name==''):
+              resource['name'] = title
+            else:
+              resource['name'] = get_tag_text(resource_xml, dct_tag('title'))
             # resource description
             resource['description'] = get_tag_text(resource_xml, dct_tag('description'))
             # resource type
@@ -307,12 +335,15 @@ def create_resources(distributions_xml):
             # resource mime type
             format_xml = resource_xml.find(dct_tag('format'))
             if format_xml is not None:
+                
                 value_tag = '{0}//{1}'.format(dct_tag('IMT'), rdf_tag('value'))
-                resource['mimetype'] = get_tag_text(format_xml, value_tag)
+                modoAcceso = get_tag_text(format_xml, value_tag)
+                resource['mimetype'] = correctMimetype(modoAcceso)
                 label_tag = '{0}//{1}'.format(dct_tag('IMT'), rdfs_tag('label'))
                 formato = get_tag_text(format_xml, label_tag)
                 resource['format'] = formato
                 resource['mimetype_inner'] = correctMimetypeInner(formato)
+                print '+++El modo de acceso es', modoAcceso, 'y el formato es ', formato, ' en el datase de nombre', resource['name']
 #                resource['format'] = get_tag_text(format_xml, label_tag)
             # resource size
 #            size_tag = '{0}//{1}//{2}'.format(
@@ -494,7 +525,7 @@ def create_dataset(xml):
 
     # resources
     distributions_xml = xml.findall(dcat_tag('distribution')) 
-    resources = create_resources(distributions_xml)
+    resources = create_resources(distributions_xml, dataset['title'])
     # groups / themes
     groups_xml = xml.findall(dcat_tag('theme'))
     groups = create_groups(groups_xml)
@@ -512,8 +543,10 @@ def get_rdfs():
 
 def parse_rdfs():
     rdfs = get_rdfs()
+    print 'Hay ', len(rdfs), 'datasets '
     datasets = []
     dataset_tag = str(ET.QName(config.DCAT_NAMESPACE, 'Dataset'))
+    
     for rdf in rdfs:
         script = "";
         if "IAEST" in rdf.upper():
@@ -522,20 +555,32 @@ def parse_rdfs():
             script="CINTA";
 
         if script == "CINTA":
-            connection = cx_Oracle.connect(config.OPENDATA_USR + "/" + config.OPENDATA_PASS  + "@" + config.OPENDATA_CONEXION_BD)
+            #connection = cx_Oracle.connect(config.OPENDATA_USR + "/" + config.OPENDATA_PASS  + "@" + config.OPENDATA_CONEXION_BD)
+            #connection = cx_Oracle.connect(config.OPENDATA_USR + "/" + config.OPENDATA_PASS  + "@" + config.OPENDATA_CONEXION_BD_PRE)
             #connection = cx_Oracle.connect("OPENDATA/OPENDATA@" + config.OPENDATA_CONEXION_BD_DES)
+            #connection =  config.conexion('opendata-postgre')
+            
+            connection = psycopg2.connect(config.OPENDATA_POSTGRE_CONEXION_BD)
             cursor = connection.cursor()
-            registros = cursor.execute(
-                "SELECT * FROM OPENDATA_V_REGIAEST_ACTIVOS")
+            consulta="SELECT package_revision.name, group_revision.name FROM public.package_revision, public.group_revision WHERE  package_revision.owner_org = group_revision.id AND package_revision.state = 'active' AND package_revision.current = 't' AND (group_revision.name='instituto_geografico_de_aragon' OR group_revision.name='instituto_aragones_de_gestion_ambiental' OR group_revision.name='direccion_general_de_urbanismo') AND package_revision.name NOT IN ('servicio-descarga-cartografica-e-1-1000-localidad', 'servicio-descarga-cartografica-e-1-1000-municipios', 'servicio-descarga-cartografica-e-1-5000-y-e-1-10000', 'expedientes-de-modificaciones-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-general-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-modificaciones-de-planeamiento-general-y-de-modificaciones-de-delimitaciones-de-suelo-urbano-de-aragon-de-la-direccion-general-de-urbanismo') ORDER BY group_revision.name ASC"
+            q=cursor.execute(consulta)
+            
+            
+            #registros = cursor.execute(
+                #"SELECT * FROM OPENDATA_V_REGIAEST_ACTIVOS")
             datasetsEnBD = {}
-
             contadorDict = 0;
-            for r in registros:
-                contadorDict =contadorDict +1;
-                #rellenar HashMap
-                datasetsEnBD[r[0]] = "0"
-                #check si esta en el hashmap. Si esta: 1 si no esta: 2
-                #upload_dataset(ds,script)
+            registros = cursor.fetchall()
+            if registros is not None:
+              for r in registros:
+                  contadorDict =contadorDict +1;
+                  #rellenar HashMap
+                  datasetsEnBD[r[0]] = "0"
+                  #check si esta en el hashmap. Si esta: 1 si no esta: 2
+                  #upload_dataset(ds,script)
+              print 'Dataset eEn BD es ', str(datasetsEnBD), 'y tiene ',len(datasetsEnBD)
+            else:
+              print 'No hay recursos'
 
         print "El script es "+script+" y el fichero con el rdf esta en "+rdf
 
@@ -549,6 +594,7 @@ def parse_rdfs():
             if script == "CINTA":
             #Si el script es de CINTA gestionar los repetidos...
 
+                
                 if datasetsEnBD.get(ds.get('name')) is None:
                      datasetsEnBD[ds.get('name')] = "2" #NO ENCONTRADO
                      upload_dataset(ds,script)
@@ -562,22 +608,26 @@ def parse_rdfs():
         #Cuando termine si es de CINTA
         if script == "CINTA":
             for key,value in datasetsEnBD.items():
+                
+                print 'La key es ', str(key), ' y el value es', str(value)
+                
                 if (value == "2"):
-                    print 'Se inserta '+str(key)
-                    cursor.callproc('OPENDATA_PCK_ACCIONES.OPENDATA_PR_REGISTRO_IAEST_ADD', [key, 'NUEVO',None])
+                    print 'Se va a insertar '+str(key)
+                    #cursor.callproc('OPENDATA_PCK_ACCIONES.OPENDATA_PR_REGISTRO_IAEST_ADD', [key, 'ACTIVO',None])
                     with open("uploads" + str(script) + ".log","a+") as f:
                         f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Añado como borrado :" + key)
                         f.write("\n");
                     f.close()
                     connection.commit()
                 if (value == "0"): #HAY QUE BORRARLO
-                    cursor.callproc('OPENDATA_PCK_ACCIONES.OPENDATA_PR_REGISTRO_IAEST_UPD', [key, 'BORRAR', datetime.datetime.now()])
+                    #cursor.callproc('OPENDATA_PCK_ACCIONES.OPENDATA_PR_REGISTRO_IAEST_UPD', [key, 'BORRAR', datetime.datetime.now()])
 
                     with open("uploads" + str(script) + ".log","a+") as f:
                         f.write(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) + " Marco como borrado :" + key)
                         f.write("\n");
                     f.close()
 
+                    
                     ckan = ckanclient.CkanClient(base_location=config.BASE_LOCATION, api_key=config.API_KEY)
                     datasetABorrar = ckan.package_entity_get(key)
                     datasetABorrar['state'] = 'deleted';

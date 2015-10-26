@@ -334,6 +334,7 @@ def main():
                 url_publicado = url_publicado.lower().split("--")[1]
                 delete =True
             identificador = url_publicado
+            identificador = identificador.replace("ü", "u").replace("Ü", "u")
         else:
             identificador = Titulo.decode('utf-8').encode('utf-8')
             identificador = identificador.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")

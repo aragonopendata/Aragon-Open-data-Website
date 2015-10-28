@@ -29,8 +29,8 @@
 		position:relative;
 		left: 50%;
 		float: left;
-		margin-bottom: 42px;
-}
+		margin-bottom: 30px;
+                margin-top: -40px;}
 
 #loadingDataMap {
 	visibility:hidden;

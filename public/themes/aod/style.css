@@ -96,8 +96,8 @@ li.nodisc { list-style-type: none; }
 
 /* cabecera  aod*/
 
-/*.banner {  width: 100%; background-color: red;  float: left; overflow: hidden; }*/
-.banner {  width: 100%; background-color: #76a1b8;  float: left; overflow: hidden; }
+/*.banner {  width: 980px; background-color: red; margin:auto }*/
+.banner {  width: 980px; background-color: #76a1b8; margin:auto }
 /*.banner ul { float:left; position:relative; left:50%;  width: 980px; }
 .banner ul li { float: left; position:relative; right:50%; }
 
@@ -110,6 +110,7 @@ li.nodisc { list-style-type: none; }
 
 /**La clase mini se le añade al body pero tan sólo en firefox, deja el menu fijo y pequeñito*/
 .mini .banner {position:fixed; top:-10px;  z-index:1111; }
+.mini #anchoBanner {position:fixed; top:-10px;  z-index:1111; }
 /*
 .mini .buttonsEditor { position:fixed; top: 100px; right: 0px; }
 */
@@ -185,16 +186,17 @@ body:not(.mini) .banner .bannerBuscador {padding-top: 1.5% ;}
 
 .metadataZone { width: 630px; float: left; border: solid 2px #76a1b8; margin-right: 30px; margin-bottom: 10px; }
 .metadataZone .additional-info{ padding-bottom: 10px; }
-.resourceZone { width:300px; float: right; border: solid 2px #76a1b8; overflow: hidden; }
+.resourceZone { width:300px; float: right; border: solid 2px #76a1b8; overflow: hidden; padding-bottom: 15px;}
 
 .metadataZone h3 { color: #76a1b8; border-bottom: solid 2px #76a1b8; padding-left: 15px; padding-right: 15px;  padding-top: 5px; padding-bottom: 5px; }
 .resourceZone h3 { color: #76a1b8; border-bottom: solid 2px #76a1b8; padding-left: 15px; padding-right: 15px;  padding-top: 5px; padding-bottom: 5px; }
 .metadataZone .fieldName { color: #76a1b8; text-transform: uppercase;	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
 .metadataZone .fieldValue { padding-left: 15px; padding-right: 15px; overflow: auto; }
 
+.resourceZone .fieldName { color: #76a1b8; text-transform: uppercase;	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
 .resourceZone div { padding-left: 15px; padding-right: 15px; padding-top: 5px;  clear:both; text-align: left; }
-.resourceZone ul { }
-.resourceZone li { padding-right: 10px; float: left; padding-bottom: 15px; }
+.resourceZone ul { padding-bottom: 15px; }
+.resourceZone li { padding-right: 10px; float: left;  }
 
 
 
@@ -704,6 +706,7 @@ Fin Propiedades correspondientes a los estilos de las páginas de Multimedia
 .tituloDataset {
   font-size: 22px;
   padding-bottom:15px;
+  color: #3b515c;
 }
 	
 .js .js-hide {
@@ -957,8 +960,9 @@ tr.centrado{ align: center;
 */
 .bannerInline{
 		display: inline-block;
-		width: 45%;
-		padding: 1%;
+		/*width: 50%;*/
+		padding-top: 1%;
+		padding-bottom: 1%;
 		vertical-align: middle;
 	}
 
@@ -1251,10 +1255,28 @@ ul.secc_botonera li.last{margin-right: 0px; }
 	font-weight: bold;
 }
 
-.recuadroNoResaltado {
+/*.recuadroNoResaltado {
 	border: 1px solid #7391a5;
 	padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px;
 	color: #7391a5 !important;
+	text-decoration: none  !important;
+	font-weight: bold;
+}*/
+
+.recuadroNoResaltado {
+	border: 1px solid #7391a5;
+	padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px;
+	color: #3b515c !important;
+	background-color: #FFFFFF;
+	text-decoration: none  !important;
+	font-weight: bold;
+}
+
+.recuadroNoResaltado:hover {
+	border: 1px solid #7391a5;
+	padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px;
+	background-color: #3b515c;
+	color: #FFFFFF !important;
 	text-decoration: none  !important;
 	font-weight: bold;
 }
@@ -1554,6 +1576,8 @@ ol.search-results {
 }
 
 .chosen-container { width: 250px !important; }
+.small .chosen-container { width: 173px !important; }
+.small .chosen-container.chosen-with-drop .chosen-drop  { width: 173px !important; }
 .chosen-drop { width: 250px !important; }
 
 .searchTypesOptions li { padding-right: 10px; }
@@ -1839,6 +1863,11 @@ p.bigButton {
 
 /**Properties para diferentes resolucionoes de la cabecera el pie, la tabla de resultados de ckan y el visor del dataset**/
 
+@media (min-width: 320px) and (max-width: 1024px){
+	.banner{
+		width:100%;
+	}
+}
 
 @media (min-width: 320px) and (max-width: 479px) {
 	.mini .banner .bannerLogo a img#idTotal{
@@ -2022,12 +2051,38 @@ p.bigButton {
 		padding: 1%;
 	}
 	
+	
 	.presentacionInline{
 		width: 30%;
 		padding: 1%;
 	}
 	
 	/* La caja de búsqueda*/
+/*	#cajaDeBusqInput{*/
+/*		max-width: 360px;*/
+/*		width: 75%;*/
+/*	}*/
+/*	*/
+/*	.bannerInline {*/
+/*		width: 45%;*/
+/*	}*/
+
+/*	.bannerLogo{*/
+/*		text-align: left !important;*/
+/*		max-width:245px;*/
+/*	}*/
+/*	*/
+/*	.bannerBuscador{*/
+/*		text-align: right !important;*/
+/*		width: 60%;*/
+/*		max-width:350px;*/
+/*	}*/
+/*	*/
+/*	.videoInline{*/
+/*			width: 23%;*/
+/*			padding: 1%;*/
+/*		}*/
+
 	#cajaDeBusqInput{
 		max-width: 360px;
 		width: 75%;
@@ -2047,11 +2102,6 @@ p.bigButton {
 		text-align: right !important;
 		width: 60%;
 	}
-	
-	.videoInline{
-			width: 23%;
-			padding: 1%;
-		}
 	
 	.visible-ms {
 		display: block !important;
@@ -2095,28 +2145,24 @@ p.bigButton {
 	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
 }
 
-
-
-@media screen and (min-width:768px) and (max-width: 1023px)  {
+@media screen and (min-width:768px) and (max-width: 849px)  {
 	/* La caja de búsqueda*/
 	#cajaDeBusqInput{
 		max-width: 360px;
-		width: 80%;
+		width: 70%;
 	}
 	
 	.bannerInline {
-		width: 45%;
+		width: 44% ;
 	}
 
 	.bannerLogo{
 		text-align: left !important;
-		width: 25% !important;
-		padding-left: 10%;
+		width: 35% !important;
 	}
 
 	.bannerBuscador{
 		text-align: right !important;
-		width: 60%;
 	}
 	
 	.videoInline{
@@ -2169,121 +2215,97 @@ p.bigButton {
 	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
 }
 
+@media screen and (min-width:850px) and (max-width: 1023px)  {
+	/* La caja de búsqueda*/
+	#cajaDeBusqInput{
+		max-width: 360px;
+		width: 80%;
+	}
+	
+	.bannerInline {
+		width: 44% !important;
+}
+
+	.bannerLogo{
+		text-align: left !important;
+/*		width: 25% !important;*/
+	}
+	
+	.bannerBuscador {
+		text-align: right !important;
+	}
+
+	.videoInline{
+		width: 18%;
+		padding: 1%;
+	}
+	
+	.visible-ms {
+		display: block !important;
+	}
+	.tamCeroEstrecho {
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+		display:none;
+	}
+
+	/*.anchoMax { width: 460px; }	*/
+	#cabeceraRelacionados ul {width: 768px; }
+	#cabecera ul {width: 768px; }
+	#banner ul {width: 768px; }
+	#banner ul li.bannerBuscador { padding-top: 10px; padding-bottom: 16px; }
+	/*.anchoSearchBanner { width: 225px; }*/
+	.botonesSuperiorLista ul li, .botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.last { width:150px; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.second, .botonesSuperiorLista ul li.third { border-bottom: 2px solid #FFFFFF; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.fourth { border-left: 2px solid #FFFFFF; }
+	#tituloVideo { top: 11px; }
+	#playVideo { top: 55px; }
+	#dvdVideoImg {width: 768px; }
+	#videoPlayer { width: 768px; height: 157px; }
+	.huecoSeccionHome { padding-top: 20px; }
+	.flechaUp { padding-bottom: 10px;}
+	#pieUL {width: 490px; }
+	#pieULLI {width: 490px; }
+	.pieZonaDos ul li table { border-right: none; }
+	.seccionHome {width: 768px;  height: auto; }
+	.seccionAplicacionesIconos li .contenido { width: 508px;}
+	.pagina {width: 768px; height: auto; }
+	.seccionAplicaciones ul {
+		width: 638px;
+	}
+	#zonaNoticias  { width: 768px;  }
+	.zonaVentanaDatosDestacados { padding: 5px; }
+	.seccionHomeIconos li .texto{ width: 768px; }
+	.seccionHomeIconos li.item1 { width: 768px; }
+	.seccionHomeIconos li.item2 { width: 768px; }
+	.seccionHomeIconos li.item3 { width: 768px; }
+	.seccionHomeIconos li.item1 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item2 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
+}
+
 @media screen and (min-width:1024px){
 	/* La caja de búsqueda*/
 	#cajaDeBusqInput{
 		max-width: 400px;
 		width: 75%;
-	}
-	
+}
+
 	.videoInline{
 		width: 16%;
 		padding: 1%;
 	}
 	
-}
-
-@media screen and (min-width:1024px) and (max-width: 1199px){
 	.bannerLogo{
 		text-align: left !important;
-		width: 45% !important;
-		padding-left: 5%;
-	}
-}
-
-@media screen and (min-width:1200px) and (max-width: 1249px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 39% !important;
-		padding-left: 6%;
+		width: 485px !important;
 	}
 	
+	
 	.bannerBuscador {
-		padding-right: 7%;
-		width: 42%;
+		width: 490px;
 		text-align: right !important;
-	}
-}
-
-@media screen and (min-width:1250px) and (max-width: 1299px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 38% !important;
-		padding-left: 8%;
-	}
-	
-	.bannerBuscador {
-		padding-right: 9%;
-		width: 40%;
-		text-align: right !important;
-	}
-}
-
-@media screen and (min-width:1300px) and (max-width: 1349px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 34% !important;
-		padding-left: 10%;
-	}
-	
-	.bannerBuscador {
-		padding-right: 11.5%;
-		width: 41%;
-		text-align: right !important;
-	}
-}
-
-@media screen and (min-width:1350px) and (max-width: 1399px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 34% !important;
-		padding-left: 8%;
-	}
-	
-	.bannerBuscador {
-		padding-right: 9.5%;
-		width: 38%;
-		text-align: right !important;
-	}
-}
-
-@media screen and (min-width:1400px) and (max-width: 1469px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 34% !important;
-		padding-left: 14%;
-	}
-	
-	.bannerBuscador {
-		padding-left: 1%;
-		width: 48%;
-	}
-}
-
-
-@media screen and (min-width:1470px) and (max-width: 1539px){
-	.bannerLogo{
-		text-align: left !important;
-		width: 31% !important;
-		padding-left: 11%;
-	}
-	
-	.bannerBuscador {
-		padding-left: 3%;
-		width: 43%;
-	}
-}
-
-@media screen and (min-width:1540px) {
-	.bannerLogo{
-		text-align: left !important;
-		width: 29% !important;
-		padding-left: 13%;
-	}
-	
-	.bannerBuscador {
-		padding-left: 3%;
-		width: 43%;
 	}
 }
 

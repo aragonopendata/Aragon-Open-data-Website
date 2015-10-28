@@ -1977,9 +1977,8 @@ my.Flot = Backbone.View.extend({
     <div class="recline-flot"> \
       <div class="panel graph" style="display: block;"> \
         <div class="js-temp-notice alert alert-block"> \
-          <h3 class="alert-heading">Hey there!</h3> \
-          <p>There\'s no graph here yet because we don\'t know what fields you\'d like to see plotted.</p> \
-          <p>Please tell us by <strong>using the menu on the right</strong> and a graph will automatically appear.</p> \
+          <h3 class="alert-heading">Seleccione campos para generar la gráfica</h3> \
+          <p><p>Por favor <strong>utilice el menú de la derecha</strong> para definir las variables con las que generar la gráfica y aparecerá a continuación.</p>\
         </div> \
       </div> \
     </div> \
@@ -2300,20 +2299,20 @@ my.FlotControls = Backbone.View.extend({
   <div class="editor"> \
     <form class="form-stacked"> \
       <div class="clearfix"> \
-        <label>Graph Type</label> \
+        <label>Tipo de Gráfica</label> \
         <div class="input editor-type"> \
           <select> \
-          <option value="lines-and-points">Lines and Points</option> \
-          <option value="lines">Lines</option> \
-          <option value="points">Points</option> \
-          <option value="bars">Bars</option> \
-          <option value="columns">Columns</option> \
+          <option value="lines-and-points">Líneas y puntos</option> \
+          <option value="lines">Líneas</option> \
+          <option value="points">Puntos</option> \
+          <option value="bars">Barras</option> \
+          <option value="columns">Columnas</option> \
           </select> \
         </div> \
-        <label>Group Column (Axis 1)</label> \
+        <label>Columna a agrupar (Abscisas)</label> \
         <div class="input editor-group"> \
           <select> \
-          <option value="">Please choose ...</option> \
+          <option value="">Por favor elija...</option> \
           {{#fields}} \
           <option value="{{id}}">{{label}}</option> \
           {{/fields}} \
@@ -2323,7 +2322,7 @@ my.FlotControls = Backbone.View.extend({
         </div> \
       </div> \
       <div class="editor-buttons"> \
-        <button class="btn editor-add">Add Series</button> \
+        <button class="btn editor-add">Añadir serie</button> \
       </div> \
       <div class="editor-buttons editor-submit" comment="hidden temporarily" style="display: none;"> \
         <button class="editor-save">Save</button> \
@@ -2334,8 +2333,8 @@ my.FlotControls = Backbone.View.extend({
 ',
   templateSeriesEditor: ' \
     <div class="editor-series js-series-{{seriesIndex}}"> \
-      <label>Series <span>{{seriesName}} (Axis 2)</span> \
-        [<a href="#remove" class="action-remove-series">Remove</a>] \
+      <label>Series <span>A (Ordenadas)</span> \
+        [<a href="#remove" class="action-remove-series">Borrar</a>] \
       </label> \
       <div class="input"> \
         <select> \
@@ -3947,7 +3946,7 @@ my.MultiView = Backbone.View.extend({
         </div> \
       </div> \
       <div class="recline-results-info"> \
-        <span class="doc-count">{{recordCount}}</span> records\
+        <span class="doc-count">{{recordCount}}</span> filas en total.\
       </div> \
       <div class="menu-right"> \
         <div class="btn-group" data-toggle="buttons-checkbox"> \
@@ -5445,10 +5444,10 @@ this.recline.View = this.recline.View || {};
 my.Pager = Backbone.View.extend({
   className: 'recline-pager', 
   template: ' \
-    <div class="pagination"> \
+    <div class="pagination_preview"> \
       <ul> \
-        <li class="prev action-pagination-update"><a href="">&laquo;</a></li> \
-        <li class="active"><a><input name="from" type="text" value="{{from}}" /> &ndash; <input name="to" type="text" value="{{to}}" /> </a></li> \
+        <li class="prev action-pagination-update"><a href="">&laquo; </a></li> \
+        <li class="active">Del <input name="from" type="text" value="{{from}}" />  al <input name="to" type="text" value="{{to}}" /> </li> \
         <li class="next action-pagination-update"><a href="">&raquo;</a></li> \
       </ul> \
     </div> \
@@ -5507,10 +5506,9 @@ my.QueryEditor = Backbone.View.extend({
   template: ' \
     <form action="" method="GET" class="form-inline"> \
       <div class="input-prepend text-query"> \
-        <span class="add-on"><i class="icon-search"></i></span> \
-        <input type="text" name="q" value="{{q}}" class="span2" placeholder="Search data ..." class="search-query" /> \
+          <input type="text" name="q" value="" placeholder="Buscar datos en la tabla..." class="search-query-inputtext">\
       </div> \
-      <button type="submit" class="btn">Go &raquo;</button> \
+      <button type="submit" class="btn">Buscar &raquo;</button> \
     </form> \
   ',
 
@@ -5549,8 +5547,8 @@ my.ValueFilter = Backbone.View.extend({
   className: 'recline-filter-editor well', 
   template: ' \
     <div class="filters"> \
-      <h3>Filters</h3> \
-      <button class="btn js-add-filter add-filter">Add filter</button> \
+      <h3>Filtros</h3> \
+      <button class="btn js-add-filter add-filter">Añadir filtro</button> \
       <form class="form-stacked js-add" style="display: none;"> \
         <fieldset> \
           <label>Field</label> \
@@ -5559,7 +5557,7 @@ my.ValueFilter = Backbone.View.extend({
             <option value="{{id}}">{{label}}</option> \
             {{/fields}} \
           </select> \
-          <button type="submit" class="btn">Add</button> \
+          <button type="submit" class="btn">Añadir</button> \
         </fieldset> \
       </form> \
       <form class="form-stacked js-edit"> \
@@ -5567,7 +5565,7 @@ my.ValueFilter = Backbone.View.extend({
           {{{filterRender}}} \
         {{/filters}} \
         {{#filters.length}} \
-        <button type="submit" class="btn update-filter">Update</button> \
+        <button type="submit" class="btn update-filter">Actualizar</button> \
         {{/filters.length}} \
       </form> \
     </div> \

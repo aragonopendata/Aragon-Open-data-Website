@@ -1,7 +1,15 @@
-<div class="module-content ckanext-datapreview">
+<div class="title-ckanext-datapreview" style="width:965px; border-top: 2px solid #76A1B8;border-left: 2px solid #76A1B8;border-right: 2px solid #76A1B8; margin-top: 15px; padding: 5px;">
+<div style="color: #76a1b8; padding-left: 15px; padding-right: 15px; padding-top: 5px;  padding-bottom: 5px;  font-size: 1.17em; font-weight: bold;">PREVISUALIZACIÓN DEL CONJUNTO DE DATOS</div>
+</div>
+
+
+<div class="module-content ckanext-datapreview" style="width:965px; height: 470px; border: 2px solid #76A1B8;  padding: 5px;">
   {% if embed %}
     {# images can be embedded directly #}
-    <img src="{{ resource_url }}"></img>
+<!--    <img src="{{ resource_url }}"></img>-->
+    <iframe name="previsualizacion" src="{{ resource_url }}" frameborder="0" width="100%" data-module="data-viewer" style="height: 470px;">
+    &lt;p&gt;Su navegador no soporta iframes.&lt;/p&gt;
+  </iframe>
   {% else %}
   <div class="data-viewer-error js-hide">
     <p class="text-error">
@@ -19,8 +27,38 @@
       </a>
     </p>
   </div>
-  <iframe src="{{ resource_url }}" frameborder="0" width="100%" data-module="data-viewer">
+  <iframe name="previsualizacion" src="{{ resource_url }}" frameborder="0" width="100%" data-module="data-viewer">
     <p>{{ _('Your browser does not support iframes.') }}</p>
   </iframe>
   {% endif %}
 </div>
+{% if '.xls' in raw_resource_url %}
+	<script type="text/javascript">
+		$('.module-content .ckanext-datapreview').css("height","470px");
+	</script>
+{% elif '.csv' in raw_resource_url%}
+	<script type="text/javascript">
+		$('.module-content .ckanext-datapreview').css("height","470px");
+	</script> 
+{% endif %}
+<div class="hueco30"></div>
+
+
+<script type="text/javascript">
+  //Esta función borrar el cuadrado de previsulaización y pone una nota diciendo que no se puede realizar la previsualizacion. Esta función se ejecutara dentro de un settimeout
+	function previewNoDisponible(){
+		if (frames.previsualizacion.document.getElementsByClassName('loading').length>0){
+			$(".previewZone").prepend('<div >Previsualizaci&oacute;n del conjunto de datos no disponible</div>');	
+			$('.title-ckanext-datapreview').remove();
+			$(".module-content.ckanext-datapreview").remove();
+		}
+		else if (frames.previsualizacion.document.getElementsByClassName('loading-dialog').length>0){
+			$(".previewZone").prepend('<div >Previsualizaci&oacute;n del conjunto de datos no disponible</div>');	
+			$('.title-ckanext-datapreview').remove();
+			$(".module-content.ckanext-datapreview").remove();
+		}
+	}
+
+	setTimeout(previewNoDisponible, 10000)
+  
+  </script>

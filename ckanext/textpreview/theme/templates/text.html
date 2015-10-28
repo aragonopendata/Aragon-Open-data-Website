@@ -2,7 +2,7 @@
 
 {% block page %}
   <div>
-    <pre data-module="textpreview">
+    <pre data-module="textpreview" style="width:935px; height: 430px; ">
       <div class="loading">
         {{ _('Loading...') }}
       </div>
@@ -15,6 +15,7 @@
       var preview_metadata = {{ h.literal(c.preview_metadata) }};
     </script>
   {% endblock %}
+  
 
 
   {% resource 'ckanext-textpreview/main' %}

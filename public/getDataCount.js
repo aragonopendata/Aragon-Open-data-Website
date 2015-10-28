@@ -1,2 +1,2 @@
-	var datasetCount = 2448;
-	var resourceCount = 6950;
+	var datasetCount = 2510;
+	var resourceCount = 8699;

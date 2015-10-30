@@ -57,6 +57,11 @@
 			$('.title-ckanext-datapreview').remove();
 			$(".module-content.ckanext-datapreview").remove();
 		}
+		else if (frames.previsualizacion.document.getElementsByTagName("h1")[0].innerHTML.indexOf("Conflict")>=0){
+			$(".previewZone").prepend('<div >Previsualizaci&oacute;n del conjunto de datos no disponible</div>');
+			$('.title-ckanext-datapreview').remove();
+			$(".module-content.ckanext-datapreview").remove();
+		}
 	}
 
 	setTimeout(previewNoDisponible, 10000)

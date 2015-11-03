@@ -139,7 +139,7 @@ def diffDatasets(ckan, dataset):
                         for resourceOld in resourcesAntiguos:
                             # Los comparamos con la URL
 
-                            if resourceOld.get(sublista[6]).encode('utf-8') == resource.get(sublista[6]):
+                            if resourceOld.get(sublista[7]).encode('utf-8') == resource.get(sublista[7]):
                                 encontradoResource = True;
                                 #Comprobamos los campos. Teniendo en cuenta si es None
                                 for itemSubLista in sublista:
@@ -160,6 +160,7 @@ def diffDatasets(ckan, dataset):
                         if not encontradoResource:
                             coinciden = False;
 
+    
     return coinciden;
 
 

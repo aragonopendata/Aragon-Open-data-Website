@@ -11,6 +11,9 @@ import ckan.lib.dictization as d
 import ckan.new_authz as new_authz
 import ckan.lib.search as search
 
+import logging
+log = logging.getLogger('ckan.logic')
+
 ## package save
 
 def group_list_dictize(obj_list, context,
@@ -349,7 +352,17 @@ def group_dictize(group, context):
         q = {'q': 'owner_org:"%s" +capacity:public' % group.id, 'rows': 1}
     else:
         q = {'q': 'groups:"%s" +capacity:public' % group.name, 'rows': 1}
-    result_dict['package_count'] = query.run(q)['count']
+    package_count =  query.run(q)['count']
+    result_dict['package_count'] = package_count
+    
+    
+    
+#    if group.is_organization:
+#        q = {'q': 'owner_org:"%s" +capacity:public' % group.id, 'rows': package_count}
+#        packages = query.run(q)['results']
+##        log.error(str(packages))
+#        result_dict['packages'] = packages
+     
 
     result_dict['tags'] = tag_list_dictize(
         _get_members(context, group, 'tags'),
@@ -359,6 +372,9 @@ def group_dictize(group, context):
         _get_members(context, group, 'groups'),
         context)
 
+    
+    if context.get('for_view'):
+        context['user'] = 'admin'
     result_dict['users'] = user_list_dictize(
         _get_members(context, group, 'users'),
         context)

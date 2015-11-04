@@ -7,20 +7,18 @@
 
 {% block primary_content_inner %}
 
-<h1>Información sobre: {{c.group_dict.title}}</h1>
-<div class="clear"></div>
-<div class="hueco30"></div>
+<h1 class="i_i tituloDataset" style="width: 85%;">{{c.group_dict.title}}</h1>
 
+{% block package_social %}
+	{% snippet "snippets/socialAOD.html" %}
+{% endblock %}
 <div class="clear"></div>
 <div class="contenidoDashboard">
   {% snippet 'snippets/info_organization_read.html', group_dict=c.group_dict %}
 </div>
 <section class="module">
     <div class="module-content">
-      {% block page_primary__inner_action %}
-        {% if h.check_access('package_create') %}
-        {% endif %}
-      {% endblock %}
+
       {% block form %}
         {% set facets = {
           'fields': c.fields_grouped,
@@ -37,6 +35,7 @@
           (_('Popular'), 'views_total desc') if g.tracking_enabled else (false, false) ]
         %}
         
+      {% snippet 'snippets/search_form_organization.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, no_title=True %}
       {% endblock %}
 
       {% set vars = {'title_string_asc': False, 'title_string_desc': False, 'views_total_asc': False, 'views_total_desc': False, 'metadata_modified_asc': False, 'metadata_modified_desc': False } %}

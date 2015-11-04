@@ -1,9 +1,12 @@
 	// mover la cabecera superior al hacer scroll
-$(function(){
+//$(function(){
+
+//Esta funcion hace los correspondientes cambios para cuando se haga 
+function responsiveScroll() {
 	$(window).scroll(function() {
-		if ($(window).width()>1024){
+		if ($(window).width()>=1012){
 			$html = $("html");
-		
+			$('.mini .botones').css('top','35px');
 			//Esto se debe de modificar ya que todos los navegadores lo pueden hacer de modo diferente
 			/*if($html.hasClass('webkit')){
 				var scrollTop = $("body")[0].scrollTop;
@@ -19,11 +22,27 @@ $(function(){
 		
 			//Con window creo que pilla La barra de scroll ya que el lÃ­mite esta en 754 con lo que esta barra tiene 14 pixeles
 			//if (($( window ).width()>754) && ($(document).scrollTop() >= 160)){
-			if ($(document).scrollTop() >= 160){
+			if ($(document).scrollTop() >= 150){
 				$('body').addClass('mini');
+				//$('#anchoBanner').css('top', $(document).scrollTop()+'px');
+				$('#anchoBanner').css({
+					'position':'fixed',
+					'top': '-10px',
+					'height':$('.banner').height(),
+					'width':'100%',
+					'z-index':1110
+				});
+				$('.banner').css('left', (($(window).width()-$('.banner').width())/2)+'px');
 			}
 			else{
 				$('body').removeClass('mini');
+				$('.banner').removeAttr('style');
+				$('#anchoBanner').removeAttr('style');
+				$('#anchoBanner').css('background-color', '#76a1b8');
+				if ($(document).scrollTop() >= 150){
+					//alert('borrar el style del banner');
+					$('.banner').removeAttr('style');
+				}
 			}
 			/*if( scrollTop < 160 ){
 				$('body').removeClass('mini');
@@ -31,9 +50,14 @@ $(function(){
 				$('body').addClass('mini');
 			}*/
 		}
+		else{
+			$('.mini .botones').removeAttr('style');
+			$('.banner').removeAttr('style');
+		}
 	});
 	$("body").trigger('scroll');
-});
+}
+//});
 
 function refinaAutocomplete() {
 	$.ui.autocomplete.prototype._renderItem = function( ul, item) {
@@ -111,7 +135,11 @@ function changeHomerLabels(valorLang) {
 
 $(document).ready(function() {
 	pintaMenuBuscador();
-	refinaAutocomplete();
+	
+	var pathname = window.location.pathname;
+	if (pathname.indexOf("/portal/")<0){
+		refinaAutocomplete();
+	}
 
       //al inicio, quitarlo si tiene valor porque lo autorrellene el navegador de otras visitas	
   if (($("#cajaDeBusqInput").val() != "")) {
@@ -130,12 +158,16 @@ $(document).ready(function() {
 	
 	resposiveResultadosDatasets();
 	responsiveVisorDataset();
-	
+	responsiveScroll();
+	responsiveOrganizacionPagina();
 	
 	$(window).resize(function() {
+		pintaMenuBuscador();
 		modificaComboBusqueda();
 		resposiveResultadosDatasets();
 		responsiveVisorDataset();
+		responsiveScroll();
+		responsiveOrganizacionPagina();
 	});
 	
 	
@@ -313,16 +345,29 @@ $(document).ready(function() {
 
 	disEnableAllItemsForm(false);
 
-	$("#temaFilter").chosen(config).change(fOnChgChosen);
-	$("#tipoFilter").chosen(config).change(fOnChgChosen);
-	$("#bbddFilter").chosen(config).change(fOnChgChosen);
+	if ($("#temaFilter").length > 0){
+		$("#temaFilter").chosen(config).change(fOnChgChosen);
+	}
+	if ($("#tipoFilter").length > 0){
+		$("#tipoFilter").chosen(config).change(fOnChgChosen);
+	}
+	if ($("#bbddFilter").length > 0){
+		$("#bbddFilter").chosen(config).change(fOnChgChosen);
+	}
+	
 
 //	$("#tipoBusquedaFilter").chosenImage(config).change(fOnChgChosen_toggle);
-	$("#tipoBusquedaFilter").chosen(config).chosenImage().change(fOnChgChosen_toggle);
+	if ($("#tipoBusquedaFilter").length > 0){
+		$("#tipoBusquedaFilter").chosen(config).chosenImage().change(fOnChgChosen_toggle);
+	}
 
-	$("#langHOMERFilter").chosen(config).change(fOnChgChosen_changeLangHomer);
+	if ($("#langHOMERFilter").length > 0){
+		$("#langHOMERFilter").chosen(config).change(fOnChgChosen_changeLangHomer);
+	}
 
-	$("#estadisNivel1_Filter").chosen(config).change(fOnChgChosen_estadistica_nivel1);
+	if ($("#estadisNivel1_Filter").length > 0){
+		$("#estadisNivel1_Filter").chosen(config).change(fOnChgChosen_estadistica_nivel1);
+	}
 
    $('#txtHOMER').keypress(function(event) {
         if (event.keyCode == 13) {
@@ -336,43 +381,46 @@ $(document).ready(function() {
         }
     });
 
-    $( "#cajaDeBusqInput" ).autocomplete({
-		source:function(request, response) {
-			$.ajax({
-  			  url: "/catalogo/api/2/util/dataset/autocomplete?incomplete=%" + $("#cajaDeBusqInput").val() + "%",
-			  dataType: "jsonp",
-			  success: function (data) {
-				response($.map(data.ResultSet.Result, 
-					function(item)	{
-						return {
-							label: item.title,
-							valor: item.name,
-							value: item.title
-						};
-					}
-				));
-			  }			
-		        })
-		   },
-		minLength: 1,
-		open: function(event, ui) {
-					$(this).autocomplete("widget").css({
-						"width": 425
-					});
-				},
-		select: function( event, item) {
-			$("#cajaBusqBanner").attr("action",  "/catalogo/" + item.item.valor);
-			$("#cajaDeBusqInput").val("");
-			$("#cajaBusqBanner").submit();
-		}
-    });
-    
+//		if (window.location.href.indexOf("catalogo")>=0){
+			$( "#cajaDeBusqInput" ).autocomplete({
+				source:function(request, response) {
+					$.ajax({
+							url: "/catalogo/api/2/util/dataset/autocomplete?incomplete=%" + $("#cajaDeBusqInput").val() + "%",
+						dataType: "jsonp",
+						success: function (data) {
+						response($.map(data.ResultSet.Result, 
+							function(item)	{
+								return {
+									label: item.title,
+									valor: item.name,
+									value: item.title
+								};
+							}
+						));
+						}			
+						    })
+					 },
+				minLength: 1,
+				open: function(event, ui) {
+							$(this).autocomplete("widget").css({
+								"width": 425
+							});
+						},
+				select: function( event, item) {
+					$("#cajaBusqBanner").attr("action",  "/catalogo/" + item.item.valor);
+					$("#cajaDeBusqInput").val("");
+					$("#cajaBusqBanner").submit();
+				}
+			});
+			initializeDashboard();
+			initializeEditor();
+			loadComboboxesVistas();
+			
+//		}
     
 
 
-    initializeDashboard();
-    initializeEditor();
-    loadComboboxesVistas();
+
 
     if (document.getElementById("zonaVentanaDatosDescargados1")) {
 	$.ajax({
@@ -729,6 +777,13 @@ function pintaMenuBuscador(){
 		//Pintamos el menu cuando estamos logueados
 		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><a href="/catalogo/pizarra" title="Pizarra de administración"><img src="/public/i/dashboard.jpg" alt="Pizarra de administración" class="btn-login"></a><a href="/catalogo/user/_logout" title="Salir"><img src="/public/i/logout.jpg" alt="Salir" class="btn-login"></a></form>');
 	}
+	if ($(window).width()>1024){
+		//Este div se usa para que quede centrado
+		$('<div id="anchoBanner" style="background-color: #76a1b8;"></div>').insertBefore('.banner');
+		$('.banner').appendTo('#anchoBanner');
+		//Borramos los #anchoBanner internos que nos guarrean el codigo si andamos agrandando o empequeñeciendo la ventana
+		$('#anchoBanner #anchoBanner').remove();
+	}
 }
 
 
@@ -738,7 +793,6 @@ function redimensionaComboEstadistica(){
 		$('select#estadisNivel1_Filter').on('change',function(){
 			var filtro = $(this).val();;
 			var selector = "#estadisNivel2_grp"+filtro+"_Filter_chosen";
-			//alert('holaholahola asdf '+selector);
 			if ($(window).width()<840) {
 				var ancho = $('.tablaResultadosDataset').width();
 				$(selector).css('width', ancho+'px');
@@ -905,6 +959,49 @@ function responsiveVisorDataset(){
 			$(".previewZone").show();
 			$('.metadataZone').removeAttr('style');
 			$('.resourceZone').removeAttr('style');
+		}
+	}
+}
+
+//Esta función sirve para hacer responsive el apartado la hoja de una organización
+function responsiveOrganizacionPagina(){
+	//Comprobamos si estamos en una organizacion para poder hacer responsive
+	if (window.location.href.indexOf('opendata.aragon.es/catalogo/organizacion/')>=0){
+		if ($(window).width()>1024){
+			//Comprobamos si se ha creado el div con id organizacionResponsive (lo usamos para meter el contenido responsive)
+			if ($('#organizacionResponsive').length>0){
+				$('#organizacionResponsive').hide();
+				$('.contenidoDashboard table').show();
+			}
+			else{ //Aunque se vera
+				$('.contenidoDashboard table').show();
+			}
+		}
+		else{
+			//Comprobamos si se ha creado el div con id organizacionResponsive (lo usamos para meter el contenido responsive)
+			if ($('#organizacionResponsive').length>0){
+				$('#organizacionResponsive').show();
+				$('.contenidoDashboard table').hide();
+			}
+			else{ //Si no esta creado el id con el contenido de los datos de la tabla lo creamos
+				var table = $('.contenidoDashboard table')[0];
+				var key = new Array();
+				var value = new Array();
+				for (var i = 0, row; row = table.rows[i]; i++) {
+					//iterate through rows
+					//rows would be accessed using the "row" variable assigned in the for loop
+					key.push(row.cells[0].innerHTML);
+					value.push(row.cells[1].innerHTML);
+				}
+				$('<div id="organizacionResponsive"> </div>').insertAfter('.contenidoDashboard table');
+				$('.contenidoDashboard table').hide();
+				var contenidoOrganizacion="";
+				for (var i=0; i <key.length; i++) {
+					contenidoOrganizacion += key[i] + '<div style="margin-bottom: 10px;">&nbsp;</div>';
+					contenidoOrganizacion += value[i] + "<br>";
+				}
+				$('#organizacionResponsive').append(contenidoOrganizacion);
+			}
 		}
 	}
 }

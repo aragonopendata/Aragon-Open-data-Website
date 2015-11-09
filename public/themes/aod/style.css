@@ -609,10 +609,10 @@ Fin Propiedades correspondientes a los estilos de las páginas de Multimedia
 */
 
 /* pagination */
-.pagination{height:36px;margin:18px 0}
+.pagination{height:34px;margin-bottom:18px;  margin-top: -28px;}
 .pagination ul{display:inline-block;*display:inline;margin-bottom:0;margin-left:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;*zoom:1;-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.05);-moz-box-shadow:0 1px 2px rgba(0,0,0,0.05);box-shadow:0 1px 2px rgba(0,0,0,0.05)}
 .pagination li{display:inline}
-.pagination a{float:left;padding-right: 12px; padding-left: 13px;line-height:34px;text-decoration:none;border:1px solid #999790;border-left-width:0}
+.pagination a{float:left;padding-right: 8px; padding-left: 8px;line-height:34px;text-decoration:none;border:1px solid #999790;border-left-width:0}
 .pagination .active a{background-color:#e5e5e3;}
 .pagination a:hover {background-color:#999790;}
 .pagination .active a{color:#999;cursor:default}
@@ -620,7 +620,7 @@ Fin Propiedades correspondientes a los estilos de las páginas de Multimedia
 .pagination li:first-child a{border-left-width:1px;-webkit-border-radius:3px 0 0 3px;-moz-border-radius:3px 0 0 3px;border-radius:3px 0 0 3px}
 
 .pagination li:last-child a{-webkit-border-radius:0 3px 3px 0;-moz-border-radius:0 3px 3px 0;border-radius:0 3px 3px 0}
-.pagination-centered{text-align:center}
+.pagination-centered{text-align:center; margin-top:18px;}
 .pagination-right{text-align:right}
 .pager{margin-bottom:18px;margin-left:0;text-align:center;list-style:none;*zoom:1}
 .pager:before,.pager:after{display:table;content:""}
@@ -2224,22 +2224,22 @@ p.bigButton {
 	
 	.bannerInline {
 		width: 44% !important;
-}
+	}
 
 	.bannerLogo{
 		text-align: left !important;
 /*		width: 25% !important;*/
 	}
-	
-	.bannerBuscador {
+
+	.bannerBuscador{
 		text-align: right !important;
 	}
-
+	
 	.videoInline{
 		width: 18%;
 		padding: 1%;
 	}
-	
+
 	.visible-ms {
 		display: block !important;
 	}
@@ -2290,8 +2290,8 @@ p.bigButton {
 	#cajaDeBusqInput{
 		max-width: 400px;
 		width: 75%;
-}
-
+	}
+	
 	.videoInline{
 		width: 16%;
 		padding: 1%;

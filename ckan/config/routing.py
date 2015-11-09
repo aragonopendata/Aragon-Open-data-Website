@@ -280,12 +280,13 @@ def make_map():
     register_group_plugins(map)
 
     # tags
-    map.redirect('/tags', '/tag')
-    map.redirect('/tags/{url:.*}', '/tag/{url}')
-    map.redirect('/tag/read/{url:.*}', '/tag/{url}',
+    map.redirect('/etiquetas', '/etiqueta')
+    map.redirect('/etiquetas/{url:.*}', '/etiqueta/{url}')
+    map.redirect('/etiqueta/read/{url:.*}', '/etiqueta/{url}',
                  _redirect_code='301 Moved Permanently')
-    map.connect('/tag', controller='tag', action='index')
-    map.connect('/tag/{id}', controller='tag', action='read')
+    map.connect('/etiqueta', controller='tag', action='index')
+    map.connect('/etiqueta/{id}', controller='tag', action='read')
+    
     # users
     map.redirect('/users/{url:.*}', '/user/{url}')
     map.redirect('/user/', '/user')
@@ -465,6 +466,11 @@ def make_map():
         m.connect('/base-datos/{temaBBDD}', action='searchAOD', tipo='base-datos')
         m.connect('/busqueda-libre', action='searchAOD', tipo='busqueda-libre')
         m.connect('/busqueda-libre/{queryLibre}', action='searchAOD', tipo='busqueda-libre')
+        
+        #Busqueda por organizacion
+        m.connect('/busqueda-organizacion', action='searchAOD', tipo='busqueda-organizacion')
+        m.connect('/busqueda-organizacion/{organizacion}', action='searchAOD', tipo='busqueda-organizacion')
+        m.connect('/busqueda-organizacion/{organizacion}/{tipoDataset}', action='searchAOD', tipo='busqueda-organizacion')
 
         m.connect('add dataset', '/new', action='new')
 

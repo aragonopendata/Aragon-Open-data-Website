@@ -100,7 +100,7 @@ function changeOrder(newOrder, destinationUrl) {
 
 
 function tryToSelectOrder(orderType) {
-	alert(orderType);
+	//alert(orderType);
 }
 
 function tryToSelectItem(obj, txt) {
@@ -190,6 +190,21 @@ $(document).ready(function() {
 		if (idxBBDD != 0) {
 			urlToGo += "/base-datos/" + $("#bbddFilter")[0][idxBBDD].value;
 		}
+		var idxOrganizacion = $("#organizacionFilter")[0].selectedIndex;
+		var idxOrganizacionTipo = $("#organizacionTipoFilter")[0].selectedIndex;
+		if (idxOrganizacion != 0) {
+			if (idxOrganizacionTipo != 0) {
+				urlToGo += "/busqueda-organizacion/" + $("#organizacionFilter")[0][idxOrganizacion].value+"/"+$("#organizacionTipoFilter")[0][idxOrganizacionTipo].value;
+			}
+			else{
+				urlToGo += "/busqueda-organizacion/" + $("#organizacionFilter")[0][idxOrganizacion].value;
+			}
+			
+		}
+		
+		
+		
+		
 		var idxTema = $("#temaFilter")[0].selectedIndex;
 		if (idxTema != 0) {
 			urlToGo += "/" + $("#temaFilter")[0][idxTema].value;
@@ -203,11 +218,16 @@ $(document).ready(function() {
 	}
 
 	var fOnChgChosen_toggle = function onChgChosen_toggle() {
-		var idxTipo = $("#tipoBusquedaFilter")[0].selectedIndex;		
+		var idxTipo = $("#tipoBusquedaFilter")[0].selectedIndex;
+		//alert('El tipo de busqueda es '+$("#tipoBusquedaFilter")[0][idxTipo].value);
 		if ($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaSPARQL") {
 			window.location = "/portal/cliente-sparql";
 		} else if ($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaAPI") {
 			window.location = "/portal/desarrolladores/api-ckan";
+		}
+		else if ($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaEtiquetas") {
+			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
+			window.location = "/catalogo/etiqueta";
 		}
 		else if($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaBBDD"){
 			//modicamos para que las options se queden seleccionadas
@@ -217,6 +237,12 @@ $(document).ready(function() {
 			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
 			//Vamos a la url correspondiente
 			window.location = "/catalogo/base-datos";
+		}
+		else if ($("#tipoBusquedaFilter")[0][idxTipo].value == "zonaOrganizacionYTipo"){
+			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaOrganizacionYTipo");
+			//Vamos a la url correspondiente
+			window.location = "/catalogo/busqueda-organizacion";
+			
 		}
 		else {
 			var newZone = $("#tipoBusquedaFilter")[0][idxTipo].value;
@@ -269,6 +295,7 @@ $(document).ready(function() {
 	var urlListParam  = new Array();
 	if (currentUrl) {
 		urlListParam = currentUrl.split("/");
+		//alert('El urlparam es '+urlListParam);
 		if (urlListParam.length == 3) {
 			if (urlListParam[2] == "informacion-estadistica") {
 					// o es info estadistica
@@ -279,18 +306,24 @@ $(document).ready(function() {
 					// o es bbdd
 				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
 			}
+			else if (urlListParam[2] == "etiqueta") {
+					// o es busqueda de etiquetas
+				$('#zonaTemaYTipo').addClass('oculto');
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
+				//toggleAllZones();
+			}
 			else if (urlListParam[2] == "busqueda-libre") {
 					// o es búsqueda libre
 				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
-			}  
+			}   
 			else {
 					// O es tema o es tipo
 				tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
 				tryToSelectItem($("#tipoFilter")[0], urlListParam[2]);
 			}
-	} else if (urlListParam.length == 4) {
-				// O es tema+tipo o es tipo-estadistico/num o es base-datos/tipobbdd
-			
+		} else if (urlListParam.length == 4) {
+			// O es tema+tipo o es tipo-estadistico/num o es base-datos/tipobbdd
+			//Miro aqui
 			tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
 			var idxTema = $("#temaFilter")[0].selectedIndex;
 			if (idxTema != 0) {
@@ -301,6 +334,13 @@ $(document).ready(function() {
 			if (urlListParam[2] == "busqueda-libre"){
 				var txtBusqueda = utf8_decode(unescape(urlListParam[3]));
 				$("#cajaDeBusqInputLibre").val(txtBusqueda);
+			}
+			
+			if (urlListParam[2] == "busqueda-organizacion") {
+				// o es búsqueda organizacion
+				$('#organizacionTipo').removeClass("oculto");
+				tryToSelectItem($("#organizacionFilter")[0],urlListParam[3]);
+				
 			}
 
 			if (urlListParam[2] == "tema-estadistico") {
@@ -322,7 +362,14 @@ $(document).ready(function() {
 				tryToSelectItem($("#bbddFilter")[0], urlListParam[3]);
 			}
 			
+		}else if ((urlListParam.length == 5) && (urlListParam[2] == "busqueda-organizacion")) {
+			//Entramos en la busqueda por organizacion t por tipo de recursos
+			$('#organizacionTipo').removeClass("oculto");
+			tryToSelectItem($("#organizacionFilter")[0],urlListParam[3]);
+			//alert ('aki es donde tiene que estar lo del tipo '+ urlListParam[4]);
+			tryToSelectItem($("#organizacionTipoFilter")[0],urlListParam[4]);
 		}
+		
 
 		if (urlListParam.length >= 3) {
 			if (urlListParam[2] != "informacion-estadistica") {
@@ -334,11 +381,29 @@ $(document).ready(function() {
 			else if (urlListParam[2] != "busqueda-libre") {
 				activateZoneTipoBusqueda(urlListParam[2]);
 			}
+			if (urlListParam[2] == "etiqueta") {
+					// o es busqueda de etiquetas
+				//$('#zonaTemaYTipo').addClass('oculto');
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
+				toggleAllZones();
+			}
+			
+			if ((urlListParam.length == 5) && (urlListParam[2] == "busqueda-organizacion")) {
+				//Entramos en la busqueda por organizacion t por tipo de recursos
+				
+				$('#organizacionTipo').removeClass("oculto");
+				tryToSelectItem($("#organizacionFilter")[0],urlListParam[3]);
+				//alert ('aki es donde tiene que estar lo del tipo '+ urlListParam[4]);
+				tryToSelectItem($("#organizacionTipoFilter")[0],urlListParam[4]);
+			}
+			
+			
 		} else {
 			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaTemaYTipo");
 			toggleZona("zonaTemaYTipo");
 		}
 	} else {
+		
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaTemaYTipo");
 		toggleZona("zonaTemaYTipo");
 	}
@@ -368,6 +433,23 @@ $(document).ready(function() {
 	if ($("#estadisNivel1_Filter").length > 0){
 		$("#estadisNivel1_Filter").chosen(config).change(fOnChgChosen_estadistica_nivel1);
 	}
+
+	if ($("#organizacionTipoFilter").length > 0){
+		$("#organizacionTipoFilter").chosen(config).change(fOnChgChosen);
+	}
+	
+	if ($("#organizacionFilter").length > 0){
+		
+		
+		
+		$("#organizacionFilter").chosen(config).change(fOnChgChosen);
+		//Si se cambia "reseteamos" el filtro para que no salga
+		if ($('#organizacionFilter option:selected').val() != ""){
+			tryToSelectItem($("#organizacionTipoFilter")[0],"");
+		}
+	}
+	
+	
 
    $('#txtHOMER').keypress(function(event) {
         if (event.keyCode == 13) {
@@ -513,6 +595,10 @@ function activateZoneTipoBusqueda(txtParam) {
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaInfoEstadistica");
 		toggleZona("zonaInfoEstadistica");
 	}
+	else if (txtParam == "busqueda-organizacion") {
+		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaOrganizacionYTipo");
+		toggleZona("zonaOrganizacionYTipo");
+	}
 	else if (txtParam == "base-datos") {
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaBBDD");
 		toggleZona("zonaBBDD");
@@ -543,6 +629,7 @@ function toggleAllZones() {
 	$("#zonaLibre").addClass("oculto");
 	$("#zonaHOMER").addClass("oculto");
 	$("#zonaBBDD").addClass("oculto");
+	$("#zonaOrganizacionYTipo").addClass("oculto");
 }
 
 function toggleZona(id) {
@@ -746,6 +833,7 @@ function utf8_decode(str_data) {
 
   return tmp_arr.join('');
 }
+
 
 
 // cookies function from http://www.w3schools.com/js/js_cookies.asp

@@ -1835,7 +1835,7 @@ def getMimetypeDistributionFromFormat(st):
 
 #Esta función devuelve lso datos de las organizaciones activas. las organizaciones estan {organizationName, organizationTitle}
 def obtenerOrganizaciones():
-	OPENDATA_POSTGRE_CONEXION_BD="host='localhost' dbname='ckan_default'  port='5432' user='ckan_default' password='ckan_default'"
+	OPENDATA_POSTGRE_CONEXION_BD="host='localhost' dbname='xxxxx'  port='5432' user='xxxxx' password='xxxxx'"
 	connection = psycopg2.connect(OPENDATA_POSTGRE_CONEXION_BD)
 	#connection = configckanclient.conexion('opendata-postgre')
 	consulta = "SELECT group_revision.name, group_revision.title FROM public.group_revision WHERE group_revision.state='active' AND group_revision.current = 't' AND group_revision.is_organization='t' ORDER BY group_revision.name ASC;"

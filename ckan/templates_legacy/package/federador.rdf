@@ -351,7 +351,7 @@
 
 		<py:if test="rsc_dict.get('mimetype') == ''">
 			<py:if test="rsc_dict.get('format').lower() == 'xls'">
-				<dcat:distribution>dsdfdsfsaf
+				<dcat:distribution>
 				  <dcat:Distribution>
 				<py:choose>
 				<py:when test="rsc_dict.get('XML_position')">

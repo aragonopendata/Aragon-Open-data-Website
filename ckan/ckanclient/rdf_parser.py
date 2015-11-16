@@ -160,7 +160,7 @@ def diffDatasets(ckan, dataset):
                         if not encontradoResource:
                             coinciden = False;
 
-    
+    print 'Se devuelve ', coinciden
     return coinciden;
 
 
@@ -411,7 +411,10 @@ def create_dataset(xml):
     # tags
     tags = []
     for tag_xml in xml.findall(dcat_tag('keyword')):
-        tags.append(clean_tag(tag_xml.text))
+        if clean_tag(tag_xml.text).isupper():
+            tags.append(clean_tag(tag_xml.text))
+        else:
+            tags.append(clean_tag(tag_xml.text).capitalize())
     dataset['tags'] = tags
     # modified
     dataset['metadata_modified'] = get_tag_text(xml, dct_tag('modified'))

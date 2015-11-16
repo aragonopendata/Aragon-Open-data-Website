@@ -127,6 +127,7 @@ class AlphaPage(object):
         elif isinstance(self.collection,list):
             if self.item_count >= self.paging_threshold:
                 if self.page != self.other_text:
+                    print '\ndict es '+str(dict)
                     if isinstance(self.collection[0], dict):
                         items = [x for x in self.collection if x[self.alpha_attribute][0:1].lower() == self.page.lower()]
                     elif isinstance(self.collection[0], unicode):

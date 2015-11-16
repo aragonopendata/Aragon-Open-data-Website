@@ -160,7 +160,7 @@ class GroupController(base.BaseController):
             collection=results,
             page=request.params.get('page', 1),
             url=h.pager_url,
-            items_per_page=21
+            items_per_page=100
         )
         return render(self._index_template(group_type))
 
@@ -341,6 +341,17 @@ class GroupController(base.BaseController):
             c.page.items = query['results']
 
             c.sort_by_selected = sort_by
+
+            #context2 = {'model': model,
+            #           'user': c.user}
+
+            #data_dict2 = {'id': c.user}
+            #try:
+            #    user_dict = get_action('user_show')(context2, data_dict2)
+            #    c.user_email = user_dict.get('email')
+            #except NotFound:
+            #    # Try searching the user
+            #    abort(404, _('User not found'))
 
         except search.SearchError, se:
             log.error('Group search error: %r', se.args)

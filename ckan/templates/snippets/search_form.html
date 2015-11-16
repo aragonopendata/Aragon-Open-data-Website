@@ -365,27 +365,24 @@
 					<label for="organizacionFilter" class="oculto">DATOS SOBRE</label>
 					<select id="organizacionFilter" name="organizacionFilter">
 						<option value="" selected="selected">Todas las organizaciones</option>
-						<option value="direccion_de_comunicacion">Direcci&oacute;n de Comunicaci&oacute;n</option>
-						<option value="direccion_general_de_administracion_electronica_y_sociedad_de_la_informacion">Direcci&oacute;n General de Administraci&oacute;n Electr&oacute;nica y Sociedad de la Informaci&oacute;n</option>
-						<option value="direccion_general_de_administracion_local">Direcci&oacute;n General de Administraci&oacute;n Local</option>
-						<option value="direccion_general_de_contratacion_patrimonio_y_organizacion">Direcci&oacute;n General de Contrataci&oacute;n, Patrimonio y Organizaci&oacute;n</option>
-						<option value="direccion_general_de_cultura_y_patrimonio">Direcci&oacute;n General de Cultura y Patrimonio</option>
-						<option value="direccion_general_de_industria_pymes_comercio_y_artesania">Direcci&oacute;n General de Industria, PYMES, Comercio y Artesan&iacute;a</option>
-						<option value="direccion_general_de_planificacion_y_formacion_profesional">Direcci&oacute;n General de Planificaci&oacute;n y Formaci&oacute;n Profesional</option>
-						<option value="direccion_general_de_presupuestos_financiacion_y_tesoreria">Direcci&oacute;n General de Presupuestos, Financiaci&oacute;n y Tesorer&iacute;a</option>
-						<option value="direccion_general_de_produccion_agraria">Direcci&oacute;n General de Producci&oacute;n Agraria</option>
-						<option value="direccion_general_de_proteccion_de_consumidores_y_usuarios">Direcci&oacute;n General de Protecci&oacute;n de Consumidores y Usuarios</option>
-						<option value="direccion_general_de_relaciones_institucionales_y_desarrollo_estatutario">Direcci&oacute;n General de Relaciones Institucionales y Desarrollo Estatutario</option>
-						<option value="direccion_general_de_trabajo">Direcci&oacute;n General de Trabajo</option>
-						<option value="direccion_general_de_turismo">Direcci&oacute;n General de Turismo</option>
-						<option value="direccion_general_de_urbanismo">Direcci&oacute;n General de Urbanismo</option>
-						<option value="direccion_general_de_vivienda_y_rehabilitacion">Direcci&oacute;n General de Vivienda y Rehabilitaci&oacute;n</option>
-						<option value="instituto_aragones_de_estadistica">Instituto Aragon&eacute;s de Estad&iacute;stica</option>
-						<option value="instituto_aragones_de_gestion_ambiental">Instituto Aragon&eacute;s de Gesti&oacute;n Ambiental</option>
-						<option value="instituto_geografico_de_aragon">Instituto Geogr&aacute;fico de Arag&oacute;n</option>
-						<option value="intervencion_general">Intervenci&oacute;n General</option>
-						<option value="secretaria_general_tecnica_de_educacion_cultura_y_deportes">Secretar&iacute;a General T&eacute;cnica de Educaci&oacute;n, Cultura y Deportes</option>
-						<option value="secretaria_general_tecnica_de_presidencia">Secretar&iacute;a General T&eacute;cnica de Presidencia</option>
+						{% set organzaciones = h.obtenerOrganizaciones() %}
+						{% for organizacion in organzaciones %}
+							{% set name, title = organizacion %}
+							
+							{% set title = title|replace('aacute;','á') %}
+							{% set title = title|replace('eacute;','é') %}
+							{% set title = title|replace('iacute;','í') %}
+							{% set title = title|replace('oacute;','ó') %}
+							{% set title = title|replace('uacute;','ú') %}
+							{% set title = title|replace('Aacute;','Á') %}
+							{% set title = title|replace('Eacute;','É') %}
+							{% set title = title|replace('Iacute;','Í') %}
+							{% set title = title|replace('Oacute;','Ó') %}
+							{% set title = title|replace('Uacute;','Ú') %}
+							<option value="{{name}}">{{title}}</option>
+							
+						{% endfor %}
+						
 					</select>
 				</div>
 				<div id="organizacionTipo" class="filtro oculto">

@@ -40,6 +40,9 @@ import ckan.lib.maintain as maintain
 import ckan.lib.datapreview as datapreview
 import ckan.logic as logic
 
+#import ckanclient.config as configckanclient
+import psycopg2
+
 from ckan.common import (
     _, ungettext, g, c, request, session, json, OrderedDict
 )
@@ -1830,6 +1833,31 @@ def getMimetypeDistributionFromFormat(st):
   else:
     return ''
 
+#Esta función devuelve lso datos de las organizaciones activas. las organizaciones estan {organizationName, organizationTitle}
+def obtenerOrganizaciones():
+	OPENDATA_POSTGRE_CONEXION_BD="host='localhost' dbname='ckan_default'  port='5432' user='ckan_default' password='ckan_default'"
+	connection = psycopg2.connect(OPENDATA_POSTGRE_CONEXION_BD)
+	#connection = configckanclient.conexion('opendata-postgre')
+	consulta = "SELECT group_revision.name, group_revision.title FROM public.group_revision WHERE group_revision.state='active' AND group_revision.current = 't' AND group_revision.is_organization='t' ORDER BY group_revision.name ASC;"
+	cursorDataset=connection.cursor()
+	devolver=[]
+	q = cursorDataset.execute(consulta)
+	resultados = cursorDataset.fetchall()
+	if resultados is not None:
+		for org in resultados:
+			organizacion=[]
+			organizacion.append(org[0])
+#			title =org[1].replace('á', '&aacute;').replace('é', '&eacute;').replace('í', '&iacute;').replace('ó', '&oacute;').replace('ú', '&uacute;').replace('Á', '&Aacute;').replace('É', '&Eacute;').replace('Í', '&Iacute;').replace('Ó', '&Oacute;').replace('Ú', '&Uacute;')
+			title =org[1].replace('á', 'aacute;').replace('é', 'eacute;').replace('í', 'iacute;').replace('ó', 'oacute;').replace('ú', 'uacute;').replace('Á', 'Aacute;').replace('É', 'Eacute;').replace('Í', 'Iacute;').replace('Ó', 'Oacute;').replace('Ú', 'Uacute;')
+			organizacion.append(title)
+			devolver.append(organizacion)
+			print 'Se añade ', str(organizacion)
+	else:
+		print 'No hay recursos'
+	cursorDataset.close()
+	connection.close()
+	return devolver
+
 # add some formatter functions
 localised_number = formatters.localised_number
 localised_SI_number = formatters.localised_SI_number
@@ -1943,4 +1971,5 @@ __allowed_functions__ = [
     'getMimetypeFromFormat',
     'getMimetypeDistributionFromFormat',
     'getFormatFromMimetype',
+    'obtenerOrganizaciones',
 ]

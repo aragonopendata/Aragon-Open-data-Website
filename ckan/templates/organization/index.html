@@ -11,7 +11,11 @@
 {% endblock %}
 
 {% block primary_content_inner %}
-      <h1 class="hide-heading">{% block page_heading %}{{ _('Organizations') }}{% endblock %}</h1>
+      <h1 class="i_i tituloDataset" style="width: 85%;">Organizaciones que publican datos en Aragón Open Data</h1>
+
+{% block package_social %}
+	{% snippet "snippets/socialAOD.html" %}
+{% endblock %}
 <div class="clear"></div>
 <div class="hueco30"></div>
 

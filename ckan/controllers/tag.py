@@ -37,6 +37,8 @@ class TagController(base.BaseController):
             data_dict['return_objects'] = True
 
         results = logic.get_action('tag_list')(context, data_dict)
+        
+        
 
         if c.q:
             c.page = h.Page(

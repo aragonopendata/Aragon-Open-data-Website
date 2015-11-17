@@ -437,6 +437,11 @@ def make_map():
         m.connect('/urbanismo-infraestructuras', action='searchAOD', tema='urbanismo-infraestructuras')
         m.connect('/vivienda', action='searchAOD', tema='vivienda')
         
+        #Busqueda libre
+        m.connect('/busqueda-libre', action='searchAOD', tipo='busqueda-libre')
+        m.connect('/busqueda-libre/{queryLibre}', action='searchAOD', tipo='busqueda-libre')
+        
+        
         #Busquedas por tema y tipo
         m.connect('/calendario', action='searchAOD', tipo='calendario')
         m.connect('/{tema}/calendario', action='searchAOD', tipo='calendario')
@@ -464,8 +469,7 @@ def make_map():
         
         m.connect('/base-datos', action='searchAOD', tipo='base-datos')
         m.connect('/base-datos/{temaBBDD}', action='searchAOD', tipo='base-datos')
-        m.connect('/busqueda-libre', action='searchAOD', tipo='busqueda-libre')
-        m.connect('/busqueda-libre/{queryLibre}', action='searchAOD', tipo='busqueda-libre')
+        
         
         #Busqueda por organizacion
         m.connect('/busqueda-organizacion', action='searchAOD', tipo='busqueda-organizacion')

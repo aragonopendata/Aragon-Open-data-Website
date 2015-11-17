@@ -190,7 +190,7 @@ class PackageController(base.BaseController):
         # unicode format (decoded from utf8)
 #		q = c.q = request.params.get('q', u'')
         q = c.q = asciify(request.params.get('q', u''))
-        #log.error('######La consulta en SolR: %s.', q)
+        #log.error('######La consulta en SolR al principio: %s', q)
         c.query_error = False
         try:
             page = int(request.params.get('page', 1))
@@ -1620,6 +1620,7 @@ class PackageController(base.BaseController):
 
         #package_type = self._guess_package_type()
         package_type = 'catalogo'
+        
 
         try:
             context = {'model': model, 'user': c.user or c.author}
@@ -1652,7 +1653,6 @@ class PackageController(base.BaseController):
         # Fotos: jpg
         # RSS: RSS
         # Info estadistica: publicador IAEst
-        print 'antes de cer la movida y el tipo es ', tipo
         qTipo = None
         if tipo is not None:
              if (tipo == 'calendario') | (tipo == 'fotos') | (tipo == 'hojas-de-calculo') | (tipo == 'mapas') | (tipo == 'recursos-educativos') | (tipo == 'recursos-web') | (tipo == 'rss') | (tipo == 'texto-plano'):
@@ -1670,10 +1670,10 @@ class PackageController(base.BaseController):
                  if organizacion is None:
                      qTipo = "*:*"
                  else:
-                     print "La organizacion es ", organizacion
+                     #print "La organizacion es ", organizacion
                      qTipo = "organization:%s" % organizacion
                      if tipoDataset is not None:
-                         print "el tipoDataset es ", tipoDataset
+                         #print "el tipoDataset es ", tipoDataset
                          qTipo+=" && ("+self._consultaSOLR(tipoDataset)+")"
 
         if auxq is not None:
@@ -1692,7 +1692,8 @@ class PackageController(base.BaseController):
                  auxq = "author:%s" % subtipo
 
         q = c.q = auxq
-        #log.error('La consulta en SolR: %s', q)
+        #log.error('La consulta en SolRal final: %s', q)
+        #print 'La consulta de solr final es ', auxq
 
         c.query_error = False
         try:
@@ -2096,9 +2097,9 @@ class PackageController(base.BaseController):
     def _save_vista(self, vista, filtro):
 
 	#PRO
-        connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
         #PRE
-	#connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
+	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
 	
 	cursor = connection.cursor()
         resultado = cursor.var(cx_Oracle.NUMBER)
@@ -2130,9 +2131,9 @@ class PackageController(base.BaseController):
         vistaFormato = vistaFormato.upper()
 
 	#PRO
-        connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
 	#PRE
-	#connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
+	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
 	
         cursor = connection.cursor()
         registros = cursor.execute(
@@ -2151,7 +2152,7 @@ class PackageController(base.BaseController):
             connection.close()
 
             #LLamamos a la vista para obtener los datos de esta
-            connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+            connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
             cursor = connection.cursor()
             registros = cursor.execute("SELECT NOMBREREAL,BASEDATOS FROM opendata_v_vistas where id_vista=" + str(vista))
 
@@ -2163,17 +2164,17 @@ class PackageController(base.BaseController):
             connection.close()
 
             #LOG Package consultas/conexion
-	    print "++++++."
+	    #print "++++++."
 	    consulta = "SELECT VISTA,FILTRO,FORMATO FROM opendata_v_resourceVista where id_resourcevista=" + vistaId
-	    print consulta
+	    #print consulta
 	
 	    consulta2 ="SELECT NOMBREREAL,BASEDATOS FROM opendata_v_vistas where id_vista=" + str(vista)
-	    print consulta2
+	    #print consulta2
 	
-            print "datosResource..." + str(datosResource[0][0])
+            #print "datosResource..." + str(datosResource[0][0])
 	
-	    print datosVista[0][1]
-	    print "-----."
+	    #print datosVista[0][1]
+	    #print "-----."
 	    #LOG Package consultas/conexion
 
 
@@ -2194,50 +2195,49 @@ class PackageController(base.BaseController):
             
 	    #APP1/APP2	
             if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):		
-		print '..APP1/APP2..Package'
+		#print '..APP1/APP2..Package'
             	if (filtro is not None and filtro != ''):
                 		sentencia = sentencia + " WHERE " + str(filtro);
 
             	registros = cursor2.execute(sentencia)
-		print sentencia
+		#print sentencia
             	nombres = ()
             	resultados = []
 
 	    #APP3
 	    elif(datosVista[0][1] =='APP3'):
-		print '..APP3..Package'
+		#print '..APP3..Package'
             	if (filtro is not None and filtro != ''):
                 		sentencia3 = sentencia3 + " WHERE " + str(filtro);
-				print "sentencia3.B..." + sentencia3
+				#print "sentencia3.B..." + sentencia3
 
             	registros = cursor2.execute(sentencia3)
-		print sentencia3
+		#print sentencia3
 	    	registros = cursor2.fetchall()
             	nombres = ()
             	resultados = []
 
 	    #APP4
 	    elif(datosVista[0][1] =='APP4'):
-		print '..APP4..Package'
+		#print '..APP4..Package'
 		registros=cursor2.execute(sentencia4)
 		registros=cursor2.fetchall()
-		print sentencia4
+		#print sentencia4
 		nombres = ()
 		resultados =[]
 
             #APP5
             elif(datosVista[0][1] =='APP5'):
-                print '..APP5..Package'
+                #print '..APP5..Package'
                 registros=cursor2.execute(sentencia5)
                 registros=cursor2.fetchall()
-                print sentencia5
+                #print sentencia5
                 nombres = ()
                 resultados =[]
 
 
 
 	##final seleccion conexion
-
 
 
             # Obtener los nombres de las columnas

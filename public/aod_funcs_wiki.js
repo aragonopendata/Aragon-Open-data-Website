@@ -524,7 +524,7 @@ $(document).ready(function() {
 	showHideAragopediaMenu(980);
 	responsiveAragopediaArticle(980, 767);
 	responsiveAragopediaHome(980);
-	$('.banner').css("background", "red");
+	//$('.banner').css("background", "red");
 	//al inicio, quitarlo si tiene valor porque lo autorrellene el navegador de otras visitas	
 	if (($("#cajaDeBusqInput").val() != "")) {
 		$("#cajaDeBusqInput").css("background", "#FFFFFF");

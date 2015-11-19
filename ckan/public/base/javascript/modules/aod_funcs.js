@@ -160,7 +160,7 @@ $(document).ready(function() {
 	responsiveVisorDataset();
 	responsiveScroll();
 	responsiveOrganizacionPagina();
-	
+	marginTag();
 	$(window).resize(function() {
 		pintaMenuBuscador();
 		modificaComboBusqueda();
@@ -168,6 +168,7 @@ $(document).ready(function() {
 		responsiveVisorDataset();
 		responsiveScroll();
 		responsiveOrganizacionPagina();
+		marginTag();
 	});
 	
 	
@@ -295,7 +296,7 @@ $(document).ready(function() {
 	var urlListParam  = new Array();
 	if (currentUrl) {
 		urlListParam = currentUrl.split("/");
-		//alert('El urlparam es '+urlListParam);
+		//alert('El urlparam es '+urlListParam.length+ ' y la url actual es '+currentUrl);
 		if (urlListParam.length == 3) {
 			if (urlListParam[2] == "informacion-estadistica") {
 					// o es info estadistica
@@ -317,9 +318,25 @@ $(document).ready(function() {
 				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaLibre");
 			}   
 			else {
+				//alert('entramos por este sitio');
+				//alert('urlListParam es '+urlListParam+' y tiene de longitud '+urlListParam.length);
+				var parametrosURL  = new Array();
+				var urlActual = window.location.toString();
+				//alert('La url actual es '+urlActual);
+				if (urlActual.indexOf('tags=')>=0) {
+					$('div#tipoBusquedaFilter_chosen.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosenImage-container').css('margin-bottom','15px');
+					tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
+					$('#zonaTemaYTipo').addClass('oculto');
+					$('.search-form').prepend('<div id="tituloEtiqueta">Datos con la etiqueta '+gup('tags')+'</div>')
+					//toggleAllZones();
+					
+				}
+				else{
 					// O es tema o es tipo
-				tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
-				tryToSelectItem($("#tipoFilter")[0], urlListParam[2]);
+					tryToSelectItem($("#temaFilter")[0], urlListParam[2]);
+					tryToSelectItem($("#tipoFilter")[0], urlListParam[2]);
+				}
+
 			}
 		} else if (urlListParam.length == 4) {
 			// O es tema+tipo o es tipo-estadistico/num o es base-datos/tipobbdd
@@ -398,12 +415,24 @@ $(document).ready(function() {
 			}
 			
 			
-		} else {
+			
+			var parametrosURL  = new Array();
+			var urlActual = window.location.toString();
+			if (urlActual.indexOf('tags=')>=0) {
+				
+				$('div#tipoBusquedaFilter_chosen.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosenImage-container').css('margin-bottom','15px');
+				tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
+				$('#zonaTemaYTipo').addClass('oculto');
+				//toggleAllZones();
+			}
+			
+			
+		}
+		else {
 			tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaTemaYTipo");
 			toggleZona("zonaTemaYTipo");
 		}
 	} else {
-		
 		tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaTemaYTipo");
 		toggleZona("zonaTemaYTipo");
 	}
@@ -564,6 +593,8 @@ $(document).ready(function() {
 	if ($("#homerResults").html() != null) {
 		doQueryHomer();
 	}
+	
+	marginTag();
 	
 });
 
@@ -834,6 +865,44 @@ function utf8_decode(str_data) {
   return tmp_arr.join('');
 }
 
+
+//Funcion que añade al combo box tipoBusquedaFilter marginbotton 15px cuando la url sea de la busqueda de tag.
+function marginTag(){
+	var urlListParam  = new Array();
+	var currentUrl = window.location.toString();
+	if (currentUrl) {
+		urlListParam = currentUrl.split("?");
+		if ((urlListParam.length == 2) && (urlListParam[1].indexOf('tags')>=0)){
+			$('div#tipoBusquedaFilter_chosen.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosenImage-container').css('margin-bottom','15px');
+		}
+	}
+}
+
+//http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+//http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
+
+//Funcion que devuelve un parametro de la url
+//http://www.anieto2k.com/2006/08/17/coge-los-parametros-de-tu-url-con-javascript/
+function gup( name ){
+	var regexS = "[\\?&]"+name+"=([^&#]*)";
+	var regex = new RegExp ( regexS );
+	var tmpURL = window.location.href;
+	var results = regex.exec( tmpURL );
+	if( results == null )
+		return "";
+	else{
+		var devolver = utf8_decode(unescape(results[1]));
+		devolver = replaceAll(devolver, '+', ' ');
+		return devolver;
+	}
+}
 
 
 // cookies function from http://www.w3schools.com/js/js_cookies.asp

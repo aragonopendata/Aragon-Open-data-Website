@@ -1265,7 +1265,7 @@ ul.secc_botonera li.last{margin-right: 0px; }
 
 .recuadroNoResaltado {
 	border: 1px solid #7391a5;
-	padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px;
+	padding-top:5px; padding-bottom:5px; padding-left:5px; padding-right:5px;
 	color: #3b515c !important;
 	background-color: #FFFFFF;
 	text-decoration: none  !important;
@@ -1274,7 +1274,7 @@ ul.secc_botonera li.last{margin-right: 0px; }
 
 .recuadroNoResaltado:hover {
 	border: 1px solid #7391a5;
-	padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px;
+	padding-top:5px; padding-bottom:5px; padding-left:5px; padding-right:5px;
 	background-color: #3b515c;
 	color: #FFFFFF !important;
 	text-decoration: none  !important;
@@ -2694,3 +2694,17 @@ p.bigButton {
 	}
 }
 
+
+@font-face {
+	font-family: aragopiaFont;
+	font-style:  normal;
+	font-weight: normal;
+	src: url('/public/fonts/AragopediaFont.otf');
+}
+
+#tituloEtiqueta {
+    color: #3b515c;
+    font-family: 'aragopiaFont', Helvetica, Arial, sans-serif;
+    float: left;
+    font-size: 20px;
+}

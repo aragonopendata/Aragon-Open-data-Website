@@ -327,7 +327,7 @@ $(document).ready(function() {
 					$('div#tipoBusquedaFilter_chosen.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosenImage-container').css('margin-bottom','15px');
 					tryToSelectItem($("#tipoBusquedaFilter")[0], "zonaEtiquetas");
 					$('#zonaTemaYTipo').addClass('oculto');
-					$('.search-form').prepend('<div id="tituloEtiqueta">Datos con la etiqueta '+gup('tags')+'</div>')
+					$('.search-form').prepend('<div id="tituloEtiqueta">Datos con la etiqueta "'+gup('tags')+'"</div>')
 					//toggleAllZones();
 					
 				}

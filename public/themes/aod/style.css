@@ -2708,3 +2708,8 @@ p.bigButton {
     float: left;
     font-size: 20px;
 }
+
+
+#tipoBusquedaFilter_chosen div.chosen-drop {
+	width: 220px !important;
+}

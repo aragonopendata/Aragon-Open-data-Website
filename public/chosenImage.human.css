@@ -1,0 +1,35 @@
+/* DG - 29/11/12 - Align single item with results. General UI Imrpovement */
+/*
+.chzn-container-single .chzn-single {
+  padding: 0 0 0 10px;
+}
+*/
+/* DG - 03/12/12 -chosenImage - position, size and indent text */
+/*.chznImage-container .chzn-results li,
+.chznImage-container .chzn-single span {
+  background-position: 6px 45%;
+  background-size: auto 12px;
+  padding-left: 23px;
+}
+
+.chznImage-container .chzn-single span {
+  background-position: 0px 45%;
+  padding-left: 17px;
+}*/
+
+.chosenImage-container .chosen-single {
+	background-color: #76A1B8;
+	color: #FFFFFF !important;
+}
+
+.chosenImage-container .chosen-single div b {
+	background: url("/public/i/buscaDatos/flechaBlancaDown.png") no-repeat scroll 0 5px rgba(0, 0, 0, 0);
+}
+
+.chosenImage-container.chosen-container-active.chosen-with-drop .chosen-single div b {
+	background-image: url("/public/i/buscaDatos/flechaBlancaUp.png");
+}
+
+.chosenImage-container.chosen-container .chosen-results li.highlighted {
+ background-color: #DDE6ED;
+}

@@ -1,0 +1,70 @@
+/**
+ * CSS Reset
+ * From Blueprint reset.css
+ * http://blueprintcss.googlecode.com
+ */
+
+
+.olControlAttribution {
+    bottom: 5px;
+}
+
+.olControlZoomIn, .olControlZoomOut {
+	color: #FFFFFF !important;
+}
+
+/**
+ * Map Examples Specific
+ */
+#mapa {
+    width: 976px;
+    height: 400px;
+    border: 2px solid #76A1B8;
+		right: 50%;
+		float: right;
+		position: relative;
+}
+
+#mapaDiv {
+		position:relative;
+		left: 50%;
+		float: left;
+		margin-bottom: 30px;
+                margin-top: -40px;}
+
+#loadingDataMap {
+	visibility:hidden;
+	position:relative; 
+	top:200px;
+	left: -20px;
+}
+
+/* mobile specific */
+@media only screen and (max-width: 600px) {
+    #mapa {
+        background : #7391ad;
+        width      : 100%;
+    }
+    #mapa {
+        border : 0;
+        height : 250px;
+    }
+    #title {
+        font-size   : 1.3em;
+        line-height : 2em;
+        text-indent : 1em;
+        margin      : 0;
+        padding     : 0;
+    }
+}
+@media only screen and (orientation: landscape) and (max-width: 600px) {
+    #mapa {
+        width: 70%;
+    }
+}
+
+
+.olImageLoadError { 
+    /* when OL encounters a 404, don't display the pink image */
+    display: none !important;
+} 

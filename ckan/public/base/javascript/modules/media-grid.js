@@ -1,16 +1,1 @@
-/* Media Grid
- * Super simple plugin that waits for all the images to be loaded in the media
- * grid and then applies the jQuery.masonry to then
- */ 
-this.ckan.module('media-grid', function ($, _) {
-  return {
-    initialize: function () {
-      var wrapper = this.el;
-      wrapper.imagesLoaded(function() {
-        wrapper.masonry({
-          itemSelector: '.media-item'
-        });
-      });
-    }
-  };
-});
+this.ckan.module("media-grid",function(b,a){return{initialize:function(){var c=this.el;c.imagesLoaded(function(){c.masonry({itemSelector:".media-item"})})}}});

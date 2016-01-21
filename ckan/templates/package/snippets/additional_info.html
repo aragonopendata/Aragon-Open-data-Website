@@ -85,13 +85,16 @@
 					 {% else %}
 						 {% set coberturaTemporal= coberturaTemporal + ' a actualidad' %}
 					 {% endif %}
-					 {% if coberturaTemporal != "" %}
-							<div class="fieldName">Cobertura temporal</div>
-							<div class="fieldValue">{{ coberturaTemporal }}</div>
-					 {% endif %}
 				 {% endif %}
 			 {% endif %}
+			 {% if key == 'uriAragopedia' %}
+					{% if coberturaTemporal != "" %}
+					<div class="fieldName">Cobertura temporal</div>
+					<div class="fieldValue">{{ coberturaTemporal }}</div>
+				{% endif %}
+			 {% endif %}
 	{% endfor %}
+
 
 	<div class="fieldName">Licencia</div>
 	<div class="fieldValue"> <a href="https://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">Creative Commons Attribution</a> (cc-by) </div>

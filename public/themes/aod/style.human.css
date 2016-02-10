@@ -96,8 +96,8 @@ li.nodisc { list-style-type: none; }
 
 /* cabecera  aod*/
 
-.banner {  width: 980px; background-color: red; margin:auto }
-/*.banner {  width: 980px; background-color: #76a1b8; margin:auto }*/
+/*.banner {  width: 980px; background-color: red; margin:auto }*/
+.banner {  width: 980px; background-color: #76a1b8; margin:auto }
 /*.banner ul { float:left; position:relative; left:50%;  width: 980px; }
 .banner ul li { float: left; position:relative; right:50%; }
 
@@ -763,7 +763,6 @@ Fin Propiedades correspondientes a los estilos de las páginas de Multimedia
 .mini .seccionTerminos .contenido { padding-top: 160px; }
 
 .seccionInfo .contenido { padding-left: 19%; }
-.mini .seccionInfo .contenido { padding-top: 160px;}
 
 /* fin terminos */
 

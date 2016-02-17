@@ -1,0 +1,81 @@
+<div class="aosd-report-container">
+  <sidenav></sidenav>
+
+  <div class="aosd-report">
+    <logo></logo>
+    <selectionhelp></selectionhelp>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="graph-help">
+          <h2>Mapa de comunidades de menciones entre usuarios</h2>
+          <p><small>Últimos {{ numNodes }} mensajes hasta el {{ end }}</small></p>
+        </div>
+
+        <div id="graph">
+
+          <sigmajs graph="sigmaGraph" id="graph-container" width="100%" height="100%"></sigmajs>
+
+          <div id="graph-search">
+            <div class="input-group" style="width: 250px;">
+              <input id="search_text" type="text" class="form-control" placeholder="Nombre de usuario..." ng-model="searched" ng-keyup="$event.keyCode == 13 ? searchUser() : null">
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="searchUser()" type="button">Buscar</button>
+              </span>
+            </div>
+            <div id="search_results" ng-show="search_results.length">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default btn-xs" aria-label="Left Align" ng-click="changeFocus(-1)"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-default btn-xs" aria-label="Center Align" ng-click="changeFocus(+1)"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+              </div>
+              <span class="small">{{ search_result_text }}</span>
+            </div>
+          </div>
+
+          <div id="graph-controls">
+            <div class="btn-group btn-group-sm" role="group" aria-label="...">
+              <div class="btn-group btn-group-sm" role="group">
+                <button id="show_links_button" type="button" class="btn btn-default active" aria-expanded="false" ng-click="toggleEdges()">
+                  Enlaces
+                </button>
+              </div>
+
+              <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="showNodesDropdown($event)">
+                  Nodos <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li>
+                    <div class="form-inline">
+                      <label for="end" class="aosd-label">Hasta</label>
+                      <div class='input-group input-sm date input-daterange'>
+                        <input class="form-control input-sm date-filter-control" id="end" ng-model="end" placeholder="dd/mm/yyyy" type="text" ng-change="changeStartDate()">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="" ng-click="changeNumNodes(100)">Últimos 100 mensajes</a></li>
+                  <li><a href="" ng-click="changeNumNodes(1000)">Últimos 1000 mensajes</a></li>
+                  <li><a href="" ng-click="changeNumNodes(2000)">Últimos 2000 mensajes</a></li>
+                  <li><a href="" ng-click="changeNumNodes(5000)">Últimos 5000 mensajes</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="graph-bottom-buttons">
+            <button id="full-screen-button" type="button" class="btn btn-default btn-md" ng-click="toggleFullscreen()"><span class="glyphicon glyphicon-resize-full"></span></button>
+          </div>
+
+        </div>
+
+        <div class="graph-help">
+          <h2>Ayuda</h2>
+          <p><small>Cada círculo representa a un usuario y su tamaño es proporcional al número de menciones recibidas.</small></p>
+          <p><small>Las líneas que unen a los usuarios representan que entre los usuarios se ha realizado alguna mención. Su grosor es proporcional al número de menciones.</small></p>
+          <p><small>El color de cada círculo representa la comunidad a la que pertenece el usuario.</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

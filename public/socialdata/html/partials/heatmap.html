@@ -1,0 +1,35 @@
+<div class="aosd-report-container">
+  <sidenav></sidenav>
+
+  <div class="aosd-report">
+    <logo></logo>
+    <selectionhelp></selectionhelp>
+    <div class="row">
+      <div class="col-sm-12 form-inline">
+        <label for="select_term" class="aosd-label">Término</label>
+        <select id="select_term" class="form-control" ng-model="change_terms_selected" ng-options="item as item for item in change_terms" ng-change="changeSelection()"></select>
+        <a class="btn" ng-class="{true: 'btn-primary', false: 'btn-default'}[markers_active]" id="heatmap-last-items" ng-click="showLastItems()">Mostrar últimos mensajes</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="map-canvas">
+          <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+            <ui-gmap-layer namespace="visualization" type="HeatmapLayer" show="map.showHeat" options="map.heatLayerOptions" onCreated="map.heatLayerCallback"></ui-gmap-layer>
+            <ui-gmap-marker idKey="marker.id" coords="marker.coords" options="marker.options" click="showMessage(marker.id)" ng-repeat="marker in markers"></ui-gmap-marker>
+          </ui-gmap-google-map>
+          <div class="map-legend">
+            <h4>Leyenda</h4>
+            <hr>
+            <ul>
+              <li><div class="circle" id="max"></div> Máximo: {{ weight_max | number }}</li>
+              <li><div class="circle" id="min"></div> Mínimo: {{ weight_min | number }}</li>
+              <li><div class="circle" id="total"></div> Total: {{ num_items | number }}</li>
+            </ul>
+            <label><input type="checkbox" ng-model="map_weight" ng-change="changeHeatmapWeight()"> Por población</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

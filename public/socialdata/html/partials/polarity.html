@@ -1,0 +1,46 @@
+<div class="aosd-report-container">
+  <sidenav></sidenav>
+
+  <div class="aosd-report">
+    <logo></logo>
+    <selectionhelp></selectionhelp>
+    <div class="row">
+      <div class="col-lg-4 text-center">
+      <h4>Polaridad</h4>
+        <div google-chart chart="polarity"></div>
+        <p><small>Porcentaje de mensajes con caracter positivo, negativo o neutro.</small></p>
+      </div>
+      <div class="col-lg-4 text-center">
+        <h4>Nivel de positividad</h4>
+        <c3chart bindto-id="gauge-positive-chart" chart-data="polarity_pos" chart-columns="polarity_pos_cols" style="height: 200px;">
+          <chart-gauge min="0" max="1" />
+        </c3chart>
+        <p><small>Indica cuanto de positivos son los mensajes positivos.</small></p>
+      </div>
+      <div class="col-lg-4 text-center">
+        <h4>Nivel de negatividad</h4>
+        <c3chart bindto-id="gauge-negative-chart" chart-data="polarity_neg" chart-columns="polarity_neg_cols" style="height: 200px;">
+          <chart-gauge min="0" max="1" />
+        </c3chart>
+        <p><small>Indica cuanto de negativos son los mensajes negativos.</small></p>
+      </div>
+    </div>
+    <br><br>
+    <div class="row aosd-polarity-terms-container">
+      <h2>Polaridad individual de los términos buscados</h2>
+      <p><small>Valores cercanos a -1 indican una alta negatividad, valores cercanos a 1 indican una alta positividad y valores entorno a 0 indican neutralidad.</small></p>
+      <div class="col-md-4 col-sm-6 aosd-polarity-term" ng-repeat="term in terms_polarity">
+        <h4>{{ term.term }}</h4>
+        <c3chart bindto-id="polarity-term-{{ $index }}" chart-data="term.polarity" chart-columns="term.polarity_cols">
+          <chart-legend show-legend="false" />
+          <chart-colors color-function="polarityColor" />
+          <chart-axis axis-rotate="true" />
+          <chart-axis-x show="false" />
+          <chart-axis-y axis-min="-1" axis-max="1" />
+          <chart-size chart-height="70" />
+          <chart-tooltip title-format-function="polarityTooltip" />
+        </c3chart>
+      </div>
+    </div>
+  </div>
+</div>

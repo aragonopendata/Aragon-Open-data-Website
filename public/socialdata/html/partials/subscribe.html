@@ -1,0 +1,50 @@
+<logo></logo>
+
+<div class="aosd-container">
+  <form ng-submit="subscribe()">
+    <div class="alert alert-danger" role="alert" ng-show="error">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{ error }}
+    </div>
+    <div class="aosd-container subscription">
+      <h2>Suscríbete</h2>
+      <div class="aosd-subscription-container" ng-repeat="subscription in subscriptions track by $index">
+        <div class="inline-formcontrol form-inline">
+          <h3>Suscripción número {{ $index + 1 }}</h3>
+          <a href="" ng-click="removeSubscription($index)">Eliminar suscripción</a>
+        </div>
+        <div class="inline-formcontrol form-inline">
+          <label for="name">Introduce el nombre de la suscripción</label>
+          <input type="text" id="name" class="form-control" ng-model="subscription.name" placeholder="Nombre de la subscripción" required>
+        </div>
+        <div class="inline-formcontrol form-inline">
+          <label for="region">La suscripción se realiza en</label>
+          <select id="region" class="form-control form-region" ng-model="subscription.region" ng-options="region.id as region.label for region in regions"></select>
+          <label for="terms">sobre:</label>
+        </div>
+        <fieldset id="terms" class="fieldset-terms form-inline" ng-repeat="term in subscription.terms track by $index">
+          <input type="text" class="form-control" ng-model="subscription.terms[$index]" placeholder="Introduce un nuevo término" required>
+          <button type="button" class="btn btn-default" ng-click= "removeTerm($parent.$index, $index)" ng-if="subscription.terms.length > 1">-</button>
+        </fieldset>
+        <button type="button" class="btn btn-default" ng-click="addTerm($index)">Añadir otro término</button>
+        <small><i>Puedes añadir hasta 10 términos</i></small>
+        <hr>
+      </div>
+      <button type="button" class="btn btn-default" ng-click="addSubscription()">Añadir otra suscripción</button>
+      <small><i>Puedes añadir hasta 10 suscripciones</i></small>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="aosd-container">
+      <button type="submit" class="btn btn-primary">Guardar suscripciones</button>
+      <button type="button" class="btn btn-default" ng-click="goBack()">Volver</button>
+      <br><br>
+      <a href="" ng-click="passwordChange()">Cambiar contraseña</a>    |    <a href="" ng-click="logout()">Cerrar sesión</a>
+      <br><br>
+      <a href="" ng-click="cancelSubscription()" style="float: right;">Cancelar mi suscripción</a>
+    </div>
+  </form>
+</div>

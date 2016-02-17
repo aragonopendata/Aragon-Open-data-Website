@@ -1,0 +1,94 @@
+<div class="aosd-report-container">
+  <sidenav></sidenav>
+
+  <div class="aosd-report">
+    <logo></logo>
+    <selectionhelp></selectionhelp>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Top hashtags y menciones</h2>
+      </div>
+      <div class="col-lg-6 hemicycle-container">
+        <highchart id="chart_hemicycle_hashtags" config="hemicycle_hashtags"></highchart>
+      </div>
+      <div class="col-lg-6 hemicycle-container">
+        <highchart id="chart_hemicycle_mentions" config="hemicycle_mentions"></highchart>
+      </div>
+    </div>
+    <div class="row">
+     <div class="col-sm-12">
+        <h2>Hashtags y menciones</h2>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Hashtags más usados</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Término</th>
+                <th>Apariciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="hashtag in top_hashtags">
+                <td><a href="https://twitter.com/hashtag/{{ hashtag.key | removeTwitterChar }}" target="_blank">{{ hashtag.key }}</a></td>
+                <td>{{ hashtag.doc_count | number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Autores más populares</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Autor</th>
+                <th>Mensajes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="author in top_authors">
+                <td>{{ author.key }}</td>
+                <td>{{ author.doc_count | number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Autores más mencionados</div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Autor</th>
+                <th>Menciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="mention in top_mentions">
+                <td><a href="https://twitter.com/{{ mention.key | removeTwitterChar }}" target="_blank">{{ mention.key }}</a></td>
+                <td>{{ mention.doc_count | number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Últimos mensajes</h2>
+        <hr>
+        <div ng-repeat="item in last_items" class="item">
+          <h5>{{ item.title | trim }}</h5>
+          <pre>{{ item.description | trim }}</pre>
+          <i><small>Por <strong>{{ item.author }}</strong> en {{ item.source | capitalize | snakeCase }} a las {{ item.published_on }} - <a href="{{ item.url }}" target="_blank">Detalles</a></small></i>
+          <hr>
+        </div>
+        <button class="btn btn-default" ng-click="moreItems()">Mostrar más mensajes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<logo></logo>
+
+<div class="aosd-container">
+  <div class="parrafoTexto">
+    Aragón Open SocialData captura y procesa la información pública que se genera en las redes sociales, Hemos desarrollado un panel de mano en el que puedes analizar la conversación existenten en y sobre Aragón.
+    <br><br>
+    Ahora, con Aragón Open SocialData, puedes ver estadísticas, polaridad de la conversación, comunidades en la red y muchas otras informaciones.
+    <br><br>
+  </div>
+
+  <h2>Busca la conversación</h2>
+
+  <div class="aosd-controls">
+    <form name="terms" class="inline-formcontrol form-inline" novalidate>
+      <div class="alert alert-danger" role="alert" ng-show="invalid_dates">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{ invalid_dates }}
+      </div>
+      <label for="region">En</label>
+      <select id="region" class="form-control form-region" ng-model="region" ng-options="region.id as region.label for region in regions"></select>
+      <label for="start">Desde</label>
+      <div class='input-group date input-daterange'>
+        <input class="form-control date-filter-control" id="start" ng-model="start" placeholder="dd/mm/yyyy" type="text">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
+      <label for="end">Hasta</label>
+      <div class='input-group date input-daterange'>
+        <input class="form-control date-filter-control" id="end" ng-model="end" placeholder="dd/mm/yyyy" type="text">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
+      <br>
+      <h3>Sobre</h3>
+      <fieldset class="fieldset-terms" ng-repeat="choice in choices">
+        <input type="text" class="form-control" ng-model="choice.name" placeholder="Introduce un nuevo término" required>
+        <button class="btn btn-default" ng-click="removeChoice($index)" ng-if="choices.length > 1">-</button>
+      </fieldset>
+      <button class="btn btn-default" ng-click="addNewChoice()">Añadir otro término</button>
+      <small><i>Puedes añadir hasta 10 términos</i></small>
+      <br>
+      <br>
+      <input type="submit" class="btn btn-primary" value="Buscar" ng-click="search()">
+    </form>
+  </div>
+
+  <div class="separadorContenidoPagina"></div>
+
+  <h2>Suscríbete a nuestros informes</h2>
+  <ul class="aosd-links">
+    <li><a href="#/subscribe/" class="btn btn-default">Mis suscripciones</a></li>
+  </ul>
+</div>

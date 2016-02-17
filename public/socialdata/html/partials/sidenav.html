@@ -1,0 +1,56 @@
+<script>
+  $(function() {
+    $.fn.scrollBottom = function() {
+      return $(document).height() - this.scrollTop() - this.height();
+    };
+
+    var $el = $('.aosd-side-nav');
+    var $window = $(window);
+
+    $window.bind("scroll resize", function() {
+      var gap = $window.height() - $el.height() - $('header').height() - 10;
+      var visibleFoot = $('footer #pie').height() - $window.scrollBottom() + $('header').height();
+      var scrollTop = $window.scrollTop()
+
+      if (visibleFoot > gap) {
+        $el.css({
+          top: "auto",
+          bottom: visibleFoot + "px"
+        });
+      } else {
+        $el.css({
+          top: "auto",
+          bottom: "auto"
+        });
+      }
+    });
+  });
+</script>
+
+<ul class="nav navbar-nav aosd-side-nav">
+  <li ng-class="{active:isActive('#/stats')}">
+    <a href="" ng-click="moveTo('/stats')">
+    <i class="fa fa-fw fa-dashboard"></i> Vista general
+    </a>
+  </li>
+  <li ng-class="{active:isActive('#/evolution')}">
+    <a href="" ng-click="moveTo('/evolution')">
+      <i class="fa fa-fw fa-bar-chart-o"></i> Evolución
+    </a>
+  </li>
+  <li ng-class="{active:isActive('#/heatmap')}">
+    <a href="" ng-click="moveTo('/heatmap')">
+      <i class="fa fa-fw fa-globe"></i> Mapas de calor
+    </a>
+  </li>
+  <li ng-class="{active:isActive('#/polarity')}">
+    <a href="" ng-click="moveTo('/polarity')">
+    <i class="fa fa-fw fa-toggle-on"></i> Polaridad
+    </a>
+  </li>
+  <li ng-class="{active:isActive('#/communities')}">
+    <a href="" ng-click="moveTo('/communities')">
+      <i class="fa fa-fw fa-share-alt"></i> Comunidades
+    </a>
+ </li>
+</ul>

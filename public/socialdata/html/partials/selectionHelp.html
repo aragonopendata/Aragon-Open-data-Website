@@ -1,0 +1,27 @@
+<div class="aosd-selection-help">
+  <h2>Resultados de la búsqueda:</h2>
+  <pre><i>{{ terms.join(', ') }}</i><br>En <b>{{ region | titleCase }}</b> desde el <b>{{ start }}</b> hasta el <b>{{ end }}</b>.</pre>
+  <div class="row">
+	  <div class="col-lg-4">
+	    <div google-chart chart="total_by_source"></div>
+	  </div>
+	  <div class="col-lg-4">
+	    <div google-chart chart="total_by_type"></div>
+	  </div>
+	  <div class="col-lg-4">
+	    <div id="total">
+	      <dl class="dl-horizontal">
+	        <dt>Total:</dt><dd>{{ count | number }}</dd>
+	        <dt>Geolocalizable:</dt><dd>{{ count_geo | number }}</dd>
+	        <dt>Autores:</dt><dd>{{ count_authors | number }}</dd>
+	        <dt>Hashtags:</dt><dd>{{ count_hashtags | number }}</dd>
+	        <dt>Menciones:</dt><dd>{{ count_mentions | number }}</dd>
+	      </dl>
+	    </div>
+	  </div>
+	</div>
+  <a href="#/main/" class="btn btn-primary top-btn">Realizar otra búsqueda</a>
+  <a href="#/subscribe/?fromSearch=1" class="btn btn-default top-btn">Suscribirse a estos resultados</a>
+  <a href="" class="btn btn-default top-btn" ng-click="downloadCSV()">Descargar CSV</a>
+  <hr>
+</div>

@@ -1,5 +1,5 @@
 <section class="additional-info">
-	<h3>PROPIEDADES DE LOS METADATOS</h3>
+	<h3>INFORMACIÓN DEL CONJUNTO DE DATOS</h3>
 	<div class="fieldName">T&iacute;tulo</div>
 	<div class="fieldValue">{{ pkg_dict.title }}</div>
 	<div class="fieldName">Descripci&oacute;n</div>
@@ -11,7 +11,7 @@
 	{% endfor %}
 	</div>
 
-	<div class="fieldName">Palabra clave / etiqueta</div>
+	<div class="fieldName">Etiquetas y palabras clave</div>
 	<div class="fieldValue">
 		{% snippet "package/snippets/tags.html", tags=pkg_dict.tags %}
 	</div>
@@ -29,7 +29,7 @@
 		{% endfor %}
 
 	{% if pkg_dict.organization %}
-	<div class="fieldName">Publicador</div>
+	<div class="fieldName">Organización responsable de la publicaci&oacute;n</div>
 	<div class="fieldValue">
 		<a href="/catalogo/organizacion/{{pkg_dict.organization.name}}" title="{{pkg_dict.organization.title}}">{{pkg_dict.organization.title}}</a>
 	</div>
@@ -44,14 +44,14 @@
 				{% if value != "" %}
 					{% if key == 'nameAragopedia' %}
 						{% set nameAragopedia = value %}
-						<div class="fieldName">Cobertura geogr&aacute;fica</div>
-						<div class="fieldValue">{{ nameAragopedia }}</div>
+						<div class="fieldName">Territorio en el que existen datos</div>
+						<div class="fieldValue">Este conjunto de datos contiene datos en el territorio de {{ nameAragopedia }}</div>
 					{% elif key == 'typeAragopedia' %}
 						{% set typeAragopedia = value %}
 					{% elif key == 'uriAragopedia' %}
 						{% set uriAragopedia = value %}
 						{% if typeAragopedia !='Otro' %}
-								<div class="fieldValue">URI del recurso <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">{{ nameAragopedia }}</a> en aragopedia</div>
+								<div class="fieldValue">Esta es la URI del recurso  <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">{{ nameAragopedia }}</a> en aragopedia</div>
 							{% endif %}
 					{% endif %}
 				{% endif %}
@@ -89,7 +89,7 @@
 			 {% endif %}
 			 {% if key == 'uriAragopedia' %}
 					{% if coberturaTemporal != "" %}
-					<div class="fieldName">Cobertura temporal</div>
+					<div class="fieldName">Periodo de tiempo en el que existen datos</div>
 					<div class="fieldValue">{{ coberturaTemporal }}</div>
 				{% endif %}
 			 {% endif %}

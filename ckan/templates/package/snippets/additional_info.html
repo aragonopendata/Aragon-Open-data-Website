@@ -51,7 +51,7 @@
 					{% elif key == 'uriAragopedia' %}
 						{% set uriAragopedia = value %}
 						{% if typeAragopedia !='Otro' %}
-								<div class="fieldValue">Esta es la URI del recurso  <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">{{ nameAragopedia }}</a> en aragopedia</div>
+								<div class="fieldValue">Esta es la <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">URI del recurso {{ nameAragopedia }}</a> en aragopedia</div>
 							{% endif %}
 					{% endif %}
 				{% endif %}
@@ -64,7 +64,7 @@
 				{% set key, value = extra %}
 				{% if value != "" %}
 					{% if key == 'Frequency' %}
-						<div class="fieldName">Frecuencia</div>
+						<div class="fieldName">Frecuencia de actualizaci&oacute;n</div>
 						<div class="fieldValue">{{ value }}</div>
 					{% endif %}
 				{% endif %}

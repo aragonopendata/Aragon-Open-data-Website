@@ -66,14 +66,7 @@
 					$('.socialDataset ul').css('padding-bottom', '30px');
 				</script>
        {% endif %}
-     {% elif (vars.CSV != None) %}
-       {% if ((vars.CSV['mimetype'] == None) or (vars.CSV['mimetype']|length==0)) %}
-         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
-       {% else %}          
-          <script>
-					$('.socialDataset ul').css('padding-bottom', '30px');
-				</script> 
-       {% endif %}
+     
       {% elif vars.GML  != None %}
         {% if ((vars.GML['mimetype'] == None) or (vars.GML['mimetype']|length!=0)) %}
       
@@ -87,7 +80,7 @@
 	var auxStr = '{{vars.GML.url}}';
 	var auxStrMayusc;
 	var todoOk = false;
-	var strInicio = "http://sitar.aragon.es/datosdescarga/descarga.php?file=";
+	var strInicio = "http://idearagon.aragon.es/datosdescarga/descarga.php?file=";
 	var idxInicio = auxStr.indexOf(strInicio);
 	if (idxInicio != -1) {
 		auxStr = auxStr.substring(strInicio.length);
@@ -144,6 +137,16 @@
 					$('.socialDataset ul').css('padding-bottom', '30px');
 				</script> 
        {% endif %}
+     
+     {% elif (vars.CSV != None) %}
+       {% if ((vars.CSV['mimetype'] == None) or (vars.CSV['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+       {% else %}          
+          <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     
      {% elif (vars.XML != None) %}
        {% if ((vars.XML['mimetype'] == None) or (vars.XML['mimetype']|length==0)) %}
          <div class="previewZone">{{h.resource_preview(vars.XML, pkg)}}</div>

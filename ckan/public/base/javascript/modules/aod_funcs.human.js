@@ -60,12 +60,15 @@ function responsiveScroll() {
 //});
 
 function refinaAutocomplete() {
-	$.ui.autocomplete.prototype._renderItem = function( ul, item) {
-		return $( "<li></li>" )
-			.data( "item.autocomplete", item )
-			.append( "<a href='/catalogo/" + item.valor + "'>" + item.label + "</a>" )
-			.appendTo( ul );
-	};	
+	//$.ui.autocomplete.prototype._renderItem = function( ul, item) {
+	if ($('.cajaDeBusqInput')){
+		function autocompletar( ul, item) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a href='/catalogo/" + item.valor + "'>" + item.label + "</a>" )
+				.appendTo( ul );
+		};	
+	}
 }
 
 function changeOrder(newOrder, destinationUrl) {

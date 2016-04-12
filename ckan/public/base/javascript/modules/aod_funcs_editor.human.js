@@ -828,6 +828,34 @@ function updateResources() {
   for (var idx = 0; idx < resourceCount; idx++) {
     if (changedResource[idx]) {
 
+    var item = document.getElementById("resType" + idx)
+    var _value = item[item.selectedIndex].value;
+    if (_value == "vista") {
+       if (correctUrl(idx)) {
+        updateFormat(idx);
+            var action = '/catalogo/new_resource/' + $("#field-name").val();
+            $.ajax({
+              async: false,
+              url: action,
+              type: 'POST',
+              data: $("#resourceForm" + idx).serialize(),
+              success: function (data) {
+                $("#uploadUrl_resType" + idx).attr("disabled", false);
+                $("#urlText_resType" + idx).attr("disabled", false);
+
+                $("#resourceForm" + idx)[0].action = '/catalogo/' + $("#field-name").val() + '/resource_edit/' + data;
+                $("#removeResourceButton" + idx).attr("href", "javascript:removeExistingResource('/catalogo/" + $("#field-name").val() + "/resource_delete/" + data + "', '" + idx + "');");
+
+                alreadyCreatedResource[idx] = true;
+              },
+              error: function (data) {
+                $("#uploadUrl_resType" + idx).attr("disabled", false);
+                $("#urlText_resType" + idx).attr("disabled", false);
+                alert("Problemas creando el nuevo recurso"); 
+              }
+            });
+    }}
+    else{
       if (correctUrl(idx)) {
         updateFormat(idx);
 
@@ -850,6 +878,7 @@ function updateResources() {
       } else {
         alert("La URL del recurso no puede dejarse vacía");
       }
+    }
       changedResource[idx] = false;
     }
   }

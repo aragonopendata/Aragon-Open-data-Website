@@ -473,204 +473,25 @@ class StorageAPIController(BaseController):
         if params:
             user = params.get('user')
 
-	
-	#PRO
-        connection = cx_Oracle.connect( configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.OPENDATA_CONEXION_BD)
-	#PRE
-	#connection = cx_Oracle.connect( configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)        
-	cursor = connection.cursor()
-
-        if user == configuracion.USR_ADMIN:
-            sentencia = "SELECT id_vista, nombre FROM opendata.opendata_v_vistas"
-        else:
-            sentencia = "SELECT * FROM opendata.opendata_v_listadoVistas where usuario='" + user + "'"
-        registros = cursor.execute(sentencia)
-
-        lista = []
-        for r in registros:
-            lista.append(r)
-
-        cursor.close()
-        connection.close()
-
-        return json.dumps(lista)
-
+        import sys
+        sys.path.insert(0, '/var/www/wolfcms/GA_OD_Core')
+        import ga_od_core
+        data = ga_od_core.views(user)
+        return data
+   
+    def date_handler(obj):
+        return obj.isoformat() if hasattr(obj, 'isoformat')else obj 
+        print "...Mal"    
+    
     # Cargar vista del desplegable en el formulario
     def show_vista(self, label):
         params = dict(request.params.items())
         if params:
             filtro = params.get('filtro')
             completa = params.get('completa')
-
-        #PRE
-	#connection = configuracion.conexion('pre-opendata-oracle')
-        #PRO
-	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS + "@" + configuracion.OPENDATA_CONEXION_BD)
-	cursor = connection.cursor()
-        registros = cursor.execute("SELECT NOMBREREAL,BASEDATOS FROM opendata.opendata_v_vistas where id_vista=" + label)
-
-        datosVista = []
-        for r in registros:
-            datosVista.append(r)
-
-        cursor.close()
-        connection.close()
-
-        # Comprobamos si se reciben los datos de la conexion (solo 1)
-        if (len(datosVista) != 1):
-            datosVista = "Ha ocurrido un error"
-        else:
-            print '.......+'
-	    print datosVista[0][1]
-	    print '-.......'
- 
-            connection2=configuracion.conexion(datosVista[0][1])         
-	    print connection2
-            cursor2 = connection2.cursor()
-	    print cursor2   
-	
-            #sentencia = 'SELECT * FROM ' + datosVista[0][0];
-	    #Oracle
-	    sentencia = 'SELECT * FROM ' + datosVista[0][0] + " WHERE ROWNUM <= 3700000";
-	    #PostgreSQL
-	    sentencia3 = 'SELECT * FROM ' + datosVista[0][0];
-	    #sentencia3 = 'SELECT CAST(COALESCE(name,\' \') AS TEXT) AS name,CAST(COALESCE(itinerary,\' \') AS TEXT) AS itinerary,CAST(COALESCE(description,\' \') AS TEXT) AS description,CAST(COALESCE(name,\' \') AS TEXT) AS name,CAST(COALESCE(geom,\' \') AS TEXT) AS geom,CAST(COALESCE(horizontal_distance,\'0\') AS TEXT) AS horizontal_distance,CAST(COALESCE(positive_difference,\'0\') AS TEXT) AS positive_difference,CAST(COALESCE(negative_difference,\'0\') AS TEXT) AS negative_difference,CAST(COALESCE(aproximated_time,\'0\') AS TEXT) AS aproximated_time,CAST(COALESCE(aproximated_reverse_time,\'0\') AS TEXT) AS aproximated_reverse_time,CAST(COALESCE(mide_harshness,\'0\') AS TEXT) AS mide_harshness,CAST(COALESCE(mide_orientation,\'0\') AS TEXT) AS mide_orientation,CAST(COALESCE(mide_difficulty,\'0\') AS TEXT) mide_difficulty,CAST(COALESCE(mide_effort,\'0\') AS TEXT) AS mide_effort,CAST(classes AS TEXT) AS classes,CAST(photos AS TEXT) AS photos FROM rutas;'
-            #SQLServer	
-	    #sentencia4 = 'select * from BD_COLECCION_WEB.dbo.OPENDATA_V_OBJETOS;'
-	    sentencia4 = 'select * from ' + datosVista[0][0];
-	    #Mysql
-
-	    sentencia5='select * FROM open_poligonos';
-
-            print "-------" + datosVista[0][1] + "++++++++++"
-
-            if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):
-            	
-		##vistasNormales
-	    	print "...APP1/APP2..storage"
-		print "sentencia..." + sentencia
-            	if (filtro == ''):
-                	if (completa == 'false'):
-                    		sentencia = sentencia + " WHERE ROWNUM <= 10";
-
-            	else:
-                	if (completa == 'true'):
-                    		sentencia = sentencia + " WHERE " + filtro + " AND ROWNUM <=10";
-                	else:
-                    		sentencia = sentencia + " WHERE " + filtro + " AND ROWNUM <= 10";
-
-            	registros = cursor2.execute(sentencia)
-            	#print registros
-
-		nombres = ()
-            	resultados = []
-	    	##vistasNormales 
-
-	    elif(datosVista[0][1] =='APP3'):	
-	    	##vistasAPP3
-            	print "...APP3..storage"
-            	print sentencia3
-            	if (filtro == ''):
-                	if (completa == 'false'):
-                    		sentencia3 = sentencia3 + " limit 10" ;
-
-            	else:
-                	if (completa == 'true'):
-                    		sentencia3 = sentencia3 + " WHERE " + filtro;
-                	else:
-                    		sentencia3 = sentencia3 + " WHERE " + filtro + " limit 10";
-
-		print sentencia3
-            	registros = cursor2.execute(sentencia3)
-		registros = cursor2.fetchall()
-
-		nombres = ()
-		resultados = []
-
-            	##vistasAPP3
-
-	    elif(datosVista[0][1] =='APP4'):
-		##vistasAPP4
-
-		registros=cursor2.execute(sentencia4)
-		registros=cursor2.fetchall()
-		#print registros
-		
-		nombres = ()
-		resultados =[]
-		##vistasAPP4
-
-            elif(datosVista[0][1] =='APP5'):
-                ##vistasAPP5
-
-                registros=cursor2.execute(sentencia5)
-                registros=cursor2.fetchall()
-		
-		#print registros
-
-                nombres = ()
-                resultados =[]
-                ##vistasAPP5
-
-
-            # Obtener los nombres de las columnas
-            descripcion = cursor2.description
-
-            for col in descripcion:
-                nombres = nombres + tuple([col[0]])
-	        #print nombres[0]	
-            resultados.append(nombres)
-
-	    print "OK-1"
-            hayElementos = False
-
-            # Adjuntar los resultados
-            #for r in registros:
-	    r= []
-	    for r in registros:
-                hayElementos = True
-		longitud = len(r)
-		#print longitud
-		arrayTupla = []
-		
-		# AG Diferenciamos el tipo de conexion que va a utilizar la sustitucion de caracteres
-		if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):
-			resultados.append(r)
-	        else:
-			for i in range(longitud):
-				arrayTupla.append(sustCaracter.sustitucionCaracter(r[i]))		
-			resultados.append(arrayTupla)
-		
-	    #print str(resultados)
-	
-	    #outfile = open('/home/ams/adrian.txt', 'w')
-	    #outfile.write(str(resultados))
-	    #outfile.close()			
-
-
-##AG
-
-##
-	    print "OK-2"
-            cursor2.close()
-            connection2.close()
-	    print "OK-3"
-
-        if (hayElementos):
-            data = resultados
-	    print "OK-4"
-        else:
-            data = []
-	    print "KO-5"
-
-        def date_handler(obj):
-            return obj.isoformat() if hasattr(obj, 'isoformat')else obj 
-	    print "...Mal"
-
-
-	#print json.dumps(data, default=date_handler)
-	#print "*****************************"
-	#print data
-	#print "*****************************"
-	
-	return json.dumps(data, default=date_handler)
+        import sys
+        sys.path.insert(0, '/var/www/wolfcms/GA_OD_Core')
+        import ga_od_core  
+        id_vista = label
+        data = ga_od_core.preview(id_vista,None,None)
+        return data 

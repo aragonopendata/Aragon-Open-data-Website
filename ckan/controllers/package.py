@@ -2097,9 +2097,9 @@ class PackageController(base.BaseController):
     def _save_vista(self, vista, filtro):
 
 	#PRO
-        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+        connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
         #PRE
-	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
+	#connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
 	
 	cursor = connection.cursor()
         resultado = cursor.var(cx_Oracle.NUMBER)
@@ -2114,223 +2114,33 @@ class PackageController(base.BaseController):
         return configuracion.URL_VISTAS + str(resultado).split('.')[0]
 
 
+
+
+
+
     #Mostrar una vista guardada
     def showVista(self):
         import os
+        import sys
+        sys.path.insert(0, '/var/www/wolfcms/GA_OD_Core')
+        import ga_od_core 
         params = dict(request.params.items())
         if params:
-            vistaId = params.get('id')
+            vistaResourceId = params.get('id')
             vistaNombre = params.get('name').encode('utf8')
             vistaFormato = params.get('formato')
-
-        if vistaNombre is None and vistaFormato is None:
-            #relleno para la rdf_spider cuando comprueba que existe (no le llegan parametros)
-            vistaFormato = "JSON"
-            vistaNombre = "Descarga"
-
-        vistaFormato = vistaFormato.upper()
-
-	#PRO
-        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
-	#PRE
-	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
-	
-        cursor = connection.cursor()
-        registros = cursor.execute(
-            "SELECT VISTA,FILTRO,FORMATO FROM opendata_v_resourceVista where id_resourcevista=" + vistaId)
-
-        datosResource = []
-        for r in registros:
-            datosResource.append(r)
-
-        if datosResource:
-            vista = datosResource[0][0]
-            filtro = datosResource[0][1]
-            #formato = datosResource[0][2]
-
-            cursor.close()
-            connection.close()
-
-            #LLamamos a la vista para obtener los datos de esta
-            connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
-            cursor = connection.cursor()
-            registros = cursor.execute("SELECT NOMBREREAL,BASEDATOS FROM opendata_v_vistas where id_vista=" + str(vista))
-
-            datosVista = []
-            for r in registros:
-                datosVista.append(r)
-
-            cursor.close()
-            connection.close()
-
-            #LOG Package consultas/conexion
-	    #print "++++++."
-	    consulta = "SELECT VISTA,FILTRO,FORMATO FROM opendata_v_resourceVista where id_resourcevista=" + vistaId
-	    #print consulta
-	
-	    consulta2 ="SELECT NOMBREREAL,BASEDATOS FROM opendata_v_vistas where id_vista=" + str(vista)
-	    #print consulta2
-	
-            #print "datosResource..." + str(datosResource[0][0])
-	
-	    #print datosVista[0][1]
-	    #print "-----."
-	    #LOG Package consultas/conexion
-
-
-
-            #nueva rama de conexion
-	    connection2=configuracion.conexion(datosVista[0][1])	
-	    #nueva rama de conexion
-
-            cursor2 = connection2.cursor()
-
-            sentencia =  'SELECT * FROM ' + datosVista[0][0];
-	    sentencia3 = 'SELECT * FROM ' + datosVista[0][0];
-	    sentencia4 = 'select * from ' + datosVista[0][0];
-	    sentencia5='select * FROM open_poligonos';
-
-
-        ##Inicio seleccion conexion
-            
-	    #APP1/APP2	
-            if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):		
-		#print '..APP1/APP2..Package'
-            	if (filtro is not None and filtro != ''):
-                		sentencia = sentencia + " WHERE " + str(filtro);
-
-            	registros = cursor2.execute(sentencia)
-		#print sentencia
-            	nombres = ()
-            	resultados = []
-
-	    #APP3
-	    elif(datosVista[0][1] =='APP3'):
-		#print '..APP3..Package'
-            	if (filtro is not None and filtro != ''):
-                		sentencia3 = sentencia3 + " WHERE " + str(filtro);
-				#print "sentencia3.B..." + sentencia3
-
-            	registros = cursor2.execute(sentencia3)
-		#print sentencia3
-	    	registros = cursor2.fetchall()
-            	nombres = ()
-            	resultados = []
-
-	    #APP4
-	    elif(datosVista[0][1] =='APP4'):
-		#print '..APP4..Package'
-		registros=cursor2.execute(sentencia4)
-		registros=cursor2.fetchall()
-		#print sentencia4
-		nombres = ()
-		resultados =[]
-
-            #APP5
-            elif(datosVista[0][1] =='APP5'):
-                #print '..APP5..Package'
-                registros=cursor2.execute(sentencia5)
-                registros=cursor2.fetchall()
-                #print sentencia5
-                nombres = ()
-                resultados =[]
-
-
-
-	##final seleccion conexion
-
-
-            # Obtener los nombres de las columnas
-            descripcion = cursor2.description
-            for col in descripcion:
-                nombres = nombres + tuple([col[0]])
-
-            if (vistaFormato == 'CSV' or vistaFormato == 'JSON'):
-                resultados.append(nombres)
-
-            hayElementos = False
-            # Adjuntar los resultados
-	    #AG	
-	    r=[]	
-            for r in registros:
-                hayElementos = True
-	        longitud = len(r)
-		arrayTupla = []
-
-		# AG Diferenciamos el tipo de conexion que va a utilizar la sustitucion de caracteres
-		if (datosVista[0][1] =='APP1' or datosVista[0][1] =='APP2'):
-			resultados.append(r)
-		else:
-			for i in range(longitud):
-				arrayTupla.append(sustCaracter.sustitucionCaracter(r[i]))
-                	resultados.append(arrayTupla)
-
-            cursor2.close()
-            connection2.close()
-            
-
-            if (vistaFormato == 'CSV'):
-                #response.headers['Content-Type'] = 'text/csv;charset=utf-8'
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre)+ "__ad"+ ".csv" + '\"'),('Content-Type', 'text/csv')]
-                s = StringIO()
-                writer = csv.writer(s,dialect='excel')
-
-                def date_handler(obj):
-                   return obj.isoformat() if hasattr(obj, 'isoformat') else obj
-
-		
-                for item in resultados:
-                    writer.writerow(json.dumps(item, default=date_handler))
-                nombreFichero = vistaNombre + str(datetime.datetime.now()).replace(" ", "_") + '.csv'
-                with open(configuracion.DOWNLOAD_PATH + '/' + nombreFichero, 'w+') as csvfile:
-                    spamwriter = csv.writer(csvfile, delimiter=';')
-                    for item in resultados:
-                        spamwriter.writerow(item)
-                    csvfile.close()
-
-                with open(configuracion.DOWNLOAD_PATH + '/' + nombreFichero, 'rb') as f:
-                    stream = f.read()
-
-                try:
-                    os.remove(configuracion.DOWNLOAD_PATH + '/' + nombreFichero)
-                except:
-                    print("no existe el archivo")
-                return stream
-
-            if (vistaFormato == 'JSON'):
-
-                #response.headers['Content-Type'] = 'application/json;charset=utf-8'
-                response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) +"__ad" +  ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
-                
-			
-                def date_handler(obj):
-                 return obj.isoformat() if hasattr(obj, 'isoformat') else obj
-
-
-                return json.dumps(resultados, default=date_handler)
-
-            if (vistaFormato == 'XML'):
-                response.headers['Content-Type'] = 'application/xml;charset=utf-8';
-                response.headers['Content-Disposition'] = 'attachment; filename=' + str(vistaNombre) + '.xml';
-                #response.headers['Content-Type'] = 'application/xml;charset=utf-8'
-                #response.headers = [('Content-Disposition', 'attachment; filename=\"' + vistaNombre + "__ad" + ".xml" + '\"'), ('Content-Type', 'application/xml; charset=utf8')]
-                #response.content_type = 'application/xml; charset=utf8'
-                root = ET.Element("root")
-                nombreLista = list(nombres)
-                date_xml = ET.Element("date")
-                date_xml.text = datetime.datetime.now().isoformat()
-                root.append(date_xml)
-                for row in resultados:
-                    row_xml = ET.Element("data")
-                    #row_xml.attrib["name"] = str(row)
-                    for indice in range(len(row)):
-                        value_xml = ET.Element(nombreLista[indice])
-                        if isinstance(row[indice], unicode):
-                            value_xml.text = row[indice]
-                        else:
-                            value_xml.text = str(row[indice])
-                        row_xml.append(value_xml)
-                    root.append(row_xml)
-                return self._indent_xml(root)
-        else:
-            abort(404)
+        
+        vista_id = ga_od_core.get_view_id(vistaResourceId)
+               
+        data = ga_od_core.download(vista_id,None,None,vistaFormato)
+        
+        if (vistaFormato == 'JSON'):
+            #response.headers['Content-Type'] = 'application/json;charset=utf-8'
+            response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) +"__ad" +  ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
+        if (vistaFormato == 'CSV'):
+            #response.headers['Content-Type'] = 'text/csv;charset=utf-8'
+            response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre)+ "__ad"+ ".csv" + '\"'),('Content-Type', 'text/csv')]
+        if (vistaFormato == 'XML'):
+            response.headers['Content-Type'] = 'application/xml;charset=utf-8';
+            response.headers['Content-Disposition'] = 'attachment; filename=' + str(vistaNombre) + '.xml';     
+        return data

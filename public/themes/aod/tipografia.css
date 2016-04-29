@@ -1,0 +1,596 @@
+<style>
+
+	/****************************************************************************/
+ /*                                  COLORES                                 */
+/****************************************************************************/
+.azul{
+	color: #76A1B8;
+}
+
+.azulOscuro{
+	color: #3B515C;
+}
+
+.grisClaro{
+	color: #E5E5E3;
+}
+
+.grisMedio{
+	color: #999790;
+}
+
+.grisOscuro{
+	color: #666359;
+}
+
+.negroCalido{
+	color: #332F21;
+}
+
+.azulPalido{
+	color: #EBF1F4;
+}
+
+
+	/****************************************************************************/
+ /*                                  FUENTES                                 */
+/****************************************************************************/
+/* Esta  fuente hace uso de la fuente roboto light, nosotros la guardamos en 
+nuestro servidor para que todo cliente pueda ver con la fuente*/
+@font-face {
+	font-family: aodRoboto;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/aodRoboto.ttf');
+}
+
+
+@font-face {
+	font-family: aodTituloPrincipal;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/aodDIN.otf');
+}
+
+@font-face {
+	font-family: aodTituloPrincipalAlternative;
+	font-style: normal;
+	src: url('../fonts/aodNunito.ttf');
+}
+
+@font-face {
+	font-family: aodTituloSecundario;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/aodDIN.otf');
+}
+
+@font-face {
+	font-family: aodTituloSecundarioAlternative;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/aodNunito.ttf');
+}
+
+@font-face {
+	font-family: aodTituloResaltado;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/aodRoboto.ttf');
+}
+
+@font-face {
+	font-family: aodOtrosTextosDestacados;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/aodRoboto.ttf');
+}
+
+@font-face {
+	font-family: aodTituloSecundarioNegrita;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/aodRobotoBold.ttf');
+}
+
+@font-face {
+	font-family: aodTextoBotonesGrueso;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/aodRobotoBold.ttf');
+}
+
+@font-face {
+	font-family: aodTextoCajasGrueso;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/aodRobotoBold.ttf');
+}
+
+@font-face {
+	font-family: aodTitularesPequesGrueso;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/aodRobotoBold.ttf');
+}
+
+@font-face {
+	font-family: aodTextoBotones;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/aodRobotoMedium.ttf');
+}
+
+@font-face {
+	font-family: aodTextoCajas;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/aodRobotoMedium.ttf');
+}
+
+@font-face {
+	font-family: aodTitularesPeques;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/aodRobotoMedium.ttf');
+}
+
+
+@font-face {
+	font-family: aodTextos;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/aodRobotoRegular.ttf');
+}
+
+
+	/****************************************************************************/
+ /*                                Properties                                */
+/****************************************************************************/
+
+
+h1{
+	font-family: 'aodRoboto';
+	text-transform: uppercase;
+	font-size: 45px;
+	letter-spacing: 0.1em;
+	color: #76A1B8;
+	font-weight: 300;
+	line-height: 1.5em;
+}
+
+.descripcionTitulo1, .tituloResaltado, .otrosTextosDestacados{
+	font-family: 'aodTituloResaltado';
+	font-size: 30px;
+	text-align: justify;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+
+h2{
+	font-family: 'aodTituloResaltado';
+	text-transform: uppercase;
+	font-size: 30px;
+	letter-spacing: 0.07em;
+	font-weight: normal;
+	color: #76A1B8;
+	line-height: 1.5em;
+	
+}
+
+.titulosSecundariosNegritas{
+	font-family: 'aodTituloSecundarioNegrita';
+	font-size: 20px;
+	color: #76A1B8;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.textosNormales{
+	font-family: 'aodTextos' !important;
+	font-size: 14px !important;
+	text-align: justify !important;
+	line-height: 21px !important;
+}
+
+.textosNormales b{
+	color: #76A1B8 !important;
+}
+
+.textosNormales .recuadroRedondeado {
+	font-size: 14px !important;
+	text-align: left;
+	color: #FFF !important;
+	text-decoration: none;
+	outline: 0;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+
+.textosNormales a{
+	font-size: 14px !important;
+	text-align: left;
+	color: #3b515c !important;
+	text-decoration: none;
+	outline: 0;
+	letter-spacing: 1px;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+
+.textosNormales a:hover{
+	font-size: 14px !important;
+	color: #000 !important;
+}
+
+.titularesPeques{
+	font-family: 'aodTitularesPeques' !important;
+	font-size: 14px;
+	text-align: left;
+	color: #76A1B8 !important;
+}
+
+/*Estos son los textos que estan en blanco con fondo azúl*/
+.textoCajas{
+	font-family: 'aodTextoCajas' !important;
+	font-size: 14px;
+	text-align: left;
+	color: #FFF !important;
+}
+
+/*Estos son los textos que tienen fondo blanco y letras de color azul*/
+.textoCajasInverso{
+	font-family: 'aodTextoCajas' !important;
+	font-size: 14px;
+	text-align: left;
+	color: #76A1B8 !important;
+	border-bottom: solid 2px #76a1b8;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+.verMas a{
+	font-family: 'aodTitularesPequesGrueso';
+	font-size: 11px;
+	text-align: left;
+	color: #76A1B8 !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	outline: 0;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+}
+
+.verMas a:hover{
+	font-family: 'aodTitularesPequesGrueso';
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #000 !important;
+}
+
+
+.multimediaPresentaciones {
+	margin-top: 20px;
+}
+
+.additional-info section.tags{
+	padding-bottom: 5px;
+}
+
+
+.additional-info .titulo{
+	border-bottom: solid 2px #76a1b8;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.additional-info .propiedadesIAEST{
+	border-bottom: solid 2px #76a1b8;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+	/****************************************************************************/
+ /*                          Ficha recomendaciones                           */
+/****************************************************************************/
+.tituloRecomendaciones{
+	font-family: 'aodTituloResaltado';
+	font-size: 22px;
+	text-align: justify;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+
+
+
+.recommendThumbnail{
+	width:307px;
+	height:258px;
+	background-color:bisque;
+}
+
+
+.recommendThumbnail ul {
+	list-style: none;
+}
+
+.recommendPackages li{
+	display: inline-flex;
+}
+
+.recommendThumbnail.enMedio{
+	margin-left:25px;
+	margin-right:25px;
+}
+
+.recommendThumbnail .front .arriba{
+	height:185px;
+	background-color: #EBF1F4;
+}
+
+.recommendThumbnail .front .arriba .title{
+	text-transform: uppercase;
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:10px;
+	margin-left:10px;
+	color:#76A1B8;
+}
+
+
+.recommendThumbnail .front .arriba .tema{
+	text-align:center;
+	    padding-top: 30px;
+}
+
+.recommendThumbnail .front .arriba .tema .imagen{
+	height: 125px;
+}
+
+.recommendThumbnail .front .arriba .tema .tituloTema{
+	text-transform: uppercase;
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	color:#76A1B8;
+	padding-top: 3px;
+}
+
+.recommendThumbnail .front .separador{
+	height:3px;
+	background-color: #FFF;
+}
+.recommendThumbnail .front .abajo{
+	height:70px;
+	background-color: #76A1B8;
+	text-transform: uppercase;
+}
+	
+.recommendThumbnail .front .abajo .tituloConjuntoDatos{
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	padding-top:7px;
+	line-height: initial;
+	margin-left:10px;
+	margin-right: 10px;
+	color:#FFF;
+}
+	
+.recommendThumbnail .back{
+	width:307px;
+	height:258px;
+	background-color: #EBF1F4;
+}
+
+.recommendThumbnail .back .title{
+	text-transform: uppercase;
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	padding-top:10px;
+	margin-left:10px;
+	color:#76A1B8;
+	text-align: left;
+}
+
+.recommendThumbnail .back .key{
+	text-transform: uppercase;
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	padding-top:15px;
+	margin-left:10px;
+	margin-right :10px;
+	color:#76A1B8;
+	text-align: left;
+}
+
+.recommendThumbnail .back .value{
+	font-family: 'aodTextos';
+	font-size: 14px;
+	font-weight:bold;
+	padding-top:5px;
+	margin-left:10px;
+	margin-right :10px;
+	color:#332F21;
+	text-align: left;
+
+}
+
+.recommendThumbnail .back .marcaAguaTema{
+	text-align:center;
+	opacity: 0.25;
+	z-index:1;
+	padding-top: 30px;
+}
+
+.oculto {
+	display: none;
+	visibility: hidden;
+}
+
+.socialDataset{
+		padding-top: 8px;
+}
+
+.infoConjuntoDato{
+		margin-top: -165px;
+		z-index:2;
+}
+
+
+	/****************************************************************************/
+ /*                             Botones de home                              */
+/****************************************************************************/
+.btn-search {
+	background-image: url("/public/i/lupa.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+.btn-search:hover {
+	background-image: url("/public/i/lupaNegativo.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+.btn-login {
+	background-image: url("/public/i/login.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+.btn-login:hover {
+	background-image: url("/public/i/loginNegativo.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+.btn-logout {
+	background-image: url("/public/i/logout.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+.btn-logout:hover {
+	background-image: url("/public/i/logoutNegativo.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+
+.btn-dashboard {
+	background-image: url("/public/i/dashboard.jpg");
+	border: 0;
+	height: 26px;
+	text-indent: -999em;
+	width: 26px;
+	margin-left: 4px;
+	cursor: pointer;
+	vertical-align: bottom;
+	display: inline-flex;
+}
+
+
+	/****************************************************************************/
+ /*                    Responsive con la nueva tipograia                     */
+/****************************************************************************/
+@media screen and (min-width:320px) and (max-width: 549px)  {
+	.additional-info .titulo{padding-bottom: 25px;}
+}
+
+@media screen and (min-width:400px) and (max-width: 549px)  {
+	.additional-info .propiedadesIAEST{padding-bottom: 25px;}
+}
+
+@media screen and (min-width:320px) and (max-width: 399px)  {
+	.additional-info .propiedadesIAEST{padding-bottom: 45px;}
+}
+
+@media screen and (min-width:320px) and (max-width: 1024px)  {
+	h1{
+		text-align: left;
+	}
+
+	.descripcionTitulo1, .tituloResaltado, .otrosTextosDestacados{
+		text-align: left;
+	}
+
+	h2{
+		text-align: left;
+	}
+
+	.titulosSecundariosNegritas{
+		text-align: left;
+	}
+}
+
+@media screen and (min-width:320px) and (max-width: 1024px)  {
+	.recommendThumbnail.enMedio{
+		margin-left:0px;
+		margin-right:0px;
+	}
+}
+
+@media screen and (min-width:320px) and (max-width: 974px)  {
+	.recommendPackages{
+		text-align: center;
+	}
+	
+	.recommendThumbnail{
+		margin-left:10px;
+		margin-right:10px;
+		margin-bottom:30px;
+	}
+}
+
+
+
+</style>

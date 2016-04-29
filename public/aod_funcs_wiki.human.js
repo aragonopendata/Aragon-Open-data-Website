@@ -23,11 +23,11 @@ function pintaMenuBuscador(){
 	$(".bannerBuscador").empty();
 	if (isEmpty(login)){
 		//Pintamos el menu para loguearse
-		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><button class="btn-search" type="submit">Buscar</button><a href="/catalogo/user/login" title="Iniciar Sesión"><img src="/public/i/login.jpg" alt="Iniciar Sesión" class="btn-login"></a></form>');
+		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><button class="btn-search" type="submit">Buscar</button><a href="/catalogo/user/login" title="Iniciar Sesión"><div class="btn-login"></div></form>');
 	}
 	else{
 		//Pintamos el menu cuando estamos logueados
-		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><a href="/catalogo/pizarra" title="Pizarra de administración"><img src="/public/i/dashboard.jpg" alt="Pizarra de administración" class="btn-login"></a><a href="/catalogo/user/_logout" title="Salir"><img src="/public/i/logout.jpg" alt="Salir" class="btn-login"></a></form>');
+		$(".bannerBuscador").append('<form id="cajaBusqBanner" action="/catalogo" method="get"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput ui-autocomplete-input" type="text" autocomplete="off"><a href="/catalogo/pizarra" title="Pizarra de administración"><div class="btn-dashboard"></div></a><a href="/catalogo/user/_logout" title="Salir"><div class="btn-logout"></div></a></form>');
 	}
 	if ($(window).width()>1024){
 		//Este div se usa para que quede centrado

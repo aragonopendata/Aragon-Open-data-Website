@@ -7,13 +7,18 @@
     {% if isFirst != 1 %}
       <section class="additional-info">
         <div class="metadataZone">
-          <h3>PROPIEDADES ADICIONALES DE LOS METADATOS</h3>
+          
+          <div class="propiedadesIAEST">
+						<h4 class="titulosSecundariosNegritas i_i"  >PROPIEDADES ADICIONALES DE LOS METADATOS</h4><br/>
+					</div>
+          
+<!--          <h4 class="textoCajasInverso">PROPIEDADES ADICIONALES DE LOS METADATOS</h4>-->
           {% set isFirst = 1 %}
     {% endif %}
 
           <div>
-             <div class="fieldName" property="rdfs:label">{{ key.split("_IAEST_")[1] }}</div>
-             <div class="fieldValue" property="rdf:value">{{ value }}</div>
+             <div class="titularesPeques fieldName" property="rdfs:label">{{ key.split("_IAEST_")[1] }}</div>
+             <div class="textosNormales fieldValue" property="rdf:value">{{ value }}</div>
           </div>
   {% endif %}
 {% endfor %}

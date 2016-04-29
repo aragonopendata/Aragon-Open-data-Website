@@ -1,18 +1,20 @@
 <section class="additional-info">
-	<h3>INFORMACIÓN DEL CONJUNTO DE DATOS</h3>
-	<div class="fieldName">T&iacute;tulo</div>
-	<div class="fieldValue">{{ pkg_dict.title }}</div>
-	<div class="fieldName">Descripci&oacute;n</div>
-	<div class="fieldValue pkg_description">{{ c_aux.pkg_notes_formatted }}</div>
-	<div class="fieldName">Categor&iacute;a</div>
-	<div class="fieldValue">
+	<div class="titulo">
+		<h4 class="titulosSecundariosNegritas i_i"  >INFORMACIÓN DEL CONJUNTO DE DATOS</h4><br/>
+	</div>
+	<div class="titularesPeques fieldName">T&iacute;tulo</div>
+	<div class="textosNormales fieldValue">{{ pkg_dict.title }}</div>
+	<div class="titularesPeques fieldName">Descripci&oacute;n</div>
+	<div class="textosNormales fieldValue pkg_description">{{ c_aux.pkg_notes_formatted }}</div>
+	<div class="titularesPeques fieldName">Categor&iacute;a</div>
+	<div class="textosNormales fieldValue">
 	{% for group in pkg_dict.get('groups') %}
 		<p><a href="{{h.url_for(controller='package', action='searchAOD', tema=group.name)}}" title="Ir a categor&iacute;a {{group.title}}">{{group.title}}</a></p>
 	{% endfor %}
 	</div>
 
-	<div class="fieldName">Etiquetas y palabras clave</div>
-	<div class="fieldValue">
+	<div class="titularesPeques fieldName">Etiquetas y palabras clave</div>
+	<div class="textosNormales fieldValue">
 		{% snippet "package/snippets/tags.html", tags=pkg_dict.tags %}
 	</div>
 	
@@ -20,17 +22,17 @@
 		{% for extra in h.sorted_extras(pkg_dict.extras) %}
 				{% set key, value = extra %}
 				{% if key == 'modifiedDate' %}
-					<div class="fieldName">Fecha de publicaci&oacute;n</div>
-					<div class="fieldValue">{{ value }}</div>
+					<div class="titularesPeques fieldName">Fecha de publicaci&oacute;n</div>
+					<div class="textosNormales fieldValue">{{ value }}</div>
 				{% elif key == 'issuedDate' %}
-					<div class="fieldName">Fecha de modificaci&oacute;n</div>
-					<div class="fieldValue">{{ value }}</div>
+					<div class="titularesPeques fieldName">Fecha de modificaci&oacute;n</div>
+					<div class="textosNormales fieldValue">{{ value }}</div>
 				{% endif %}
 		{% endfor %}
 
 	{% if pkg_dict.organization %}
-	<div class="fieldName">Organización responsable de la publicaci&oacute;n</div>
-	<div class="fieldValue">
+	<div class="titularesPeques fieldName">Organización responsable de la publicaci&oacute;n</div>
+	<div class="textosNormales fieldValue">
 		<a href="/catalogo/organizacion/{{pkg_dict.organization.name}}" title="{{pkg_dict.organization.title}}">{{pkg_dict.organization.title}}</a>
 	</div>
 	{% endif %}
@@ -44,14 +46,14 @@
 				{% if value != "" %}
 					{% if key == 'nameAragopedia' %}
 						{% set nameAragopedia = value %}
-						<div class="fieldName">Territorio en el que existen datos</div>
-						<div class="fieldValue">Este conjunto de datos contiene datos en el territorio de {{ nameAragopedia }}</div>
+						<div class="titularesPeques fieldName">Territorio en el que existen datos</div>
+						<div class="textosNormales fieldValue">Este conjunto de datos contiene datos en el territorio de {{ nameAragopedia }}</div>
 					{% elif key == 'typeAragopedia' %}
 						{% set typeAragopedia = value %}
 					{% elif key == 'uriAragopedia' %}
 						{% set uriAragopedia = value %}
 						{% if typeAragopedia !='Otro' %}
-								<div class="fieldValue">Esta es la <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">URI del recurso {{ nameAragopedia }}</a> en aragopedia</div>
+								<div class="textosNormales fieldValue">Esta es la <a href="{{ uriAragopedia }}?api_key=e103dc13eb276ad734e680f5855f20c6&_view=completa">URI del recurso {{ nameAragopedia }}</a> en aragopedia</div>
 							{% endif %}
 					{% endif %}
 				{% endif %}
@@ -64,8 +66,8 @@
 				{% set key, value = extra %}
 				{% if value != "" %}
 					{% if key == 'Frequency' %}
-						<div class="fieldName">Frecuencia de actualizaci&oacute;n</div>
-						<div class="fieldValue">{{ value }}</div>
+						<div class="titularesPeques fieldName">Frecuencia de actualizaci&oacute;n</div>
+						<div class="textosNormales fieldValue">{{ value }}</div>
 					{% endif %}
 				{% endif %}
 	{% endfor %}
@@ -89,15 +91,15 @@
 			 {% endif %}
 			 {% if key == 'uriAragopedia' %}
 					{% if coberturaTemporal != "" %}
-					<div class="fieldName">Periodo de tiempo en el que existen datos</div>
-					<div class="fieldValue">{{ coberturaTemporal }}</div>
+					<div class="titularesPeques fieldName">Periodo de tiempo en el que existen datos</div>
+					<div class="textosNormales fieldValue">{{ coberturaTemporal }}</div>
 				{% endif %}
 			 {% endif %}
 	{% endfor %}
 
 
-	<div class="fieldName">Licencia</div>
-	<div class="fieldValue"> <a href="https://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">Creative Commons Attribution</a> (cc-by) </div>
+	<div class="titularesPeques fieldName">Licencia</div>
+	<div class="textosNormales fieldValue"> <a href="https://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">Creative Commons Attribution</a> (cc-by) </div>
 
 
 	{% set idiomas = "" %}
@@ -140,8 +142,8 @@
 				{% endif %}
 					
 				{% if todoLosIdiomas == 1 %}
-					<div class="fieldName">Idiomas</div>
-					<div class="fieldValue">{{ idiomas }}</div>
+					<div class="titularesPeques fieldName">Idiomas</div>
+					<div class="textosNormales fieldValue">{{ idiomas }}</div>
 				{% endif %}
 		{% endfor %}
 		
@@ -149,8 +151,8 @@
 				{% set key, value = extra %}
 				{% if value != "" %}
 					{% if key == 'Granularity' %}
-						<div class="fieldName">Nivel de detalle</div>
-						<div class="fieldValue">{{ value }}</div>
+						<div class="titularesPeques fieldName">Nivel de detalle</div>
+						<div class="textosNormales fieldValue">{{ value }}</div>
 					{% endif %}
 				{% endif %}
 		{% endfor %}
@@ -168,40 +170,40 @@
 					{% endif %}
 					{% if key == 'Data Quality URL0' %}
 						{% if dataQuality == '' %}
-							<div class="fieldName">Calidad del dato</div>
-							<div class="fieldValue"> La calidad del dato se encuentra en la siguiente url </div>
+							<div class="titularesPeques fieldName">Calidad del dato</div>
+							<div class="textosNormales fieldValue"> La calidad del dato se encuentra en la siguiente url </div>
 						{% else %}
-							<div class="fieldName">Calidad del dato</div>
-							<div class="fieldValue"> {{dataQuality}} </div>
+							<div class="titularesPeques fieldName">Calidad del dato</div>
+							<div class="textosNormales fieldValue"> {{dataQuality}} </div>
 						{% endif %}
 						{% set aniadirQuality = "" %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 1" target="_blank">[1] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 1" target="_blank">[1] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL1' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 2" target="_blank">[2] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 2" target="_blank">[2] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL2' %}
-						<div class="fieldValue" ><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 3" target="_blank">[3] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" ><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 3" target="_blank">[3] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL3' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;" style=" padding-top: 5px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 4" target="_blank">[4] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;" style=" padding-top: 5px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 4" target="_blank">[4] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL4' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 5" target="_blank">[5] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 5" target="_blank">[5] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL5' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 6" target="_blank">[6] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 6" target="_blank">[6] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL6' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 7" target="_blank">[7] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 7" target="_blank">[7] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL7' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 8" target="_blank">[8] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 8" target="_blank">[8] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL8' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 9" target="_blank">[9] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 9" target="_blank">[9] Documeto de calidad de datos</a></div>
 					{% elif key == 'Data Quality URL9' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 10" target="_blank">[10] Documeto de calidad de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de calidad de datos 10" target="_blank">[10] Documeto de calidad de datos</a></div>
 					{% endif %}
 			{% endif %}
 				
 			{% if key == 'Frequency' %}
 				
 				{% if aniadirQuality != '' %}
-					<div class="fieldName">Calidad del dato</div>
-					<div class="fieldValue"> {{dataQuality}} </div>
+					<div class="titularesPeques fieldName">Calidad del dato</div>
+					<div class="textosNormales fieldValue"> {{dataQuality}} </div>
 				{% endif %}
 			{% endif %}
 			
@@ -223,40 +225,40 @@
 					
 					{% if key == 'Data Dictionary URL0' %}
 						{% if dataDictionary == '' %}
-							<div class="fieldName">Diccionario de datos</div>
-							<div class="fieldValue"> El diccionario del dato se encuentra en la siguiente url </div>
+							<div class="titularesPeques fieldName">Diccionario de datos</div>
+							<div class="textosNormales fieldValue"> El diccionario del dato se encuentra en la siguiente url </div>
 						{% else %}
-							<div class="fieldName">Diccionario de datos</div>
-							<div class="fieldValue"> {{dataDictionary}} </div>
+							<div class="titularesPeques fieldName">Diccionario de datos</div>
+							<div class="textosNormales fieldValue"> {{dataDictionary}} </div>
 						{% endif %}
 						{% set aniadirDictionary = "" %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 1" target="_blank">[1] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 1" target="_blank">[1] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL1' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 2" target="_blank">[2] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 2" target="_blank">[2] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL2' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 3" target="_blank">[3] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 3" target="_blank">[3] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL3' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 4" target="_blank">[4] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 4" target="_blank">[4] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL4' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 5" target="_blank">[5] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 5" target="_blank">[5] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL5' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 6" target="_blank">[6] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 6" target="_blank">[6] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL6' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 7" target="_blank">[7] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 7" target="_blank">[7] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL7' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 8" target="_blank">[8] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 8" target="_blank">[8] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL8' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 9" target="_blank">[9] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 9" target="_blank">[9] Documeto de diccionario de datos</a></div>
 					{% elif key == 'Data Dictionary URL9' %}
-						<div class="fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 10" target="_blank">[10] Documeto de diccionario de datos</a></div>
+						<div class="textosNormales fieldValue" style=" padding-top: 10px; padding-bottom: 5px;"><a class="recuadroNoResaltado AGN" href="{{ value }}" title="Documeto de diccionario de datos 10" target="_blank">[10] Documeto de diccionario de datos</a></div>
 					{% endif %}
 			{% endif %}
 				
 			{% if key == 'Frequency' %}
 				
 				{% if aniadirDictionary != '' %}
-					<div class="fieldName">Diccionario de datos</div>
-					<div class="fieldValue"> {{dataDictionary}} </div>
+					<div class="titularesPeques fieldName">Diccionario de datos</div>
+					<div class="textosNormales fieldValue"> {{dataDictionary}} </div>
 				{% endif %}
 			{% endif %}
 			

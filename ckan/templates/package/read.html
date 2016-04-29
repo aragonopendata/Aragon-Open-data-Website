@@ -13,17 +13,19 @@
         {{ _('Private') }}
       </span>
     {% endif %}
-    <h1 class="i_i tituloDataset" style="width: 85%;">
+    <h2 class="i_i " style="width: 85%;">
       {% block page_heading %}
         {{ pkg.title or pkg.name }}
       {% endblock %}
-    </h1>
+    </h2>
     
     {% block package_social %}
 	    {% snippet "snippets/socialAOD.html" %}
     {% endblock %}
     
   {% endblock %}
+  
+  
 
   {% block data_preview %}
      
@@ -71,8 +73,15 @@
         {% if ((vars.GML['mimetype'] == None) or (vars.GML['mimetype']|length!=0)) %}
       
 				<div class="title-ckanext-datapreview" style="width:966px; border-top: 2px solid #76A1B8;border-left: 2px solid #76A1B8;border-right: 2px solid #76A1B8; margin-top: 15px; padding: 5px;">
-				<div style="color: #76a1b8; padding-left: 15px; padding-right: 15px; padding-top: 5px;  padding-bottom: 5px;  font-size: 1.17em; font-weight: bold;">PREVISUALIZACIÓN DEL CONJUNTO DE DATOS</div></div>
-        <div id="mapaDiv" ><div id="loadingDataMap"><img alt="Cargando..." src="/catalogo/fanstatic/ckanext-reclinepreview/img/ajaxload-circle.gif"/></div><div id="mapa"></div></div>
+					<h4 class="textoCajasInverso" style="border-bottom: 0px !important;">PREVISUALIZACIÓN DEL CONJUNTO DE DATOS</h4>
+				</div>
+				<div id="mapaDiv" >
+					<div id="loadingDataMap">
+						<img alt="Cargando..." src="/catalogo/fanstatic/ckanext-reclinepreview/img/ajaxload-circle.gif"/>
+					</div>
+					<div id="mapa">
+					</div>
+				</div>
 	<script type="text/javascript" src="/public/OpenLayers-2.12/OpenLayers.js"></script>
 	<link rel="stylesheet" href="/public/OpenLayers-2.12/styleMapAOD.css" media="screen" type="text/css" />
         <script type="text/javascript">
@@ -186,6 +195,11 @@
   </div>
 
   {% snippet "package/snippets/additional_info_extras.html", pkg_dict=pkg, c_aux=c %}
+  
+  <div class="huecoInicioPagina"></div>
+		{% if c.page.item_count > 0 %}
+			{% snippet "package/snippets/recommend_datasets.html", recomendPackages=c.page.items %}
+		{% endif %}
 
 
   <div class="huecoInicioPagina"></div>

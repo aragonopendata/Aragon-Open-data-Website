@@ -135,7 +135,7 @@ body:not(.mini) .banner .bannerBuscador {padding-top: 1.5% ;}
 
 .search {
   border: 1px solid #ccc;
-  font-size: 10px;
+  font-size: 12px;
   padding: 0.4em;
 }
 
@@ -190,17 +190,17 @@ body:not(.mini) .banner .bannerBuscador {padding-top: 1.5% ;}
 
 .metadataZone h3 { color: #76a1b8; border-bottom: solid 2px #76a1b8; padding-left: 15px; padding-right: 15px;  padding-top: 5px; padding-bottom: 5px; }
 .resourceZone h3 { color: #76a1b8; border-bottom: solid 2px #76a1b8; padding-left: 15px; padding-right: 15px;  padding-top: 5px; padding-bottom: 5px; }
-.metadataZone .fieldName { color: #76a1b8; text-transform: uppercase;	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
+.metadataZone .fieldName { color: #76a1b8;	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
 .metadataZone .fieldValue { padding-left: 15px; padding-right: 15px; overflow: auto; }
 
-.resourceZone .fieldName { color: #76a1b8; text-transform: uppercase;	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
+.resourceZone .fieldName { color: #76a1b8; 	padding-left: 15px; padding-right: 15px;  padding-top: 15px; font-weight: bold; }
 .resourceZone div { padding-left: 15px; padding-right: 15px; padding-top: 5px;  clear:both; text-align: left; }
 .resourceZone ul { padding-bottom: 15px; }
-.resourceZone li { padding-right: 10px; float: left;  }
+.resourceZone li { padding-right: 8px; float: left;  }
+.resourceZone li:last-child{ padding-right:0 !important;}
 
 
-
-.tag-list li { padding-right: 5px; display: inline-block}
+.tag-list li { padding-right: 5px; display: inline-block; padding-top:15px;}
 
 .failWarning { font-size: 18px; text-align: center; font-weight: bold; padding-top: 30px; padding-bottom: 20px; }
 /* fin contenido */

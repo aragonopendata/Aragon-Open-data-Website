@@ -117,6 +117,8 @@ def search_url(params, package_type=None):
         url = h.url_for(controller='package', action='search')
     elif package_type == 'catalogoAOD':
         url = request.path
+    elif package_type == 'recomendPackage':
+        url = request.path
     else:
         url = h.url_for('{0}_search'.format(package_type))
     return url_with_params(url, params)
@@ -190,7 +192,7 @@ class PackageController(base.BaseController):
         # unicode format (decoded from utf8)
 #		q = c.q = request.params.get('q', u'')
         q = c.q = asciify(request.params.get('q', u''))
-        #log.error('######La consulta en SolR al principio: %s', q)
+#        log.error('######La consulta en SolR al principio: %s', q)
         c.query_error = False
         try:
             page = int(request.params.get('page', 1))
@@ -424,6 +426,7 @@ class PackageController(base.BaseController):
             c.pkg_dict = get_action('package_show')(context, data_dict)
             #Ejemplo de como cambiar la licencia
             #c.pkg_dict['license_title']='perico'
+            
             #Recorremos todos los extras para que modifique los value que tiene una uri dentro de ella  para que les añada el href
 #            for extra in c.pkg_dict['extras']:
 #                extra['value']=url2HREF(extra['value'])
@@ -450,6 +453,11 @@ class PackageController(base.BaseController):
 
         template = self._read_template(package_type)
         template = template[:template.index('.') + 1] + format
+        log.error('Entro en el read y el package es '+ str(c.pkg_dict['name']))
+        
+        
+        self.getRecomendedPackages(c.pkg_dict['name'])
+        
 
         return render(template, loader_class=loader)
 
@@ -1692,7 +1700,7 @@ class PackageController(base.BaseController):
                  auxq = "author:%s" % subtipo
 
         q = c.q = auxq
-        #log.error('La consulta en SolRal final: %s', q)
+        log.error('La consulta en SolRal final: %s', q)
         #print 'La consulta de solr final es ', auxq
 
         c.query_error = False
@@ -1831,6 +1839,9 @@ class PackageController(base.BaseController):
                 item_count=query['count'],
                 items_per_page=limit
             )
+            
+#            print 'El c.page es '+str(c.page)
+#            print 'La url es '+str(pager_url)
             c.facets = query['facets']
             c.search_facets = query['search_facets']
             c.page.items = query['results']
@@ -1869,7 +1880,7 @@ class PackageController(base.BaseController):
             'rows': 1000
         }
         data = get_action('package_search')(context, data_dict)
-        print len(data['results'])
+#        print len(data['results'])
         if format == 'json':
             c.content_to_render = self._create_json_index(data)
         elif format == 'xml':
@@ -1878,6 +1889,131 @@ class PackageController(base.BaseController):
             c.content_to_render = self._create_csv_index(data)
 
         return render('package/resource_render.html', loader_class=NewTextTemplate)
+
+    #Función en la que teniendo el name da las recomendaciones ha ese titulo
+    def getRecomendedPackages(self, packge_name):
+        from ckan.lib.search import SearchError
+        solr_query=packge_name.replace('-', ' ')
+#        log.error('Se va a buscar '+packge_name)
+
+        try:
+            c.fields = []
+            # c.fields_grouped will contain a dict of params containing
+            # a list of values eg {'tags':['tag1', 'tag2']}
+            c.fields_grouped = {}
+            search_extras = {}
+            fq = ''
+            context = {    'model': model, 'session': model.Session,
+                                    'user': c.user or c.author, 'for_view': True}
+        
+            facets = OrderedDict()
+
+            default_facet_titles = {
+                'organization': _('Organizations'),
+                'groups': _('Groups'),
+                'tags': _('Tags'),
+                'res_format': _('Formats'),
+                'license_id': _('License'),
+            }
+    
+    
+            sort_by = request.params.get('sort', None)
+            
+            
+            
+            
+            q = c.q = solr_query
+#            log.error('######La consulta en SolR al principio: %s', q)
+            data_dict = {
+                'q': q,
+                'fq': fq.strip(),
+                'rows': 4,
+                'sort': sort_by,
+                'start': 0 #Ya que 0 es el propio
+            }
+            
+#            print 'La consulta es '+str(q)
+            query = get_action('package_search')(context, data_dict)
+            
+#            print 'query ees '+str(len(query['results']))
+#            print 'la query es '+str(query)
+            
+            i=0
+            for asd in query['results']:
+                 if asd['name'] == packge_name:
+                     ubicacion = i
+                 i=i+1
+            
+            package_a_sacar = query['results'].pop(ubicacion)
+            
+#            print 'El package a sacar es '+package_a_sacar['name']
+            query['count'] = query['count'] -1
+#            print 'la consulta es '+str(query);
+#            c.sort_by_selected = query['sort']
+    
+            
+            
+            
+            
+            try:
+                page = int(request.params.get('page', 1))
+            except ValueError, e:
+                abort(400, ('"page" parameter must be an integer'))
+            
+            params_nopage = [(k, v) for k, v in request.params.items()
+                         if k != 'page']
+            
+            def pager_url(q=None, page=None):
+                params = list(params_nopage)
+                params.append(('page', page))
+                return search_url(params, 'recomendPackage')
+            
+            limit = g.datasets_per_page
+            print 'El limite es '+str(limit)
+            print ' la url del pager'+str(pager_url)
+            
+            
+            
+            
+            c.page = h.Page(
+                collection=query['results'],
+                page=page,
+                url=pager_url,
+                item_count=query['count'],
+                items_per_page=limit
+            )
+            c.facets = query['facets']
+            c.search_facets = query['search_facets']
+#            c.page.items = query['results']
+            
+            
+            
+            print 'Se encuentran '+str(len(c.page.items))
+            print 'Las recoemndadiones son:'
+            for item in c.page.items:
+                print 'EL dataset es '+str(item['name'])
+        except SearchError, se:
+#            log.error('Error a la hora de obtener los dataset recomendados: %r', se.args)
+            c.query_error = True
+            c.facets = {}
+            c.search_facets = {}
+            c.page = h.Page(collection=[])
+        
+        c.search_facets_limits = {}
+        for facet in c.search_facets.keys():
+            limit = int(request.params.get('_%s_limit' % facet, g.facets_default_number))
+            c.search_facets_limits[facet] = limit
+
+        maintain.deprecate_context_item(
+            'facets',
+            'Use `c.search_facets` instead.')
+        
+        package_type='recomendPackage'
+        
+        self._setup_template_variables(context, {}, package_type=package_type)
+    
+        return render(self._search_template(package_type))
+
 
     def data_resource(self, dataset, formato, version=None):
         """ Filter to resource rendering or download
@@ -2097,9 +2233,9 @@ class PackageController(base.BaseController):
     def _save_vista(self, vista, filtro):
 
 	#PRO
-        connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
         #PRE
-	#connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
+	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
 	
 	cursor = connection.cursor()
         resultado = cursor.var(cx_Oracle.NUMBER)

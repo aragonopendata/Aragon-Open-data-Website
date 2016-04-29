@@ -1,0 +1,74 @@
+{% set urlTemaImagen = package.groups[0].image_url %}
+{% set tituloTema =  package.groups[0].title %}
+{% set tituloConjuntoDatos =  package.title %}
+{% set tituloOrganizacion = package.organization.title%}
+{% set url = h.url_for(controller='package', action='read', id=package.name)  %}
+
+{# La imagen esta en {{urlTemaImagen}} con nombre {{tituloTema}} #}
+<li>
+	
+	{% if position == 2 %}
+		<div class="recommendThumbnail enMedio" id="{{package.name}}">
+	
+	{% else %}
+		<div class="recommendThumbnail" id="{{package.name}}">
+	{% endif %}
+		<a href="{{url}}">
+			
+			<div class="front">
+				<div class="arriba">
+					
+					<div class="tema">
+						<div class="imagen">
+							<img src="../{{urlTemaImagen}}" alt="{{tituloTema}}" style="width:125px;height:125px;">
+						</div>
+						<div class="tituloTema">
+							{{tituloTema}}
+						</div>
+					</div>
+				</div>
+				<div class="separador"> </div>
+				<div class="abajo">
+					<div class="tituloConjuntoDatos">
+						{{tituloConjuntoDatos|truncate(80)}}
+					</div>
+				</div>
+			</div>
+			
+			<div class="back oculto">
+				<div class="marcaAguaTema">
+					<img src="../{{urlTemaImagen}}" alt="{{tituloTema}}" style="width:125px;height:125px;">
+				</div>
+				<div class="infoConjuntoDato">
+					<div class="key">
+						Título
+					</div>
+					
+					<div class="value">
+						{{tituloConjuntoDatos|truncate(85)}}
+					</div>
+				
+					<div class="key">
+						Categoría
+					</div>
+					<div class="value">
+						{{tituloTema}}
+					</div>
+			
+					<div class="key">
+						Publicador
+					</div>
+					<div class="value">
+						{{tituloOrganizacion}}
+					</div>
+				</div>
+				
+				
+			</div>
+			
+			
+		</a>
+	</div>
+</li>
+
+

@@ -150,7 +150,7 @@ nuestro servidor para que todo cliente pueda ver con la fuente*/
 
 
 h1{
-	font-family: 'aodRoboto';
+	font-family: 'aodRoboto', 'Roboto';
 	text-transform: uppercase;
 	font-size: 45px;
 	letter-spacing: 0.1em;
@@ -160,7 +160,7 @@ h1{
 }
 
 .descripcionTitulo1, .tituloResaltado, .otrosTextosDestacados{
-	font-family: 'aodTituloResaltado';
+	font-family: 'aodTituloResaltado', 'Roboto';
 	font-size: 30px;
 	text-align: justify;
 	line-height: 1.5em;
@@ -168,7 +168,7 @@ h1{
 }
 
 h2{
-	font-family: 'aodTituloResaltado';
+	font-family: 'aodTituloResaltado', 'Roboto';
 	text-transform: uppercase;
 	font-size: 30px;
 	letter-spacing: 0.07em;
@@ -179,7 +179,7 @@ h2{
 }
 
 .titulosSecundariosNegritas{
-	font-family: 'aodTituloSecundarioNegrita';
+	font-family: 'aodTituloSecundarioNegrita', 'Roboto';
 	font-size: 20px;
 	color: #76A1B8;
 	text-transform: uppercase;
@@ -187,7 +187,7 @@ h2{
 }
 
 .textosNormales{
-	font-family: 'aodTextos' !important;
+	font-family: 'aodTextos', 'Roboto' !important;
 	font-size: 14px !important;
 	text-align: justify !important;
 	line-height: 21px !important;
@@ -225,7 +225,7 @@ h2{
 }
 
 .titularesPeques{
-	font-family: 'aodTitularesPeques' !important;
+	font-family: 'aodTitularesPeques', 'Roboto' !important;
 	font-size: 14px;
 	text-align: left;
 	color: #76A1B8 !important;
@@ -233,7 +233,7 @@ h2{
 
 /*Estos son los textos que estan en blanco con fondo azúl*/
 .textoCajas{
-	font-family: 'aodTextoCajas' !important;
+	font-family: 'aodTextoCajas', 'Roboto' !important;
 	font-size: 14px;
 	text-align: left;
 	color: #FFF !important;
@@ -241,7 +241,7 @@ h2{
 
 /*Estos son los textos que tienen fondo blanco y letras de color azul*/
 .textoCajasInverso{
-	font-family: 'aodTextoCajas' !important;
+	font-family: 'aodTextoCajas', 'Roboto' !important;
 	font-size: 14px;
 	text-align: left;
 	color: #76A1B8 !important;
@@ -254,7 +254,7 @@ h2{
 
 
 .verMas a{
-	font-family: 'aodTitularesPequesGrueso';
+	font-family: 'aodTitularesPequesGrueso', 'Roboto';
 	font-size: 11px;
 	text-align: left;
 	color: #76A1B8 !important;
@@ -266,7 +266,7 @@ h2{
 }
 
 .verMas a:hover{
-	font-family: 'aodTitularesPequesGrueso';
+	font-family: 'aodTitularesPequesGrueso', 'Roboto';
 	text-transform: uppercase;
 	font-size: 11px;
 	color: #000 !important;
@@ -448,6 +448,10 @@ h2{
 		margin-top: -165px;
 		z-index:2;
 }
+
+
+
+
 
 
 	/****************************************************************************/

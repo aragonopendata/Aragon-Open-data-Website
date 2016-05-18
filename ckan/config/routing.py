@@ -211,6 +211,9 @@ def make_map():
     # group
     map.redirect('/groups', '/group')
     map.redirect('/groups/{url:.*}', '/group/{url}')
+    #castellinizamos las urls aunque mantenemos las antiguas
+    map.redirect('/temas', '/tema')
+    map.redirect('/temas/{url:.*}', '/temas/{url}')
 
     ##to get back formalchemy uncomment these lines
     ##map.connect('/group/new', controller='group_formalchemy', action='new')
@@ -219,8 +222,14 @@ def make_map():
     # These named routes are used for custom group forms which will use the
     # names below based on the group.type ('group' is the default type)
     with SubMapper(map, controller='group') as m:
+        m.connect('tema_index', '/tema', action='index',
+                  highlight_actions='index search')
+        m.connect('tema_read', '/tema/{tema_name}', action='searchAODTema',
+                  ckan_icon='sitemap')
+        
         m.connect('group_index', '/group', action='index',
                   highlight_actions='index search')
+        
         m.connect('group_list', '/group/list', action='list')
         m.connect('group_new', '/group/new', action='new')
         m.connect('group_action', '/group/{action}/{id}',
@@ -262,7 +271,9 @@ def make_map():
                   ])))
         m.connect('organization_activity', '/organizacion/actividad/{id}',
                   action='activity', ckan_icon='time')
-        m.connect('organization_read', '/organizacion/{id}', action='read')
+        m.connect('organization_read', '/organizacionOld/{id}', action='read')
+        m.connect('organization_search', '/organizacion/{nombre_organizacion}', action='searchAOD')
+
         m.connect('organization_about', '/organizacion/about/{id}',
                   action='about', ckan_icon='info-sign')
  #       m.connect('organization_read', '/organizacion/{id}', action='read',

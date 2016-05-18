@@ -1,4 +1,8 @@
 import ckan.controllers.group as group
+from ckan.ckanclient import BBDDAODTemasOrganizaciones as dao
+import ckan.lib.base as base
+
+render = base.render
 
 
 class OrganizationController(group.GroupController):
@@ -58,3 +62,8 @@ class OrganizationController(group.GroupController):
 
     def _guess_group_type(self, expecting_name=False):
         return 'organization'
+        
+    def searchAOD(self, nombre_organizacion=None):
+    	organizacion = dao.obtenOrganizacion(nombre_organizacion)
+    	return render('organization/verOrganizacion.html', extra_vars={'organizacion': organizacion})
+    	

@@ -17,6 +17,8 @@ import ckan.new_authz as new_authz
 import ckan.lib.plugins
 import ckan.plugins as plugins
 from ckan.common import OrderedDict, c, g, request, _
+from ckan.ckanclient import BBDDAODTemasOrganizaciones as dao
+
 
 log = logging.getLogger(__name__)
 
@@ -880,3 +882,9 @@ class GroupController(base.BaseController):
             raise
         else:
             model.Session.commit()
+    
+    
+    def searchAODTema(self, tema_name=None):
+    	tema = dao.obtenTema(tema_name)
+    	print 'Se ha entrado a la busqueda del tema que es '+str(tema_name)
+    	return render('group/verTema.html', extra_vars={'tema': tema})

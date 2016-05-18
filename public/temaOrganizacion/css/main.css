@@ -1,0 +1,494 @@
+<style >
+	/*****************************************************************************
+	Properties de la web
+	*****************************************************************************/
+	
+	#content{
+		max-width: 980px;
+		height: auto;
+		margin: auto;
+	}
+	
+	@font-face {
+		font-family: aodFont;
+		font-style:  normal;
+		font-weight: normal;
+		src: url('../fonts/AODFont.otf');
+	}
+	
+	.oculto {
+		display: none;
+		visibility: hidden;
+	}
+	
+	/************************************************************************************
+	RESPONSIVE Diapositivas y vídeos
+	*************************************************************************************/
+	.slidePlayer, .contentVideoPlayer {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+	}
+	.slidePlayer iframe, .slidePlayer object, .slidePlayer embed, .contentVideoPlayer iframe, .contentVideoPlayer object, .contentVideoPlayer embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	/************************************************************************************
+	RESPONSIVE imagenes
+	*************************************************************************************/
+	.muestraOrganizacion .contenido .imagenPlayer img, .muestraTema .contenido .imagenPlayer img {
+		max-width: 100%;
+		height: auto;
+	}
+	@media \0screen {
+		.muestraOrganizacion .contenido .imagenPlayer img, .muestraTema .contenido .imagenPlayer img { 
+			width: auto; /* for ie 8 */
+		}
+	}
+	
+	/*****************************************************************************
+	Propiedades del indice
+	*****************************************************************************/
+	
+	
+	.resultadosOrganizaciones li,  .resultadosTemas li {
+		display: inline-flex;
+		width: 307px;
+		
+		margin-bottom: 30px;
+	}
+	
+	.resultadosOrganizaciones li{height: 199px;}
+	
+	.resultadosTemas li {height: 205px;}
+	
+	.resultadosOrganizaciones li .thumbnail .front .topFront, .resultadosTemas li .thumbnail .front .topFront{
+		width:307px;
+		display: table;
+	}
+	
+	.resultadosOrganizaciones li .thumbnail .front .topFront{height:150px;}
+	.resultadosTemas li .thumbnail .front .topFront{height:180px;}
+	
+	.organizationImage, .temaImage{
+		vertical-align: middle;
+		max-width:307px;
+		max-height:150px;
+		display: table-cell;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	.temaImage{text-align:center;}
+	
+	.thumbnail .front .separador {
+		height: 3px;
+		background-color: #FFF;
+}
+	
+	.resultadosOrganizaciones .thumbnail,  .resultadosTemas .thumbnail {
+/*		display: block;*/
+	}
+	
+	.resultadosOrganizaciones .front  img,  .resultadosTemas .front  img{
+	}
+	
+	.resultadosOrganizaciones .front,  .resultadosTemas .front {
+		position: absolute;
+		z-index:0;
+	}
+	
+	.resultadosOrganizaciones .front .thumbnail-title,  .resultadosTemas .front .thumbnail-title{
+		position: absolute;
+/*		bottom: 7px;*/
+/*		margin-left: 5px;*/
+		padding-right: 10px;
+		padding-left: 10px;
+		color:white;
+		width: 287px;
+		
+		background-color: #3B515C;
+/*		opacity: 0.5;*/
+	}
+	
+	.resultadosOrganizaciones .front .thumbnail-title{height:45px;}
+	.resultadosTemas .front{background-color:#EBF1F4;}
+	
+	.resultadosOrganizaciones .front .thumbnail-title .recortado, .resultadosOrganizaciones .back .restoBack .recortado,  .resultadosTemas .front .thumbnail-title .recortado,  .resultadosTemas .back .restoBack .recortado{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-left: 5px;
+	}
+	
+	.resultadosOrganizaciones .back,  .resultadosTemas .back{
+		background-color: #EBF1F4;
+		opacity: 0.95;
+		padding-top: 10px;
+		width:307px;
+		position: absolute;
+		z-index:1;
+	}
+	
+	.tituloBack{
+		margin-left: 10px;
+		margin-right: 10px;
+		text-align: left;
+		color: #3B515C;
+		height: 40px
+	}
+	.resultadosTemas  .tituloBack{padding-top: 5px;}
+	
+	.resultadosOrganizaciones .back .descripcion,  .resultadosTemas .back .descripcion{
+		font-family: 'aodTextos';
+		font-size: 13px;
+		font-weight: bold;
+		padding-top: 5px;
+		margin-left: 10px;
+		margin-right: 10px;
+		color: #332F21;
+		text-align: left;
+		height:100px;
+	}
+	
+	.resultadosOrganizaciones .back .totalConjuntos,  .resultadosTemas .back .totalConjuntos{
+		font-family: 'aodTextos';
+		font-size: 13px;
+		font-weight: bold;
+		padding-top: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		color: #332F21;
+		text-align: left;
+		height: 24px;
+	}
+	
+	
+	
+	.resultadosOrganizaciones .fieldName,  .resultadosTemas .fieldName{
+		color: white;
+		font-weight: bolder;
+		font-size: 14px;
+		padding-left:5px;
+		padding-right:5px;
+	}
+	
+	.resultadosOrganizaciones .back .restoBack .recortado,  .resultadosTemas .back .restoBack .recortado{
+		
+		font-weight: 100;
+	}
+	
+	.resultadosOrganizaciones .descripcion,  .resultadosTemas .descripcion{
+		
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	
+	.resultadosOrganizaciones .back .restoBack,  .resultadosTemas .back .restoBack{
+		width:300px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: white;
+	}
+	
+	.resultadosOrganizaciones .back .restoBack .fecha,  .resultadosTemas .back .restoBack .fecha{
+		display: inline-flex;
+		text-align: right;
+/*		font-weight: 100;*/
+	}
+	
+	/*****************************************************************************
+	Propiedades del contenido
+	*****************************************************************************/
+	.muestraOrganizacion, .muestraTema{
+		margin: auto;
+/*		width: 980px;*/
+		text-align: justify;
+		max-width: 97%;
+		margin-left: 1em;
+	}
+	
+	.muestraOrganizacion h1, .muestraTema h1{
+/*		float: left;*/
+/*		width: 85%;*/
+		font-size: 36px;
+		padding-top: 25px;
+		padding-bottom: 15px;
+		color: #3b515c;
+		font-family: 'aodFont', 'Roboto', Helvetica, Arial, sans-serif;
+		font-weight: 100;
+		line-height: normal;
+	}
+	
+	.muestraOrganizacion h2, .muestraTema h2{
+/*		float: left;*/
+/*		width: 85%;*/
+		font-size: 22px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		color: #3b515c;
+		font-family: 'aodFont', 'Roboto', Helvetica, Arial, sans-serif;
+		font-weight: 100;
+	}
+	
+	.muestraOrganizacion .fieldName, .muestraTema .fieldName {
+		color: #76a1b8;
+		font-size: 16px;
+		text-transform: uppercase;
+		padding-right: 5px;
+		padding-top: 10px;
+		font-weight: bold;
+		float: left;
+}
+
+
+	}
+	
+	.muestraOrganizacion .fieldValue, .muestraTema .fieldValue {
+/*		padding-left: 15px;*/
+		padding-right: 15px;
+		overflow: auto;
+	}
+	
+	.muestraOrganizacion .recuadroRedondeado, .muestraTema .recuadroRedondeado {
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		border: 1px solid #76a1b8;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 4px;
+		padding-right: 4px;
+		margin: 4px;
+		background-color: #76a1b8;
+		color: #fff !important;
+		text-decoration: none !important;
+		font-weight: bold;
+	}
+	
+	
+	/*****************************************************************************
+	Properties para los errores
+	*****************************************************************************/
+	#errores h1 {
+		font-family: 'aodFont', 'Roboto', Helvetica, Arial, sans-serif;
+		float: left;
+		color: rgb(153, 151, 144);
+		font-size: 46px;
+		font-weight: 100;
+		text-align: justify;
+		line-height: normal;
+		vertical-align: middle;
+	}
+
+	#errores h2 {
+		font-family: 'aodFont', 'Roboto', Helvetica, Arial, sans-serif;
+		float: left;
+		color: rgb(153, 151, 144);
+		font-size: 24px;
+		font-weight: 100;
+		text-align: justify;
+		line-height: normal;
+	}
+	
+	#errores iframe{
+		margin-top:20px;
+	}
+	
+	#elerror{
+		font-size: 20px;
+		float: right;
+		vertical-align: middle;		
+		margin-top: 9%;
+	}
+
+	.bannerBuscadorError #cajaDeBusqInput {
+		max-width: 90% !important;
+	}
+	
+	/*****************************************************************************
+	Properties para la ordenación
+	*****************************************************************************/
+	table.dataTable thead .sorting,
+	table.dataTable thead .sorting_asc,
+	table.dataTable thead .sorting_desc {
+		cursor: pointer;
+		*cursor: hand;
+	}
+	table.dataTable thead .sorting,
+	table.dataTable thead .sorting_asc,
+	table.dataTable thead .sorting_desc,
+	table.dataTable thead .sorting_asc_disabled,
+	table.dataTable thead .sorting_desc_disabled {
+		background-repeat: no-repeat;
+		background-position: center right;
+	}
+	
+	table.dataTable thead .sorting {
+		background-image: url("../images/sort_both.png");
+	}
+	table.dataTable thead .sorting_asc {
+		background-image: url("../images/sort_asc.png");
+	}
+	table.dataTable thead .sorting_desc {
+		background-image: url("../images/sort_desc.png");
+	}
+	table.dataTable thead .sorting_asc_disabled {
+		background-image: url("../images/sort_asc_disabled.png");
+	}
+	table.dataTable thead .sorting_desc_disabled {
+		background-image: url("../images/sort_desc_disabled.png");
+	}
+	
+	.labelCabeceraTablaResultadosDataset {
+		margin-bottom: 5px;
+	}
+	
+	/*****************************************************************************
+	Properties para la paginacion
+	*****************************************************************************/
+	
+	.dataTables_wrapper .dataTables_paginate .paginate_button {
+		box-sizing: border-box;
+		display: inline-block;
+		min-width: 1.5em;
+		padding-top: 0.5em;
+		padding-right: 1em;
+		padding-bottom: 0.5em;
+		padding-left: 1em;
+		text-align: center;
+		text-decoration: none !important;
+		cursor: pointer;
+		color: #333 !important;
+/*		border: 1px solid transparent;*/
+/*		border-radius: 2px;*/
+		
+		border: 1px solid #999790;
+		
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+		color: #333 !important;
+		border: 1px solid #979797;
+		background-color: white;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dcdcdc));
+		/* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, white 0%, #dcdcdc 100%);
+		/* Chrome10+,Safari5.1+ */
+		background: -moz-linear-gradient(top, white 0%, #dcdcdc 100%);
+		/* FF3.6+ */
+		background: -ms-linear-gradient(top, white 0%, #dcdcdc 100%);
+		/* IE10+ */
+		background: -o-linear-gradient(top, white 0%, #dcdcdc 100%);
+		/* Opera 11.10+ */
+		background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+		/* W3C */
+	}
+	
+/*	.dataTables_wrapper .dataTables_paginate .paginate_button{*/
+/*		border: 1px solid red !important;*/
+/*	}*/
+	
+	
+	.dataTables_paginate.paging_simple_numbers{
+		text-align: center;
+		margin-top: 18px;
+		height: 34px;
+		margin-bottom: 18px;
+	}
+	
+	.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+		cursor: default;
+		color: #666 !important;
+		border: 1px solid transparent;
+		background: transparent;
+		box-shadow: none;
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+		color: black !important;
+		background-color: #999790;
+	
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+		outline: none;
+		background-color: #999;
+		
+	}
+	.dataTables_wrapper .dataTables_paginate .ellipsis {
+		padding: 8px 1em;
+		border: 1px solid #999790;
+/*		padding-top: 9px;*/
+/*		padding-bottom: 9px;*/
+	}
+	
+	.dataTables_paginate{
+		padding-top:10px;
+	}
+	
+	
+	.tablaResultadosDataset tr.odd {
+		background-color: white;
+	}
+	
+	.disabled{
+		visibility: hidden;
+	}
+	
+	.thumbnail.enMedio.ultimo{
+		margin-left:25px;
+	}
+	
+	.textPopular{
+		padding-top:30px;
+	}
+	
+	
+	/*****************************************************************************
+	Propiedades para el responsive
+	*****************************************************************************/
+	@media all and (max-width: 1024px) {
+		ul.organization-list, ul.tema-list {
+			text-align:center;
+		}
+		
+		.resultadosOrganizaciones li,  .resultadosTemas li{
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+		
+		
+	}
+	
+	@media screen and (min-width:689px) and (max-width: 1024px)  {
+		.thumbnail{
+			margin-left:0px;
+			margin-right:0px;
+		}
+		
+		.thumbnail.enMedio.ultimo{
+			margin-left: 0px;
+		}
+		
+	}
+	
+	@media screen and (min-width:320px) and (max-width: 688px)  {
+		.thumbnail.enMedio.ultimo{
+			margin-left: 0px;
+		}
+		
+		.thumbnail{
+			margin-left:0px;
+			margin-right:0px;
+		}
+		
+
+	}
+	
+	
+</style>

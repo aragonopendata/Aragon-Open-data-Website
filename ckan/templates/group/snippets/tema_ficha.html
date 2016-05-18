@@ -1,0 +1,68 @@
+{% if position % 3 == 2 %}
+	{% if position == numeroTotalTemas%}
+		<div class="thumbnail enMedio ultimo" id="{{tema.name}}">
+	{% else %}
+		<div class="thumbnail enMedio" id="{{tema.name}}">
+	{% endif%}
+{% elif position % 3 == 0 %}
+	<div class="thumbnail derecha" id="{{tema.name}}">
+{% else %}
+	<div class="thumbnail" id="{{tema.name}}">
+{% endif %}
+
+{% set titulo = tema.display_name %}
+{% set url = h.url_for(controller='package', action='searchAOD', tema=tema.name) %}
+
+
+	<div class="front " >
+			<a href="{{url}}" title="Ir al tema '{{titulo}}'">
+				<div class="topFront">
+					<div class="temaImage">
+						{% if tema.image_url|length > 0 %}
+							<img width="150" data-src="../../{{tema.image_url}}" alt="{{titulo}}" itemprop="image" src="../../{{tema.image_url}}">
+						{% else %}
+							<img width="150" data-src="../../public/temaOrganizacion/img/logo.jpg" alt="{{titulo}}" itemprop="image" src="../../public/temaOrganizacion/img/logo.jpg">
+						{% endif %}
+					</div>
+				</div>
+				
+			</a>
+			<div class="separador"> </div>
+			<div class="thumbnail-title">
+				<div class="textosNormales"style="text-align: center !important;">{{titulo}}</div>
+			</div>
+	</div>
+	<div class="back oculto">
+		<div class="tituloBack titulosSecundariosNegritas" ><p>{{titulo| truncate(45)}}</p></div>
+		<a href="{{url}}" title="Ir al tema '{{titulo}}'">
+			{% set descripcion = tema.description %}
+			
+			{% set numeroDatasets = tema.packages %}
+
+			
+			
+			<div class="descripcion">
+				<p>
+					{% if descripcion|length > 0 %}
+						{{descripcion| truncate(170)}}
+					{% else %}
+						No disponible
+					{% endif %}
+				</p>
+			</div>
+			<div class="restoBack">
+				{% if numeroDatasets ==1  %}
+					<div class="totalConjuntos">{{numeroDatasets}} conjunto de datos publicado</div>
+				{% else %}
+					<div class="totalConjuntos">{{numeroDatasets}} conjuntos de datos publicados</div>
+				{% endif %}
+			</div>
+		</a>
+	</div>
+	
+	
+	
+	
+	
+	
+</div>

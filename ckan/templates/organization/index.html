@@ -11,15 +11,59 @@
 {% endblock %}
 
 {% block primary_content_inner %}
-      <h1 class="i_i tituloDataset" style="width: 85%;">Organizaciones que publican datos en Aragón Open Data</h1>
+      <h2 class="i_i " style="width: 85%;">Organizaciones que publican datos en Aragón Open Data</h2>
 
 {% block package_social %}
 	{% snippet "snippets/socialAOD.html" %}
 {% endblock %}
 <div class="clear"></div>
+
+
+<!--Realizamos la carga de los js y css-->
+<!--Según el valor del comboBox se vera de un modo u otro-->
+<link rel="stylesheet" href="../../public/temaOrganizacion/css/main.css" type="text/css">
+<script type="text/javascript" src="../../public/temaOrganizacion/js/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../public/temaOrganizacion/js/main.js"></script>
+
+
 <div class="hueco30"></div>
 
 <div class="clear"></div>
+
+<select id="tipoVisualizacion">
+	<option value="" selected="selected">Tipo de visualización</option>
+	
+		<option value="lista">Ver como lista</option>
+		<option selected="selected" value="ficha">Ver como ficha</option>
+	
+</select>
+
+
+<div class="hueco30"></div>
+
+<div class="clear"></div>
+
+
+
+<div class="organizacionFicha resultadosOrganizaciones">
+{% if c.page.items or request.params %}
+	
+	<ul class="organization-list">
+		{% for organization in c.page.items %}
+			<li >
+				{% snippet "organization/snippets/organization_ficha.html", organization=organization, position=loop.index, numeroTotalOrganizaciones=c.page.items|length  %}
+			</li>
+
+		{% endfor %}
+
+	</ul>
+{% else %}
+	<div class="noContent">No se encuentra organizaciones</div>
+{% endif %}
+	<div class="huecoInicioPagina"></div>
+</div>
+
+<div class="organizacionLista">
       {% block organizations_search_form %}
       {% endblock %}
       {% block organizations_list %}
@@ -42,3 +86,6 @@
 {% block secondary_content %}
   {% snippet "organization/snippets/helper.html" %}
 {% endblock %}
+</div>
+
+<div class="hueco30"></div>

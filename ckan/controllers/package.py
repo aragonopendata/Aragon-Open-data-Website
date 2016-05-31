@@ -1939,6 +1939,7 @@ class PackageController(base.BaseController):
 #            print 'la query es '+str(query)
             
             i=0
+            ubicacion=0
             for asd in query['results']:
                  if asd['name'] == packge_name:
                      ubicacion = i

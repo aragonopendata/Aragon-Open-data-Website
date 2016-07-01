@@ -5,3 +5,5 @@
 /ckan/templates/snippets/package_item.html~
 /public/themes/aod/style.human.css~
 /public/themes/aod/tipografia.css~
+/ckan/controllers/package.py~
+/ckan/templates/organization/snippets/organization_ficha.html~

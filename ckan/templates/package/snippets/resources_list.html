@@ -16,13 +16,14 @@ Example:
 
   <div class="titularesPeques fieldName">Metadato de la colecci&oacute;n</div>
   <div>
-   <ul><li><a class="recuadroNoResaltado" title="Metadato de la colecci&oacute;n en RDF" href="{{h.url_for(controller='package', action='read', id=pkg.name)}}.rdf">RDF</a></li></ul>
+   <ul><li><a class="recuadroNoResaltado textosNormales" title="Metadato de la colecci&oacute;n en RDF" href="{{h.url_for(controller='package', action='read', id=pkg.name)}}.rdf">RDF</a></li></ul>
 </div>
 	
   {% block resource_list %}
   {% if resources %}
       <div class="titularesPeques fieldName">Archivos con los datos</div>
       {% block resource_list_inner %}
+      {% set contador = 0 %}
       {% for res in resources %}
         {#% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %#}
         {% set url = res.url %}
@@ -31,21 +32,31 @@ Example:
         {% set modoAcceso = res.mimetype %}
 
         
-         {% if  (('presupuesto-y-ejecucion-presupuestaria-de-comarcas-de-aragon' in pkg.name) or ('presupuesto-y-ejecucion-presupuestaria-de-municipios-de-aragon' in pkg.name)) %}
+         {# {% if  (('presupuesto-y-ejecucion-presupuestaria-de-comarcas-de-aragon' in pkg.name) or ('presupuesto-y-ejecucion-presupuestaria-de-municipios-de-aragon' in pkg.name)) %}
+             
+
+
+             
+             {% if contador == 0 %}
+             	<ul class="textosNormales" style="padding-top: 5px; padding-left: 15px;" >
+             {% endif %}
             
-            {% if elFormato.lower() == 'xml' %}
               <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
               <div style="padding-bottom: 15px;">
-                <ul>
-            {% endif %}
+                <!-- <ul> -->
+            
                   <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}"> <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span></a></li>
               
-            {% if elFormato.lower() == 'json' %}
-                </ul>
+           
+               <!--  </ul> -->
               </div>
-            {% endif %}
+           
+            {% set contador = contador +1 %}
+            {% if contador == resources|length %}
+             	</ul>
+             {% endif %}
             
-         {% else %}
+         {% else %}#}
 		      <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
 
 		      {% if modoAcceso == None %}
@@ -125,7 +136,7 @@ Example:
 		       
 		       
 		      {#% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %#}
-		    {% endif %}
+		    {#{% endif %}#}
       {% endfor %}
       {% endblock %}
   {% endif %}

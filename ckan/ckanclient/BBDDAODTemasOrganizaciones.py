@@ -18,7 +18,7 @@ def home(tipo):
 	if tipo=='tema':
 		consulta= "SELECT group_revision.title, group_revision.name, group_revision.description, COUNT(package_revision.*), group_revision.image_url FROM public.group_revision, public.member_revision, public.package_revision WHERE group_revision.id = member_revision.group_id AND member_revision.state='active' AND group_revision.state='active' AND group_revision.is_organization = FALSE AND   group_revision.current=TRUE AND member_revision.current=TRUE AND package_revision.current=TRUE AND member_revision.table_id = package_revision.id AND member_revision.table_name='package' AND package_revision.state='active' GROUP BY  group_revision.title, group_revision.name,  group_revision.description, group_revision.image_url ORDER BY group_revision.title ASC;"
 	elif tipo=='organizacion':
-		consulta= "SELECT group_revision.title, group_revision.name, group_revision.description, COUNT(package_revision.*), group_revision.image_url FROM public.group_revision, public.package_revision, public.\"user\" WHERE group_revision.id = package_revision.owner_org AND package_revision.current=TRUE AND package_revision.state='active' AND public.group_revision.title = \"user\".fullname AND group_revision.state='active' AND group_revision.current=TRUE AND is_organization=TRUE GROUP BY  group_revision.title, group_revision.name,  group_revision.description, group_revision.image_url ORDER BY group_revision.title ASC;"
+		consulta= "SELECT o.title, o.name, o.description, (SELECT count(package_revision.*) FROM public.package_revision WHERE package_revision.owner_org = o.id AND package_revision.current=TRUE AND package_revision.state='active') as count, o.image_url FROM public.group_revision o WHERE  o.state='active' AND o.current=TRUE AND o.is_organization=TRUE GROUP BY o.title, o.name, o.description, o.image_url, o.id ORDER BY o.title ASC;"
 	else:
 		cursor.close()
 		conexionBBDD.close()
@@ -55,7 +55,7 @@ def obtenOrganizacion(organizacion):
 	conexionBBDD=configuracion.conexion('opendata-postgre')
 	cursor= conexionBBDD.cursor()
 	devolver =[]
-	consulta1="SELECT group_revision.title, group_revision.description, \"user\".email, COUNT (package_revision.*) FROM public.group_revision, public.\"user\", public.package_revision WHERE group_revision.id = package_revision.owner_org AND public.group_revision.title = \"user\".fullname AND group_revision.state='active' AND group_revision.current=TRUE AND is_organization=TRUE AND package_revision.current=TRUE AND package_revision.state='active' AND package_revision.type='dataset'  AND public.group_revision.name ='"+organizacion.strip()+"' GROUP BY group_revision.title, group_revision.description, \"user\".email;"
+	consulta1="SELECT o.title, o.description, \"user\".email, (SELECT count(package_revision.*) FROM public.package_revision WHERE package_revision.owner_org = o.id AND package_revision.current=TRUE AND package_revision.state='active') as count FROM public.group_revision o, public.user, public.package_revision  WHERE o.title = \"user\".fullname AND o.state='active' AND o.current=TRUE AND is_organization=TRUE AND o.name ='"+organizacion.strip()+"'  GROUP BY o.title, o.description, \"user\".email, o.id;"
 	q=cursor.execute(consulta1)
 	resultado1 = cursor.fetchone()
 	if resultado1 is not None:

@@ -1666,7 +1666,7 @@ class PackageController(base.BaseController):
              if (tipo == 'calendario') | (tipo == 'fotos') | (tipo == 'hojas-de-calculo') | (tipo == 'mapas') | (tipo == 'recursos-educativos') | (tipo == 'recursos-web') | (tipo == 'rss') | (tipo == 'texto-plano'):
                  qTipo = self._consultaSOLR(tipo)
              elif tipo == 'informacion-estadistica':
-                 qTipo = "organization:instituto_aragones_de_estadistica"
+                 qTipo = "organization:instituto-aragones-estadistica"
              elif tipo == 'base-datos':
                  qTipo = "extras_Frequency:Instantanea"
              elif tipo == 'busqueda-libre':

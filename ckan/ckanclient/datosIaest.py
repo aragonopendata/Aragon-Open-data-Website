@@ -505,7 +505,7 @@ def main():
         fichero = fichero + "\t\t<dcat:fuente>" + Fuente.strip() + "</dcat:fuente>\n"
         fichero = fichero + "\t\t<dcat:tratamiento_estadistico>" + Tratamiento_Estadistico.strip() + "</dcat:tratamiento_estadistico>\n"
         fichero = fichero + "\t\t<dcat:formatos_difusion>" + Formato_difusion.strip() + "</dcat:formatos_difusion>\n"
-        fichero = fichero + "\t\t<dcat:legislacion_ue>" + Legislacion_UE.strip() + "</dcat:legislacion_ue>\n"
+        fichero = fichero + "\t\t<dcat:legislacion_ue>" + Legislacion_UE.strip().replace('&','$amp;').replace('<','&lt;').replace('>','&gt;') + "</dcat:legislacion_ue>\n"
         fichero = fichero + "\t\t<dcat:theme>\n"
         fichero = fichero + "\t\t\t<rdf:Description>\n" + "\t\t\t\t<rdfs:label>"
         fichero = fichero + tema + "</rdfs:label>\n" + "\t\t\t\t<dct:identifier>"

@@ -18,7 +18,7 @@
 
           <div>
              <div class="titularesPeques fieldName" property="rdfs:label">{{ key.split("_IAEST_")[1] }}</div>
-             <div class="textosNormales fieldValue" property="rdf:value">{{ value }}</div>
+             <div class="textosNormales fieldValue" property="rdf:value">{{ value|safe }}</div>
           </div>
   {% endif %}
 {% endfor %}

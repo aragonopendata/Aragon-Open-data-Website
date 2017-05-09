@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update CKAN Version and repository change.
 
+## [1.0.1] - 2017-05-09
 ### Added
-- New ETLs to generate several datasets info, or another functionallities.
+- New ETL to generate several files to the dataset "Festivos en la comunidad de Aragón 2017".
 
 ## [1.0.0] - 2017-05-09
 ### Added

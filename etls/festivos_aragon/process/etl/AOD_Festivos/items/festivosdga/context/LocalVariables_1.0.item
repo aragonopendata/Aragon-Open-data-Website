@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType xmi:id="_cGKo8C_LEeezwoOPHsmJcA" confirmationNeeded="false" name="Local">
+    <contextParameter xmi:id="_cG1-YC_LEeezwoOPHsmJcA" comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" type="id_String" value="&quot;C:/Users/jortizsisamon/Documents/DGA/ETLs/festivos_aragon/conf/&quot;"/>
+    <contextParameter xmi:id="_cG1-YS_LEeezwoOPHsmJcA" comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter xmi:id="_cG1-Yi_LEeezwoOPHsmJcA" comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" type="id_String" value="&quot;ALL&quot;"/>
+    <contextParameter xmi:id="_cG1-Yy_LEeezwoOPHsmJcA" comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-ZC_LEeezwoOPHsmJcA" comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-ZS_LEeezwoOPHsmJcA" comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-Zi_LEeezwoOPHsmJcA" comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-Zy_LEeezwoOPHsmJcA" comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-aC_LEeezwoOPHsmJcA" comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-aS_LEeezwoOPHsmJcA" comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-ai_LEeezwoOPHsmJcA" comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-ay_LEeezwoOPHsmJcA" comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-bC_LEeezwoOPHsmJcA" comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-bS_LEeezwoOPHsmJcA" comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_cG1-bi_LEeezwoOPHsmJcA" comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" type="id_String" value="&quot;&quot;"/>
+    <contextParameter xmi:id="_XJ0cIDC6EeenKfIFC6Vk5Q" comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_XJ0cITC6EeenKfIFC6Vk5Q" comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_XJ0cIjC6EeenKfIFC6Vk5Q" comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" type="id_String" value=""/>
+  </talendfile:ContextType>
+  <talendfile:ContextType xmi:id="_cGKo8S_LEeezwoOPHsmJcA" confirmationNeeded="false" name="Server">
+    <contextParameter xmi:id="_cG1-by_LEeezwoOPHsmJcA" comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" type="id_String" value="&quot;../../conf/&quot;"/>
+    <contextParameter xmi:id="_cG1-cC_LEeezwoOPHsmJcA" comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter xmi:id="_cG1-cS_LEeezwoOPHsmJcA" comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" type="id_String" value="&quot;ALL&quot;"/>
+    <contextParameter xmi:id="_cG1-ci_LEeezwoOPHsmJcA" comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-cy_LEeezwoOPHsmJcA" comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-dC_LEeezwoOPHsmJcA" comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-dS_LEeezwoOPHsmJcA" comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-di_LEeezwoOPHsmJcA" comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-dy_LEeezwoOPHsmJcA" comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-eC_LEeezwoOPHsmJcA" comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-eS_LEeezwoOPHsmJcA" comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-ei_LEeezwoOPHsmJcA" comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-ey_LEeezwoOPHsmJcA" comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-fC_LEeezwoOPHsmJcA" comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_cG1-fS_LEeezwoOPHsmJcA" comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_XJ0cIzC6EeenKfIFC6Vk5Q" comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_XJ0cJDC6EeenKfIFC6Vk5Q" comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter xmi:id="_XJ0cJTC6EeenKfIFC6Vk5Q" comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" type="id_String" value=""/>
+  </talendfile:ContextType>
+</xmi:XMI>

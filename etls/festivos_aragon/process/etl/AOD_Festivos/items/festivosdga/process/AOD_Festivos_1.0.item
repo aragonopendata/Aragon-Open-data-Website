@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Local" jobType="Standard">
+  <context confirmationNeeded="false" name="Local">
+    <contextParameter comment="" name="databaseAdditionalParams" prompt="databaseAdditionalParams?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionHost" prompt="databaseConnectionHost?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPass" prompt="databaseConnectionPass?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPort" prompt="databaseConnectionPort?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionUser" prompt="databaseConnectionUser?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseName" prompt="databaseName?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databasePath" prompt="databasePath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQueryOrderBy" prompt="databaseQueryOrderBy?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQuerySelect" prompt="databaseQuerySelect?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_HUE" prompt="databaseTableName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_TER" prompt="databaseTableName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_ZGZ" prompt="databaseTableName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="docsEncoding" prompt="docsEncoding?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_HUE" prompt="inOutXlsSheetName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_TER" prompt="inOutXlsSheetName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_ZGZ" prompt="inOutXlsSheetName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_HUE" prompt="inXlsOriginalDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_TER" prompt="inXlsOriginalDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_ZGZ" prompt="inXlsOriginalDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_HUE" prompt="inXlsOriginalDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_TER" prompt="inXlsOriginalDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_ZGZ" prompt="inXlsOriginalDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_HUE" prompt="inXlsUpdateDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_TER" prompt="inXlsUpdateDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_ZGZ" prompt="inXlsUpdateDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_HUE" prompt="inXlsUpdateDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_TER" prompt="inXlsUpdateDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_ZGZ" prompt="inXlsUpdateDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logConfigFile" prompt="logConfigFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutFile" prompt="logOutFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutPath" prompt="logOutPath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_HUE" prompt="outCsvDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_TER" prompt="outCsvDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_ZGZ" prompt="outCsvDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_HUE" prompt="outDocsPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_TER" prompt="outDocsPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_ZGZ" prompt="outDocsPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_HUE" prompt="outIcsDocHeaderPropertyProdId_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_TER" prompt="outIcsDocHeaderPropertyProdId_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_ZGZ" prompt="outIcsDocHeaderPropertyProdId_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_HUE" prompt="outIcsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_TER" prompt="outIcsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_ZGZ" prompt="outIcsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_HUE" prompt="outJsonDocDataBlock_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_TER" prompt="outJsonDocDataBlock_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_ZGZ" prompt="outJsonDocDataBlock_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_HUE" prompt="outJsonDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_TER" prompt="outJsonDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_ZGZ" prompt="outJsonDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_HUE" prompt="outXlsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_TER" prompt="outXlsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_ZGZ" prompt="outXlsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_HUE" prompt="outXmlDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_TER" prompt="outXmlDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_ZGZ" prompt="outXmlDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_HUE" prompt="outXmlDocRootTag_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_TER" prompt="outXmlDocRootTag_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_ZGZ" prompt="outXmlDocRootTag_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRowTag" prompt="outXmlDocRowTag?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;C:/Users/jortizsisamon/Documents/DGA/ETLs/festivos_aragon/conf/&quot;"/>
+    <contextParameter comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;ALL&quot;"/>
+  </context>
+  <context confirmationNeeded="false" name="Server">
+    <contextParameter comment="" name="databaseAdditionalParams" prompt="databaseAdditionalParams?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionHost" prompt="databaseConnectionHost?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPass" prompt="databaseConnectionPass?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPort" prompt="databaseConnectionPort?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionUser" prompt="databaseConnectionUser?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseName" prompt="databaseName?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databasePath" prompt="databasePath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQueryOrderBy" prompt="databaseQueryOrderBy?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQuerySelect" prompt="databaseQuerySelect?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_HUE" prompt="databaseTableName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_TER" prompt="databaseTableName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_ZGZ" prompt="databaseTableName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="docsEncoding" prompt="docsEncoding?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_HUE" prompt="inOutXlsSheetName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_TER" prompt="inOutXlsSheetName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_ZGZ" prompt="inOutXlsSheetName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_HUE" prompt="inXlsOriginalDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_TER" prompt="inXlsOriginalDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_ZGZ" prompt="inXlsOriginalDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_HUE" prompt="inXlsOriginalDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_TER" prompt="inXlsOriginalDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_ZGZ" prompt="inXlsOriginalDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_HUE" prompt="inXlsUpdateDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_TER" prompt="inXlsUpdateDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_ZGZ" prompt="inXlsUpdateDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_HUE" prompt="inXlsUpdateDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_TER" prompt="inXlsUpdateDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_ZGZ" prompt="inXlsUpdateDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logConfigFile" prompt="logConfigFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutFile" prompt="logOutFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutPath" prompt="logOutPath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_HUE" prompt="outCsvDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_TER" prompt="outCsvDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_ZGZ" prompt="outCsvDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_HUE" prompt="outDocsPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_TER" prompt="outDocsPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_ZGZ" prompt="outDocsPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_HUE" prompt="outIcsDocHeaderPropertyProdId_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_TER" prompt="outIcsDocHeaderPropertyProdId_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_ZGZ" prompt="outIcsDocHeaderPropertyProdId_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_HUE" prompt="outIcsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_TER" prompt="outIcsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_ZGZ" prompt="outIcsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_HUE" prompt="outJsonDocDataBlock_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_TER" prompt="outJsonDocDataBlock_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_ZGZ" prompt="outJsonDocDataBlock_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_HUE" prompt="outJsonDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_TER" prompt="outJsonDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_ZGZ" prompt="outJsonDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_HUE" prompt="outXlsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_TER" prompt="outXlsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_ZGZ" prompt="outXlsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_HUE" prompt="outXmlDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_TER" prompt="outXmlDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_ZGZ" prompt="outXmlDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_HUE" prompt="outXmlDocRootTag_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_TER" prompt="outXmlDocRootTag_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_ZGZ" prompt="outXmlDocRootTag_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRowTag" prompt="outXmlDocRowTag?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;../../conf/&quot;"/>
+    <contextParameter comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;ALL&quot;"/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;C:/Users/jortizsisamon/Talend/workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_11" show="false"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_vJ7QQBYNEeeAtdL7SVb6KA" name="DataOperation"/>
+    <routinesParameter id="_vKcNoBYNEeeAtdL7SVb6KA" name="Mathematical"/>
+    <routinesParameter id="_vKi7UBYNEeeAtdL7SVb6KA" name="Numeric"/>
+    <routinesParameter id="_vKpB8BYNEeeAtdL7SVb6KA" name="Relational"/>
+    <routinesParameter id="_vKyy8BYNEeeAtdL7SVb6KA" name="StringHandling"/>
+    <routinesParameter id="_vK5goBYNEeeAtdL7SVb6KA" name="TalendDataGenerator"/>
+    <routinesParameter id="_vLCqkBYNEeeAtdL7SVb6KA" name="TalendDate"/>
+    <routinesParameter id="_vLIxMBYNEeeAtdL7SVb6KA" name="TalendString"/>
+  </parameters>
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
+    <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.etlConfPath + context.etlConfName"/>
+    <elementParameter field="CHECK" name="CSV_OPTION" value="true"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\r\n&quot;" show="false"/>
+    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\r\n&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;=&quot;"/>
+    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HEADER" value="0"/>
+    <elementParameter field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="CHECK" name="REMOVE_EMPTY_ROW" value="true"/>
+    <elementParameter field="CHECK" name="UNCOMPRESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="DIRECTORY" name="TEMP_DIR" value="&quot;C:/Users/jortizsisamon/Talend/workspace&quot;" show="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="CHECK" name="RANDOM" value="false" show="false"/>
+    <elementParameter field="TEXT" name="NB_RANDOM" value="10" show="false"/>
+    <elementParameter field="CHECK" name="TRIMALL" value="false"/>
+    <elementParameter field="TABLE" name="TRIMSELECT">
+      <elementValue elementRef="SCHEMA_COLUMN" value="key"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="value"/>
+      <elementValue elementRef="TRIM" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="CHECK_FIELDS_NUM" value="false"/>
+    <elementParameter field="CHECK" name="CHECK_DATE" value="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="SPLITRECORD" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_DECODE" value="false"/>
+    <elementParameter field="TABLE" name="DECODE_COLS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="key"/>
+      <elementValue elementRef="DECODE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="value"/>
+      <elementValue elementRef="DECODE" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="DESTINATION" value="" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="PropertiesReader"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tFileInputDelimited_1">
+      <column comment="" key="false" length="-1" name="key" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="value" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="false" length="-1" name="key" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="value" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tContextLoad" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tContextLoad_1" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Info"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Info"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="true"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter field="CHECK" name="DIEONERROR" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="ContextLoader"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tContextLoad_1">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="context.databaseTableName = context.databaseTableName_HUE;&#xA;context.inXlsOriginalDocName = context.inXlsOriginalDocName_HUE;&#xA;context.inXlsUpdateDocName = context.inXlsUpdateDocName_HUE;&#xA;context.inOutXlsSheetName = context.inOutXlsSheetName_HUE;&#xA;context.outXlsDocName = context.outXlsDocName_HUE;&#xA;context.outCsvDocName = context.outCsvDocName_HUE;&#xA;context.outJsonDocDataBlock = context.outJsonDocDataBlock_HUE;&#xA;context.outJsonDocName = context.outJsonDocName_HUE;&#xA;context.outXmlDocRootTag = context.outXmlDocRootTag_HUE;&#xA;context.outXmlDocName = context.outXmlDocName_HUE;&#xA;context.outIcsDocHeaderPropertyProdId = context.outIcsDocHeaderPropertyProdId_HUE;&#xA;context.outIcsDocName = context.outIcsDocName_HUE;&#xA;context.inXlsOriginalDocPath = context.inXlsOriginalDocPath_HUE;&#xA;context.inXlsUpdateDocPath = context.inXlsUpdateDocPath_HUE;&#xA;context.outDocsPath = context.outDocsPath_HUE;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraPropiedadesHUE"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_2">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2" show="false"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="AOD_GeneraFicherosFestivos"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Local"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_lTPXoCmYEeeTWJWoKrpnVA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraFestivosHUE"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_2">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_3" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="context.databaseTableName = context.databaseTableName_TER;&#xA;context.inXlsOriginalDocName = context.inXlsOriginalDocName_TER;&#xA;context.inXlsUpdateDocName = context.inXlsUpdateDocName_TER;&#xA;context.inOutXlsSheetName = context.inOutXlsSheetName_TER;&#xA;context.outXlsDocName = context.outXlsDocName_TER;&#xA;context.outCsvDocName = context.outCsvDocName_TER;&#xA;context.outJsonDocDataBlock = context.outJsonDocDataBlock_TER;&#xA;context.outJsonDocName = context.outJsonDocName_TER;&#xA;context.outXmlDocRootTag = context.outXmlDocRootTag_TER;&#xA;context.outXmlDocName = context.outXmlDocName_TER;&#xA;context.outIcsDocHeaderPropertyProdId = context.outIcsDocHeaderPropertyProdId_TER;&#xA;context.outIcsDocName = context.outIcsDocName_TER;&#xA;context.inXlsOriginalDocPath = context.inXlsOriginalDocPath_TER;&#xA;context.inXlsUpdateDocPath = context.inXlsUpdateDocPath_TER;&#xA;context.outDocsPath = context.outDocsPath_TER;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraPropiedadesTER"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_3">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3" show="false"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="AOD_GeneraFicherosFestivos"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Local"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_lTPXoCmYEeeTWJWoKrpnVA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraFestivosTER"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_3">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="context.databaseTableName = context.databaseTableName_ZGZ;&#xA;context.inXlsOriginalDocName = context.inXlsOriginalDocName_ZGZ;&#xA;context.inXlsUpdateDocName = context.inXlsUpdateDocName_ZGZ;&#xA;context.inOutXlsSheetName = context.inOutXlsSheetName_ZGZ;&#xA;context.outXlsDocName = context.outXlsDocName_ZGZ;&#xA;context.outCsvDocName = context.outCsvDocName_ZGZ;&#xA;context.outJsonDocDataBlock = context.outJsonDocDataBlock_ZGZ;&#xA;context.outJsonDocName = context.outJsonDocName_ZGZ;&#xA;context.outXmlDocRootTag = context.outXmlDocRootTag_ZGZ;&#xA;context.outXmlDocName = context.outXmlDocName_ZGZ;&#xA;context.outIcsDocHeaderPropertyProdId = context.outIcsDocHeaderPropertyProdId_ZGZ;&#xA;context.outIcsDocName = context.outIcsDocName_ZGZ;&#xA;context.inXlsOriginalDocPath = context.inXlsOriginalDocPath_ZGZ;&#xA;context.inXlsUpdateDocPath = context.inXlsUpdateDocPath_ZGZ;&#xA;context.outDocsPath = context.outDocsPath_ZGZ;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraPropiedadesZGZ"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1" show="false"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="AOD_GeneraFicherosFestivos"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Local"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_lTPXoCmYEeeTWJWoKrpnVA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="true"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="GeneraFestivosZGZ"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_1">
+      <column key="false" length="255" name="key" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="255" name="value" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tContextLoad_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tContextLoad_1" offsetLabelX="50" offsetLabelY="-44" outputId="1" source="tContextLoad_1" target="tJava_1">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.provincesToLoad != null &amp;&amp; (&quot;&quot;.equals(context.provincesToLoad) || (&quot;ALL&quot;.equals(context.provincesToLoad)) || (!&quot;&quot;.equals(context.provincesToLoad) &amp;&amp; context.provincesToLoad.contains(&quot;ZGZ&quot;)))"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If1" show="false"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tContextLoad_1" offsetLabelX="49" offsetLabelY="-17" outputId="2" source="tContextLoad_1" target="tJava_2">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.provincesToLoad != null &amp;&amp; (&quot;&quot;.equals(context.provincesToLoad) || (&quot;ALL&quot;.equals(context.provincesToLoad)) || (!&quot;&quot;.equals(context.provincesToLoad) &amp;&amp; context.provincesToLoad.contains(&quot;HUE&quot;)))"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If2" show="false"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tContextLoad_1" offsetLabelX="48" offsetLabelY="11" outputId="3" source="tContextLoad_1" target="tJava_3">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.provincesToLoad != null &amp;&amp; (&quot;&quot;.equals(context.provincesToLoad) || (&quot;ALL&quot;.equals(context.provincesToLoad)) || (!&quot;&quot;.equals(context.provincesToLoad) &amp;&amp; context.provincesToLoad.contains(&quot;TER&quot;)))"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If3" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tJava_2" offsetLabelX="0" offsetLabelY="0" source="tJava_2" target="tRunJob_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tJava_3" offsetLabelX="0" offsetLabelY="0" source="tJava_3" target="tRunJob_3">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tJava_1" offsetLabelX="0" offsetLabelY="0" source="tJava_1" target="tRunJob_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_3" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+</talendfile:ProcessType>

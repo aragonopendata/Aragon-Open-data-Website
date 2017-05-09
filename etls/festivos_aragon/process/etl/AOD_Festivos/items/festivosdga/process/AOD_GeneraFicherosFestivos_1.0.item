@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Local" jobType="Standard">
+  <context confirmationNeeded="false" name="Local">
+    <contextParameter comment="" name="databaseAdditionalParams" prompt="databaseAdditionalParams?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionHost" prompt="databaseConnectionHost?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPass" prompt="databaseConnectionPass?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPort" prompt="databaseConnectionPort?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionUser" prompt="databaseConnectionUser?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseName" prompt="databaseName?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databasePath" prompt="databasePath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQueryOrderBy" prompt="databaseQueryOrderBy?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQuerySelect" prompt="databaseQuerySelect?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_HUE" prompt="databaseTableName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_TER" prompt="databaseTableName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_ZGZ" prompt="databaseTableName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="docsEncoding" prompt="docsEncoding?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_HUE" prompt="inOutXlsSheetName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_TER" prompt="inOutXlsSheetName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_ZGZ" prompt="inOutXlsSheetName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_HUE" prompt="inXlsOriginalDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_TER" prompt="inXlsOriginalDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_ZGZ" prompt="inXlsOriginalDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_HUE" prompt="inXlsOriginalDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_TER" prompt="inXlsOriginalDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_ZGZ" prompt="inXlsOriginalDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_HUE" prompt="inXlsUpdateDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_TER" prompt="inXlsUpdateDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_ZGZ" prompt="inXlsUpdateDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_HUE" prompt="inXlsUpdateDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_TER" prompt="inXlsUpdateDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_ZGZ" prompt="inXlsUpdateDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logConfigFile" prompt="logConfigFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutFile" prompt="logOutFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutPath" prompt="logOutPath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_HUE" prompt="outCsvDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_TER" prompt="outCsvDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_ZGZ" prompt="outCsvDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_HUE" prompt="outDocsPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_TER" prompt="outDocsPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_ZGZ" prompt="outDocsPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_HUE" prompt="outIcsDocHeaderPropertyProdId_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_TER" prompt="outIcsDocHeaderPropertyProdId_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_ZGZ" prompt="outIcsDocHeaderPropertyProdId_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_HUE" prompt="outIcsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_TER" prompt="outIcsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_ZGZ" prompt="outIcsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_HUE" prompt="outJsonDocDataBlock_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_TER" prompt="outJsonDocDataBlock_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_ZGZ" prompt="outJsonDocDataBlock_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_HUE" prompt="outJsonDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_TER" prompt="outJsonDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_ZGZ" prompt="outJsonDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_HUE" prompt="outXlsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_TER" prompt="outXlsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_ZGZ" prompt="outXlsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_HUE" prompt="outXmlDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_TER" prompt="outXmlDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_ZGZ" prompt="outXmlDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_HUE" prompt="outXmlDocRootTag_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_TER" prompt="outXmlDocRootTag_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_ZGZ" prompt="outXmlDocRootTag_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRowTag" prompt="outXmlDocRowTag?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;C:/Users/jortizsisamon/Documents/DGA/ETLs/festivos_aragon/conf/&quot;"/>
+    <contextParameter comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;&quot;"/>
+    <contextParameter comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;ALL&quot;"/>
+  </context>
+  <context confirmationNeeded="false" name="Server">
+    <contextParameter comment="" name="databaseAdditionalParams" prompt="databaseAdditionalParams?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionHost" prompt="databaseConnectionHost?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPass" prompt="databaseConnectionPass?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionPort" prompt="databaseConnectionPort?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseConnectionUser" prompt="databaseConnectionUser?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseName" prompt="databaseName?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databasePath" prompt="databasePath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQueryOrderBy" prompt="databaseQueryOrderBy?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseQuerySelect" prompt="databaseQuerySelect?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_HUE" prompt="databaseTableName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_TER" prompt="databaseTableName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName_ZGZ" prompt="databaseTableName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="docsEncoding" prompt="docsEncoding?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_HUE" prompt="inOutXlsSheetName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_TER" prompt="inOutXlsSheetName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inOutXlsSheetName_ZGZ" prompt="inOutXlsSheetName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_HUE" prompt="inXlsOriginalDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_TER" prompt="inXlsOriginalDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName_ZGZ" prompt="inXlsOriginalDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_HUE" prompt="inXlsOriginalDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_TER" prompt="inXlsOriginalDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath_ZGZ" prompt="inXlsOriginalDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_HUE" prompt="inXlsUpdateDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_TER" prompt="inXlsUpdateDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName_ZGZ" prompt="inXlsUpdateDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_HUE" prompt="inXlsUpdateDocPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_TER" prompt="inXlsUpdateDocPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath_ZGZ" prompt="inXlsUpdateDocPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logConfigFile" prompt="logConfigFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutFile" prompt="logOutFile?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="logOutPath" prompt="logOutPath?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_HUE" prompt="outCsvDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_TER" prompt="outCsvDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName_ZGZ" prompt="outCsvDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_HUE" prompt="outDocsPath_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_TER" prompt="outDocsPath_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath_ZGZ" prompt="outDocsPath_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_HUE" prompt="outIcsDocHeaderPropertyProdId_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_TER" prompt="outIcsDocHeaderPropertyProdId_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId_ZGZ" prompt="outIcsDocHeaderPropertyProdId_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_HUE" prompt="outIcsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_TER" prompt="outIcsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName_ZGZ" prompt="outIcsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_HUE" prompt="outJsonDocDataBlock_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_TER" prompt="outJsonDocDataBlock_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock_ZGZ" prompt="outJsonDocDataBlock_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_HUE" prompt="outJsonDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_TER" prompt="outJsonDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName_ZGZ" prompt="outJsonDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_HUE" prompt="outXlsDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_TER" prompt="outXlsDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName_ZGZ" prompt="outXlsDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_HUE" prompt="outXmlDocName_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_TER" prompt="outXmlDocName_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName_ZGZ" prompt="outXmlDocName_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_HUE" prompt="outXmlDocRootTag_HUE?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_TER" prompt="outXmlDocRootTag_TER?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag_ZGZ" prompt="outXmlDocRootTag_ZGZ?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRowTag" prompt="outXmlDocRowTag?" promptNeeded="false" repositoryContextId="_u_uwABkOEeej3tsCrDvVgw" type="id_String" value=""/>
+    <contextParameter comment="" name="databaseTableName" prompt="databaseTableName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="etlConfName" prompt="etlConfName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;etl-config.properties&quot;"/>
+    <contextParameter comment="" name="etlConfPath" prompt="etlConfPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;../../conf/&quot;"/>
+    <contextParameter comment="" name="inOutXlsSheetName" prompt="inOutXlsSheetName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocName" prompt="inXlsOriginalDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsOriginalDocPath" prompt="inXlsOriginalDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocName" prompt="inXlsUpdateDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="inXlsUpdateDocPath" prompt="inXlsUpdateDocPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outCsvDocName" prompt="outCsvDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outDocsPath" prompt="outDocsPath?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocHeaderPropertyProdId" prompt="outIcsDocHeaderPropertyProdId?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outIcsDocName" prompt="outIcsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocDataBlock" prompt="outJsonDocDataBlock?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outJsonDocName" prompt="outJsonDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXlsDocName" prompt="outXlsDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocName" prompt="outXmlDocName?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="outXmlDocRootTag" prompt="outXmlDocRootTag?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value=""/>
+    <contextParameter comment="" name="provincesToLoad" prompt="provincesToLoad?" promptNeeded="false" repositoryContextId="_cGJa0C_LEeezwoOPHsmJcA" type="id_String" value="&quot;ALL&quot;"/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;C:/Users/jortizsisamon/Talend/workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_11" show="false"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE=" show="false"/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_vJ7QQBYNEeeAtdL7SVb6KA" name="DataOperation"/>
+    <routinesParameter id="_vKcNoBYNEeeAtdL7SVb6KA" name="Mathematical"/>
+    <routinesParameter id="_vKi7UBYNEeeAtdL7SVb6KA" name="Numeric"/>
+    <routinesParameter id="_vKpB8BYNEeeAtdL7SVb6KA" name="Relational"/>
+    <routinesParameter id="_vKyy8BYNEeeAtdL7SVb6KA" name="StringHandling"/>
+    <routinesParameter id="_vK5goBYNEeeAtdL7SVb6KA" name="TalendDataGenerator"/>
+    <routinesParameter id="_vLCqkBYNEeeAtdL7SVb6KA" name="TalendDate"/>
+    <routinesParameter id="_vLIxMBYNEeeAtdL7SVb6KA" name="TalendString"/>
+  </parameters>
+  <node componentName="tFileInputExcel" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputExcel_1" show="false"/>
+    <elementParameter field="CHECK" name="VERSION_2007" value="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.inXlsOriginalDocPath + context.inXlsOriginalDocName"/>
+    <elementParameter field="CHECK" name="ALL_SHEETS" value="false"/>
+    <elementParameter field="TABLE" name="SHEETLIST">
+      <elementValue elementRef="SHEETNAME" value="context.inOutXlsSheetName"/>
+      <elementValue elementRef="USE_REGEX" value=""/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="HEADER" value="4"/>
+    <elementParameter field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="CHECK" name="AFFECT_EACH_SHEET" value="false"/>
+    <elementParameter field="TEXT" name="FIRST_COLUMN" value="1"/>
+    <elementParameter field="TEXT" name="LAST_COLUMN" value="4"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" value="_C9ej0Bg-EeeLnPKL0e-XbA - FestivosHuesca" show="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="CHECK" name="TRIMALL" value="true"/>
+    <elementParameter field="TABLE" name="TRIMSELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="CONVERTDATETOSTRING" value="false" show="false"/>
+    <elementParameter field="TABLE" name="DATESELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+    </elementParameter>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.docsEncoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="CHECK" name="READ_REAL_VALUE" value="false"/>
+    <elementParameter field="CHECK" name="STOPREAD_ON_EMPTYROW" value="true"/>
+    <elementParameter field="CHECK" name="NOVALIDATE_ON_CELL" value="false"/>
+    <elementParameter field="CHECK" name="SUPPRESS_WARN" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="GENERATION_MODE" value="USER_MODE" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DocOriginal"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuesca" name="tFileInputExcel_1">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="FestivosHuesca" name="REJECT">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" defaultValue="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tHSQLDbOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHSQLDbOutput_1" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="RUNNING_MODE" value="HSQLDB_INPROGRESS_PERSISTENT"/>
+    <elementParameter field="CHECK" name="TLS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;9001&quot;" show="false"/>
+    <elementParameter field="DIRECTORY" name="DBPATH" value="context.databasePath"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.databaseName"/>
+    <elementParameter field="TEXT" name="DATABASE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.databaseConnectionUser"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuclHlTHB5Sw0UyGOMv6rOWFl69tmPaCDrA="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="context.databaseTableName"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="DROP_IF_EXISTS_AND_CREATE"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter field="TEXT" name="TYPE" value="HSQLDB" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="hsqldb_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.databaseAdditionalParams"/>
+    <elementParameter field="TEXT" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="true"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DBInsert"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuesca" name="tHSQLDbOutput_1">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="FestivosHuesca" name="REJECT">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFileInputExcel" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputExcel_2" show="false"/>
+    <elementParameter field="CHECK" name="VERSION_2007" value="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.inXlsUpdateDocPath + context.inXlsUpdateDocName"/>
+    <elementParameter field="CHECK" name="ALL_SHEETS" value="false"/>
+    <elementParameter field="TABLE" name="SHEETLIST">
+      <elementValue elementRef="SHEETNAME" value="context.inOutXlsSheetName"/>
+      <elementValue elementRef="USE_REGEX" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="HEADER" value="4"/>
+    <elementParameter field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="CHECK" name="AFFECT_EACH_SHEET" value="false"/>
+    <elementParameter field="TEXT" name="FIRST_COLUMN" value="1"/>
+    <elementParameter field="TEXT" name="LAST_COLUMN" value="4"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" value="_iQmhIBhBEeeLnPKL0e-XbA - FestivosHuescaActualizacion" show="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="CHECK" name="TRIMALL" value="true"/>
+    <elementParameter field="TABLE" name="TRIMSELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="CONVERTDATETOSTRING" value="false" show="false"/>
+    <elementParameter field="TABLE" name="DATESELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="CONVERTDATE" value="false"/>
+      <elementValue elementRef="PATTERN" value="&quot;MM-dd-yyyy&quot;"/>
+    </elementParameter>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.docsEncoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="CHECK" name="READ_REAL_VALUE" value="false"/>
+    <elementParameter field="CHECK" name="STOPREAD_ON_EMPTYROW" value="true"/>
+    <elementParameter field="CHECK" name="NOVALIDATE_ON_CELL" value="false"/>
+    <elementParameter field="CHECK" name="SUPPRESS_WARN" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="GENERATION_MODE" value="USER_MODE" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DocUpdate"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaActualizacion" name="tFileInputExcel_2">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="FestivosHuescaActualizacion" name="REJECT">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" defaultValue="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tHSQLDbOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHSQLDbOutput_2" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="RUNNING_MODE" value="HSQLDB_INPROGRESS_PERSISTENT"/>
+    <elementParameter field="CHECK" name="TLS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;9001&quot;" show="false"/>
+    <elementParameter field="DIRECTORY" name="DBPATH" value="context.databasePath"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.databaseName"/>
+    <elementParameter field="TEXT" name="DATABASE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.databaseConnectionUser"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuclHlTHB5Sw0UyGOMv6rOWFl69tmPaCDrA="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="context.databaseTableName"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="UPDATE_OR_INSERT"/>
+    <elementParameter field="TEXT" name="TYPE" value="HSQLDB" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="hsqldb_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.databaseAdditionalParams"/>
+    <elementParameter field="TEXT" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="true"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="UPDATE_KEY" value="true"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="UPDATE_KEY" value="true"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DBUpdate"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaActualizacion" name="tHSQLDbOutput_2">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" defaultValue="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="FestivosHuescaActualizacion" name="REJECT">
+      <column comment="Código INE de la localidad" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true"/>
+      <column comment="Nombre de la localidad" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="Fecha de la festividad" defaultValue="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true"/>
+      <column comment="Motivo de la festividad" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tHSQLDbInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHSQLDbInput_2" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="RUNNING_MODE" value="HSQLDB_INPROGRESS_PERSISTENT"/>
+    <elementParameter field="CHECK" name="TLS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;9001&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="HSQLDB" show="false"/>
+    <elementParameter field="DIRECTORY" name="DBPATH" value="context.databasePath"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.databaseName"/>
+    <elementParameter field="TEXT" name="DATABASE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.databaseConnectionUser"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuclHlTHB5Sw0UyGOMv6rOWFl69tmPaCDrA="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="context.databaseTableName"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="context.databaseQuerySelect + &quot; &quot; + context.databaseTableName + &quot; &quot; + context.databaseQueryOrderBy"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.databaseAdditionalParams"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="TRIM" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="TRIM" value="true"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="DBOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tHSQLDbInput_2">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tReplicate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="128">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tReplicate_1" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="ExtractData"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tReplicate_1">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFileOutputExcel" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputExcel_1" show="false"/>
+    <elementParameter field="CHECK" name="VERSION_2007" value="false"/>
+    <elementParameter field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.outDocsPath + context.outXlsDocName"/>
+    <elementParameter field="TEXT" name="SHEETNAME" value="context.inOutXlsSheetName"/>
+    <elementParameter field="CHECK" name="INCLUDEHEADER" value="false"/>
+    <elementParameter field="CHECK" name="APPEND_FILE" value="true"/>
+    <elementParameter field="CHECK" name="APPEND_SHEET" value="true"/>
+    <elementParameter field="CHECK" name="FIRST_CELL_Y_ABSOLUTE" value="true"/>
+    <elementParameter field="TEXT" name="FIRST_CELL_X" value="0"/>
+    <elementParameter field="TEXT" name="FIRST_CELL_Y" value="4"/>
+    <elementParameter field="CHECK" name="KEEP_CELL_FORMATING" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="FONT" value=""/>
+    <elementParameter field="CHECK" name="IS_ALL_AUTO_SZIE" value="false"/>
+    <elementParameter field="TABLE" name="AUTO_SZIE_SETTING">
+      <elementValue elementRef="SCHEMA_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="IS_AUTO_SIZE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Localidad"/>
+      <elementValue elementRef="IS_AUTO_SIZE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Fecha"/>
+      <elementValue elementRef="IS_AUTO_SIZE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Festividad"/>
+      <elementValue elementRef="IS_AUTO_SIZE" value="false"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="CREATE" value="true"/>
+    <elementParameter field="CHECK" name="FLUSHONROW" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FLUSHONROW_NUM" value="100" show="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.docsEncoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter field="CHECK" name="RECALCULATE_FORMULA" value="false" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="XLSOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tFileOutputExcel_1">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFileOutputJSON" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputJSON_1" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.outDocsPath + context.outJsonDocName"/>
+    <elementParameter field="CHECK" name="GENERATE_JSON_ARRAY" value="false"/>
+    <elementParameter field="TEXT" name="DATABLOCKNAME" value="context.outJsonDocDataBlock"/>
+    <elementParameter field="CHECK" name="CREATE" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="JSONOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tFileOutputJSON_1">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputDelimited_1" show="false"/>
+    <elementParameter field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.outDocsPath + context.outCsvDocName"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter field="CHECK" name="OS_LINE_SEPARATOR_AS_ROW_SEPARATOR" value="true" show="false"/>
+    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
+    <elementParameter field="CHECK" name="APPEND" value="false"/>
+    <elementParameter field="CHECK" name="INCLUDEHEADER" value="true"/>
+    <elementParameter field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CREATE" value="true"/>
+    <elementParameter field="CHECK" name="SPLIT" value="false"/>
+    <elementParameter field="TEXT" name="SPLIT_EVERY" value="1000" show="false"/>
+    <elementParameter field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter field="TEXT" name="FLUSHONROW_NUM" value="1" show="false"/>
+    <elementParameter field="CHECK" name="ROW_MODE" value="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.docsEncoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="90" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="CSVOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tFileOutputDelimited_1">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="512" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_lTPXoCmYEeeTWJWoKrpnVA-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DBToXML"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="Merged">
+      <column comment="" key="false" length="11" name="codigo_INE" nullable="false" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="localidad" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="festividad" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="MapperData">
+      <uiProperties/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="Merged">
+        <mapperTableEntries name="codigo_INE" expression="row5.Codigo_INE " type="id_String"/>
+        <mapperTableEntries name="localidad" expression="row5.Localidad " type="id_String" nullable="true"/>
+        <mapperTableEntries name="fecha" expression="row5.Fecha " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="festividad" expression="row5.Festividad " type="id_String" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="row5" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="Codigo_INE" type="id_String"/>
+        <mapperTableEntries name="Localidad" type="id_String" nullable="true"/>
+        <mapperTableEntries name="Fecha" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Festividad" type="id_String" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tFileOutputXML" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputXML_1" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.outDocsPath + context.outXmlDocName"/>
+    <elementParameter field="CHECK" name="INPUT_IS_DOCUMENT" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="DOCUMENT_COL" value="codigo_INE" show="false"/>
+    <elementParameter field="TEXT" name="ROW_TAG" value="context.outXmlDocRowTag"/>
+    <elementParameter field="CHECK" name="SPLIT" value="false"/>
+    <elementParameter field="TEXT" name="SPLIT_EVERY" value="1000" show="false"/>
+    <elementParameter field="CHECK" name="CREATE" value="true"/>
+    <elementParameter field="TABLE" name="ROOT_TAGS">
+      <elementValue elementRef="TAG" value="context.outXmlDocRootTag"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="MAPPING">
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigo_INE"/>
+      <elementValue elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue elementRef="LABEL" value="&quot;label&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="localidad"/>
+      <elementValue elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue elementRef="LABEL" value="&quot;label&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="fecha"/>
+      <elementValue elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue elementRef="LABEL" value="&quot;label&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="festividad"/>
+      <elementValue elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue elementRef="LABEL" value="&quot;label&quot;"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_GROUPING" value="false"/>
+    <elementParameter field="TABLE" name="GROUP_BY" show="false"/>
+    <elementParameter field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter field="TEXT" name="FLUSHONROW_NUM" value="1" show="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.docsEncoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter field="CHECK" name="TRIM" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="XMLOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tFileOutputXML_1">
+      <column comment="" key="false" length="11" name="codigo_INE" nullable="false" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="localidad" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="festividad" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="384" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_2" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_lTPXoCmYEeeTWJWoKrpnVA-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="DBToICS"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="CalendarMapper" name="CalendarMapper">
+      <column comment="" key="false" length="-1" name="Codigo_INE" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Localidad" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Festividad" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="MapperData">
+      <uiProperties/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="CalendarMapper">
+        <mapperTableEntries name="Codigo_INE" expression="row7.Codigo_INE " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Localidad" expression="row7.Localidad " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Fecha" expression="row7.Fecha " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Festividad" expression="row7.Festividad " type="id_String" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="row7" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="Codigo_INE" type="id_String"/>
+        <mapperTableEntries name="Localidad" type="id_String" nullable="true"/>
+        <mapperTableEntries name="Fecha" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="Festividad" type="id_String" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="if (globalMap.containsKey(&quot;calendarioFestivosAragon&quot;)) {&#xA;&#x9;if (input_row.Fecha != null) {&#xA;&#x9;&#x9;//Getting the calendar from the Global Map&#xA;&#x9;&#x9;net.fortuna.ical4j.model.Calendar calendar = (net.fortuna.ical4j.model.Calendar) globalMap.get(&quot;calendarioFestivosAragon&quot;);&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;//Generating event name&#xA;&#x9;&#x9;StringBuilder eventName = new StringBuilder(&quot;&quot;);&#xA;&#x9;&#x9;eventName.append(&quot;Festivo en &quot;).append(input_row.Localidad);&#xA;&#x9;&#x9;if (input_row.Festividad != null &amp;&amp; !&quot;&quot;.equals(input_row.Festividad)) {&#xA;&#x9;&#x9;&#x9;eventName.append(&quot; (&quot;).append(input_row.Festividad).append(&quot;)&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;//Creating an event&#xA;&#x9;&#x9;VEvent bankHolidayEvent = new VEvent(new net.fortuna.ical4j.model.Date(input_row.Fecha.getTime()), eventName.toString());&#xA;&#xA;&#x9;&#x9;//bankHolidayEvent.getProperties().getProperty(Property.DTSTART).getParameters().add(Value.DATE);&#xA;  &#x9;&#x9;&#xA;&#x9;&#x9;UidGenerator uidGenerator = new UidGenerator(&quot;1&quot;);&#xA;&#x9;&#x9;bankHolidayEvent.getProperties().add(uidGenerator.generateUid());&#xA;&#x9;&#x9;calendar.getComponents().add(bankHolidayEvent);&#xA;&#x9;&#xA;&#x9;&#x9;//Setting the calendar udpated into the Global Map&#xA;&#x9;&#x9;globalMap.put(&quot;calendarioFestivosAragon&quot;, calendar);&#xA;&#x9;}&#xA;} else {&#xA;&#x9;System.out.println(&quot;No se ha creado el calendario y no se puede continuar&quot;);&#xA;&#x9;throw new IOException(&quot;Calendar not found in Map&quot;);&#xA;}"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import net.fortuna.ical4j.model.component.VEvent;&#xA;import net.fortuna.ical4j.model.Property;&#xA;import net.fortuna.ical4j.model.parameter.Value;&#xA;import net.fortuna.ical4j.util.UidGenerator;"/>
+    <elementParameter field="TEXT" name="LABEL" value="ICSEvents"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="CalendarMapper" name="tJavaRow_1">
+      <column comment="" key="false" length="-1" name="Localidad" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Festividad" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLibraryLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLibraryLoad_1" show="false"/>
+    <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;ical4j-2.0.0.jar&quot;"/>
+    <elementParameter field="TABLE" name="HOTLIBS">
+      <elementValue elementRef="LIBPATH" value="&quot;commons-lang3-3.4.jar&quot;"/>
+      <elementValue elementRef="LIBPATH" value="&quot;commons-collections4-4.0.jar&quot;"/>
+      <elementValue elementRef="LIBPATH" value="&quot;slf4j-api-1.7.5.jar&quot;"/>
+      <elementValue elementRef="LIBPATH" value="&quot;slf4j-simple-1.7.5.jar&quot;"/>
+    </elementParameter>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="&#xA;"/>
+    <elementParameter field="TEXT" name="LABEL" value="ICSLib"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="if (globalMap.containsKey(&quot;calendarioFestivosAragon&quot;)) {&#xA;&#x9;net.fortuna.ical4j.model.Calendar calendar = (net.fortuna.ical4j.model.Calendar) globalMap.get(&quot;calendarioFestivosAragon&quot;);&#xA;&#x9;&#xA;&#x9;FileOutputStream fout = new FileOutputStream(context.outDocsPath + context.outIcsDocName);&#xA;&#xA;&#x9;CalendarOutputter outputter = new CalendarOutputter();&#xA;&#x9;outputter.output(calendar, fout);&#xA;}"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.io.FileOutputStream;&#xA;import net.fortuna.ical4j.data.CalendarOutputter;"/>
+    <elementParameter field="TEXT" name="LABEL" value="ICSOutput"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_2"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="CHECK" name="TSTATCATCHER_STATS" value="true"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="//Creating a new calendar&#xA;net.fortuna.ical4j.model.Calendar calendar = new net.fortuna.ical4j.model.Calendar();&#xA;calendar.getProperties().add(new ProdId(context.outIcsDocHeaderPropertyProdId));&#xA;calendar.getProperties().add(Version.VERSION_2_0);&#xA;calendar.getProperties().add(CalScale.GREGORIAN);&#xA;&#xA;globalMap.put(&quot;calendarioFestivosAragon&quot;, calendar);&#xA;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import net.fortuna.ical4j.model.property.CalScale;&#xA;import net.fortuna.ical4j.model.property.ProdId;&#xA;import net.fortuna.ical4j.model.property.Version;"/>
+    <elementParameter field="TEXT" name="LABEL" value="ICSCalendar"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="FestivosHuescaPlantilla" name="tJava_1">
+      <column comment="" key="false" length="11" name="Codigo_INE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="Localidad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Fecha" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="100" name="Festividad" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tFileInputExcel_1" offsetLabelX="-32" offsetLabelY="4" source="tFileInputExcel_1" target="tHSQLDbOutput_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tHSQLDbOutput_1" offsetLabelX="50" offsetLabelY="3" source="tHSQLDbOutput_1" target="tFileInputExcel_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tFileInputExcel_2" offsetLabelX="-47" offsetLabelY="5" source="tFileInputExcel_2" target="tHSQLDbOutput_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tHSQLDbOutput_2" offsetLabelX="-50" offsetLabelY="-8" source="tHSQLDbOutput_2" target="tLibraryLoad_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tHSQLDbInput_2" offsetLabelX="2" offsetLabelY="-38" source="tHSQLDbInput_2" target="tReplicate_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tReplicate_1" offsetLabelX="-1" offsetLabelY="-1" outputId="1" source="tReplicate_1" target="tFileOutputExcel_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row6" lineStyle="0" metaname="tReplicate_1" offsetLabelX="49" offsetLabelY="-15" outputId="2" source="tReplicate_1" target="tFileOutputJSON_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row6" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tReplicate_1" offsetLabelX="25" offsetLabelY="-20" outputId="3" source="tReplicate_1" target="tFileOutputDelimited_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row8" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tReplicate_1" offsetLabelX="50" offsetLabelY="-15" outputId="4" source="tReplicate_1" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tReplicate_1" offsetLabelX="26" offsetLabelY="-1" outputId="5" source="tReplicate_1" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row7" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="Merged" lineStyle="0" metaname="Merged" offsetLabelX="7" offsetLabelY="26" source="tMap_1" target="tFileOutputXML_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="Merged" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="CalendarMapper" lineStyle="0" metaname="CalendarMapper" offsetLabelX="-1" offsetLabelY="-43" source="tMap_2" target="tJavaRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="Codigo_INE"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="CalendarMapper" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJavaRow_1" offsetLabelX="-1" offsetLabelY="-24" source="tJavaRow_1" target="tJava_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk7" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tLibraryLoad_1" offsetLabelX="-2" offsetLabelY="32" source="tLibraryLoad_1" target="tJava_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk4" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJava_1" offsetLabelX="3" offsetLabelY="-37" source="tJava_1" target="tHSQLDbInput_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputExcel_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputExcel_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHSQLDbInput_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLibraryLoad_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="237;241;243" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="173;205;222"/>
+  </subjob>
+</talendfile:ProcessType>

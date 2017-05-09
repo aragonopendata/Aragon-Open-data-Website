@@ -1,0 +1,739 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.8/ http://www.mediawiki.org/xml/export-0.8.xsd" version="0.8" xml:lang="es">
+  <siteinfo>
+    <sitename>Aragopedia</sitename>
+    <base>http://alzir.dia.fi.upm.es/mediawiki-1.22.0/index.php/P%C3%A1gina_principal</base>
+    <generator>MediaWiki 1.22.0</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Medio</namespace>
+      <namespace key="-1" case="first-letter">Especial</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Discusión</namespace>
+      <namespace key="2" case="first-letter">Usuario</namespace>
+      <namespace key="3" case="first-letter">Usuario discusión</namespace>
+      <namespace key="4" case="first-letter">Aragopedia</namespace>
+      <namespace key="5" case="first-letter">Aragopedia discusión</namespace>
+      <namespace key="6" case="first-letter">Archivo</namespace>
+      <namespace key="7" case="first-letter">Archivo discusión</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki discusión</namespace>
+      <namespace key="10" case="first-letter">Plantilla</namespace>
+      <namespace key="11" case="first-letter">Plantilla discusión</namespace>
+      <namespace key="12" case="first-letter">Ayuda</namespace>
+      <namespace key="13" case="first-letter">Ayuda discusión</namespace>
+      <namespace key="14" case="first-letter">Categoría</namespace>
+      <namespace key="15" case="first-letter">Categoría discusión</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Common.css</title>
+    <ns>8</ns>
+    <id>947</id>
+    <revision>
+      <id>26100</id>
+      <parentid>26099</parentid>
+      <timestamp>2014-02-04T19:02:40Z</timestamp>
+      <contributor>
+        <username>Dportoles</username>
+        <id>2</id>
+      </contributor>
+      <text xml:space="preserve" bytes="19446">/* El CSS colocado en esta página será aplicado a todas las apariencias */
+
+.infobox table{
+width:100%;
+text-align:left;
+border-collapse:collapse;
+}
+
+
+#infobox_mapa {
+    position: relative;
+    top: -25px;
+}
+
+#infobox_mapa caption{
+    color:white;
+background-color:#3B515C;
+ line-height: 40px;
+font-size: 14pt;
+}
+
+.nowiki{
+display: none;
+}
+body {
+    background-color: white;
+      
+
+}
+
+#content td,#content th{
+
+padding-right:5px;
+padding-left:5px;}
+
+.suggestions-results .mw-searchSuggest-link{
+display: block !important;
+}
+.mw-searchSuggest-link{
+display:none;
+}
+
+#pt-anonuserpage, #pt-anontalk{
+display:none;
+}
+
+
+#aragopedia{
+margin:auto;
+ width: 980px;
+text-align:left;
+}
+h1{
+color:#244454;
+}
+
+#mw-content-text table th{
+background-color: #76a1b8;
+color:white;
+}
+#mw-content-text .infobox table td,#mw-content-text .infobox table th{
+border: none;
+}
+#mw-content-text table td,#mw-content-text table th{
+border: 1px solid #3B515C;
+}
+
+#coll-download-as-rl{
+display:none;
+
+}
+#p-navigation{
+border:none !important;
+}
+div.vectorMenu {
+height:30px;
+}
+div.vectorMenu h3 a {
+height:30px;
+}
+div#mw-panel div.portal {
+padding-bottom:0 !important;
+}
+#n-randompage, #t-specialpages, #t-recentchangeslinked,#t-permalink{
+/*border-bottom: 2px solid #9EC3D3;
+padding-bottom: 15px !important;*/
+display:none
+}
+
+#n-recentchanges{
+border-bottom: 2px solid #9EC3D3;
+padding-bottom: 15px !important
+}
+#t-pdf{
+border-top: 2px solid #9EC3D3;
+padding-top: 15px !important;
+}
+#t-whatlinkshere{
+padding-top: 10px !important;
+}
+#t-info{
+padding-bottom:15px !important;
+}
+#mw-panel.collapsible-nav .portal h3 {
+display:none;
+}
+
+#mw-panel.collapsible-nav .portal.persistent .body {
+ margin-top: 10px;
+}
+#mw-panel.collapsible-nav .portal .body {
+   
+    margin-left: 0.5em;
+}
+#mw-panel.collapsible-nav .portal {
+background-image:none;
+padding-bottom:0 !important;
+
+}
+#ca-watch.icon a {
+    background-position: 5px 40% !important;
+}
+
+#left-navigation {
+    display: none;
+ 
+}
+#p-logo {
+background-color:white;
+    height: 164px !important;
+    left: 0 !important;
+   
+    top: -190px !important;
+    width: 164px!important;
+}
+
+#p-logo a {
+    height: 164px !important;
+    width: 164px !important;;
+}
+#mw-navigation{
+
+height:100%;
+}
+#mw-page-base {
+   height:0;
+}
+.firstHeading, #firstHeading {
+    line-height: auto;
+}
+
+/*.mini div#mw-head {
+  position: fixed !important;
+ top: 80px !important;
+}*/
+div#mw-head {
+background-color:white;
+  /*  position: fixed !important;*/
+    right: auto !important;
+    width: 989px;
+ top: 240px !important;
+}
+#mw-page-base {
+    background-image:none;
+}
+#mw-panel{
+background-color: #DAE7EE;
+padding-left:0 !important;
+
+}
+/*.mini div#mw-panel{
+position:fixed !important;
+ top: 280px !important;
+}*/
+div#mw-panel{
+z-index:1;
+padding-top:0;
+  top: 475px !important;
+width: 163px;
+/*height:100%;*/
+left:auto!important;
+position:absolute;
+/*position:fixed !important;*/
+}
+div#mw-panel div.portal div.body ul li a, div#mw-panel div.portal div.body ul li a:visited {
+    color: #244455;
+font-weight:bold;
+letter-spacing: 1px;
+    line-height: 14px;
+
+  color: #4F7589 !important;
+    font-size: 12px;
+
+    letter-spacing: 1px;
+    outline: 0 none;
+    text-align: left;
+    text-decoration: none;
+}
+
+div#mw-panel div.portal div.body ul li a:hover { 
+	
+	color:#000000 !important;
+
+}
+
+div#content{
+border: none;
+margin-left: 193px;
+   margin-top: 90px;
+padding:0;
+}
+
+.mini div#p-search {
+    margin-left: 102px;
+    position: fixed !important;
+    top: 80px !important;
+}
+
+div#simpleSearch button#searchButton img {
+display:none;
+}
+
+
+
+div#simpleSearch button#searchButton {
+background-image: url(&quot;/mediawiki-1.22.0/skins/aragopedia/images/06-Lupa.png&quot;) !important;
+
+    height: 30px;
+    margin-top: 2px;
+    
+    width: 25px;
+}
+
+div#simpleSearch {
+background-image:none;
+    background-color: white;
+height: 30px;
+    border: 1px solid #5A9BB9;
+margin-top:0 !important;
+width: 190px;
+}
+
+#p-search {
+    
+    margin-right: 0.5em;
+}
+
+#p-search form, #p-search input {
+    margin: 0;
+}
+
+.suggestions-result{
+color:#23454F!important;
+}
+.suggestions-result-current .special-label, .suggestions-result-current .special-query {
+    color: #23454F !important;
+}
+div#simpleSearch input#searchInput {
+
+    color:#23454F;
+
+    font-size: 18px;
+}
+
+div.vectorTabs {    height: 30px;
+}
+div.vectorTabs, div.vectorTabs span { 
+    background-image: none;
+}
+
+div.vectorTabs li{
+  margin-right: 2px !important;
+}
+div.vectorTabs ul li {
+    background-color: #DAE7EE;
+    background-image: none !important;
+ border: 1px solid #5A9BB9;
+text-transform: uppercase;
+ text-align: center;
+}
+
+div.vectorTabs ul{
+  height: 30px;
+}
+
+div.vectorTabs span a {
+    padding-top: 0.55em;
+}
+
+div.vectorTabs li a, div.vectorTabs li.selected a, div.vectorTabs li.selected a:visited {
+    color: #5A9BB9;
+font-weight:bold;
+}
+
+#ca-history{
+width: 120px;
+}
+#ca-view{
+width: 62px;
+}
+#ca-edit, #ca-viewsource{
+width: 108px;
+}
+
+/* cabecera relacionados*/
+#cabeceraRelacionados { width: 100%; background-color: #666359; float:right; /*height:20px;*/ overflow: hidden; }
+
+#cabeceraRelacionados ul { margin:0;float:left;position:relative; left:50%; letter-spacing:1px; line-height: 18px; width:980px; list-style: none outside none;}
+#cabeceraRelacionados li {margin:0;float:right; padding-left: 18px; position:relative; right:50%; }
+
+#cabeceraRelacionados li a{ font-weight: bold;text-decoration:none; color:#e5e5e3 !important; font-size: 10px; }
+#cabeceraRelacionados li.active a{color:#ffffff !important; font-weight:bold; border-bottom: 3px solid #76a1b8;}
+#cabeceraRelacionados li a:hover{color:#ffffff !important;}
+
+/* fin cabecera relacionados*/
+
+/* cabecera institucional */
+#cabecera { width: 100%; background-color: #FFFFFF; height: 58px; float: left; overflow: hidden; }
+#cabecera ul { float:left; position:relative; left:50%;  width: 980px; list-style: none outside none;margin:0;}
+#cabecera ul li { float: left; position:relative; right:50%; padding-top:15px; padding-left: 0px; padding-bottom: 9px; }
+
+/* fin cabecera  institucional */
+
+/* cabecera  aod*/
+
+.banner {  width: 100%; background-color: #76a1b8;  float: left; overflow: hidden; }
+.banner ul { float:left; position:relative; left:50%;  width: 980px;list-style: none outside none; margin:0;}
+.banner ul li { float: left; position:relative; right:50%; }
+
+.banner ul li.busqueda { padding-left: 0px; padding-top: 0px; width:500px; }
+.banner ul li.bannerBuscador { float: right; }
+.banner ul li.bannerBuscador {padding-top: 52px; }
+.mini .banner {position:fixed; top:0px;  z-index:101; }
+.mini .banner ul li.bannerBuscador {padding-top: 12px; }
+.banner ul li.bannerLogo { padding-left: 0px; }
+.banner ul li.bannerLogo { padding-top: 18px; padding-bottom: 32px;}
+.mini .banner ul li.bannerLogo { padding-top: 8px; padding-bottom: 0px;}
+.mini .banner ul li.bannerLogo img {  vertical-align: inherit;height: 30px; padding-bottom: 4px;}
+#cajaDeBusqInput { height: 17px; background: url(/public/i/buscadorPlaceholder.png) no-repeat #FFFFFF; background-position: 5px 5px;}
+#cajaDeBusqInput:focus { background: #FFFFFF;}
+
+.search {
+  border: 1px solid #ccc;
+  font-size: 10px;
+  padding: 0.4em;
+}
+
+.anchoSearchBanner { width: 425px; }
+
+.btn-search {
+    background-image: url(&quot;/public/i/lupa.jpg&quot;);
+	border: none;
+    height: 26px;
+    text-indent: -999em;
+    width: 26px;
+	margin-top: 1px;
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+/* fin cabecera  aod*/
+
+/* navegacion principal*/
+#navegacion ul{margin:0;list-style: none outside none;}
+.botones { background: #76a1b8; border-top: 2px solid #FFFFFF; overflow:hidden; width: 100%; }
+.botonesSuperiorLista ul { float:left;position:relative; left:50%; }
+.botonesSuperiorLista ul li {margin:0;float:left; width:161px; height:30px; border-right:2px solid #FFFFFF;  position:relative; right:50%; cursor: pointer; font-size: 12px; font-weight: normal; letter-spacing: 1px;}
+.botonesSuperiorLista ul li.first { width:161px; border-left:2px solid #FFFFFF;  }
+.botonesSuperiorLista ul li.last { width:161px; }
+.botonesSuperiorLista ul li .textoBoton{padding-top: 7px;}
+.botonesSuperiorLista ul li img {padding-top: 10px;}
+
+
+.mini .botones { position:fixed; top: 48px; z-index:101; }
+
+
+.botonSuperior { background-color: #76a1b8; color: #FFFFFF; }
+.botonSuperiorOver { background-color: #3b515c; color: #FFFFFF; }
+.botonSuperiorClicked { background-color: #3b515c; color: #76a1b8; }
+
+header, nav {
+width:100%;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	text-align:center;
+/*	background: url(/public/i/fondo.jpg) repeat-x #FFF;*/
+	/*background-color: #eef2f4;*/
+	background-color: #FFFFFF;
+	line-height: 20px;	
+	letter-spacing: 1px; 
+}
+#banner ul{
+margin:0;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+	.visible-xs {
+		display: block !important;
+	}
+	.tamCeroEstrecho {
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+		display:none;
+	}
+
+	/*.anchoMax { width: 300px; }*/
+	#cabeceraRelacionados ul {width: 280px; }
+	#cabecera ul {width: 280px; }
+	#banner ul {width: 280px; }
+	#banner ul li.bannerBuscador { padding-top: 0px; padding-bottom: 6px; }
+	.anchoSearchBanner { width: 225px; }
+	.botonesSuperiorLista ul li, .botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.last { width:150px; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.second, .botonesSuperiorLista ul li.third, .botonesSuperiorLista ul li.fourth { border-bottom: 2px solid #FFFFFF; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.third, .botonesSuperiorLista ul li.fifth{ border-left: 2px solid #FFFFFF; }
+	#tituloVideo { top: 11px; }
+	#playVideo { top: 55px; }
+	#dvdVideoImg {width: 280px; }
+	#videoPlayer { width: 280px; height: 157px; }
+	.huecoSeccionHome { padding-top: 20px; }
+	.flechaUp { padding-bottom: 10px;}
+	#pieUL {width: 280px; }
+	#pieULLI {width: 280px; }
+	.pieZonaDos ul li table { border-right: none; }
+	.seccionHome {width: 280px;  height: auto; }
+	#zonaNoticias  { width: 280px;  }
+	.zonaVentanaDatosDestacados { padding: 5px; }
+	.seccionHomeIconos li .texto{ width: 280px; }
+	.seccionHomeIconos li.item1 { width: 280px; }
+	.seccionHomeIconos li.item2 { width: 280px; }
+	.seccionHomeIconos li.item3 { width: 280px; }
+	.seccionHomeIconos li.item1 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item2 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
+}
+
+@media screen and (min-width:480px) and (max-width: 599px)  {
+	.visible-ms {
+		display: block !important;
+	}
+	.tamCeroEstrecho {
+		width: 0px !important;
+		height: 0px !important;		
+		overflow: hidden;
+		display:none;
+	}
+	/*.anchoMax { width: 460px; }	*/
+	#cabeceraRelacionados ul {width: 450px; }
+	#cabecera ul {width: 450px; }
+	#banner ul {width: 450px; }
+	#banner ul li.bannerBuscador { padding-top: 0px; padding-bottom: 6px; }
+	.anchoSearchBanner { width: 225px; }
+	.botonesSuperiorLista ul li, .botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.last { width:150px; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.second, .botonesSuperiorLista ul li.third { border-bottom: 2px solid #FFFFFF; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.fourth { border-left: 2px solid #FFFFFF; }
+	#tituloVideo { top: 11px; }
+	#playVideo { top: 55px; }
+	#dvdVideoImg {width: 450px; }
+	#videoPlayer { width: 450px; height: 157px; }
+	.huecoSeccionHome { padding-top: 20px; }
+	.flechaUp { padding-bottom: 10px;}
+	#pieUL {width: 474px; }
+	#pieULLI {width: 474px; }
+	.pieZonaDos ul li table { border-right: none; }
+	.seccionHome {width: 450px;  height: auto; }
+	#zonaNoticias  { width: 450px;  }
+	.zonaVentanaDatosDestacados { padding: 5px; }
+	.seccionHomeIconos li .texto{ width: 450px; }
+	.seccionHomeIconos li.item1 { width: 450px; }
+	.seccionHomeIconos li.item2 { width: 450px; }
+	.seccionHomeIconos li.item3 { width: 450px; }
+	.seccionHomeIconos li.item1 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item2 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
+}
+
+@media screen and (min-width:600px) and (max-width: 767px)  {
+	.visible-ms {
+		display: block !important;
+	}
+	.tamCeroEstrecho {
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+		display:none;
+	}
+	/*.anchoMax { width: 460px; }	*/
+	#cabeceraRelacionados ul {width: 590px; }
+	#cabecera ul {width: 590px; }
+	#banner ul {width: 590px; }
+	#banner ul li.bannerBuscador { padding-top: 0px; padding-bottom: 6px; }
+	.anchoSearchBanner { width: 225px; }
+	.botonesSuperiorLista ul li, .botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.last { width:150px; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.second, .botonesSuperiorLista ul li.third { border-bottom: 2px solid #FFFFFF; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.fourth { border-left: 2px solid #FFFFFF; }
+	#tituloVideo { top: 11px; }
+	#playVideo { top: 55px; }
+	#dvdVideoImg {width: 590px; }
+	#videoPlayer { width: 590px; height: 157px; }
+	.huecoSeccionHome { padding-top: 20px; }
+	.flechaUp { padding-bottom: 10px;}
+	#pieUL {width: 490px; }
+	#pieULLI {width: 490px; }
+	.pieZonaDos ul li table { border-right: none; }
+	.seccionHome {width: 590px;  height: auto; }
+	#zonaNoticias  { width: 590px;  }
+	.zonaVentanaDatosDestacados { padding: 5px; }
+	.seccionHomeIconos li .texto{ width: 590px; }
+	.seccionHomeIconos li.item1 { width: 590px; }
+	.seccionHomeIconos li.item2 { width: 590px; }
+	.seccionHomeIconos li.item3 { width: 590px; }
+	.seccionHomeIconos li.item1 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item2 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
+}
+
+
+@media screen and (min-width:768px) and (max-width: 1023px)  {
+	.visible-ms {
+		display: block !important;
+	}
+	.tamCeroEstrecho {
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden;
+		display:none;
+	}
+
+	/*.anchoMax { width: 460px; }	*/
+	#cabeceraRelacionados ul {width: 768px; }
+	#cabecera ul {width: 768px; }
+	#banner ul {width: 768px; }
+	#banner ul li.bannerBuscador { padding-top: 10px; padding-bottom: 16px; }
+	/*.anchoSearchBanner { width: 225px; }*/
+	.botonesSuperiorLista ul li, .botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.last { width:150px; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.second, .botonesSuperiorLista ul li.third { border-bottom: 2px solid #FFFFFF; }
+	.botonesSuperiorLista ul li.first, .botonesSuperiorLista ul li.fourth { border-left: 2px solid #FFFFFF; }
+	#tituloVideo { top: 11px; }
+	#playVideo { top: 55px; }
+	#dvdVideoImg {width: 768px; }
+	#videoPlayer { width: 768px; height: 157px; }
+	.huecoSeccionHome { padding-top: 20px; }
+	.flechaUp { padding-bottom: 10px;}
+	#pieUL {width: 490px; }
+	#pieULLI {width: 490px; }
+	.pieZonaDos ul li table { border-right: none; }
+	.seccionHome {width: 768px;  height: auto; }
+	#zonaNoticias  { width: 768px;  }
+	.zonaVentanaDatosDestacados { padding: 5px; }
+	.seccionHomeIconos li .texto{ width: 768px; }
+	.seccionHomeIconos li.item1 { width: 768px; }
+	.seccionHomeIconos li.item2 { width: 768px; }
+	.seccionHomeIconos li.item3 { width: 768px; }
+	.seccionHomeIconos li.item1 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item2 .texto { margin-left: 2px; }
+	.seccionHomeIconos li.item3 .texto { margin-left: 2px; }
+}
+
+/* pie */
+#pie { position:relative;z-index:2000; width: 100%; background-color: #332f21; float: left; overflow: hidden; text-align: left; color: #999790; font-weight: bold;  }
+#pieUL  { margin:0;list-style: none outside none;float:left; position:relative; left:50%;  width: 980px; padding-top: 30px; padding-bottom: 30px; }
+#pieULLI { float: left; position:relative; right:50%; width: 980px; }
+
+.pieInterior { border: 1px solid #999790; background: #332f21;  }
+
+.pieZonaUno { border-bottom: 1px solid #999790; padding-left: 12px; height:30px;}
+.pieZonaDos { }
+.pieZonaTres { border-top: 1px solid #999790;  height: 58px; margin-top: 5px; }
+
+.pieZonaUno ul {float: left;}
+#pieZonaUnoRoot{ padding-top:8px;padding-right:5px;vertical-align:top; }
+.pieZonaUno .footerLink {  font-size: 12px;
+    font-weight: bold;line-height:30px; padding-left:7px;vertical-align:top; }
+.pieZonaDos ul {margin:0;}
+.pieZonaDos ul li { margin:0; list-style: none outside none;float: left; min-width: 240px;  width: 25%;  }
+.pieZonaDos ul li table { border-right: 1px solid #999790; border-collapse: collapse; }
+.pieZonaDos ul li table.last { border-right: none; }
+.pieZonaDos ul li table tr td { padding-top:0;    padding-bottom: 0;padding-left: 12px; padding-right: 12px; }
+.pieZonaDos ul li table tr td.titulo{ padding-top: 4px; padding-bottom: 6px;}
+.pieZonaTres ul li { margin:0 !important; list-style: none outside none; padding:12px; }
+.pieZonaTres ul li.izquierda { float: left; }
+.pieZonaTres ul li.derecha { float: right; }
+
+.textoPie {
+	line-height:10px;	
+	font-size: 8px;
+	letter-spacing: 1px;
+}
+
+#logoGA_pie { padding: 15px; }
+
+.recuadroPie {margin-bottom: 6px;
+    margin-top: 5px; border: 1px solid #FFFFFF !important; }
+.pieZonaEnlaces { height: 173px; width: 185px; background-color: #FFFFFF; padding: 15px; margin-bottom: 5px; }
+.pieZonaEnlaces ul { padding-left: 15px; }
+a.pieEnlace { text-decoration: none;letter-spacing: 1px; line-height: 20px;color: #999790 !important; }
+a:hover.pieEnlace { color: #666359 !important; }
+	
+/* fin pie */
+.hueco12 { padding-top:12px; }
+.hueco32 { padding-top:32px; }
+
+.margin32 { margin-top:32px; }
+
+.i_i{float:left;}
+.d_d{float:right;}
+
+.clear{clear:both; font-size:1px; padding:0; margin:0;}
+.clear_i{clear:left; font-size:1px; padding:0; margin:0;}
+.clear_d{clear:right; font-size:1px; padding:0; margin:0;}
+
+.cabeceraRecurso ul {list-style:none; padding-top: 7px; }
+.cabeceraRecurso li {float:right; padding-left: 23px;}
+
+.etiquetasRecurso div {list-style:none; padding-left: 0px !important; width:510px; }
+.etiquetasRecurso a {white-space: nowrap}
+
+
+.visible-xs {
+    display: none !important;
+}
+.visible-ms {
+    display: none !important;
+}
+
+.visible-ls {
+    display: none !important;
+}
+
+.tamCero {
+	width: 0px !important;
+	border: none !important;
+}
+
+.tamCeroEstrecho {
+		width: 250px !important;
+}
+
+.tamEstrecho {
+		width: 150px !important;
+		overflow: hidden;
+}
+header div{
+margin:0;
+padding:0;
+}
+
+
+.oculto {
+    display: none;
+    visibility: hidden;
+}
+.iconoMenuIzquierdo { vertical-align:top; padding:2px;}
+.txtMenuIzquierdo { vertical-align:top; text-align:left; padding:2px; font-weight:bold;}
+.izquierda { text-align: left !important;}
+.derecha { text-align: right !important;}
+.centro { text-align: center;}
+
+.separador {  width:100%; background-color:#7A99AC; height:3px; font-size:3px; }
+.huecoPeq { padding: 2px;}
+
+.separadorCampos { padding-left:10px; padding-top:8px;  }
+.separadorCompleto {  width:100%; background-color:#7A99AC; height:3px !important;  margin-top:2px; font-size:3px;}
+.separadorFino {  width:100%; background-color:#7A99AC; height:1px;  font-size:1px;}
+.separadorFinoIaest {  margin-left:10px; width:94%; background-color:#7A99AC; height:1px;  font-size:1px;}
+.separadorVacio { padding-top:7px; padding-bottom:8px; }
+ul.styleDiscUL,ul.styleDiscUL li{ list-style: disc;font-size: 12px; }
+
+.pieZonaDos img {
+    border: 0 none;
+    max-width: 100%;
+vertical-align: inherit;
+}
+.pieZonaDos tr{
+line-height:20px;
+   font-size: 12px;
+}
+
+.pieZonaTres ul,.pieZonaTres p{
+margin:0;
+line-height: 10px;
+}
+
+address {
+    font-style: normal;
+}
+
+#footer-places {
+    visibility: hidden;
+}</text>
+      <sha1>1ufoqcxetqv2tbna6fb8himvpjd4r7q</sha1>
+      <model>css</model>
+      <format>text/css</format>
+    </revision>
+  </page>
+</mediawiki>

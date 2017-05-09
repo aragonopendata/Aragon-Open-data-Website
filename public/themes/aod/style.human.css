@@ -8,6 +8,7 @@ html, body {
 	/*background-color: #eef2f4;*/
 	background-color: #FFFFFF;
 	line-height: 20px;	
+	letter-spacing: 1px; 
 }
 
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td { margin: 0; padding: 0; }
@@ -726,7 +727,7 @@ Fin Propiedades correspondientes a los estilos de las páginas de Multimedia
 	padding-right: 0px;
 }
 
-.seccionAplicaciones ul { width: 100%;	clear: both;	border-bottom: solid 1px #76a1b8; }
+.seccionAplicaciones ul { width: 850px;	clear: both;	border-bottom: solid 1px #76a1b8; }
 
 .huecoSeccionAplicaciones { padding-top: 60px; clear: both; }
 .seccionAplicacionesIconos li { padding-top:15px; padding-bottom: 15px; float: left; }
@@ -1886,6 +1887,7 @@ p.bigButton {
 	#cajaDeBusqInput{
 		max-width: 360px;
 		width: 72%;
+		height:10px;
 	}
 	
 	.btn-login{
@@ -1929,8 +1931,7 @@ p.bigButton {
 		width: 45%;
 		padding: 1%;
 	}
-	.seccionAplicacionesIconos li .contenido { width: 300px;padding-left: 0px; }
-	.seccionAplicacionesIconos section ul li:first-child {width:100%;}
+
 	/*.anchoMax { width: 300px; }*/
 	#cabeceraRelacionados ul {width: 280px; }
 	#cabecera ul {width: 280px; }
@@ -2027,7 +2028,7 @@ p.bigButton {
 	.seccionHome {width: 450px;  height: auto; }
 	.seccionInfo {width: 450px; height: auto; }
 	.pagina {width: 450px; height: auto; }
-	.seccionAplicacionesIconos li .contenido { width: 300px;}
+	.seccionAplicacionesIconos li .contenido { width: 220px;}
 	#zonaNoticias  { width: 450px;  }
 	.zonaVentanaDatosDestacados { padding: 5px; }
 	.seccionHomeIconos li .texto{ width: 450px; }
@@ -2705,5 +2706,3 @@ p.bigButton {
     float: left;
     font-size: 20px;
 }
-
-.seccionAplicacionesIconos.jacathon li .contenido{width:660px;}

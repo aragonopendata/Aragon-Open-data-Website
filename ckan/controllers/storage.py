@@ -493,5 +493,7 @@ class StorageAPIController(BaseController):
         sys.path.insert(0, '/var/www/wolfcms/GA_OD_Core')
         import ga_od_core  
         id_vista = label
-        data = ga_od_core.preview(id_vista,None,None)
-        return data 
+        data = ga_od_core.preview(id_vista,None,None,None,None)
+	#import urllib2
+        #data = urllib2.urlopen("http://preopendata.aragon.es/GA_OD_Core/preview?view_id="+str(vista_id)+"&select_sql=*&filter_sql=").read()        
+	return data

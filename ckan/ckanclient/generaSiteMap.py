@@ -18,7 +18,7 @@ PORTAL=URL+"portal/"
 ARAGOPEDIA=URL+"aragopedia/"
 PAGINA_ARAGOPEDIA=ARAGOPEDIA+"index.php/"
 BASEDATOS=CATALOGO+'base-datos/'
-TEMA=CATALOGO+'group/'
+TEMA=CATALOGO+'tema/'
 ORGANIZACION=CATALOGO+'organizacion/'
 TAGS=CATALOGO+'?tags='
 URLDIRSITEMAPS=URL+"sitemaps/"
@@ -529,19 +529,117 @@ def limpiaXml():
 	filelist = [ f for f in os.listdir(DIRSITEMAPS) if f.endswith(".xml") ]
 	for f in filelist:
 		os.remove(DIRSITEMAPS+f)
+		
+#Método que sirve para añadir a un array las url de búsqueda por organizacion y tipo
+def busquedaOrganizacionTipo(conexion):
+	URL="http://opendata.aragon.es/"
+	CATALOGO=URL+"catalogo/"
+	PORORGANIZACION=CATALOGO+'busqueda-organizacion/'
+	ORGANIZACION=CATALOGO+'organizacion/'
+	consulta = "SELECT group_revision.name FROM public.group_revision WHERE group_revision.state='active' AND group_revision.current = 't' AND group_revision.is_organization='t' ORDER BY group_revision.name ASC;"
+	cursorOrganizacion=conexion.cursor()
+	devolver=[]
+	q = cursorOrganizacion.execute(consulta)
+	resultados = cursorOrganizacion.fetchall()
+	if resultados is not None:
+		for org in resultados:
+			devolver.append(PORORGANIZACION+org[0])
+			devolver.append(ORGANIZACION+org[0])
+			devolver.append(PORORGANIZACION+org[0]+'/calendario')
+			devolver.append(PORORGANIZACION+org[0]+'/fotos')
+			devolver.append(PORORGANIZACION+org[0]+'/hojas-de-calculo')
+			devolver.append(PORORGANIZACION+org[0]+'/mapas')
+			devolver.append(PORORGANIZACION+org[0]+'/recursos-educativos')
+			devolver.append(PORORGANIZACION+org[0]+'/recursos-web')
+			devolver.append(PORORGANIZACION+org[0]+'/rss')
+			devolver.append(PORORGANIZACION+org[0]+'/texto-plano')
+	cursorOrganizacion.close()
+	return devolver
+
+#Método que sirve para añadir a un array las url de los campus
+def urlCampus(conexion):
+	URL="http://opendata.aragon.es/"
+	CAMPUS=URL+"portal/campus/"
+	FILTROTIPO=CAMPUS+"?filtroTipo="
+	FILTROETIQUETAS=CAMPUS+"?filtroEtiquetas="
+	FILTROPONENTES=CAMPUS+"?filtroPonentes="
+	FILTROEVENTOS=CAMPUS+"?filtroEventos="
+	FILTROFORMATOS=CAMPUS+"?filtroFormatos="
+	CONTENIDO=CAMPUS+"ver_contenido/"
+	devolver=[]
+	cursor=conexion.cursor()
+
+
+	consulta="SELECT DISTINCT nombre FROM formato ORDER BY nombre"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(FILTROFORMATOS+res[0])
+
+	consulta="SELECT DISTINCT nombre FROM tipo ORDER BY nombre"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(FILTROTIPO+res[0])
+
+	consulta="SELECT DISTINCT nombre FROM evento ORDER BY nombre"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(FILTROEVENTOS+res[0])
+
+	consulta="SELECT DISTINCT nombre FROM tema ORDER BY nombre"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(FILTROETIQUETAS+res[0])
+
+	consulta="SELECT DISTINCT aparece FROM public.contenido ORDER BY aparece"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(FILTROPONENTES+res[0])
+
+	consulta="SELECT id FROM contenido"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for res in resultados:
+			devolver.append(CONTENIDO+str(res[0]))
+
+	cursor.close()
+	return devolver
+
+
+
+
+
+
+
+
 
 def main():
 	##PostgreSQL
-	CONEXION_BD = config.OPENDATA_POSTGRE_CONEXION_BD
+	#CONEXION_BD = config.OPENDATA_POSTGRE_CONEXION_BD
 	URL="http://opendata.aragon.es/"
 	CATALOGO=URL+"catalogo/"
 	PORTAL=URL+"portal/"
 	ARAGOPEDIA=URL+"aragopedia/"
 	PAGINA_ARAGOPEDIA=ARAGOPEDIA+"index.php/"
 	BASEDATOS=CATALOGO+'base-datos/'
-	TEMA=CATALOGO+'group/'
-	ORGANIZACION=CATALOGO+'organization/'
+	TEMA=CATALOGO+'tema/'
+	ORGANIZACION=CATALOGO+'organizacion/'
 	TAGS=CATALOGO+'?tags='
+	PORORGANIZACION=CATALOGO+'busqueda-organizacion'
+	ETIQUETA=CATALOGO+'etiqueta'
+	PAGEETIQUETA=ETIQUETA+'?page='
+	CURSO_DA=PORTAL+'campus/static/html/'
+	
 	
 	
 	limpiaXml()
@@ -553,7 +651,8 @@ def main():
 	print 'Comenzamos a generar el sitemap de HOME'
 	generaSiteMapHome()
 	#Nos conectamos a la base de datos
-	connection = psycopg2.connect(CONEXION_BD)
+	connection = config.conexion('opendata-postgre')
+	connectionCampus = config.conexion('opendata-campus')
 	
 	fecha=generaSiteMapDataset('direccion_general_de_patrimonio_cultural', connection)
 	print 'Comenzamos a generar el sitemap de los datasets'
@@ -583,14 +682,21 @@ def main():
 	sentenciaURL = generaSentenciaSiteMap(URLDIRSITEMAPS+"sitemapAplicaciones.xml",'index' )
 	sitemap.write(sentenciaURL)
 	print 'Comenzamos a generar el sitemap de las aplicaciones'
-	aplicaciones=['http://opendata.aragon.es/portal/aplicaciones', 'http://opendata.aragon.es/aragopedia', 'http://presupuesto.aragon.es/', 'http://opendata.aragon.es/portal/social-data', 'http://www.boa.aragon.es/EBOA/opendata.htm', 'http://www.arcgis.com/apps/StorytellingTextLegend/index.html?appid=3f1d252c1db64140817ab84f0a03524c', 'http://www.marianistas.net/', 'http://dondevanmisimpuestos.es/', 'http://www.ebolets.com/es/index.html', 'http://vps147.cesvima.upm.es/jacathon_2014/index.html', 'https://github.com/aragonopendata/DEVTA','http://laboratorio.diariodenavarra.es/jacathon/', 'https://github.com/aragonopendata/DNlab', 'https://github.com/aragonopendata/Huracan', 'http://crasaragon.com/','https://github.com/aragonopendata/JodoCoders', 'http://neru.me/', 'https://github.com/aragonopendata/Manata', 'https://play.google.com/store/apps/details?id=noteam.conocesaragon', 'https://github.com/aragonopendata/NOTEAM', 'http://visual-aragopedia.visualizados.com/', 'https://github.com/aragonopendata/Poolparty', 'http://opendata.aragon.es/portal/envio-aplicaciones'] #Falta , 'http://aot.rbel.co/' que no va
+#	aplicaciones=['http://opendata.aragon.es/portal/aplicaciones', 'http://opendata.aragon.es/aragopedia', 'http://presupuesto.aragon.es/', 'http://opendata.aragon.es/portal/social-data', 'http://www.boa.aragon.es/EBOA/opendata.htm', 'http://www.arcgis.com/apps/StorytellingTextLegend/index.html?appid=3f1d252c1db64140817ab84f0a03524c', 'http://www.marianistas.net/', 'http://dondevanmisimpuestos.es/', 'http://www.ebolets.com/es/index.html', 'http://vps147.cesvima.upm.es/jacathon_2014/index.html', 'https://github.com/aragonopendata/DEVTA','http://laboratorio.diariodenavarra.es/jacathon/', 'https://github.com/aragonopendata/DNlab', 'https://github.com/aragonopendata/Huracan', 'http://crasaragon.com/','https://github.com/aragonopendata/JodoCoders', 'http://neru.me/', 'https://github.com/aragonopendata/Manata', 'https://play.google.com/store/apps/details?id=noteam.conocesaragon', 'https://github.com/aragonopendata/NOTEAM', 'http://visual-aragopedia.visualizados.com/', 'https://github.com/aragonopendata/Poolparty', 'http://opendata.aragon.es/portal/envio-aplicaciones'] #Falta , 'http://aot.rbel.co/' que no va
+	aplicaciones=['http://opendata.aragon.es/portal/aplicaciones', 'http://opendata.aragon.es/aragopedia', 'http://opendata.aragon.es/portal/social-data', 'http://opendata.aragon.es/portal/envio-aplicaciones']
 	generaSiteMapURL('Aplicaciones', aplicaciones, '0.3')
 	
 	#Info open data
 	sentenciaURL = generaSentenciaSiteMap(URLDIRSITEMAPS+"sitemapInfoOpenData.xml",'index' )
 	sitemap.write(sentenciaURL)
 	print 'Comenzamos a generar el sitemap de info open data'
-	infoOpenData=[ PORTAL+'aragon-open-data', PORTAL+'multimedia/videos', PORTAL+'multimedia/imagenes', PORTAL+'multimedia/presentaciones', PORTAL+'documentacion', PORTAL+'desarrolladores/resumen', PORTAL+'desarrolladores/api-ckan', PORTAL+'desarrolladores/api-social-data', PORTAL+'desarrolladores/api-aragopedia', PORTAL+'desarrolladores/api-aragodbpedia', PORTAL+'desarrolladores/punto-sparql', URL+'def/Aragopedia.html', PORTAL+'cliente-sparql', PORTAL+'jacathon']
+	infoOpenData=[ PORTAL+'aragon-open-data', PORTAL+'campus/', PORTAL+'documentacion', PORTAL+'desarrolladores/resumen', PORTAL+'desarrolladores/api-ckan', PORTAL+'desarrolladores/api-social-data', PORTAL+'desarrolladores/api-aragopedia', PORTAL+'desarrolladores/api-aragodbpedia', PORTAL+'desarrolladores/punto-sparql', URL+'def/Aragopedia.html', PORTAL+'cliente-sparql', PORTAL+'jacathon']
+	print 'Añadimos las urls del campus'
+	urlsdelCampus=urlCampus(connectionCampus)
+	urlCurso_DA=[CURSO_DA+'10_ficheros_de_datos.html', CURSO_DA+'1_acuerdo_de_gobierno_de_17_de_julio_de_2012.html', CURSO_DA+'1_aplicaciones_disponibles_a_partir_de_open_data.html', CURSO_DA+'1_compromiso_en_la_publicacin_de_los_datos.html', CURSO_DA+'1_conjunto_de_datos_disponibles.html', CURSO_DA+'1_directiva_200398ce_de_17_de_noviembre_de_2003_del_parlamento_europeo_y_del_consejo_relativa_a_la_reutilizacin_de_la_informacin_del_sector_pblico.html', CURSO_DA+'1_ejemplo_completo_13.html', CURSO_DA+'1_explotacin_de_la_informacin.html', CURSO_DA+'1_federacion_de_servidores_datosgobes.html', CURSO_DA+'1_formatos_de_ficheros_propietarios_vs_abiertos.html', CURSO_DA+'1_ley_372007_de_16_de_noviembre_sobre_reutilizacin_de_la_informacin_del_sector_pblico_risp.html', CURSO_DA+'1_los_datos_pblicos_como_recurso.html', CURSO_DA+'1_open_data_aragn_utilidad_de_los_datos.html', CURSO_DA+'1_open_data_nacionales_e_internacionales.html', CURSO_DA+'1_publicidad_activa.html', CURSO_DA+'1_qu_persigue_el_declogo_la_armonizacin_de_las_administraciones.html', CURSO_DA+'1_qu_significa_open_data.html', CURSO_DA+'1_reutilizacin_de_la_informacin_pblica_desarrollo_mediante_real_decreto_14952011.html', CURSO_DA+'1_toma_de_decisiones__inteligentes_a_partir_de_datos.html', CURSO_DA+'1_ventajas_de_la_toma_de_decisiones_a_partir_de_open_data.html', CURSO_DA+'1_w3c_estndar_web.html', CURSO_DA+'2_cmo_los_datos_mejoran_la_administracin_pblica.html', CURSO_DA+'2_cmo_se_federa_informacin_en_el_servidor_de_datosgobes.html', CURSO_DA+'2_creacin_de_riqueza_con_datos_abiertos_la_nueva_economa.html', CURSO_DA+'2_creative_commons_y_open_data_commons.html', CURSO_DA+'2_declogo_open_data_15.html', CURSO_DA+'2_derecho_de_acceso_a_la_informacin.html', CURSO_DA+'2_directiva_201337ue_del_parlamento_europeo_y_del_consejo_de_26_de_junio_de_2013_por_la_que_se_modifica_la_directiva_200398ce_relativa_a_la_reutilizacin_de_la_informacin_del_sector_pblico.html', CURSO_DA+'2_ejemplo_completo_23.html', CURSO_DA+'2_ejemplo_de_servicios_de_carburantes.html', CURSO_DA+'2_el_uso_de_los_datos_por_los_ciudadanos.html', CURSO_DA+'2_herramientas_scraping_y_etl.html', CURSO_DA+'2_las_5_estrellas_en_datos_abiertos.html', CURSO_DA+'2_ley_192013_de_9_de_diciembre_de_transparencia_acceso_a_la_informacin_pblica_y_buen_gobierno.html', CURSO_DA+'2_ley_82015_de_25_de_marzo_de_transparencia_de_la_actividad__pblica_y_de_participacin_ciudadana_de_aragn.html', CURSO_DA+'2_metodologa_crips_metodologa_de_data_mining.html', CURSO_DA+'2_nivel_de_granularidad_de_los_datos.html', CURSO_DA+'2_qu_proporciona_la_apertura_de_datos.html', CURSO_DA+'2_transformacin_y_consolidacin_de_los_datos.html', CURSO_DA+'2_utilidades_de_los_portales_open_data_12_portal_del_ayuntamiento_de_zaragoza.html', CURSO_DA+'2_web_semntica.html', CURSO_DA+'3_anlisis_de_la_informacin_para_la_toma_de_decisiones.html', CURSO_DA+'3_artculos_23_y_24_de_la_ley_de_transparencia_de_aragn.html', CURSO_DA+'3_codificacin_de_los_ficheros.html', CURSO_DA+'3_datos_de_calidad_12.html', CURSO_DA+'3_dcat.html', CURSO_DA+'3_declogo_open_data_25.html', CURSO_DA+'3_ejemplo_completo_33.html', CURSO_DA+'3_ejemplo_de_aplicacin_de_smart_city_calidad_del_aire_de_zaragoza.html', CURSO_DA+'3_formatos_y_conversiones.html', CURSO_DA+'3_herramientas_de_inteligencia_artificial.html', CURSO_DA+'3_open_data_mejora_social_a_travs_del_id.html', CURSO_DA+'3_optimiza_la_experiencia_de_los_ciudadanos_ahorrando_dinero.html', CURSO_DA+'3_otra_normativa_europea.html', CURSO_DA+'3_proteccin_o_garantas_del_derecho_al_acceso_a_la_informacin.html', CURSO_DA+'3_qu_datos_te_puedes_encontrar_en_aragn_open_data.html', CURSO_DA+'3_real_decreto_42010_de_8_de_enero_por_el_que_se_regula_el_esquema_nacional_de_interoperabilidad_en_el_mbito_de_la_administracin_electrnica.html', CURSO_DA+'3_servidores_federados_de_la_unin_europea.html', CURSO_DA+'3_utilidades_de_los_portales_open_data_22_portal_del_gobierno_de_aragn.html', CURSO_DA+'4_acceso_a_la_pizarra_de_administracin.html', CURSO_DA+'4_carencias_de_los_portales_de_open_data.html', CURSO_DA+'4_catlogo_de_estndares.html', CURSO_DA+'4_datos_de_calidad_22.html', CURSO_DA+'4_declogo_open_data_35.html', CURSO_DA+'4_ejemplo_de_aplicacin_de_smart_city_calidad_del_agua_de_zaragoza.html', CURSO_DA+'4_herramientas_de_visualizacin_y_cuadro_de_mandos.html', CURSO_DA+'4_linked_data.html', CURSO_DA+'4_open_data_y_la_transparencia.html', CURSO_DA+'4_otra_normativa_estatal_que_tambin_afecta_a_open_data_12.html', CURSO_DA+'4_presentacin_de_resultados_el_cuadro_de_mando_operacional.html', CURSO_DA+'5_crear_un_nuevo_conjunto_de_datos.html', CURSO_DA+'5_declogo_open_data_45.html', CURSO_DA+'5_ejemplo_de_periodismo_de_datos_12.html', CURSO_DA+'5_otra_normativa_estatal_que_tambin_afecta_a_open_data_22.html', CURSO_DA+'5_qu_problemas_pueden_causar_tener_datos_de_mala_calidad.html', CURSO_DA+'5_sparql.html', CURSO_DA+'6_declogo_open_data_55.html', CURSO_DA+'6_ejemplo_de_periodismo_de_datos_22.html', CURSO_DA+'6_integridad_entre_distintas_fuentes_de_datos.html', CURSO_DA+'6_temtica_y_etiquetado.html', CURSO_DA+'7_cobertura_geogrfica.html', CURSO_DA+'7_gestin_de_los_errores_en_los_datos_limpieza_de_datos_12.html', CURSO_DA+'8_cobertura_temporal_idiomas_y_extras.html', CURSO_DA+'8_gestin_de_los_errores_en_los_datos_limpieza_de_datos_22.html', CURSO_DA+'9_licencias.html', CURSO_DA+'actividades1.html', CURSO_DA+'actividades2.html', CURSO_DA+'actividades3.html', CURSO_DA+'actividades4.html', CURSO_DA+'actividades5.html', CURSO_DA+'esquema_de_contenidos_de_la_unidad1.html', CURSO_DA+'esquema_de_contenidos_de_la_unidad2.html', CURSO_DA+'esquema_de_contenidos_de_la_unidad3.html', CURSO_DA+'esquema_de_contenidos_de_la_unidad4.html', CURSO_DA+'esquema_de_contenidos_de_la_unidad5.html', CURSO_DA+'index.html', CURSO_DA+'leccin_1_calidad_de_los_datos.html', CURSO_DA+'leccin_1_directivas_europeas.html', CURSO_DA+'leccin_1_por_qu_es_necesario_el_open_data_creando_valor_con_los_datos_reutilizacin_de_la_informacin.html', CURSO_DA+'leccin_1_qu_es_open_data_y_cules_son_sus_objetivos.html', CURSO_DA+'leccin_1_tutorial_sobre_publicacin_de_informacin_en_aragn_open_data.html', CURSO_DA+'leccin_2__aragn_open_data_parte_prctica.html', CURSO_DA+'leccin_2_derecho_de_acceso_a_la_informacin.html', CURSO_DA+'leccin_2_estndares_de_formatos_de_datos.html', CURSO_DA+'leccin_2_legislacin_nacional_ley_372007_y_ley_192013.html', CURSO_DA+'leccin_2_tomas_de_decisiones_a_partir_del_histrico_de_los_datos.html', CURSO_DA+'leccin_3_cmo_publicar_informacin_en_open_data_estndares_w3c_web_semntica_modelo_de_datos_vocabulario_metadatos_y_formatos.html', CURSO_DA+'leccin_3_data_driven_government.html', CURSO_DA+'leccin_3_iniciativas_nacionales_e_internacionales.html', CURSO_DA+'leccin_3_normativa_autonmica.html', CURSO_DA+'leccin_4_buenas_prcticas_el_declogo_del_open_data.html', CURSO_DA+'leccin_4_fuentes_de_informacin_conjuntos_de_datos_de_diversos_organismos.html', CURSO_DA+'leccin_4_licencia_de_los_datos_y_aplicaciones.html', CURSO_DA+'leccin_5_explotacin_de_la_informacin_visualizacin_de_informacin_aplicacin_de_herramientas_de_inteligencia_artificial_para_la_toma_de_decisiones.html', CURSO_DA+'leccin_5_qu_datos_de_la_administracin_pueden_ser_tiles.html', CURSO_DA+'leccin_6_aplicaciones_meteorologa_niveles_hdricos_smart_city_periodismo_de_datos_etc.html', CURSO_DA+'objetivos_de_la_unidad1.html', CURSO_DA+'objetivos_de_la_unidad2.html', CURSO_DA+'objetivos_de_la_unidad3.html', CURSO_DA+'objetivos_de_la_unidad4.html', CURSO_DA+'objetivos_de_la_unidad5.html', CURSO_DA+'preguntas_de_control1.html', CURSO_DA+'preguntas_de_control2.html', CURSO_DA+'preguntas_de_control3.html', CURSO_DA+'preguntas_de_control4.html', CURSO_DA+'preguntas_de_control5.html', CURSO_DA+'resumen_de_la_unidad1.html', CURSO_DA+'resumen_de_la_unidad2.html', CURSO_DA+'resumen_de_la_unidad3.html', CURSO_DA+'resumen_de_la_unidad4.html', CURSO_DA+'resumen_de_la_unidad5.html', CURSO_DA+'unidad_1_concepto_de_open_data_origen_y_ejemplos.html', CURSO_DA+'unidad_2_beneficios_e_importancia_del_open_data.html', CURSO_DA+'unidad_3_marco_legal.html', CURSO_DA+'unidad_4_aragn_open_data.html', CURSO_DA+'unidad_5_parte_prctica_aragn_open_data.html']
+
+	infoOpenData=infoOpenData+urlsdelCampus+urlCurso_DA
+
 	generaSiteMapURL('InfoOpenData', infoOpenData, '0.6')
 	
 	#Terminos
@@ -604,7 +710,10 @@ def main():
 	sentenciaURL = generaSentenciaSiteMap(URLDIRSITEMAPS+"sitemapVarios.xml",'index')
 	sitemap.write(sentenciaURL)
 	print 'Comenzamos a generar el sitemap varios'
-	urlBusqueda = [CATALOGO+'ciencia-tecnologia',CATALOGO+'comercio',CATALOGO+'cultura-ocio',CATALOGO+'demografia',CATALOGO+'deporte',CATALOGO+'economia',CATALOGO+'educacion',CATALOGO+'empleo',CATALOGO+'energia',CATALOGO+'hacienda',CATALOGO+'industria',CATALOGO+'legislacion-justicia',CATALOGO+'medio-ambiente',CATALOGO+'medio-rural-pesca',CATALOGO+'salud',CATALOGO+'sector-publico',CATALOGO+'seguridad',CATALOGO+'sociedad-bienestar',CATALOGO+'transporte',CATALOGO+'turismo',CATALOGO+'urbanismo-infraestructuras',CATALOGO+'vivienda',CATALOGO+'ciencia-tecnologia'+'/hojas-de-calculo',CATALOGO+'comercio'+'/hojas-de-calculo',CATALOGO+'cultura-ocio'+'/hojas-de-calculo',CATALOGO+'demografia'+'/hojas-de-calculo',CATALOGO+'deporte'+'/hojas-de-calculo',CATALOGO+'economia'+'/hojas-de-calculo',CATALOGO+'educacion'+'/hojas-de-calculo',CATALOGO+'empleo'+'/hojas-de-calculo',CATALOGO+'energia'+'/hojas-de-calculo',CATALOGO+'hacienda'+'/hojas-de-calculo',CATALOGO+'industria'+'/hojas-de-calculo',CATALOGO+'legislacion-justicia'+'/hojas-de-calculo',CATALOGO+'medio-ambiente'+'/hojas-de-calculo',CATALOGO+'medio-rural-pesca'+'/hojas-de-calculo',CATALOGO+'salud'+'/hojas-de-calculo',CATALOGO+'sector-publico'+'/hojas-de-calculo',CATALOGO+'seguridad'+'/hojas-de-calculo',CATALOGO+'sociedad-bienestar'+'/hojas-de-calculo',CATALOGO+'transporte'+'/hojas-de-calculo',CATALOGO+'turismo'+'/hojas-de-calculo',CATALOGO+'urbanismo-infraestructuras'+'/hojas-de-calculo',CATALOGO+'vivienda'+'/hojas-de-calculo',CATALOGO+'ciencia-tecnologia'+'/texto-plano',CATALOGO+'comercio'+'/texto-plano',CATALOGO+'cultura-ocio'+'/texto-plano',CATALOGO+'demografia'+'/texto-plano',CATALOGO+'deporte'+'/texto-plano',CATALOGO+'economia'+'/texto-plano',CATALOGO+'educacion'+'/texto-plano',CATALOGO+'empleo'+'/texto-plano',CATALOGO+'energia'+'/texto-plano',CATALOGO+'hacienda'+'/texto-plano',CATALOGO+'industria'+'/texto-plano',CATALOGO+'legislacion-justicia'+'/texto-plano',CATALOGO+'medio-ambiente'+'/texto-plano',CATALOGO+'medio-rural-pesca'+'/texto-plano',CATALOGO+'salud'+'/texto-plano',CATALOGO+'sector-publico'+'/texto-plano',CATALOGO+'seguridad'+'/texto-plano',CATALOGO+'sociedad-bienestar'+'/texto-plano',CATALOGO+'transporte'+'/texto-plano',CATALOGO+'turismo'+'/texto-plano',CATALOGO+'urbanismo-infraestructuras'+'/texto-plano',CATALOGO+'vivienda'+'/texto-plano',CATALOGO+'ciencia-tecnologia'+'/mapas',CATALOGO+'comercio'+'/mapas',CATALOGO+'cultura-ocio'+'/mapas',CATALOGO+'demografia'+'/mapas',CATALOGO+'deporte'+'/mapas',CATALOGO+'economia'+'/mapas',CATALOGO+'educacion'+'/mapas',CATALOGO+'empleo'+'/mapas',CATALOGO+'energia'+'/mapas',CATALOGO+'hacienda'+'/mapas',CATALOGO+'industria'+'/mapas',CATALOGO+'legislacion-justicia'+'/mapas',CATALOGO+'medio-ambiente'+'/mapas',CATALOGO+'medio-rural-pesca'+'/mapas',CATALOGO+'salud'+'/mapas',CATALOGO+'sector-publico'+'/mapas',CATALOGO+'seguridad'+'/mapas',CATALOGO+'sociedad-bienestar'+'/mapas',CATALOGO+'transporte'+'/mapas',CATALOGO+'turismo'+'/mapas',CATALOGO+'urbanismo-infraestructuras'+'/mapas',CATALOGO+'vivienda'+'/mapas',CATALOGO+'ciencia-tecnologia'+' ',CATALOGO+'comercio'+'/fotos',CATALOGO+'cultura-ocio'+'/fotos',CATALOGO+'demografia'+'/fotos',CATALOGO+'deporte'+'/fotos',CATALOGO+'economia'+'/fotos',CATALOGO+'educacion'+'/fotos',CATALOGO+'empleo'+'/fotos',CATALOGO+'energia'+'/fotos',CATALOGO+'hacienda'+'/fotos',CATALOGO+'industria'+'/fotos',CATALOGO+'legislacion-justicia'+'/fotos',CATALOGO+'medio-ambiente'+'/fotos',CATALOGO+'medio-rural-pesca'+'/fotos',CATALOGO+'salud'+'/fotos',CATALOGO+'sector-publico'+'/fotos',CATALOGO+'seguridad'+'/fotos',CATALOGO+'sociedad-bienestar'+'/fotos',CATALOGO+'transporte'+'/fotos',CATALOGO+'turismo'+'/fotos',CATALOGO+'urbanismo-infraestructuras'+'/fotos',CATALOGO+'vivienda'+'/fotos',CATALOGO+'ciencia-tecnologia'+'/rss',CATALOGO+'comercio'+'/rss',CATALOGO+'cultura-ocio'+'/rss',CATALOGO+'demografia'+'/rss',CATALOGO+'deporte'+'/rss',CATALOGO+'economia'+'/rss',CATALOGO+'educacion'+'/rss',CATALOGO+'empleo'+'/rss',CATALOGO+'energia'+'/rss',CATALOGO+'hacienda'+'/rss',CATALOGO+'industria'+'/rss',CATALOGO+'legislacion-justicia'+'/rss',CATALOGO+'medio-ambiente'+'/rss',CATALOGO+'medio-rural-pesca'+'/rss',CATALOGO+'salud'+'/rss',CATALOGO+'sector-publico'+'/rss',CATALOGO+'seguridad'+'/rss',CATALOGO+'sociedad-bienestar'+'/rss',CATALOGO+'transporte'+'/rss',CATALOGO+'turismo'+'/rss',CATALOGO+'urbanismo-infraestructuras'+'/rss',CATALOGO+'vivienda'+'/rss', CATALOGO+'busqueda-libre',CATALOGO+'base-datos',BASEDATOS+'ciencia-tecnologia',BASEDATOS+'comercio',BASEDATOS+'cultura-ocio',BASEDATOS+'demografia',BASEDATOS+'deporte',BASEDATOS+'economia',BASEDATOS+'educacion',BASEDATOS+'empleo',BASEDATOS+'energia',BASEDATOS+'hacienda',BASEDATOS+'industria',BASEDATOS+'legislacion-justicia',BASEDATOS+'medio-ambiente',BASEDATOS+'medio-rural-pesca',BASEDATOS+'salud',BASEDATOS+'sector-publico',BASEDATOS+'seguridad',BASEDATOS+'sociedad-bienestar',BASEDATOS+'transporte',BASEDATOS+'turismo',BASEDATOS+'urbanismo-infraestructuras',BASEDATOS+'vivienda']
+	urlBusqueda = [CATALOGO+'ciencia-tecnologia',CATALOGO+'comercio',CATALOGO+'cultura-ocio',CATALOGO+'demografia',CATALOGO+'deporte',CATALOGO+'economia',CATALOGO+'educacion',CATALOGO+'empleo',CATALOGO+'energia',CATALOGO+'hacienda',CATALOGO+'industria',CATALOGO+'legislacion-justicia',CATALOGO+'medio-ambiente',CATALOGO+'medio-rural-pesca',CATALOGO+'salud',CATALOGO+'sector-publico',CATALOGO+'seguridad',CATALOGO+'sociedad-bienestar',CATALOGO+'transporte',CATALOGO+'turismo',CATALOGO+'urbanismo-infraestructuras',CATALOGO+'vivienda',CATALOGO+'ciencia-tecnologia'+'/hojas-de-calculo',CATALOGO+'comercio'+'/hojas-de-calculo',CATALOGO+'cultura-ocio'+'/hojas-de-calculo',CATALOGO+'demografia'+'/hojas-de-calculo',CATALOGO+'deporte'+'/hojas-de-calculo',CATALOGO+'economia'+'/hojas-de-calculo',CATALOGO+'educacion'+'/hojas-de-calculo',CATALOGO+'empleo'+'/hojas-de-calculo',CATALOGO+'energia'+'/hojas-de-calculo',CATALOGO+'hacienda'+'/hojas-de-calculo',CATALOGO+'industria'+'/hojas-de-calculo',CATALOGO+'legislacion-justicia'+'/hojas-de-calculo',CATALOGO+'medio-ambiente'+'/hojas-de-calculo',CATALOGO+'medio-rural-pesca'+'/hojas-de-calculo',CATALOGO+'salud'+'/hojas-de-calculo',CATALOGO+'sector-publico'+'/hojas-de-calculo',CATALOGO+'seguridad'+'/hojas-de-calculo',CATALOGO+'sociedad-bienestar'+'/hojas-de-calculo',CATALOGO+'transporte'+'/hojas-de-calculo',CATALOGO+'turismo'+'/hojas-de-calculo',CATALOGO+'urbanismo-infraestructuras'+'/hojas-de-calculo',CATALOGO+'vivienda'+'/hojas-de-calculo',CATALOGO+'ciencia-tecnologia'+'/texto-plano',CATALOGO+'comercio'+'/texto-plano',CATALOGO+'cultura-ocio'+'/texto-plano',CATALOGO+'demografia'+'/texto-plano',CATALOGO+'deporte'+'/texto-plano',CATALOGO+'economia'+'/texto-plano',CATALOGO+'educacion'+'/texto-plano',CATALOGO+'empleo'+'/texto-plano',CATALOGO+'energia'+'/texto-plano',CATALOGO+'hacienda'+'/texto-plano',CATALOGO+'industria'+'/texto-plano',CATALOGO+'legislacion-justicia'+'/texto-plano',CATALOGO+'medio-ambiente'+'/texto-plano',CATALOGO+'medio-rural-pesca'+'/texto-plano',CATALOGO+'salud'+'/texto-plano',CATALOGO+'sector-publico'+'/texto-plano',CATALOGO+'seguridad'+'/texto-plano',CATALOGO+'sociedad-bienestar'+'/texto-plano',CATALOGO+'transporte'+'/texto-plano',CATALOGO+'turismo'+'/texto-plano',CATALOGO+'urbanismo-infraestructuras'+'/texto-plano',CATALOGO+'vivienda'+'/texto-plano',CATALOGO+'ciencia-tecnologia'+'/mapas',CATALOGO+'comercio'+'/mapas',CATALOGO+'cultura-ocio'+'/mapas',CATALOGO+'demografia'+'/mapas',CATALOGO+'deporte'+'/mapas',CATALOGO+'economia'+'/mapas',CATALOGO+'educacion'+'/mapas',CATALOGO+'empleo'+'/mapas',CATALOGO+'energia'+'/mapas',CATALOGO+'hacienda'+'/mapas',CATALOGO+'industria'+'/mapas',CATALOGO+'legislacion-justicia'+'/mapas',CATALOGO+'medio-ambiente'+'/mapas',CATALOGO+'medio-rural-pesca'+'/mapas',CATALOGO+'salud'+'/mapas',CATALOGO+'sector-publico'+'/mapas',CATALOGO+'seguridad'+'/mapas',CATALOGO+'sociedad-bienestar'+'/mapas',CATALOGO+'transporte'+'/mapas',CATALOGO+'turismo'+'/mapas',CATALOGO+'urbanismo-infraestructuras'+'/mapas',CATALOGO+'vivienda'+'/mapas',CATALOGO+'ciencia-tecnologia'+' ',CATALOGO+'comercio'+'/fotos',CATALOGO+'cultura-ocio'+'/fotos',CATALOGO+'demografia'+'/fotos',CATALOGO+'deporte'+'/fotos',CATALOGO+'economia'+'/fotos',CATALOGO+'educacion'+'/fotos',CATALOGO+'empleo'+'/fotos',CATALOGO+'energia'+'/fotos',CATALOGO+'hacienda'+'/fotos',CATALOGO+'industria'+'/fotos',CATALOGO+'legislacion-justicia'+'/fotos',CATALOGO+'medio-ambiente'+'/fotos',CATALOGO+'medio-rural-pesca'+'/fotos',CATALOGO+'salud'+'/fotos',CATALOGO+'sector-publico'+'/fotos',CATALOGO+'seguridad'+'/fotos',CATALOGO+'sociedad-bienestar'+'/fotos',CATALOGO+'transporte'+'/fotos',CATALOGO+'turismo'+'/fotos',CATALOGO+'urbanismo-infraestructuras'+'/fotos',CATALOGO+'vivienda'+'/fotos',CATALOGO+'ciencia-tecnologia'+'/rss',CATALOGO+'comercio'+'/rss',CATALOGO+'cultura-ocio'+'/rss',CATALOGO+'demografia'+'/rss',CATALOGO+'deporte'+'/rss',CATALOGO+'economia'+'/rss',CATALOGO+'educacion'+'/rss',CATALOGO+'empleo'+'/rss',CATALOGO+'energia'+'/rss',CATALOGO+'hacienda'+'/rss',CATALOGO+'industria'+'/rss',CATALOGO+'legislacion-justicia'+'/rss',CATALOGO+'medio-ambiente'+'/rss',CATALOGO+'medio-rural-pesca'+'/rss',CATALOGO+'salud'+'/rss',CATALOGO+'sector-publico'+'/rss',CATALOGO+'seguridad'+'/rss',CATALOGO+'sociedad-bienestar'+'/rss',CATALOGO+'transporte'+'/rss',CATALOGO+'turismo'+'/rss',CATALOGO+'urbanismo-infraestructuras'+'/rss',CATALOGO+'vivienda'+'/rss', CATALOGO+'busqueda-libre',CATALOGO+'base-datos',BASEDATOS+'ciencia-tecnologia',BASEDATOS+'comercio',BASEDATOS+'cultura-ocio',BASEDATOS+'demografia',BASEDATOS+'deporte',BASEDATOS+'economia',BASEDATOS+'educacion',BASEDATOS+'empleo',BASEDATOS+'energia',BASEDATOS+'hacienda',BASEDATOS+'industria',BASEDATOS+'legislacion-justicia',BASEDATOS+'medio-ambiente',BASEDATOS+'medio-rural-pesca',BASEDATOS+'salud',BASEDATOS+'sector-publico',BASEDATOS+'seguridad',BASEDATOS+'sociedad-bienestar',BASEDATOS+'transporte',BASEDATOS+'turismo',BASEDATOS+'urbanismo-infraestructuras',BASEDATOS+'vivienda', ETIQUETA, PAGEETIQUETA+'A', PAGEETIQUETA+'B', PAGEETIQUETA+'C', PAGEETIQUETA+'D', PAGEETIQUETA+'E', PAGEETIQUETA+'F', PAGEETIQUETA+'G', PAGEETIQUETA+'H', PAGEETIQUETA+'I', PAGEETIQUETA+'J', PAGEETIQUETA+'K', PAGEETIQUETA+'L', PAGEETIQUETA+'M', PAGEETIQUETA+'N', PAGEETIQUETA+'O', PAGEETIQUETA+'P', PAGEETIQUETA+'Q', PAGEETIQUETA+'R', PAGEETIQUETA+'S', PAGEETIQUETA+'T', PAGEETIQUETA+'U', PAGEETIQUETA+'V', PAGEETIQUETA+'W', PAGEETIQUETA+'X', PAGEETIQUETA+'Y', PAGEETIQUETA+'Z' , PAGEETIQUETA+'Otro']
+	urlBusquedaOrganizacionTipo = []
+	urlBusquedaOrganizacionTipo = busquedaOrganizacionTipo(connection)
+	urlBusqueda=urlBusqueda+urlBusquedaOrganizacionTipo
 	generaSiteMapVarios(urlBusqueda, connection)
 	sitemap.write("</sitemapindex>\n")
 	sitemap.close()
@@ -612,7 +721,8 @@ def main():
 	
 	print "La fecha más nueva es "+fecha
 	
-	
+	connection.close()
+	connectionCampus.close()
 #	url_200.close()
 	print 'Se han añadido '+str(numURLs)+' urls en el sitemaps'
 	print 'Fin'

@@ -21,6 +21,7 @@ def download(url):
 
     if (file == "downloadIaest"):
         urllib.urlretrieve(url)
+        print "URL:"+str(url)
     else:
         urllib.urlretrieve(url, config.DOWNLOAD_PATH + "/" + file, report_hook)
 
@@ -50,6 +51,7 @@ def extract_rdf(jsp):
 
 
 def main():
+    print "red_downloader"
     remove_files()
     urls = open(config.URL_FILE)
     for url in urls:
@@ -60,5 +62,5 @@ def main():
         extract_rdf(jsp)
     print 'Antes de parsear'
     print(rdf_parser.parse_rdfs());
-    
+    print 'Se finalizo la actualizacion de los datasets'
 main()

@@ -74,6 +74,7 @@ def activity_stream_string_changed_group(context, activity):
     return _("<td class='izquierda'>{actor}</td><td class='izquierda'>actualiz&oacute; el grupo </td><td>{group}</td>")
 
 def activity_stream_string_changed_organization(context, activity):
+#    print ' mierda he entrado en la organizacion: el contexto es ', str(context),'y la activity', str(activity['title'])
     return _("<td class='izquierda'>{actor}</td><td class='izquierda'>actualiz&oacute; la organizaci&oacute;n </td><td>{organization}</td>")
 
 def activity_stream_string_changed_package(context, activity):

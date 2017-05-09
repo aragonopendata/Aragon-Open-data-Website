@@ -1,0 +1,55 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.8/ http://www.mediawiki.org/xml/export-0.8.xsd" version="0.8" xml:lang="es">
+  <siteinfo>
+    <sitename>Aragopedia</sitename>
+    <base>http://alzir.dia.fi.upm.es/mediawiki-1.22.0/index.php/P%C3%A1gina_principal</base>
+    <generator>MediaWiki 1.22.0</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Medio</namespace>
+      <namespace key="-1" case="first-letter">Especial</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Discusión</namespace>
+      <namespace key="2" case="first-letter">Usuario</namespace>
+      <namespace key="3" case="first-letter">Usuario discusión</namespace>
+      <namespace key="4" case="first-letter">Aragopedia</namespace>
+      <namespace key="5" case="first-letter">Aragopedia discusión</namespace>
+      <namespace key="6" case="first-letter">Archivo</namespace>
+      <namespace key="7" case="first-letter">Archivo discusión</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki discusión</namespace>
+      <namespace key="10" case="first-letter">Plantilla</namespace>
+      <namespace key="11" case="first-letter">Plantilla discusión</namespace>
+      <namespace key="12" case="first-letter">Ayuda</namespace>
+      <namespace key="13" case="first-letter">Ayuda discusión</namespace>
+      <namespace key="14" case="first-letter">Categoría</namespace>
+      <namespace key="15" case="first-letter">Categoría discusión</namespace>
+      <namespace key="274" case="first-letter">Widget</namespace>
+      <namespace key="275" case="first-letter">Widget talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Sidebar</title>
+    <ns>8</ns>
+    <id>948</id>
+    <revision>
+      <id>11628</id>
+      <parentid>10796</parentid>
+      <timestamp>2014-01-31T16:31:18Z</timestamp>
+      <contributor>
+        <username>Dportoles</username>
+        <id>2</id>
+      </contributor>
+      <text xml:space="preserve" bytes="189">
+* navigation
+** http://opendata.aragon.es/aragopedia/Aragopedia/aragopedia.php|Portada
+** recentchanges-url|recentchanges
+** randompage-url|randompage
+* SEARCH
+* TOOLBOX
+* LANGUAGES</text>
+      <sha1>i2rj4alwalutjj8xsye4uom3ovo2tg8</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+</mediawiki>

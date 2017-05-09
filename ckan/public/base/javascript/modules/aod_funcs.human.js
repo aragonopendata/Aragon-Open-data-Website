@@ -907,8 +907,11 @@ function gup( name ){
 	if( results == null )
 		return "";
 	else{
-		var devolver = utf8_decode(unescape(results[1]));
-		devolver = replaceAll(devolver, '+', ' ');
+		//var devolver = utf8_decode(unescape(results[1]));
+		//devolver = replaceAll(devolver, '+', ' ');
+		//[M] start
+		var devolver = decodeURIComponent(decodeURIComponent(replaceAll(results[1], '+', ' ')));
+		//[M] ends
 		return devolver;
 	}
 }

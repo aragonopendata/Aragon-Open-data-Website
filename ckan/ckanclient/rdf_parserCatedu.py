@@ -245,11 +245,11 @@ def create_dataset(xml):
     # spatial
     extra = ['Spatial', get_tag_text(xml, dct_tag('spatial'))]
     if (extra[1] != ""): extras.append(extra)
-    # temporal
-    extra = ['Temporal', get_tag_text_basic(xml, dct_tag('temporal'))]
-    if (extra[1] != ""): extras.append(extra)
+    # temporal No tienen valores
+#    extra = ['Temporal', get_tag_text_basic(xml, dct_tag('temporal'))]
+#    if (extra[1] != ""): extras.append(extra)
     # language
-    extra = ['Language', get_tag_text(xml, dct_tag('language'))]
+    extra = ['LangES', get_tag_text(xml, dct_tag('language'))]
     if (extra[1] != ""): extras.append(extra)
     # references
     #extra = ['References', get_tag_text(xml, dct_tag('references'))]
@@ -262,6 +262,20 @@ def create_dataset(xml):
     if (extra[1] != ""): extras.append(extra)
     # data dictionary
     extra = ['Data Dictionary', get_tag_text_basic(xml, dcat_tag('dataDictionary'))]
+    if (extra[1] != ""): extras.append(extra)
+    
+    #Extras de Aragopedia
+    # nameAragopedia
+    extra = ['nameAragopedia', get_tag_text(xml, dcat_tag('name_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # shortUriAragopedia
+    extra = ['shortUriAragopedia', get_tag_text(xml, dcat_tag('short_uri_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # typeAragopedia
+    extra = ['typeAragopedia', get_tag_text(xml, dcat_tag('type_aragopedia'))]
+    if (extra[1] != ""): extras.append(extra)
+    # uriAragopedia
+    extra = ['uriAragopedia', get_tag_text_basic(xml, dcat_tag('uri_aragopedia'))]
     if (extra[1] != ""): extras.append(extra)
 
 

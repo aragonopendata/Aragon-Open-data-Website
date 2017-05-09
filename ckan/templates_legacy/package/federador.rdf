@@ -29,7 +29,7 @@
 	<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${ c.fecha }</dct:modified>
 </py:if>
 	<dc:language>es</dc:language>
-	<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/autonomia/Aragon" />
+	<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon" />
 	<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/" />
 	<foaf:homepage rdf:resource="http://opendata.aragon.es/catalogo" />
 	<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
@@ -151,11 +151,11 @@
 		<dc:language>es</dc:language>
 		<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/A02002834" />
 		<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
-		<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/autonomia/Aragon" />
+		<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon" />
 
 	   <py:for each="rsc_dict in item.get('resources')">
 	  <py:if test="'/recurso/territorio/' in rsc_dict['url']">
-		<dcat:distribution>
+		<dcat:distribution>s
 		  <dcat:Distribution>
 			<py:choose>
 			<py:when test="rsc_dict.get('HTML_position')">
@@ -339,6 +339,9 @@
         </py:when>
         <py:when test="rsc_dict.get('format').lower() == 'zip'">
 				<dct:format><dct:IMT rdf:value="application/zip" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/zip</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'ods'">
+				<dct:format><dct:IMT rdf:value="application/vnd.oasis.opendocument.spreadsheet" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.oasis.opendocument.spreadsheet</dcat:mediaType>
         </py:when>
         <py:otherwise>
 				<dct:format><dct:IMT rdfs:label="${rsc_dict.get('format')}" /></dct:format>

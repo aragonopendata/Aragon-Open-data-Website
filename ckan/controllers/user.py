@@ -646,11 +646,8 @@ class UserController(base.BaseController):
         def _sort_by(fields):
             """
             Sort by the given list of fields.
-
             Each entry in the list is a 2-tuple: (fieldname, sort_order)
-
             eg - [('metadata_modified', 'desc'), ('name', 'asc')]
-
             If fields is empty, then the default ordering is used.
             """
             params = params_nosort[:]

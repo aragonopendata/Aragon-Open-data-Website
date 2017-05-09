@@ -3,7 +3,7 @@
 
 
 import config
-import cx_Oracle
+#import cx_Oracle
 from time import time
 from urllib import urlretrieve
 
@@ -46,9 +46,9 @@ def getEnlaceAragopedia(localidad):
   
   if localidad in listado_comarcas:
     devolver.append(localidad)
-    devolver.append(localidad.replace(" ", "_"))
+    devolver.append(localidad)
     devolver.append('Comarca')
-    devolver.append('http://opendata.aragon.es/recurso/territorio/Comarca/'+localidad.replace(" ", "_"))
+    devolver.append('http://opendata.aragon.es/recurso/territorio/Comarca/http://opendata.aragon.es/recurso/territorio/Comarca/'+localidad.replace(" ", "_"))
     return devolver
   
   listado_municipios =['Ababuj', 'Abanto', 'Abejuela', 'Abiego', 'Abizanda', 'Acered', 'Adahuesca', 'Agón', 'Aguarón', 'Aguatón', 'Aguaviva', 'Agüero', 'Aguilar del Alfambra', 'Aguilón', 'Aínsa-Sobrarbe', 'Ainzón', 'Aísa', 'Alacón', 'Aladrén', 'Alagón', 'Alarba', 'Alba', 'Albalate de Cinca', 'Albalate del Arzobispo', 'Albalatillo', 'Albarracín', 'Albelda', 'Albentosa', 'Alberite de San Juan', 'Albero Alto', 'Albero Bajo', 'Alberuela de Tubo', 'Albeta', 'Alborge', 'Alcaine', 'Alcalá de Ebro', 'Alcalá de Gurrea', 'Alcalá de la Selva', 'Alcalá de Moncayo', 'Alcalá del Obispo', 'Alcampell', 'Alcañiz', 'Alcolea de Cinca', 'Alconchel de Ariza', 'Alcorisa', 'Alcubierre', 'Aldehuela de Liestos', 'Alerre', 'Alfajarín', 'Alfambra', 'Alfamén', 'Alfántega', 'Alforque', 'Alhama de Aragón', 'Aliaga', 'Allepuz', 'Alloza', 'Allueva', 'Almochuel', 'Almohaja', 'Almolda (La)', 'Almonacid de la Cuba', 'Almonacid de la Sierra', 'Almudévar', 'Almunia de Doña Godina (La)', 'Almunia de San Juan', 'Almuniente', 'Alobras', 'Alpartir', 'Alpeñés', 'Alquézar', 'Altorricón', 'Ambel', 'Anadón', 'Andorra', 'Anento', 'Angüés', 'Aniñón', 'Añón de Moncayo', 'Ansó', 'Antillón', 'Aragüés del Puerto', 'Aranda de Moncayo', 'Arándiga', 'Arcos de las Salinas', 'Ardisa', 'Arén', 'Arens de Lledó', 'Argavieso', 'Argente', 'Arguis', 'Ariño', 'Ariza', 'Artieda', 'Asín', 'Atea', 'Ateca', 'Ayerbe', 'Azaila', 'Azanuy-Alins', 'Azara', 'Azlor', 'Azuara', 'Bádenas', 'Badules', 'Baells', 'Báguena', 'Bagüés', 'Bailo', 'Balconchán', 'Baldellou', 'Ballobar', 'Banastás', 'Bañón', 'Barbastro', 'Bárboles', 'Barbués', 'Barbuñales', 'Bárcabo', 'Bardallur', 'Barrachina', 'Bea', 'Beceite', 'Belchite', 'Bello', 'Belmonte de Gracián', 'Belmonte de San José', 'Belver de Cinca', 'Benabarre', 'Benasque', 'Beranuy', 'Berbegal', 'Berdejo', 'Berge', 'Berrueco', 'Bezas', 'Biel', 'Bielsa', 'Bierge', 'Biescas', 'Bijuesca', 'Binaced', 'Binéfar', 'Biota', 'Bisaurri', 'Biscarrués', 'Bisimbre', 'Blancas', 'Blecua y Torres', 'Blesa', 'Boltaña', 'Bonansa', 'Boquiñeni', 'Borau', 'Bordalba', 'Bordón', 'Borja', 'Botorrita', 'Brea de Aragón', 'Bronchales', 'Broto', 'Bubierca', 'Bueña', 'Bujaraloz', 'Bulbuente', 'Burbáguena', 'Bureta', 'Burgo de Ebro (El)', 'Buste (El)', 'Cabañas de Ebro', 'Cabolafuente', 'Cabra de Mora', 'Cadrete', 'Calaceite', 'Calamocha', 'Calanda', 'Calatayud', 'Calatorao', 'Calcena', 'Caldearenas', 'Calmarza', 'Calomarde', 'Camañas', 'Camarena de la Sierra', 'Camarillas', 'Caminreal', 'Campillo de Aragón', 'Campo', 'Camporrells', 'Cañada de Benatanduz', 'Cañada de Verich (La)', 'Cañada Vellida', 'Canal de Berdún', 'Candasnos', 'Canfranc', 'Cañizar del Olivar', 'Cantavieja', 'Capdesaso', 'Capella', 'Carenas', 'Cariñena', 'Casbas de Huesca', 'Cascante del Río', 'Caspe', 'Castejón de Alarba', 'Castejón de las Armas', 'Castejón de Monegros', 'Castejón de Sos', 'Castejón de Tornos', 'Castejón de Valdejasa', 'Castejón del Puente', 'Castel de Cabra', 'Castelflorite', 'Castellar (El)', 'Castellote', 'Castelnou', 'Castelserás', 'Castiello de Jaca', 'Castigaleu', 'Castiliscar', 'Castillazuelo', 'Castillonroy', 'Cedrillas', 'Celadas', 'Cella', 'Cerollera (La)', 'Cervera de la Cañada', 'Cerveruela', 'Cetina', 'Chalamera', 'Chía', 'Chimillas', 'Chiprana', 'Chodes', 'Cimballa', 'Cinco Olivas', 'Clarés de Ribota', 'Codo', 'Codoñera (La)', 'Codos', 'Colungo', 'Contamina', 'Corbalán', 'Cortes de Aragón', 'Cosa', 'Cosuenda', 'Cretas', 'Crivillén', 'Cuarte de Huerva', 'Cuba (La)', 'Cubel', 'Cubla', 'Cucalón', 'Cuerlas (Las)', 'Cuervo (El)', 'Cuevas de Almudén', 'Cuevas Labradas', 'Daroca', 'Ejea de los Caballeros', 'Ejulve', 'Embid de Ariza', 'Encinacorba', 'Épila', 'Erla', 'Escatrón', 'Escorihuela', 'Escucha', 'Esplús', 'Estada', 'Estadilla', 'Estercuel', 'Estopiñán del Castillo', 'Fabara', 'Fago', 'Fanlo', 'Farlete', 'Fayón', 'Fayos (Los)', 'Ferreruela de Huerva', 'Figueruelas', 'Fiscal', 'Fombuena', 'Fonfría', 'Fonz', 'Foradada del Toscar', 'Formiche Alto', 'Fórnoles', 'Fortanete', 'Foz-Calanda', 'Fraga', 'Frago (El)', 'Frasno (El)', 'Fréscano', 'Fresneda (La)', 'Frías de Albarracín', 'Fuendejalón', 'Fuendetodos', 'Fuenferrada', 'Fuentes Calientes', 'Fuentes Claras', 'Fuentes de Ebro', 'Fuentes de Jiloca', 'Fuentes de Rubielos', 'Fuentespalda', 'Fueva (La)', 'Gallocanta', 'Gallur', 'Galve', 'Gargallo', 'Gea de Albarracín', 'Gelsa', 'Ginebrosa (La)', 'Gistaín', 'Godojos', 'Gotor', 'Grado (El)', 'Grañén', 'Graus', 'Griegos', 'Grisel', 'Grisén', 'Guadalaviar', 'Gúdar', 'Gurrea de Gállego', 'Herrera de los Navarros', 'Híjar', 'Hinojosa de Jarque', 'Hoz de Jaca', 'Hoz de la Vieja (La)', 'Hoz y Costeán', 'Huerto', 'Huesa del Común', 'Huesca', 'Ibdes', 'Ibieca', 'Iglesuela del Cid (La)', 'Igriés', 'Ilche', 'Illueca', 'Isábena', 'Isuerre', 'Jabaloyas', 'Jaca', 'Jaraba', 'Jarque', 'Jarque de la Val', 'Jasa', 'Jatiel', 'Jaulín', 'Jorcas', 'Josa', 'Joyosa (La)', 'Labuerda', 'Lagata', 'Lagueruela', 'Laluenga', 'Lalueza', 'Lanaja', 'Langa del Castillo', 'Lanzuela', 'Laperdiguera', 'Lascellas-Ponzano', 'Lascuarre', 'Laspaúles', 'Laspuña', 'Layana', 'Lécera', 'Lechón', 'Leciñena', 'Letux', 'Libros', 'Lidón', 'Linares de Mora', 'Litago', 'Lituénigo', 'Lledó', 'Loarre', 'Lobera de Onsella', 'Longares', 'Longás', 'Loporzano', 'Loscorrales', 'Loscos', 'Lucena de Jalón', 'Luceni', 'Luesia', 'Luesma', 'Lumpiaque', 'Luna', 'Lupiñén-Ortilla', 'Maella', 'Magallón', 'Maicas', 'Mainar', 'Malanquilla', 'Maleján', 'Mallén', 'Malón', 'Maluenda', 'Manchones', 'Manzanera', 'Mara', 'María de Huerva', 'Marracos', 'Martín del Río', 'Mas de las Matas', 'Mata de los Olmos (La)', 'Mazaleón', 'Mediana de Aragón', 'Mequinenza', 'Mesones de Isuela', 'Mezalocha', 'Mezquita de Jarque', 'Mianos', 'Miedes de Aragón', 'Mirambel', 'Miravete de la Sierra', 'Molinos', 'Monegrillo', 'Monesma y Cajigar', 'Moneva', 'Monflorite-Lascasas', 'Monforte de Moyuela', 'Monreal de Ariza', 'Monreal del Campo', 'Monroyo', 'Montalbán', 'Montanuy', 'Monteagudo del Castillo', 'Monterde', 'Monterde de Albarracín', 'Montón', 'Monzón', 'Mora de Rubielos', 'Morata de Jalón', 'Morata de Jiloca', 'Morés', 'Moros', 'Moscardón', 'Mosqueruela', 'Moyuela', 'Mozota', 'Muel', 'Muela (La)', 'Munébrega', 'Muniesa', 'Murero', 'Murillo de Gállego', 'Naval', 'Navardún', 'Nigüella', 'Noguera de Albarracín', 'Nogueras', 'Nogueruelas', 'Nombrevilla', 'Nonaspe', 'Novales', 'Novallas', 'Novillas', 'Nueno', 'Nuévalos', 'Nuez de Ebro', 'Obón', 'Odón', 'Ojos Negros', 'Olba', 'Oliete', 'Olmos (Los)', 'Olvena', 'Olvés', 'Ontiñena', 'Orcajo', 'Orera', 'Orés', 'Orihuela del Tremedal', 'Orrios', 'Oseja', 'Osera de Ebro', 'Osso de Cinca', 'Palo', 'Palomar de Arroyos', 'Pancrudo', 'Paniza', 'Panticosa', 'Paracuellos de Jiloca', 'Paracuellos de la Ribera', 'Parras de Castellote (Las)', 'Pastriz', 'Pedrola', 'Pedrosas (Las)', 'Peñalba', 'Peñarroya de Tastavins', 'Peñas de Riglos (Las)', 'Peracense', 'Peralejos', 'Perales del Alfambra', 'Peralta de Alcofea', 'Peralta de Calasanz', 'Peraltilla', 'Perarrúa', 'Perdiguera', 'Pertusa', 'Piedratajada', 'Pina de Ebro', 'Pinseque', 'Pintanos (Los)', 'Piracés', 'Pitarque', 'Plan', 'Plasencia de Jalón', 'Pleitas', 'Plenas', 'Plou', 'Pobo (El)', 'Poleñino', 'Pomer', 'Portellada (La)', 'Pozán de Vero', 'Pozondón', 'Pozuel de Ariza', 'Pozuel del Campo', 'Pozuelo de Aragón', 'Pradilla de Ebro', 'Puebla de Albortón', 'Puebla de Alfindén (La)', 'Puebla de Castro (La)', 'Puebla de Híjar (La)', 'Puebla de Valverde (La)', 'Puendeluna', 'Puente de Montañana', 'Puente la Reina de Jaca', 'Puértolas', 'Puertomingalvo', 'Pueyo de Araguás (El)', 'Pueyo de Santa Cruz', 'Purujosa', 'Quicena', 'Quinto', 'Ráfales', 'Remolinos', 'Retascón', 'Ricla', 'Rillo', 'Riodeva', 'Robres', 'Ródenas', 'Romanos', 'Royuela', 'Rubiales', 'Rubielos de la Cérida', 'Rubielos de Mora', 'Rueda de Jalón', 'Ruesca', 'Sabiñánigo', 'Sádaba', 'Sahún', 'Salas Altas', 'Salas Bajas', 'Salcedillo', 'Saldón', 'Salillas', 'Salillas de Jalón', 'Sallent de Gállego', 'Salvatierra de Esca', 'Samper de Calanda', 'Samper del Salz', 'San Agustín', 'San Esteban de Litera', 'San Juan de Plan', 'San Martín de la Virgen de Moncayo', 'San Martín del Río', 'San Mateo de Gállego', 'San Miguel del Cinca', 'Sangarrén', 'Santa Cilia', 'Santa Cruz de Grío', 'Santa Cruz de la Serós', 'Santa Cruz de Moncayo', 'Santa Cruz de Nogueras', 'Santa Eulalia', 'Santa Eulalia de Gállego', 'Santa María de Dulcis', 'Santaliestra y San Quílez', 'Santed', 'Sariñena', 'Sarrión', 'Sástago', 'Saviñán', 'Secastilla', 'Sediles', 'Segura de los Baños', 'Seira', 'Sena', 'Senés de Alcubierre', 'Seno', 'Sesa', 'Sestrica', 'Sesué', 'Sierra de Luna', 'Siétamo', 'Sigüés', 'Singra', 'Sisamón', 'Sobradiel', 'Sopeira', 'Sos del Rey Católico', 'Sotonera (La)', 'Tabuenca', 'Talamantes', 'Tamarite de Litera', 'Tarazona', 'Tardienta', 'Tauste', 'Tella-Sin', 'Terrer', 'Terriente', 'Teruel', 'Tierga', 'Tierz', 'Tobed', 'Tolva', 'Toril y Masegoso', 'Torla-Ordesa', 'Tormón', 'Tornos', 'Torralba de Aragón', 'Torralba de los Frailes', 'Torralba de los Sisones', 'Torralba de Ribota', 'Torralbilla', 'Torre de Arcas', 'Torre de las Arcas', 'Torre del Compte', 'Torre la Ribera', 'Torre los Negros', 'Torrecilla de Alcañiz', 'Torrecilla del Rebollar', 'Torrehermosa', 'Torrelacárcel', 'Torrelapaja', 'Torrellas', 'Torremocha de Jiloca', 'Torrente de Cinca', 'Torres de Albarracín', 'Torres de Alcanadre', 'Torres de Barbués', 'Torres de Berrellén', 'Torrevelilla', 'Torrijas', 'Torrijo de la Cañada', 'Torrijo del Campo', 'Tosos', 'Tramacastiel', 'Tramacastilla', 'Tramaced', 'Trasmoz', 'Trasobares', 'Tronchón', 'Uncastillo', 'Undués de Lerda', 'Urrea de Gaén', 'Urrea de Jalón', 'Urriés', 'Used', 'Utebo', 'Utrillas', 'Val de San Martín', 'Valacloche', 'Valbona', 'Valdealgorfa', 'Valdecuenca', 'Valdehorna', 'Valdelinares', 'Valdeltormo', 'Valderrobres', 'Valfarta', 'Valjunquera', 'Valle de Bardají', 'Valle de Hecho', 'Valle de Lierp', 'Vallecillo (El)', 'Valmadrid', 'Valpalmas', 'Valtorres', 'Veguillas de la Sierra', 'Velilla de Cinca', 'Velilla de Ebro', 'Velilla de Jiloca', 'Vencillón', 'Vera de Moncayo', 'Viacamp y Litera', 'Vicién', 'Vierlas', 'Villadoz', 'Villafeliche', 'Villafranca de Ebro', 'Villafranca del Campo', 'Villahermosa del Campo', 'Villalba de Perejil', 'Villalengua', 'Villamayor de Gállego', 'Villanova', 'Villanúa', 'Villanueva de Gállego', 'Villanueva de Huerva', 'Villanueva de Jiloca', 'Villanueva de Sigena', 'Villanueva del Rebollar de la Sierra', 'Villar de los Navarros', 'Villar del Cobo', 'Villar del Salz', 'Villarluengo', 'Villarquemado', 'Villarreal de Huerva', 'Villarroya de la Sierra', 'Villarroya de los Pinares', 'Villarroya del Campo', 'Villastar', 'Villel', 'Vilueña (La)', 'Vinaceite', 'Visiedo', 'Vistabella', 'Vivel del Río Martín', 'Yebra de Basa', 'Yésero', 'Zaida (La)', 'Zaidín', 'Zaragoza', 'Zoma (La)', 'Zuera']
@@ -78,11 +78,12 @@ def descargar():
     return main()
 
 def main():
-    connection = cx_Oracle.connect(
-    config.OPENDATA_USR + "/" + config.OPENDATA_PASS + "@" + config.OPENDATA_CONEXION_BD)
+#    connection = cx_Oracle.connect(
+#    config.OPENDATA_USR + "/" + config.OPENDATA_PASS + "@" + config.OPENDATA_CONEXION_BD)
+    connection = config.conexion('pro-opendata-oracle')
     print  config.OPENDATA_CONEXION_BD
     cursor = connection.cursor()
-
+    print "DatosIaest"
 
     QUERY = "SELECT "
     QUERY = QUERY + "IAES.MET_DATASET.ID_DATASET AS IdDataset, "
@@ -131,7 +132,7 @@ def main():
     QUERY = QUERY + "IAES.MET_DATASET ON IAES.MET_FICHEROS.ID_DATASET=IAES.MET_DATASET.ID_DATASET) RIGHT JOIN  "
     QUERY = QUERY + "IAES.MET_PRODUCTO ON IAES.MET_DATASET.ID_PRODUCTO=IAES.MET_PRODUCTO.ID_PRODUCTO) RIGHT JOIN  "
     QUERY = QUERY + "IAES.MET_OPERACION ON IAES.MET_PRODUCTO.ID_OPERACION=IAES.MET_OPERACION.ID_OPERACION "
-    QUERY = QUERY + "WHERE IAES.MET_DATASET.INCLUIR_OPENDATA='SI' " #and IAES.MET_DATASET.ID_DATASET=502  "
+    QUERY = QUERY + "WHERE IAES.MET_DATASET.INCLUIR_OPENDATA='SI' "# + " and IAES.MET_DATASET.ID_DATASET=1095  "
     QUERY = QUERY + "AND IAES.MET_PRODUCTO.CATEGORIA_OPENDATA is not null "
     QUERY = QUERY + "AND IAES.MET_DATASET.NOMBRE_DS is not null "
     QUERY = QUERY + "AND IAES.MET_FICHEROS.NOMBRE_FICHERO_OPENDATA is not null "
@@ -338,10 +339,11 @@ def main():
         else:
             identificador = Titulo.decode('utf-8').encode('utf-8')
             identificador = identificador.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-            identificador = identificador.replace( "ú", "u").replace("%","")
+            identificador = identificador.replace( "ú", "u").replace("%","").replace("ü", "u").replace("Ü", "u")
             identificador = identificador.strip().lower().replace(":", "-").replace(")", "").replace(",", "").replace("'","")
             identificador = identificador.replace("(","").replace(".", "").replace(" ", "-")
             identificador = identificador.replace("--", "-").replace("ñ","ny").replace("Á","a").replace("É","e").replace("Í","i").replace("Ó","o").replace("º","")
+            
 
         #// Se obtenian de la descripcion. Ahora tienen su propio campo
         if Etiquetas == None:
@@ -373,12 +375,12 @@ def main():
             if len(elemento) > 3:
                 fichero = fichero + "\t\t<dcat:keyword xml:lang=\"es\">" + elemento.strip() + "</dcat:keyword>\n"
 
-
+        #print title
         # Fin del FOR
         fichero = fichero + "\t\t<dct:title>" + title + "</dct:title>\n"
         #fichero = fichero + "\t\t<dct:organization>" + "iaest" + "</dct:organization>\n"
         fichero = fichero + "\t\t<dct:modified>" + str(fe_modificacion) + "</dct:modified>\n"
-        fichero = fichero + "\t\t<dct:organization>instituto_aragones_de_estadistica</dct:organization>\n"
+        fichero = fichero + "\t\t<dct:organization>instituto-aragones-estadistica</dct:organization>\n"
         fichero = fichero + "\t\t<dct:issued>" + str(f_creacion) + "</dct:issued>\n"
 
         #// Publicador
@@ -435,7 +437,7 @@ def main():
         diccionario = diccionario.replace("&","&amp;")
         url_diccionario = url_diccionario.replace("&","&amp;")
 
-#        fichero = fichero + "\t\t<dct:spatial>" + str(Spatial) + "</dct:spatial>\n"
+        fichero = fichero + "\t\t<dct:spatial>" + str(Spatial) + "</dct:spatial>\n"
         
 #        fichero = fichero + "\t\t<dct:temporal>" + str(Temporal) + "</dct:temporal>\n"
         fichero = fichero + "\t\t<dct:temporalFrom>" + transformaTemporal(Temporal_from) + "</dct:temporalFrom>\n"
@@ -446,15 +448,9 @@ def main():
         fichero = fichero + "\t\t<dct:language>" + str(idioma).upper() + "</dct:language>\n"
         fichero = fichero + "\t\t<dct:license rdf:resource=\"" + str(licencia) + "\"></dct:license>\n"
         fichero = fichero + "\t\t<dcat:granularity>" + str(detalle) + "</dcat:granularity>\n"
-        if ((str(calidad)=="") &&(str(url_calidad)!="")):
-          fichero = fichero + "\t\t<dcat:dataQuality>La calidad de datos se encuentra en la siguiente url</dcat:dataQuality>\n"
-        else:
-          fichero = fichero + "\t\t<dcat:dataQuality>" + str(calidad) + "</dcat:dataQuality>\n"
+        fichero = fichero + "\t\t<dcat:dataQuality>" + str(calidad) + "</dcat:dataQuality>\n"
         fichero = fichero + "\t\t<dcat:urlQuality>" + str(url_calidad) + "</dcat:urlQuality>\n"
-        if ((str(diccionario)=="") &&(str(url_diccionario)!="")):
-          fichero = fichero + "\t\t<dcat:dataDictionary>El diccionario del dato se encuentra en la siguiente url</dcat:dataDictionary>\n";
-        else:
-          fichero = fichero + "\t\t<dcat:dataDictionary>" + str(diccionario) + "</dcat:dataDictionary>\n"
+        fichero = fichero + "\t\t<dcat:dataDictionary>" + str(diccionario) + "</dcat:dataDictionary>\n"
         fichero = fichero + "\t\t<dcat:urlDictionary>" + str(url_diccionario) + "</dcat:urlDictionary>\n"
         
         #Aragopedia

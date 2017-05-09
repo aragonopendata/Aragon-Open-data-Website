@@ -1,0 +1,1737 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <comboSeccion>
+    <seccion>
+      <sec codSec="1" codSubSec="0">I. Disposiciones Generales</sec>
+    </seccion>
+    <seccion>
+      <sec codSec="2" codSubSec="0">II. Autoridades y Personal</sec>
+      <subsec codSec="2" codSubSec="1">a) Nombramientos, situaciones e incidencias</subsec>
+      <subsec codSec="2" codSubSec="2">b) Oposiciones y concursos</subsec>
+    </seccion>
+    <seccion>
+      <sec codSec="3" codSubSec="0">III. Otras Disposiciones y Acuerdos</sec>
+    </seccion>
+    <seccion>
+      <sec codSec="4" codSubSec="0">IV. Administración de Justicia</sec>
+    </seccion>
+    <seccion>
+      <sec codSec="5" codSubSec="0">V. Anuncios</sec>
+      <subsec codSec="5" codSubSec="1">a) Contratación de las Administraciones Públicas</subsec>
+      <subsec codSec="5" codSubSec="2">b) Otros anuncios</subsec>
+    </seccion>
+  </comboSeccion>
+  <comboTipoEmisores>
+    <tipoEmisor codTipEmi="1">ADMINISTRACION DE ESTADO</tipoEmisor>
+    <tipoEmisor codTipEmi="4">JUNTAS ELECTORALES</tipoEmisor>
+    <tipoEmisor codTipEmi="2">CORTES DE ARAGON</tipoEmisor>
+    <tipoEmisor codTipEmi="16">OFICINAS LIQUIDADORAS</tipoEmisor>
+    <tipoEmisor codTipEmi="5">GOBIERNO Y ADMINISTRACION C.A.A.</tipoEmisor>
+    <tipoEmisor codTipEmi="36">CÁMARA DE CUENTAS</tipoEmisor>
+    <tipoEmisor codTipEmi="6">JUSTICIA DE ARAGON</tipoEmisor>
+    <tipoEmisor codTipEmi="7">UNIVERSIDAD</tipoEmisor>
+    <tipoEmisor codTipEmi="8">DIPUTACION PROVINCIAL</tipoEmisor>
+    <tipoEmisor codTipEmi="14">ADMINISTRACIÓN DE JUSTICIA</tipoEmisor>
+    <tipoEmisor codTipEmi="9">COMARCAS</tipoEmisor>
+    <tipoEmisor codTipEmi="10">AYUNTAMIENTOS</tipoEmisor>
+    <tipoEmisor codTipEmi="13">PARTICULARES</tipoEmisor>
+    <tipoEmisor codTipEmi="11">MANCOMUNIDADES</tipoEmisor>
+    <tipoEmisor codTipEmi="76">CONSORCIOS</tipoEmisor>
+  </comboTipoEmisores>
+  <comboEmisores>
+    <emisor codEmi="48" codTipEmi="1" fechaEmi="07/08/2015">AGENCIA ESPAÑOLA DE PROTECCIÓN DE DATOS</emisor>
+    <emisor codEmi="1505" codTipEmi="1" fechaEmi="07/08/2015">AGENCIA ESTATAL DE LA ADMINISTRACIÓN TRIBUTARIA</emisor>
+    <emisor codEmi="46" codTipEmi="1" fechaEmi="07/08/2015">BANCO DE ESPAÑA</emisor>
+    <emisor codEmi="47" codTipEmi="1" fechaEmi="07/08/2015">COMISIÓN NACIONAL DE MERCADO DE VALORES</emisor>
+    <emisor codEmi="25" codTipEmi="1" fechaEmi="07/08/2015">CONSEJO GENERAL DEL PODER JUDICIAL</emisor>
+    <emisor codEmi="1324" codTipEmi="1" fechaEmi="07/08/2015">DELEGACIÓN DEL GOBIERNO EN ARAGÓN</emisor>
+    <emisor codEmi="1174" codTipEmi="1" fechaEmi="14/10/2011">ENTIDAD URBANISTICA DE CONSERVACION DE LA PLATAFORMA LOGISTICA DE HUESCA</emisor>
+    <emisor codEmi="33" codTipEmi="1" fechaEmi="07/08/2015">JUNTA ELECTORAL CENTRAL</emisor>
+    <emisor codEmi="1134" codTipEmi="1" fechaEmi="14/10/2011">JUZGADO DE LO SOCIAL Nº 4 DE MADRID</emisor>
+    <emisor codEmi="1145" codTipEmi="1" fechaEmi="14/10/2011">JUZGADO DE PRIMERA INSTANCIA NUM. 1 DE MONZON</emisor>
+    <emisor codEmi="1130" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE ADMINISTRACIONES PÚBLICAS</emisor>
+    <emisor codEmi="1022" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE AGRICULTURA, ALIMENTACIÓN Y MEDIO AMBIENTE</emisor>
+    <emisor codEmi="26" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE ASUNTOS EXTERIORES Y COOPERACIÓN</emisor>
+    <emisor codEmi="1095" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE CIENCIA E INNOVACIÓN</emisor>
+    <emisor codEmi="40" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE CULTURA</emisor>
+    <emisor codEmi="28" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE DEFENSA</emisor>
+    <emisor codEmi="1303" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE ECONOMÍA Y COMPETITIVIDAD</emisor>
+    <emisor codEmi="29" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE ECONOMÍA Y HACIENDA</emisor>
+    <emisor codEmi="34" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE EDUCACIÓN </emisor>
+    <emisor codEmi="34" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE EDUCACIÓN, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="35" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE EMPLEO Y SEGURIDAD SOCIAL</emisor>
+    <emisor codEmi="31" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE FOMENTO</emisor>
+    <emisor codEmi="29" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE HACIENDA Y ADMINISTRACIONES PÚBLICAS</emisor>
+    <emisor codEmi="1096" codTipEmi="1" fechaEmi="01/01/2006">MINISTERIO DE IGUALDAD</emisor>
+    <emisor codEmi="36" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE INDUSTRIA, ENERGÍA Y TURISMO </emisor>
+    <emisor codEmi="36" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE INDUSTRIA, TURISMO Y COMERCIO</emisor>
+    <emisor codEmi="27" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE JUSTICIA</emisor>
+    <emisor codEmi="38" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE LA PRESIDENCIA</emisor>
+    <emisor codEmi="32" codTipEmi="1" fechaEmi="01/01/2006">MINISTERIO DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1022" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE MEDIO AMBIENTE Y MEDIO RURAL Y MARINO</emisor>
+    <emisor codEmi="1091" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE POLÍTICA TERRITORIAL Y ADMINISTRACIÓN PÚBLICA</emisor>
+    <emisor codEmi="41" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DE SANIDAD, SERVICIOS SOCIALES E IGUALDAD</emisor>
+    <emisor codEmi="41" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE SANIDAD Y POLÍTICA SOCIAL</emisor>
+    <emisor codEmi="35" codTipEmi="1" fechaEmi="14/10/2011">MINISTERIO DE TRABAJO E INMIGRACIÓN</emisor>
+    <emisor codEmi="42" codTipEmi="1" fechaEmi="01/01/2006">MINISTERIO DE VIVIENDA</emisor>
+    <emisor codEmi="30" codTipEmi="1" fechaEmi="07/08/2015">MINISTERIO DEL INTERIOR</emisor>
+    <emisor codEmi="1395" codTipEmi="1" fechaEmi="07/08/2015">NOTARÍA DE JUAN MIGUEL BELLOD FERNÁNDEZ</emisor>
+    <emisor codEmi="23" codTipEmi="1" fechaEmi="07/08/2015">PRESIDENCIA DEL GOBIERNO</emisor>
+    <emisor codEmi="24" codTipEmi="1" fechaEmi="07/08/2015">TRIBUNAL CONSTITUCIONAL</emisor>
+    <emisor codEmi="44" codTipEmi="1" fechaEmi="07/08/2015">TRIBUNAL DE CONFLICTOS DE JURISDICCIÓN</emisor>
+    <emisor codEmi="45" codTipEmi="1" fechaEmi="07/08/2015">TRIBUNAL DE CUENTAS</emisor>
+    <emisor codEmi="43" codTipEmi="1" fechaEmi="07/08/2015">TRIBUNAL SUPREMO</emisor>
+    <emisor codEmi="1218" codTipEmi="2" fechaEmi="01/01/2006">CÁMARA DE CUENTAS DE ARAGON</emisor>
+    <emisor codEmi="54" codTipEmi="2" fechaEmi="07/08/2015">CORTES DE ARAGÓN</emisor>
+    <emisor codEmi="16" codTipEmi="4" fechaEmi="07/08/2015">JUNTA ELECTORAL DE ARAGÓN</emisor>
+    <emisor codEmi="809" codTipEmi="4" fechaEmi="07/08/2015">JUNTA ELECTORAL PROVINCIAL DE HUESCA</emisor>
+    <emisor codEmi="808" codTipEmi="4" fechaEmi="07/08/2015">JUNTA ELECTORAL PROVINCIAL DE TERUEL</emisor>
+    <emisor codEmi="807" codTipEmi="4" fechaEmi="07/08/2015">JUNTA ELECTORAL PROVINCIAL DE ZARAGOZA</emisor>
+    <emisor codEmi="12" codTipEmi="5" fechaEmi="07/08/2015">CONSEJO DE GOBIERNO</emisor>
+    <emisor codEmi="1023" codTipEmi="5" fechaEmi="07/08/2015">CONSEJO ECONÓMICO Y SOCIAL</emisor>
+    <emisor codEmi="1283" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE AGRICULTURA, GANADERÍA Y MEDIO AMBIENTE</emisor>
+    <emisor codEmi="5" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE AGRICULTURA Y ALIMENTACIÓN</emisor>
+    <emisor codEmi="10" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE CIENCIA, TECNOLOGÍA Y UNIVERSIDAD</emisor>
+    <emisor codEmi="1520" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE CIUDADANÍA Y DERECHOS SOCIALES</emisor>
+    <emisor codEmi="1283" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE DESARROLLO RURAL Y SOSTENIBILIDAD</emisor>
+    <emisor codEmi="3" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE ECONOMÍA, HACIENDA Y EMPLEO</emisor>
+    <emisor codEmi="1075" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE ECONOMÍA, HACIENDA Y EMPLEO Y DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTE</emisor>
+    <emisor codEmi="7" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE ECONOMÍA, INDUSTRIA Y EMPLEO</emisor>
+    <emisor codEmi="1290" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE ECONOMÍA, INDUSTRIA Y EMPLEO Y DE VERTEBRACIÓN TERRITORIAL, MOVILIDAD Y VIVIENDA</emisor>
+    <emisor codEmi="7" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE ECONOMÍA Y EMPLEO</emisor>
+    <emisor codEmi="1290" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTO DE ECONOMÍA Y EMPLEO Y DE OBRAS PÚBLICAS, URBANISMO, VIVIENDA Y TRANSPORTES</emisor>
+    <emisor codEmi="8" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE EDUCACIÓN, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="8" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE EDUCACIÓN, UNIVERSIDAD, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1517" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE EDUCACIÓN, UNIVERSIDAD, CULTURA Y DEPORTE Y DEPARTAMENTO DE SANIDAD, BIENESTAR SOCIAL Y FAMILIA</emisor>
+    <emisor codEmi="3" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE HACIENDA Y ADMINISTRACIÓN PÚBLICA</emisor>
+    <emisor codEmi="1444" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE HACIENDA Y ADMINSITRACIÓN PÚBLICA Y DEPARTAMENTO DE POLÍTICA TERRITORIAL E INTERIOR</emisor>
+    <emisor codEmi="7" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE INDUSTRIA, COMERCIO Y TURISMO</emisor>
+    <emisor codEmi="10" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE INDUSTRIA E INNOVACIÓN </emisor>
+    <emisor codEmi="10" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE INNOVACIÓN, INVESTIGACIÓN Y UNIVERSIDAD</emisor>
+    <emisor codEmi="10" codTipEmi="5" fechaEmi="19/10/2011">DEPARTAMENTO DE INNOVACIÓN Y NUEVAS TECNOLOGÍAS</emisor>
+    <emisor codEmi="9" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1281" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE OBRAS PÚBLICAS, URBANISMO, VIVIENDA Y TRANSPORTES</emisor>
+    <emisor codEmi="4" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTES</emisor>
+    <emisor codEmi="1120" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTES Y DE INDUSTRIA, COMERCIO Y TURISMO</emisor>
+    <emisor codEmi="803" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE POLÍTICA TERRITORIAL E INTERIOR</emisor>
+    <emisor codEmi="803" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE POLÍTICA TERRITORIAL, JUSTICIA E INTERIOR</emisor>
+    <emisor codEmi="13" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE PRESIDENCIA</emisor>
+    <emisor codEmi="1288" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE PRESIDENCIA Y DE HACIENDA Y ADMINISTRACIÓN PÚBLICA</emisor>
+    <emisor codEmi="1076" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE PRESIDENCIA Y DE POLITICA TERRITORIAL, JUSTICIA E INTERIOR</emisor>
+    <emisor codEmi="13" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE PRESIDENCIA Y JUSTICIA</emisor>
+    <emisor codEmi="1323" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE PRESIDENCIA Y JUSTICIA Y DE ECONOMÍA Y EMPLEO</emisor>
+    <emisor codEmi="1288" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTO DE PRESIDENCIA Y JUSTICIA Y DE HACIENDA Y ADMINISTRACIÓN PÚBLICA</emisor>
+    <emisor codEmi="6" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE SALUD Y CONSUMO</emisor>
+    <emisor codEmi="1286" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE SANIDAD</emisor>
+    <emisor codEmi="1286" codTipEmi="5" fechaEmi="14/06/2013">DEPARTAMENTO DE SANIDAD, BIENESTAR SOCIAL Y FAMILIA</emisor>
+    <emisor codEmi="11" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTO DE SERVICIOS SOCIALES Y FAMILIA</emisor>
+    <emisor codEmi="1281" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTO DE VERTEBRACIÓN DEL TERRITORIO, MOVILIDAD Y VIVIENDA</emisor>
+    <emisor codEmi="1040" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE AGRICULTURA Y ALIMENTACIÓN Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1229" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMÍA, HACIENDA Y EMPLEO Y DE AGRICULTURA Y ALIMENTACIÓN</emisor>
+    <emisor codEmi="1102" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMÍA, HACIENDA Y EMPLEO Y DE EDUCACIÓN, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1036" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMIA, HACIENDA Y EMPLEO Y DE INDUSTRIA, COMERCIO Y TURISMO</emisor>
+    <emisor codEmi="882" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMÍA, HACIENDA Y EMPLEO Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1080" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMÍA, HACIENDA Y EMPLEO Y DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTES</emisor>
+    <emisor codEmi="888" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE ECONOMÍA, HACIENDA Y EMPLEO Y DE SALUD Y CONSUMO</emisor>
+    <emisor codEmi="1348" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE ECONOMÍA, INDUSTRIA Y EMPLEO, Y DE DESARROLLO RURAL Y SOSTENIBILIDAD</emisor>
+    <emisor codEmi="1297" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE ECONOMÍA, INDUSTRIA Y EMPLEO Y DE EDUCACIÓN,CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1348" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE ECONOMÍA Y EMPLEO, Y DE AGRICULTURA, GANADERÍA Y MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1297" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE ECONOMÍA Y EMPLEO Y DE EDUCACIÓN, UNIVERSIDAD, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1402" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE ECONOMÍA Y EMPLEO Y DE SANIDAD, BIENESTAR SOCIAL Y FAMILIA</emisor>
+    <emisor codEmi="1154" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE EDUCACIÓN, CULTURA Y DEPORTE Y DE CIENCIA, TECNOLOGÍA Y UNIVERSIDAD</emisor>
+    <emisor codEmi="1389" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA E INDUSTRIA E INNOVACIÓN</emisor>
+    <emisor codEmi="1336" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA Y DE AGRICULTURA, GANADERÍA Y MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1336" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA Y DE DESARROLLO RURAL Y SOSTENIBILIDAD</emisor>
+    <emisor codEmi="1462" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA Y DE ECONOMÍA, INDUSTRIA Y EMPLEO</emisor>
+    <emisor codEmi="1462" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA Y DE ECONOMÍA Y EMPLEO</emisor>
+    <emisor codEmi="1302" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA, Y DE EDUCACIÓN, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1302" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA, Y DE EDUCACIÓN, UNIVERSIDAD, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1411" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE HACIENDA Y ADMINISTRACIÓN PÚBLICA Y DE SANIDAD, BIENESTAR SOCIAL Y FAMILIA</emisor>
+    <emisor codEmi="1098" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE INDUSTRIA, COMERCIO Y TURISMO Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1507" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO, VIVIENDA Y TRANSPORTES, DE POLÍTICA TERRITORIAL E INTERIOR, Y DE AGRICULTURA, GANADERÍA Y MEDIO AMBIENTE.</emisor>
+    <emisor codEmi="1439" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO, VIVIENDA Y TRANSPORTES Y DE INDUSTRIA E INNOVACION</emisor>
+    <emisor codEmi="1428" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO, VIVIENDA Y TRANSPORTES Y DE INDUSTRIA E INNOVACIÓN.</emisor>
+    <emisor codEmi="1241" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTE, Y DE INDUSTRIA, COMERCIO Y TURISMO, Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1100" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTES, DE POLÍTICA TERRITORIAL, JUSTICIA E INTERIOR, Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1223" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE OBRAS PUBLICAS, URBANISMO Y TRANSPORTES Y DE INDUSTRIA, COMERCIO Y TURISMO</emisor>
+    <emisor codEmi="1242" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE OBRAS PÚBLICAS, URBANISMO Y TRANSPORTES Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1108" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE POLÍTICA TERRITORIAL, JUSTICIA E INTERIOR Y DE CIENCIA, TECNOLOGÍA Y UNIVERSIDAD</emisor>
+    <emisor codEmi="1293" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE PRESIDENCIA Y DE DESARROLLO RURAL Y SOSTENIBILIDAD</emisor>
+    <emisor codEmi="2" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE PRESIDENCIA Y DE ECONOMÍA, HACIENDA Y EMPLEO</emisor>
+    <emisor codEmi="1124" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE PRESIDENCIA Y DE EDUCACIÓN, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1144" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE PRESIDENCIA Y DE MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1081" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE PRESIDENCIA Y DE POLÍTICA TERRITORIAL, JUSTICIA E INTERIOR</emisor>
+    <emisor codEmi="1162" codTipEmi="5" fechaEmi="01/01/2006">DEPARTAMENTOS DE PRESIDENCIA Y DE SERVICIOS SOCIALES Y FAMILIA</emisor>
+    <emisor codEmi="1293" codTipEmi="5" fechaEmi="06/07/2015">DEPARTAMENTOS DE PRESIDENCIA Y JUSTICIA Y DE AGRICULTURA, GANADERÍA Y MEDIO AMBIENTE</emisor>
+    <emisor codEmi="1398" codTipEmi="5" fechaEmi="07/08/2015">DEPARTAMENTOS DE PRESIDENCIA Y JUSTICIA Y DE EDUCACIÓN, UNIVERSIDAD, CULTURA Y DEPORTE</emisor>
+    <emisor codEmi="1" codTipEmi="5" fechaEmi="07/08/2015">PRESIDENCIA DEL GOBIERNO DE ARAGÓN</emisor>
+    <emisor codEmi="802" codTipEmi="5" fechaEmi="15/09/2011">VICEPRESIDENCIA DEL GOBIERNO DE ARAGÓN</emisor>
+    <emisor codEmi="806" codTipEmi="6" fechaEmi="07/08/2015">JUSTICIA DE ARAGÓN</emisor>
+    <emisor codEmi="1141" codTipEmi="7" fechaEmi="07/08/2015">CENTRO UNIVERSITARIO DE LA DEFENSA DE ZARAGOZA</emisor>
+    <emisor codEmi="53" codTipEmi="7" fechaEmi="07/08/2015">UNIVERSIDAD DE ZARAGOZA</emisor>
+    <emisor codEmi="1009" codTipEmi="7" fechaEmi="07/08/2015">UNIVERSIDAD SAN JORGE</emisor>
+    <emisor codEmi="60" codTipEmi="8" fechaEmi="07/08/2015">DIPUTACIÓN PROVINCIAL DE HUESCA</emisor>
+    <emisor codEmi="61" codTipEmi="8" fechaEmi="07/08/2015">DIPUTACION PROVINCIAL DE TERUEL</emisor>
+    <emisor codEmi="62" codTipEmi="8" fechaEmi="07/08/2015">DIPUTACIÓN PROVINCIAL DE ZARAGOZA</emisor>
+    <emisor codEmi="1494" codTipEmi="9" fechaEmi="07/08/2015">COMARCA COMUNIDAD DE TERUEL</emisor>
+    <emisor codEmi="84" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE  HOYA DE HUESCA/PLANA DE UESCA</emisor>
+    <emisor codEmi="75" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE ANDORRA-SIERRA DE ARCOS</emisor>
+    <emisor codEmi="89" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE BAJO ARAGON-CASPE/BAIX ARAGON-CASP</emisor>
+    <emisor codEmi="81" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE CAMPO DE BELCHITE</emisor>
+    <emisor codEmi="1478" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE CAMPO DE CARIÑENA</emisor>
+    <emisor codEmi="79" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE CAMPO DE DAROCA</emisor>
+    <emisor codEmi="85" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE CUENCAS MINERAS</emisor>
+    <emisor codEmi="64" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA COMUNIDAD DE CALATAYUD</emisor>
+    <emisor codEmi="84" codTipEmi="9" fechaEmi="08/07/2015">COMARCA DE LA HOYA DE HUESCA</emisor>
+    <emisor codEmi="74" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA JACETANIA</emisor>
+    <emisor codEmi="82" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA LITERA/LA LLITERA</emisor>
+    <emisor codEmi="76" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA RIBAGORZA</emisor>
+    <emisor codEmi="68" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA RIBERA ALTA DEL EBRO</emisor>
+    <emisor codEmi="77" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA RIBERA BAJA DEL EBRO</emisor>
+    <emisor codEmi="86" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LA SIERRA DE  ALBARRACIN</emisor>
+    <emisor codEmi="83" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LAS CINCO VILLAS</emisor>
+    <emisor codEmi="78" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE LOS MONEGROS</emisor>
+    <emisor codEmi="87" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE SOBRARBE</emisor>
+    <emisor codEmi="71" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE SOMONTANO DE BARBASTRO</emisor>
+    <emisor codEmi="66" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE TARAZONA Y EL MONCAYO</emisor>
+    <emisor codEmi="799" codTipEmi="9" fechaEmi="27/05/2013">COMARCA DE VALDEJALON</emisor>
+    <emisor codEmi="1152" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DE VALDEJALÓN</emisor>
+    <emisor codEmi="65" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL ALTO GALLEGO</emisor>
+    <emisor codEmi="63" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL ARANDA</emisor>
+    <emisor codEmi="55" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL BAJO ARAGON </emisor>
+    <emisor codEmi="80" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL BAJO CINCA/BAIX CINCA</emisor>
+    <emisor codEmi="88" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL BAJO MARTIN</emisor>
+    <emisor codEmi="67" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL CAMPO DE BORJA</emisor>
+    <emisor codEmi="70" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL CINCA MEDIO</emisor>
+    <emisor codEmi="90" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL JILOCA</emisor>
+    <emisor codEmi="73" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL MAESTRAZGO</emisor>
+    <emisor codEmi="72" codTipEmi="9" fechaEmi="07/08/2015">COMARCA DEL MATARRAÑA/MATARRANYA </emisor>
+    <emisor codEmi="69" codTipEmi="9" fechaEmi="07/08/2015">COMARCA GUDAR-JAVALAMBRE</emisor>
+    <emisor codEmi="91" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ABABUJ </emisor>
+    <emisor codEmi="111" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ABANTO</emisor>
+    <emisor codEmi="131" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ABEJUELA</emisor>
+    <emisor codEmi="151" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ABIEGO</emisor>
+    <emisor codEmi="92" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ABIZANDA</emisor>
+    <emisor codEmi="112" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ACERED</emisor>
+    <emisor codEmi="132" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ADAHUESCA</emisor>
+    <emisor codEmi="152" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGON</emisor>
+    <emisor codEmi="93" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUARON </emisor>
+    <emisor codEmi="113" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUATON</emisor>
+    <emisor codEmi="133" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUAVIVA</emisor>
+    <emisor codEmi="153" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUERO</emisor>
+    <emisor codEmi="94" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUILAR DE ALFAMBRA</emisor>
+    <emisor codEmi="114" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AGUILON</emisor>
+    <emisor codEmi="134" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AINSA-SOBRARBE</emisor>
+    <emisor codEmi="154" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AINZON</emisor>
+    <emisor codEmi="95" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AISA</emisor>
+    <emisor codEmi="115" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALACON</emisor>
+    <emisor codEmi="135" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALADREN</emisor>
+    <emisor codEmi="155" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALAGON</emisor>
+    <emisor codEmi="96" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALARBA</emisor>
+    <emisor codEmi="116" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBA</emisor>
+    <emisor codEmi="136" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBALATE DE CINCA</emisor>
+    <emisor codEmi="156" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBALATE DEL ARZOBISPO</emisor>
+    <emisor codEmi="97" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBALATILLO</emisor>
+    <emisor codEmi="117" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBARRACIN</emisor>
+    <emisor codEmi="137" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBELDA</emisor>
+    <emisor codEmi="157" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBENTOSA</emisor>
+    <emisor codEmi="98" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBERITE DE SAN JUAN</emisor>
+    <emisor codEmi="118" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBERO ALTO</emisor>
+    <emisor codEmi="138" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBERO BAJO</emisor>
+    <emisor codEmi="158" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBERUELA DE TUBO</emisor>
+    <emisor codEmi="99" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBETA</emisor>
+    <emisor codEmi="119" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALBORGE</emisor>
+    <emisor codEmi="139" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCAINE</emisor>
+    <emisor codEmi="159" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCALA DE EBRO</emisor>
+    <emisor codEmi="100" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCALA DE GURREA</emisor>
+    <emisor codEmi="120" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCALA DE LA SELVA</emisor>
+    <emisor codEmi="140" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCALA DE MONCAYO</emisor>
+    <emisor codEmi="160" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCALA DEL OBISPO</emisor>
+    <emisor codEmi="101" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCAMPELL</emisor>
+    <emisor codEmi="121" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCAÑIZ</emisor>
+    <emisor codEmi="141" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCOLEA DE CINCA</emisor>
+    <emisor codEmi="161" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCONCHEL DE ARIZA</emisor>
+    <emisor codEmi="102" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCORISA</emisor>
+    <emisor codEmi="122" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALCUBIERRE</emisor>
+    <emisor codEmi="142" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALDEHUELA DE LIESTOS</emisor>
+    <emisor codEmi="162" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALERRE</emisor>
+    <emisor codEmi="103" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALFAJARIN</emisor>
+    <emisor codEmi="123" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALFAMBRA</emisor>
+    <emisor codEmi="143" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALFAMEN</emisor>
+    <emisor codEmi="163" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALFANTEGA</emisor>
+    <emisor codEmi="104" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALFORQUE</emisor>
+    <emisor codEmi="124" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALHAMA DE ARAGON</emisor>
+    <emisor codEmi="144" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALIAGA</emisor>
+    <emisor codEmi="164" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALLEPUZ</emisor>
+    <emisor codEmi="105" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALLOZA</emisor>
+    <emisor codEmi="125" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALLUEVA</emisor>
+    <emisor codEmi="145" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMOCHUEL</emisor>
+    <emisor codEmi="165" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMOHAJA</emisor>
+    <emisor codEmi="126" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMONACID DE LA CUBA</emisor>
+    <emisor codEmi="146" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMONACID DE LA SIERRA</emisor>
+    <emisor codEmi="166" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMUDEVAR</emisor>
+    <emisor codEmi="127" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMUNIA DE SAN JUAN</emisor>
+    <emisor codEmi="147" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALMUNIENTE</emisor>
+    <emisor codEmi="167" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALOBRAS</emisor>
+    <emisor codEmi="108" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALPARTIR</emisor>
+    <emisor codEmi="128" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALPEÑES</emisor>
+    <emisor codEmi="148" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALQUEZAR</emisor>
+    <emisor codEmi="50" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ALTORRICÓN</emisor>
+    <emisor codEmi="109" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AMBEL </emisor>
+    <emisor codEmi="129" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANADON</emisor>
+    <emisor codEmi="149" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANDORRA</emisor>
+    <emisor codEmi="168" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANENTO</emisor>
+    <emisor codEmi="110" codTipEmi="10" fechaEmi="27/05/2013">AYUNTAMIENTO DE ANGUES</emisor>
+    <emisor codEmi="110" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANGÜES</emisor>
+    <emisor codEmi="130" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANIÑON</emisor>
+    <emisor codEmi="150" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANSO</emisor>
+    <emisor codEmi="169" codTipEmi="10" fechaEmi="27/05/2013">AYUNTAMIENTO DE ANTILLON</emisor>
+    <emisor codEmi="169" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ANTILLÓN</emisor>
+    <emisor codEmi="170" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AÑON DE MONCAYO</emisor>
+    <emisor codEmi="215" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARAGUES DEL PUERTO</emisor>
+    <emisor codEmi="259" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARANDA DE MONCAYO </emisor>
+    <emisor codEmi="265" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARANDIGA </emisor>
+    <emisor codEmi="171" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARCOS DE LAS SALINAS</emisor>
+    <emisor codEmi="216" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARDISA</emisor>
+    <emisor codEmi="260" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AREN </emisor>
+    <emisor codEmi="266" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARENS DE LLEDO </emisor>
+    <emisor codEmi="172" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARGAVIESO</emisor>
+    <emisor codEmi="217" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARGENTE</emisor>
+    <emisor codEmi="261" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARGUIS </emisor>
+    <emisor codEmi="267" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARIÑO </emisor>
+    <emisor codEmi="173" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARIZA</emisor>
+    <emisor codEmi="218" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ARTIEDA</emisor>
+    <emisor codEmi="262" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ASIN</emisor>
+    <emisor codEmi="268" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ATEA </emisor>
+    <emisor codEmi="174" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ATECA</emisor>
+    <emisor codEmi="219" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AYERBE</emisor>
+    <emisor codEmi="263" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AZAILA </emisor>
+    <emisor codEmi="269" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AZANUY-ALINS </emisor>
+    <emisor codEmi="175" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AZARA</emisor>
+    <emisor codEmi="220" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AZLOR</emisor>
+    <emisor codEmi="264" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE AZUARA </emisor>
+    <emisor codEmi="176" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BADENAS</emisor>
+    <emisor codEmi="221" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BADULES</emisor>
+    <emisor codEmi="270" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BAELLS </emisor>
+    <emisor codEmi="286" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BAGUENA </emisor>
+    <emisor codEmi="177" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BAGUES</emisor>
+    <emisor codEmi="222" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BAILO</emisor>
+    <emisor codEmi="271" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BALCONCHAN </emisor>
+    <emisor codEmi="287" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BALDELLOU </emisor>
+    <emisor codEmi="178" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BALLOBAR</emisor>
+    <emisor codEmi="223" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BANASTAS</emisor>
+    <emisor codEmi="272" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BAÑON </emisor>
+    <emisor codEmi="288" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARBASTRO </emisor>
+    <emisor codEmi="179" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARBOLES</emisor>
+    <emisor codEmi="224" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARBUES</emisor>
+    <emisor codEmi="273" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARBUÑALES </emisor>
+    <emisor codEmi="289" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARCABO </emisor>
+    <emisor codEmi="180" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARDALLUR</emisor>
+    <emisor codEmi="225" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BARRACHINA</emisor>
+    <emisor codEmi="274" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BEA </emisor>
+    <emisor codEmi="290" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BECEITE </emisor>
+    <emisor codEmi="181" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BELCHITE</emisor>
+    <emisor codEmi="226" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BELLO</emisor>
+    <emisor codEmi="275" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BELMONTE DE GRACIAN </emisor>
+    <emisor codEmi="291" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BELMONTE DE SAN JOSE </emisor>
+    <emisor codEmi="182" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BELVER</emisor>
+    <emisor codEmi="227" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BENABARRE</emisor>
+    <emisor codEmi="276" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BENASQUE </emisor>
+    <emisor codEmi="292" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BERBEGAL </emisor>
+    <emisor codEmi="183" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BERDEJO</emisor>
+    <emisor codEmi="228" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BERGE</emisor>
+    <emisor codEmi="277" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BERRUECO </emisor>
+    <emisor codEmi="293" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BEZAS </emisor>
+    <emisor codEmi="184" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIEL</emisor>
+    <emisor codEmi="229" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIELSA</emisor>
+    <emisor codEmi="278" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIERGE </emisor>
+    <emisor codEmi="294" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIESCAS </emisor>
+    <emisor codEmi="185" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIJUESCA</emisor>
+    <emisor codEmi="230" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BINACED</emisor>
+    <emisor codEmi="279" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BINEFAR </emisor>
+    <emisor codEmi="295" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BIOTA </emisor>
+    <emisor codEmi="186" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BISAURRI</emisor>
+    <emisor codEmi="231" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BISCARRUES</emisor>
+    <emisor codEmi="280" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BISIMBRE </emisor>
+    <emisor codEmi="296" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BLANCAS </emisor>
+    <emisor codEmi="187" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BLECUA Y TORRES</emisor>
+    <emisor codEmi="232" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BLESA</emisor>
+    <emisor codEmi="281" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BOLTAÑA </emisor>
+    <emisor codEmi="297" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BONANSA </emisor>
+    <emisor codEmi="188" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BOQUIÑENI</emisor>
+    <emisor codEmi="233" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BORAU</emisor>
+    <emisor codEmi="282" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BORDALBA </emisor>
+    <emisor codEmi="298" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BORDON </emisor>
+    <emisor codEmi="189" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BORJA</emisor>
+    <emisor codEmi="234" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BOTORRITA</emisor>
+    <emisor codEmi="283" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BREA DE ARAGON </emisor>
+    <emisor codEmi="299" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BRONCHALES </emisor>
+    <emisor codEmi="190" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BROTO</emisor>
+    <emisor codEmi="235" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BUBIERCA</emisor>
+    <emisor codEmi="284" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BUEÑA </emisor>
+    <emisor codEmi="300" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BUJARALOZ </emisor>
+    <emisor codEmi="191" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BULBUENTE</emisor>
+    <emisor codEmi="236" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BURBAGUENA</emisor>
+    <emisor codEmi="285" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE BURETA </emisor>
+    <emisor codEmi="193" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CABAÑAS DE EBRO</emisor>
+    <emisor codEmi="237" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CABOLAFUENTE</emisor>
+    <emisor codEmi="302" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CABRA DE MORA </emisor>
+    <emisor codEmi="324" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CADRETE </emisor>
+    <emisor codEmi="194" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALACEITE</emisor>
+    <emisor codEmi="238" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALAMOCHA</emisor>
+    <emisor codEmi="303" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALANDA </emisor>
+    <emisor codEmi="14" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALATAYUD</emisor>
+    <emisor codEmi="195" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALATORAO</emisor>
+    <emisor codEmi="239" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALCENA</emisor>
+    <emisor codEmi="304" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALDEARENAS</emisor>
+    <emisor codEmi="326" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALMARZA </emisor>
+    <emisor codEmi="196" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CALOMARDE</emisor>
+    <emisor codEmi="240" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMAÑAS</emisor>
+    <emisor codEmi="305" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMARENA DE LA SIERRA </emisor>
+    <emisor codEmi="327" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMARILLAS </emisor>
+    <emisor codEmi="197" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMINREAL</emisor>
+    <emisor codEmi="241" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMPILLO DE ARAGON</emisor>
+    <emisor codEmi="306" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMPO </emisor>
+    <emisor codEmi="328" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAMPORRELLS </emisor>
+    <emisor codEmi="198" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CANAL DE BERDUN</emisor>
+    <emisor codEmi="242" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CANDASNOS</emisor>
+    <emisor codEmi="307" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CANFRANC </emisor>
+    <emisor codEmi="211" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CANTAMINA</emisor>
+    <emisor codEmi="329" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CANTAVIEJA </emisor>
+    <emisor codEmi="199" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAÑADA DE BENATANDUZ</emisor>
+    <emisor codEmi="308" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAÑADA VELLIDA </emisor>
+    <emisor codEmi="330" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAÑIZAR DEL OLIVAR </emisor>
+    <emisor codEmi="200" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAPDESASO</emisor>
+    <emisor codEmi="244" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CAPELLA</emisor>
+    <emisor codEmi="309" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CARENAS </emisor>
+    <emisor codEmi="331" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CARIÑENA </emisor>
+    <emisor codEmi="201" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASBAS DE HUESCA</emisor>
+    <emisor codEmi="245" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASCANTE DEL RIO</emisor>
+    <emisor codEmi="310" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASPE </emisor>
+    <emisor codEmi="332" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE ALARBA </emisor>
+    <emisor codEmi="202" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE LAS ARMAS</emisor>
+    <emisor codEmi="246" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE MONEGROS</emisor>
+    <emisor codEmi="311" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE SOS </emisor>
+    <emisor codEmi="333" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE TORNOS</emisor>
+    <emisor codEmi="203" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DE VALDEJASA</emisor>
+    <emisor codEmi="247" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEJON DEL PUENTE</emisor>
+    <emisor codEmi="312" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTEL DE CABRA </emisor>
+    <emisor codEmi="334" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTELFLORITE</emisor>
+    <emisor codEmi="248" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTELLOTE</emisor>
+    <emisor codEmi="313" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTELNOU </emisor>
+    <emisor codEmi="335" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTELSERAS</emisor>
+    <emisor codEmi="205" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTIELLO DE JACA</emisor>
+    <emisor codEmi="249" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTIGALEU</emisor>
+    <emisor codEmi="314" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTILISCAR </emisor>
+    <emisor codEmi="336" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTILLAZUELO </emisor>
+    <emisor codEmi="206" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CASTILLONROY</emisor>
+    <emisor codEmi="250" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CEDRILLAS</emisor>
+    <emisor codEmi="315" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CELADAS </emisor>
+    <emisor codEmi="337" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CELLA</emisor>
+    <emisor codEmi="251" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CERVERA DE LA CAÑADA</emisor>
+    <emisor codEmi="316" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CERVERUELA </emisor>
+    <emisor codEmi="338" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CETINA</emisor>
+    <emisor codEmi="208" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CHALAMERA</emisor>
+    <emisor codEmi="252" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CHIA</emisor>
+    <emisor codEmi="317" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CHIMILLAS </emisor>
+    <emisor codEmi="339" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CHIPRANA </emisor>
+    <emisor codEmi="209" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CHODES</emisor>
+    <emisor codEmi="253" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CIMBALLA</emisor>
+    <emisor codEmi="318" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CINCO OLIVAS</emisor>
+    <emisor codEmi="340" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CLARES DE RIBOTA </emisor>
+    <emisor codEmi="210" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CODO</emisor>
+    <emisor codEmi="319" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CODOS </emisor>
+    <emisor codEmi="341" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE COLUNGO </emisor>
+    <emisor codEmi="255" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CORBALAN</emisor>
+    <emisor codEmi="320" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CORTES DE ARAGON </emisor>
+    <emisor codEmi="342" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE COSA </emisor>
+    <emisor codEmi="212" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE COSUENDA</emisor>
+    <emisor codEmi="256" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CRETAS</emisor>
+    <emisor codEmi="321" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CRIVILLEN</emisor>
+    <emisor codEmi="343" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUARTE DE HUERVA </emisor>
+    <emisor codEmi="257" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUBEL</emisor>
+    <emisor codEmi="322" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUBLA </emisor>
+    <emisor codEmi="344" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUCALON </emisor>
+    <emisor codEmi="323" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUEVAS DE ALMUDEN </emisor>
+    <emisor codEmi="345" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE CUEVAS LABRADAS</emisor>
+    <emisor codEmi="346" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE DAROCA </emisor>
+    <emisor codEmi="19" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="350" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EJULVE </emisor>
+    <emisor codEmi="1172" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL BURGO DE EBRO</emisor>
+    <emisor codEmi="192" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL BUSTE</emisor>
+    <emisor codEmi="204" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL CASTELLAR</emisor>
+    <emisor codEmi="258" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL CUERVO</emisor>
+    <emisor codEmi="381" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL FRAGO</emisor>
+    <emisor codEmi="389" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL FRASNO</emisor>
+    <emisor codEmi="404" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL GRADO</emisor>
+    <emisor codEmi="586" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL POBO</emisor>
+    <emisor codEmi="591" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL PUEYO DE ARAGUAS </emisor>
+    <emisor codEmi="748" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EL VALLECILLO</emisor>
+    <emisor codEmi="354" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EMBID DE ARIZA</emisor>
+    <emisor codEmi="357" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ENCINACORBA</emisor>
+    <emisor codEmi="347" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE EPILA </emisor>
+    <emisor codEmi="351" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ERLA </emisor>
+    <emisor codEmi="355" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESCATRON </emisor>
+    <emisor codEmi="358" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESCORIHUELA</emisor>
+    <emisor codEmi="348" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESCUCHA </emisor>
+    <emisor codEmi="352" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESPLUS </emisor>
+    <emisor codEmi="356" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESTADA</emisor>
+    <emisor codEmi="359" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESTADILLA </emisor>
+    <emisor codEmi="349" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESTERCUEL </emisor>
+    <emisor codEmi="353" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ESTOPIÑAN DEL CASTILLO </emisor>
+    <emisor codEmi="360" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FABARA </emisor>
+    <emisor codEmi="369" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FAGO </emisor>
+    <emisor codEmi="377" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FANLO </emisor>
+    <emisor codEmi="385" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FARLETE </emisor>
+    <emisor codEmi="361" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FAYON </emisor>
+    <emisor codEmi="378" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FERRERUELA DE HUERVA </emisor>
+    <emisor codEmi="386" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FIGUERUELAS </emisor>
+    <emisor codEmi="362" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FISCAL </emisor>
+    <emisor codEmi="371" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FOMBUENA</emisor>
+    <emisor codEmi="379" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FONFRIA </emisor>
+    <emisor codEmi="387" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FONZ </emisor>
+    <emisor codEmi="363" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FORADADA DEL TOSCAR </emisor>
+    <emisor codEmi="372" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FORMICHE ALTO </emisor>
+    <emisor codEmi="380" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FORNOLES </emisor>
+    <emisor codEmi="388" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FORTANETE </emisor>
+    <emisor codEmi="364" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FOZ-CALANDA </emisor>
+    <emisor codEmi="373" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FRAGA </emisor>
+    <emisor codEmi="365" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FRESCANO </emisor>
+    <emisor codEmi="382" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FRIAS DE ALBARRACIN</emisor>
+    <emisor codEmi="390" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENDEJALON </emisor>
+    <emisor codEmi="366" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENDETODOS </emisor>
+    <emisor codEmi="375" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENFERRADA </emisor>
+    <emisor codEmi="383" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTES CALIENTES </emisor>
+    <emisor codEmi="391" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTES CLARAS</emisor>
+    <emisor codEmi="367" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTES DE EBRO </emisor>
+    <emisor codEmi="376" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTES DE JILOCA </emisor>
+    <emisor codEmi="384" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTES DE RUBIELOS</emisor>
+    <emisor codEmi="392" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE FUENTESPALDA </emisor>
+    <emisor codEmi="393" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GALLOCANTA </emisor>
+    <emisor codEmi="52" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GALLUR</emisor>
+    <emisor codEmi="402" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GALVE </emisor>
+    <emisor codEmi="407" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GARGALLO </emisor>
+    <emisor codEmi="394" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GEA DE ALBARRACIN </emisor>
+    <emisor codEmi="398" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GELSA </emisor>
+    <emisor codEmi="408" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GISTAIN</emisor>
+    <emisor codEmi="395" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GODOJOS </emisor>
+    <emisor codEmi="399" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GOTOR </emisor>
+    <emisor codEmi="409" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GRAÑEN</emisor>
+    <emisor codEmi="396" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GRAUS </emisor>
+    <emisor codEmi="400" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GRIEGOS </emisor>
+    <emisor codEmi="405" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GRISEL </emisor>
+    <emisor codEmi="410" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GRISEN </emisor>
+    <emisor codEmi="397" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GUADALAVIAR </emisor>
+    <emisor codEmi="401" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GUDAR </emisor>
+    <emisor codEmi="406" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE GURREA DE GALLEGO </emisor>
+    <emisor codEmi="411" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HERRERA DE LOS NAVARROS </emisor>
+    <emisor codEmi="414" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HIJAR </emisor>
+    <emisor codEmi="416" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HINOJOSA DE JARQUE </emisor>
+    <emisor codEmi="418" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HOZ DE JACA </emisor>
+    <emisor codEmi="415" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HOZ Y COSTEAN </emisor>
+    <emisor codEmi="417" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HUERTO </emisor>
+    <emisor codEmi="419" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HUESA DEL COMUN </emisor>
+    <emisor codEmi="413" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE HUESCA </emisor>
+    <emisor codEmi="420" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE IBDES </emisor>
+    <emisor codEmi="422" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE IBIECA </emisor>
+    <emisor codEmi="426" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE IGRIES </emisor>
+    <emisor codEmi="421" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ILCHE </emisor>
+    <emisor codEmi="423" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ILLUECA </emisor>
+    <emisor codEmi="425" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ISABENA </emisor>
+    <emisor codEmi="427" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ISUERRE </emisor>
+    <emisor codEmi="428" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JABALOYAS </emisor>
+    <emisor codEmi="431" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JACA </emisor>
+    <emisor codEmi="434" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JARABA</emisor>
+    <emisor codEmi="437" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JARQUE </emisor>
+    <emisor codEmi="429" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JARQUE DE LA VAL </emisor>
+    <emisor codEmi="432" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JASA </emisor>
+    <emisor codEmi="435" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JATIEL </emisor>
+    <emisor codEmi="438" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JAULIN </emisor>
+    <emisor codEmi="430" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JORCAS</emisor>
+    <emisor codEmi="433" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE JOSA </emisor>
+    <emisor codEmi="106" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA ALMOLDA</emisor>
+    <emisor codEmi="107" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="243" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA CAÑADA DE VERICH</emisor>
+    <emisor codEmi="207" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA CEROLLERA</emisor>
+    <emisor codEmi="254" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA CODOÑERA</emisor>
+    <emisor codEmi="213" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA CUBA</emisor>
+    <emisor codEmi="374" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA FRESNEDA</emisor>
+    <emisor codEmi="368" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA FUEVA</emisor>
+    <emisor codEmi="403" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA GINEBROSA</emisor>
+    <emisor codEmi="412" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA HOZ DE LA VIEJA</emisor>
+    <emisor codEmi="424" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA IGLESUELA DEL CID</emisor>
+    <emisor codEmi="436" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA JOYOSA</emisor>
+    <emisor codEmi="490" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA MATA DE LOS OLMOS</emisor>
+    <emisor codEmi="511" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA MUELA</emisor>
+    <emisor codEmi="573" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PORTELLADA</emisor>
+    <emisor codEmi="560" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PUEBLA DE ALBORTON</emisor>
+    <emisor codEmi="575" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PUEBLA DE ALFINDEN </emisor>
+    <emisor codEmi="589" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PUEBLA DE CASTRO</emisor>
+    <emisor codEmi="603" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PUEBLA DE HIJAR</emisor>
+    <emisor codEmi="561" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA PUEBLA DE VALVERDE</emisor>
+    <emisor codEmi="650" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA SOTONERA</emisor>
+    <emisor codEmi="783" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA VILUEÑA</emisor>
+    <emisor codEmi="796" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA ZAIDA </emisor>
+    <emisor codEmi="798" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LA ZOMA</emisor>
+    <emisor codEmi="439" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LABUERDA </emisor>
+    <emisor codEmi="449" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAGATA </emisor>
+    <emisor codEmi="459" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAGUERUELA </emisor>
+    <emisor codEmi="468" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LALUENGA </emisor>
+    <emisor codEmi="440" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LALUEZA </emisor>
+    <emisor codEmi="450" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LANAJA</emisor>
+    <emisor codEmi="460" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LANGA DEL CASTILLO</emisor>
+    <emisor codEmi="469" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LANZUELA </emisor>
+    <emisor codEmi="441" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAPERDIGUERA </emisor>
+    <emisor codEmi="214" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAS CUERLAS</emisor>
+    <emisor codEmi="593" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAS PARRAS DE CASTELLOTE</emisor>
+    <emisor codEmi="580" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAS PEDROSAS</emisor>
+    <emisor codEmi="567" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAS PEÑAS DE RIGLOS</emisor>
+    <emisor codEmi="451" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LASCELLAS-PONZANO</emisor>
+    <emisor codEmi="461" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LASCUARRE</emisor>
+    <emisor codEmi="470" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LASPAULES</emisor>
+    <emisor codEmi="442" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LASPUÑA </emisor>
+    <emisor codEmi="452" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LAYANA </emisor>
+    <emisor codEmi="462" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LECERA </emisor>
+    <emisor codEmi="471" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LECHON </emisor>
+    <emisor codEmi="443" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LECIÑENA </emisor>
+    <emisor codEmi="453" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LETUX </emisor>
+    <emisor codEmi="463" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LIBROS </emisor>
+    <emisor codEmi="472" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LIDON </emisor>
+    <emisor codEmi="444" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LINARES DE MORA </emisor>
+    <emisor codEmi="454" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LITAGO</emisor>
+    <emisor codEmi="464" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LITUENIGO</emisor>
+    <emisor codEmi="473" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LLEDO</emisor>
+    <emisor codEmi="445" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOARRE </emisor>
+    <emisor codEmi="455" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOBERA DE ONSELLA </emisor>
+    <emisor codEmi="465" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LONGARES</emisor>
+    <emisor codEmi="474" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LONGAS</emisor>
+    <emisor codEmi="446" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOPORZANO </emisor>
+    <emisor codEmi="370" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOS FAYOS</emisor>
+    <emisor codEmi="1171" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOS OLMOS</emisor>
+    <emisor codEmi="584" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOS PINTANOS</emisor>
+    <emisor codEmi="456" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOSCORRALES </emisor>
+    <emisor codEmi="466" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LOSCOS </emisor>
+    <emisor codEmi="475" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUCENA DE JALON </emisor>
+    <emisor codEmi="447" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUCENI </emisor>
+    <emisor codEmi="457" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUESIA </emisor>
+    <emisor codEmi="467" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUESMA </emisor>
+    <emisor codEmi="476" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUMPIAQUE </emisor>
+    <emisor codEmi="448" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUNA </emisor>
+    <emisor codEmi="458" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE LUPIÑEN-ORTILLA </emisor>
+    <emisor codEmi="477" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAELLA </emisor>
+    <emisor codEmi="480" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAGALLON </emisor>
+    <emisor codEmi="483" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAICAS </emisor>
+    <emisor codEmi="486" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAINAR </emisor>
+    <emisor codEmi="478" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MALANQUILLA </emisor>
+    <emisor codEmi="481" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MALEJAN </emisor>
+    <emisor codEmi="484" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MALLEN </emisor>
+    <emisor codEmi="487" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MALON </emisor>
+    <emisor codEmi="479" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MALUENDA </emisor>
+    <emisor codEmi="482" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MANCHONES </emisor>
+    <emisor codEmi="485" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MANZANERA</emisor>
+    <emisor codEmi="488" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MARA </emisor>
+    <emisor codEmi="489" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MARIA DE HUERVA </emisor>
+    <emisor codEmi="501" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MARRACOS </emisor>
+    <emisor codEmi="513" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MARTIN DEL RIO </emisor>
+    <emisor codEmi="524" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAS DE LAS MATAS </emisor>
+    <emisor codEmi="502" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MAZALEON</emisor>
+    <emisor codEmi="514" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MEDIANA DE ARAGON</emisor>
+    <emisor codEmi="525" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MEQUINENZA</emisor>
+    <emisor codEmi="491" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MESONES DE ISUELA</emisor>
+    <emisor codEmi="503" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MEZALOCHA </emisor>
+    <emisor codEmi="515" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MEZQUITA DE JARQUE </emisor>
+    <emisor codEmi="526" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MIANOS </emisor>
+    <emisor codEmi="492" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MIEDES DE ARAGON </emisor>
+    <emisor codEmi="504" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MIRAMBEL</emisor>
+    <emisor codEmi="516" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MIRAVETE DE LA SIERRA </emisor>
+    <emisor codEmi="527" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOLINOS </emisor>
+    <emisor codEmi="493" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONEGRILLO</emisor>
+    <emisor codEmi="505" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONESMA Y CAJIGAR </emisor>
+    <emisor codEmi="517" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONEVA </emisor>
+    <emisor codEmi="528" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONFLORITE-LASCASAS </emisor>
+    <emisor codEmi="494" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONFORTE DE MOYUELA </emisor>
+    <emisor codEmi="506" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONREAL DE ARIZA</emisor>
+    <emisor codEmi="518" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONREAL DEL CAMPO</emisor>
+    <emisor codEmi="529" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONROYO </emisor>
+    <emisor codEmi="495" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTALBAN </emisor>
+    <emisor codEmi="507" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTANUY</emisor>
+    <emisor codEmi="519" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTEAGUDO DEL CASTILLO </emisor>
+    <emisor codEmi="530" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTERDE</emisor>
+    <emisor codEmi="496" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTERDE DE ALBARRACIN </emisor>
+    <emisor codEmi="508" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONTON </emisor>
+    <emisor codEmi="520" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MONZON </emisor>
+    <emisor codEmi="531" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MORA DE RUBIELOS </emisor>
+    <emisor codEmi="497" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MORATA DE JALON</emisor>
+    <emisor codEmi="509" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MORATA DE JILOCA </emisor>
+    <emisor codEmi="521" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MORES </emisor>
+    <emisor codEmi="532" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOROS </emisor>
+    <emisor codEmi="498" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOSCARDON </emisor>
+    <emisor codEmi="510" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOSQUERUELA </emisor>
+    <emisor codEmi="522" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOYUELA </emisor>
+    <emisor codEmi="533" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MOZOTA </emisor>
+    <emisor codEmi="499" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MUEL </emisor>
+    <emisor codEmi="523" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MUNEBREGA</emisor>
+    <emisor codEmi="534" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MUNIESA </emisor>
+    <emisor codEmi="500" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MURERO </emisor>
+    <emisor codEmi="512" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE MURILLO DE GALLEGO</emisor>
+    <emisor codEmi="535" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NAVAL </emisor>
+    <emisor codEmi="539" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NAVARDUN </emisor>
+    <emisor codEmi="543" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NIGUELLA </emisor>
+    <emisor codEmi="546" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOGUERA DE ALBARRACIN </emisor>
+    <emisor codEmi="536" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOGUERAS </emisor>
+    <emisor codEmi="540" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOGUERUELAS </emisor>
+    <emisor codEmi="544" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOMBREVILLA </emisor>
+    <emisor codEmi="547" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NONASPE </emisor>
+    <emisor codEmi="537" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOVALES </emisor>
+    <emisor codEmi="541" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOVALLAS </emisor>
+    <emisor codEmi="545" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NOVILLAS </emisor>
+    <emisor codEmi="548" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NUENO </emisor>
+    <emisor codEmi="538" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NUEVALOS </emisor>
+    <emisor codEmi="542" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE NUEZ DE EBRO </emisor>
+    <emisor codEmi="1445" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE OJOS NEGROS</emisor>
+    <emisor codEmi="1170" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE OLBA</emisor>
+    <emisor codEmi="1175" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE OLVENA</emisor>
+    <emisor codEmi="1180" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ONTIÑENA</emisor>
+    <emisor codEmi="549" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PALO </emisor>
+    <emisor codEmi="564" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PALOMAR DE ARROYOS</emisor>
+    <emisor codEmi="578" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PANCRUDO </emisor>
+    <emisor codEmi="592" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PANIZA </emisor>
+    <emisor codEmi="550" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PANTICOSA </emisor>
+    <emisor codEmi="565" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PARACUELLOS DE JILOCA </emisor>
+    <emisor codEmi="579" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PARACUELLOS DE LA RIBERA </emisor>
+    <emisor codEmi="551" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PASTRIZ </emisor>
+    <emisor codEmi="566" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PEDROLA </emisor>
+    <emisor codEmi="594" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PEÑALBA</emisor>
+    <emisor codEmi="552" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PEÑARROYA DE TASTAVINS </emisor>
+    <emisor codEmi="581" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERACENSE</emisor>
+    <emisor codEmi="595" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERALEJOS </emisor>
+    <emisor codEmi="553" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERALES DEL ALFAMBRA </emisor>
+    <emisor codEmi="568" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERALTA DE ALCOFEA</emisor>
+    <emisor codEmi="582" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERALTA DE CALASANZ</emisor>
+    <emisor codEmi="596" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERALTILLA </emisor>
+    <emisor codEmi="554" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERARRUA </emisor>
+    <emisor codEmi="569" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERDIGUERA </emisor>
+    <emisor codEmi="583" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PERTUSA </emisor>
+    <emisor codEmi="597" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PIEDRATAJADA </emisor>
+    <emisor codEmi="555" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PINA DE EBRO </emisor>
+    <emisor codEmi="570" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PINSEQUE </emisor>
+    <emisor codEmi="598" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PIRACES </emisor>
+    <emisor codEmi="556" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PITARQUE </emisor>
+    <emisor codEmi="571" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PLAN</emisor>
+    <emisor codEmi="585" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PLASENCIA DE JALON </emisor>
+    <emisor codEmi="599" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PLEITAS </emisor>
+    <emisor codEmi="557" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PLENAS </emisor>
+    <emisor codEmi="572" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PLOU </emisor>
+    <emisor codEmi="600" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POLEÑINO </emisor>
+    <emisor codEmi="558" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POMER </emisor>
+    <emisor codEmi="587" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POZAN DE VERO</emisor>
+    <emisor codEmi="601" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POZONDON </emisor>
+    <emisor codEmi="559" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POZUEL DE ARIZA </emisor>
+    <emisor codEmi="574" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POZUEL DEL CAMPO</emisor>
+    <emisor codEmi="588" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE POZUELO DE ARAGON </emisor>
+    <emisor codEmi="602" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PRADILLA DE EBRO</emisor>
+    <emisor codEmi="576" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUENDELUNA </emisor>
+    <emisor codEmi="590" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUENTE DE MONTAÑANA </emisor>
+    <emisor codEmi="604" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUENTE LA REINA DE JACA </emisor>
+    <emisor codEmi="562" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUERTOLAS </emisor>
+    <emisor codEmi="577" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUERTOMINGALVO</emisor>
+    <emisor codEmi="605" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PUEYO DE SANTA CRUZ</emisor>
+    <emisor codEmi="563" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE PURUJOSA </emisor>
+    <emisor codEmi="606" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE QUICENA </emisor>
+    <emisor codEmi="607" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE QUINTO </emisor>
+    <emisor codEmi="608" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RAFALES </emisor>
+    <emisor codEmi="609" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE REMOLINOS </emisor>
+    <emisor codEmi="610" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RETASCON </emisor>
+    <emisor codEmi="611" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RICLA </emisor>
+    <emisor codEmi="612" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RILLO </emisor>
+    <emisor codEmi="615" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RIODEVA </emisor>
+    <emisor codEmi="618" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ROBRES </emisor>
+    <emisor codEmi="621" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RODENAS </emisor>
+    <emisor codEmi="613" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ROMANOS </emisor>
+    <emisor codEmi="616" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ROYUELA</emisor>
+    <emisor codEmi="619" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RUBIALES </emisor>
+    <emisor codEmi="622" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RUBIELOS DE LA CERIDA </emisor>
+    <emisor codEmi="614" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RUBIELOS DE MORA</emisor>
+    <emisor codEmi="617" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RUEDA DE JALON </emisor>
+    <emisor codEmi="620" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE RUESCA </emisor>
+    <emisor codEmi="623" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SABIÑANIGO </emisor>
+    <emisor codEmi="637" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SADABA </emisor>
+    <emisor codEmi="651" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAHUN </emisor>
+    <emisor codEmi="663" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALAS ALTAS </emisor>
+    <emisor codEmi="624" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALAS BAJAS </emisor>
+    <emisor codEmi="638" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALCEDILLO</emisor>
+    <emisor codEmi="652" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALDON </emisor>
+    <emisor codEmi="664" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALILLAS </emisor>
+    <emisor codEmi="625" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALILLAS DE JALON </emisor>
+    <emisor codEmi="639" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALLENT DE GALLEGO </emisor>
+    <emisor codEmi="653" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SALVATIERRA DE ESCA</emisor>
+    <emisor codEmi="665" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAMPER DE CALANDA </emisor>
+    <emisor codEmi="626" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAMPER DEL SALZ </emisor>
+    <emisor codEmi="640" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN AGUSTIN </emisor>
+    <emisor codEmi="654" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN ESTEBAN DE LITERA </emisor>
+    <emisor codEmi="666" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN JUAN DE PLAN</emisor>
+    <emisor codEmi="627" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN MARTIN DE LA VIRGEN DEL MONCAYO</emisor>
+    <emisor codEmi="641" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN MARTIN DEL RIO </emisor>
+    <emisor codEmi="655" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN MATEO DE GALLEGO </emisor>
+    <emisor codEmi="667" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAN MIGUEL DEL CINCA </emisor>
+    <emisor codEmi="628" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANGARREN </emisor>
+    <emisor codEmi="642" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA CILIA </emisor>
+    <emisor codEmi="656" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA CRUZ DE GRIO </emisor>
+    <emisor codEmi="668" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA CRUZ DE LA SEROS </emisor>
+    <emisor codEmi="629" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA CRUZ DE MONCAYO </emisor>
+    <emisor codEmi="643" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA CRUZ DE NOGUERAS </emisor>
+    <emisor codEmi="657" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA EULALIA</emisor>
+    <emisor codEmi="669" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA EULALIA DE GALLEGO </emisor>
+    <emisor codEmi="630" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA LIESTRA Y SAN QUILEZ </emisor>
+    <emisor codEmi="644" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTA MARIA DE DULCIS </emisor>
+    <emisor codEmi="658" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SANTED </emisor>
+    <emisor codEmi="670" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SARIÑENA </emisor>
+    <emisor codEmi="631" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SARRION </emisor>
+    <emisor codEmi="645" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SASTAGO </emisor>
+    <emisor codEmi="659" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SAVIÑAN</emisor>
+    <emisor codEmi="671" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SECASTILLA </emisor>
+    <emisor codEmi="632" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SEDILES </emisor>
+    <emisor codEmi="646" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SEGURA DE LOS BAÑOS </emisor>
+    <emisor codEmi="660" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SEIRA </emisor>
+    <emisor codEmi="672" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SENA </emisor>
+    <emisor codEmi="633" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SENES DE ALCUBIERRE</emisor>
+    <emisor codEmi="647" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SENO</emisor>
+    <emisor codEmi="661" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SESA </emisor>
+    <emisor codEmi="673" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SESTRICA </emisor>
+    <emisor codEmi="634" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SESUE </emisor>
+    <emisor codEmi="648" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SIERRA DE LUNA </emisor>
+    <emisor codEmi="662" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SIETAMO </emisor>
+    <emisor codEmi="674" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SIGUES </emisor>
+    <emisor codEmi="635" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SINGRA </emisor>
+    <emisor codEmi="649" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SISAMON</emisor>
+    <emisor codEmi="20" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SOBRADIEL</emisor>
+    <emisor codEmi="675" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SOPEIRA </emisor>
+    <emisor codEmi="636" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE SOS DEL REY CATOLICO </emisor>
+    <emisor codEmi="676" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TABUENCA </emisor>
+    <emisor codEmi="689" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TALAMANTES </emisor>
+    <emisor codEmi="702" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TAMARITE DE LITERA</emisor>
+    <emisor codEmi="715" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TARAZONA </emisor>
+    <emisor codEmi="677" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TARDIENTA </emisor>
+    <emisor codEmi="690" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TAUSTE </emisor>
+    <emisor codEmi="703" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TELLA-SIN</emisor>
+    <emisor codEmi="716" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TERRER </emisor>
+    <emisor codEmi="678" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TERRIENTE </emisor>
+    <emisor codEmi="57" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TERUEL</emisor>
+    <emisor codEmi="704" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TIERGA </emisor>
+    <emisor codEmi="717" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TIERZ</emisor>
+    <emisor codEmi="679" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TOBED </emisor>
+    <emisor codEmi="692" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TOLVA </emisor>
+    <emisor codEmi="705" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORIL Y MASEGOSO </emisor>
+    <emisor codEmi="718" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORLA</emisor>
+    <emisor codEmi="680" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORMON </emisor>
+    <emisor codEmi="693" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORNOS </emisor>
+    <emisor codEmi="706" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRALBA DE ARAGON</emisor>
+    <emisor codEmi="719" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRALBA DE LOS FRAILES</emisor>
+    <emisor codEmi="681" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRALBA DE LOS SISONES </emisor>
+    <emisor codEmi="694" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRALBA DE RIBOTA </emisor>
+    <emisor codEmi="707" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRALBILLA</emisor>
+    <emisor codEmi="720" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRE DE ARCAS</emisor>
+    <emisor codEmi="682" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRE DE LAS ARCAS </emisor>
+    <emisor codEmi="695" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRE DEL COMPTE</emisor>
+    <emisor codEmi="708" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRE LA RIBERA </emisor>
+    <emisor codEmi="721" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRE LOS NEGROS </emisor>
+    <emisor codEmi="683" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRECILLA DE ALCAÑIZ </emisor>
+    <emisor codEmi="696" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRECILLA DEL REBOLLAR </emisor>
+    <emisor codEmi="709" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORREHERMOSA</emisor>
+    <emisor codEmi="722" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRELACARCEL </emisor>
+    <emisor codEmi="684" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRELAPAJA </emisor>
+    <emisor codEmi="697" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRELLAS</emisor>
+    <emisor codEmi="710" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORREMOCHA DEL JILOCA </emisor>
+    <emisor codEmi="723" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRENTE DE CINCA</emisor>
+    <emisor codEmi="685" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRES DE ALBARRACIN </emisor>
+    <emisor codEmi="698" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRES DE ALCANADRE </emisor>
+    <emisor codEmi="711" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRES DE BARBUES</emisor>
+    <emisor codEmi="724" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRES DE BERRELLEN</emisor>
+    <emisor codEmi="686" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORREVELILLA </emisor>
+    <emisor codEmi="699" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRIJAS</emisor>
+    <emisor codEmi="712" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRIJO DE LA CAÑADA </emisor>
+    <emisor codEmi="725" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TORRIJO DEL CAMPO</emisor>
+    <emisor codEmi="687" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TOSOS </emisor>
+    <emisor codEmi="700" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRAMACASTIEL </emisor>
+    <emisor codEmi="713" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRAMACASTILLA </emisor>
+    <emisor codEmi="726" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRAMACED </emisor>
+    <emisor codEmi="688" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRASMOZ </emisor>
+    <emisor codEmi="701" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRASOBARES </emisor>
+    <emisor codEmi="714" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE TRONCHON </emisor>
+    <emisor codEmi="727" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE UNCASTILLO </emisor>
+    <emisor codEmi="730" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE UNDUES DE LERDA </emisor>
+    <emisor codEmi="732" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE URREA DE GAEN </emisor>
+    <emisor codEmi="733" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE URREA DE JALON </emisor>
+    <emisor codEmi="728" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE URRIES </emisor>
+    <emisor codEmi="729" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE USED </emisor>
+    <emisor codEmi="731" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE UTEBO </emisor>
+    <emisor codEmi="734" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE UTRILLAS </emisor>
+    <emisor codEmi="735" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VAL DE SAN MARTIN </emisor>
+    <emisor codEmi="740" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALACLOCHE </emisor>
+    <emisor codEmi="745" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALBONA </emisor>
+    <emisor codEmi="750" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDEALGORFA </emisor>
+    <emisor codEmi="736" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDECUENCA </emisor>
+    <emisor codEmi="741" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDEHORNA </emisor>
+    <emisor codEmi="746" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDELINARES</emisor>
+    <emisor codEmi="751" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDELTORMO </emisor>
+    <emisor codEmi="737" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALDERROBRES</emisor>
+    <emisor codEmi="742" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALFARTA</emisor>
+    <emisor codEmi="747" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALJUNQUERA</emisor>
+    <emisor codEmi="752" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALLE DE BARDAJI </emisor>
+    <emisor codEmi="738" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALLE DE HECHO </emisor>
+    <emisor codEmi="743" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALLE DE LIERP </emisor>
+    <emisor codEmi="753" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALMADRID </emisor>
+    <emisor codEmi="739" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALPALMAS </emisor>
+    <emisor codEmi="744" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VALTORRES </emisor>
+    <emisor codEmi="749" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VEGUILLAS DE LA SIERRA </emisor>
+    <emisor codEmi="754" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VELILLA DE CINCA </emisor>
+    <emisor codEmi="755" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VELILLA DE EBRO </emisor>
+    <emisor codEmi="765" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VELILLA DE JILOCA </emisor>
+    <emisor codEmi="775" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VENCILLON </emisor>
+    <emisor codEmi="793" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VERA DE MONCAYO </emisor>
+    <emisor codEmi="756" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VERACRUZ </emisor>
+    <emisor codEmi="766" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VIACAMP Y LITERA </emisor>
+    <emisor codEmi="776" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VICIEN </emisor>
+    <emisor codEmi="792" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VIERLAS </emisor>
+    <emisor codEmi="757" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLADOZ </emisor>
+    <emisor codEmi="767" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAFELICHE </emisor>
+    <emisor codEmi="777" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAFRANCA DE EBRO</emisor>
+    <emisor codEmi="791" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAFRANCA DEL CAMPO </emisor>
+    <emisor codEmi="758" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAHERMOSA DEL CAMPO </emisor>
+    <emisor codEmi="768" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLALBA DE PEREJIL</emisor>
+    <emisor codEmi="778" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLALENGUA </emisor>
+    <emisor codEmi="790" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAMAYOR DE GALLEGO </emisor>
+    <emisor codEmi="1188" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAMEDIANA DE IREGUA (LA RIOJA)</emisor>
+    <emisor codEmi="759" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANOVA </emisor>
+    <emisor codEmi="769" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUA </emisor>
+    <emisor codEmi="779" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUEVA DE GALLEGO </emisor>
+    <emisor codEmi="789" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUEVA DE HUERVA </emisor>
+    <emisor codEmi="760" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUEVA DE JILOCA</emisor>
+    <emisor codEmi="770" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUEVA DE SIGENA </emisor>
+    <emisor codEmi="780" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLANUEVA DEL REBOLLAR DE LA SIERRA </emisor>
+    <emisor codEmi="788" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAR DE LOS NAVARROS </emisor>
+    <emisor codEmi="761" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAR DEL COBO </emisor>
+    <emisor codEmi="771" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLAR DEL SALZ </emisor>
+    <emisor codEmi="781" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARLUENGO </emisor>
+    <emisor codEmi="787" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARQUEMADO </emisor>
+    <emisor codEmi="762" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARREAL DE HUERVA </emisor>
+    <emisor codEmi="772" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARROYA DE LA SIERRA </emisor>
+    <emisor codEmi="782" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARROYA DE LOS PINARES </emisor>
+    <emisor codEmi="786" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLARROYA DEL CAMPO </emisor>
+    <emisor codEmi="763" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLASTAR</emisor>
+    <emisor codEmi="773" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VILLEL </emisor>
+    <emisor codEmi="785" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VINACEITE </emisor>
+    <emisor codEmi="764" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VISIEDO</emisor>
+    <emisor codEmi="774" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VISTABELLA </emisor>
+    <emisor codEmi="784" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE VIVEL DEL RIO MARTIN</emisor>
+    <emisor codEmi="794" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE YEBRA DE BASA </emisor>
+    <emisor codEmi="795" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE YESERO </emisor>
+    <emisor codEmi="797" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ZAIDIN </emisor>
+    <emisor codEmi="15" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ZARAGOZA</emisor>
+    <emisor codEmi="17" codTipEmi="10" fechaEmi="07/08/2015">AYUNTAMIENTO DE ZUERA</emisor>
+    <emisor codEmi="1190" codTipEmi="11" fechaEmi="07/08/2015">CONSORCIO DE LA AGRUPACIÓN Nº7 ALCAÑIZ</emisor>
+    <emisor codEmi="1194" codTipEmi="11" fechaEmi="07/08/2015">CONSORCIO PARA LA GESTIÓN DE RESIDUOS SÓLIDOS URBANOS DE LA AGRUPACIÓN Nº 5 DE CALATAYUD</emisor>
+    <emisor codEmi="1201" codTipEmi="11" fechaEmi="07/08/2015">CONSORCIO PATRIMONIO IBÉRICO DE ARAGÓN</emisor>
+    <emisor codEmi="815" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD ABASTECIMIENTO AGUA CUARTE-CADRETE</emisor>
+    <emisor codEmi="818" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD AGUAS DE MONEGROS</emisor>
+    <emisor codEmi="819" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD AGUAS DE VADIELLO</emisor>
+    <emisor codEmi="820" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD AGUAS DEL HUECHA</emisor>
+    <emisor codEmi="821" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD AGUAS POTABLES DEL MEZQUÍN</emisor>
+    <emisor codEmi="831" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD CENTRAL DE ZARAGOZA</emisor>
+    <emisor codEmi="812" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD CINCA-ALCANADRE</emisor>
+    <emisor codEmi="813" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE ABASTECIMIENTO DE AGUAS DEL GUADALOPE-MEZQUÍN</emisor>
+    <emisor codEmi="814" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE ABASTECIMIENTO NONASPE-FABARA</emisor>
+    <emisor codEmi="816" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE AGUAS DE ANTILLÓN Y CINCO PUEBLOS MÁS</emisor>
+    <emisor codEmi="817" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE AGUAS DE CALCÓN</emisor>
+    <emisor codEmi="810" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE AGUAS DE TORRES DE BERRELLEN LA JOYOSA MARLOFA</emisor>
+    <emisor codEmi="836" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE DE ALBARRACIN</emisor>
+    <emisor codEmi="837" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE FERIAS RURALES TRADICIONALES</emisor>
+    <emisor codEmi="828" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA BAJA RIBAGORZA</emisor>
+    <emisor codEmi="833" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA CLARINA DE LAS CINCO VILLAS </emisor>
+    <emisor codEmi="834" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA COMARCA DE ALIAGA</emisor>
+    <emisor codEmi="835" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA CUENCA MINERA CENTRAL</emisor>
+    <emisor codEmi="850" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA RIBAGORZA CENTRAL</emisor>
+    <emisor codEmi="851" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA RIBAGORZA ORIENTAL</emisor>
+    <emisor codEmi="852" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA RIBERA BAJO HUERVA</emisor>
+    <emisor codEmi="853" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA RIBERA DEL TURIA</emisor>
+    <emisor codEmi="854" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA RIBERA IZQUIERDA DEL EBRO </emisor>
+    <emisor codEmi="859" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA SIERRA DE GUDAR</emisor>
+    <emisor codEmi="860" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA SIERRA DE LUNA-LAS PEDROSAS </emisor>
+    <emisor codEmi="861" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA SIERRA DEL POBO</emisor>
+    <emisor codEmi="862" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA SIERRA VICORT-ESPIGAR</emisor>
+    <emisor codEmi="1097" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LA TAULA DEL SÉNIA</emisor>
+    <emisor codEmi="822" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LAS ALTAS CINCO VILLAS</emisor>
+    <emisor codEmi="846" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE LOS MUNICIPIOS DEL JILOCA</emisor>
+    <emisor codEmi="858" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DE SERVICIOS DE JAVALAMBRE</emisor>
+    <emisor codEmi="823" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ALTIPLANO DE TERUEL</emisor>
+    <emisor codEmi="824" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ALTO ESERA</emisor>
+    <emisor codEmi="825" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ALTO JALON</emisor>
+    <emisor codEmi="826" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ALTO JILOCA</emisor>
+    <emisor codEmi="827" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ALTO VALLE DEL ARAGON</emisor>
+    <emisor codEmi="829" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL BAJO GALLEGO</emisor>
+    <emisor codEmi="830" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL BAJO JILOCA</emisor>
+    <emisor codEmi="839" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL ISABENA MEDIO</emisor>
+    <emisor codEmi="848" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL PORTAL DEL MAESTRAZGO</emisor>
+    <emisor codEmi="855" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL RIO AGUAS VIVAS</emisor>
+    <emisor codEmi="856" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL RIO PEREJILES</emisor>
+    <emisor codEmi="857" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL RIO RIBOTA</emisor>
+    <emisor codEmi="863" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL SOMONTANO TUROLENSE</emisor>
+    <emisor codEmi="870" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL VALLE DE CHISTAU</emisor>
+    <emisor codEmi="871" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL VALLE DEL ALFAMBRA</emisor>
+    <emisor codEmi="872" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD DEL VALLE DEL ISABENA</emisor>
+    <emisor codEmi="838" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD INDUSTRIAL ZONA BAJO MARTIN</emisor>
+    <emisor codEmi="840" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD JACA-SABIÑANIGO</emisor>
+    <emisor codEmi="841" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD LA FUENTE</emisor>
+    <emisor codEmi="842" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD LA SABINA</emisor>
+    <emisor codEmi="843" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD LAS TORCAS</emisor>
+    <emisor codEmi="844" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD LOS ALCORES</emisor>
+    <emisor codEmi="845" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD MONEGROS II</emisor>
+    <emisor codEmi="847" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD PARA LA LUCHA ANTIGRANIZO DE ARAGON</emisor>
+    <emisor codEmi="849" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD PREPIRENAICA ENTRE ARBAS</emisor>
+    <emisor codEmi="811" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TAULA DEL SENIA</emisor>
+    <emisor codEmi="864" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TRES RIOS</emisor>
+    <emisor codEmi="865" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TURISTICA DE JAVALAMBRE</emisor>
+    <emisor codEmi="866" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TURISTICA DEL EMBALSE DE EL GRADO</emisor>
+    <emisor codEmi="867" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TURISTICA DEL MAESTRAZGO</emisor>
+    <emisor codEmi="868" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TUROLENSE ELEVACION AGUAS DEL EBRO</emisor>
+    <emisor codEmi="1045" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD TUROLENSE PARA LA ELEVACIÓN DE AGUAS DEL EBRO</emisor>
+    <emisor codEmi="869" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD URREA DE JALON-PLASENCIA DE JALON</emisor>
+    <emisor codEmi="873" codTipEmi="11" fechaEmi="07/08/2015">MANCOMUNIDAD VILLAFELICHE-MONTON</emisor>
+    <emisor codEmi="1067" codTipEmi="13" fechaEmi="07/08/2015">ACADEMIA DE ENSEÑANZA ESTUDIA +, SCDAD. COOP.</emisor>
+    <emisor codEmi="1038" codTipEmi="13" fechaEmi="07/08/2015">ACADEMIA DE FARMACIA REINO DE ARAGON</emisor>
+    <emisor codEmi="1082" codTipEmi="13" fechaEmi="07/08/2015">ACADEMIA DE FARMACIA REINO DE ARAGÓN</emisor>
+    <emisor codEmi="1131" codTipEmi="13" fechaEmi="07/08/2015">ACCIONA INMOBILIARIA S.A.U. Y BRONAPUR, S.L.</emisor>
+    <emisor codEmi="885" codTipEmi="13" fechaEmi="27/05/2013">ADMINISTRACIÓN DE JUSTICIA</emisor>
+    <emisor codEmi="1294" codTipEmi="13" fechaEmi="07/08/2015">ADVANCED INTERNET DEVELOPMENTS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1182" codTipEmi="13" fechaEmi="07/08/2015">AGIS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1342" codTipEmi="13" fechaEmi="07/08/2015">AGRÍCOLA DE LA FRANJA, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1122" codTipEmi="13" fechaEmi="07/08/2015">AGROBALLESTAS SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1503" codTipEmi="13" fechaEmi="07/08/2015">AGROTONDA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1143" codTipEmi="13" fechaEmi="07/08/2015">AGROVERA, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1173" codTipEmi="13" fechaEmi="07/08/2015">AGRUPACION DE INTERES URBANISTICO DEL SECTOR 1 DE GAVIN</emisor>
+    <emisor codEmi="1305" codTipEmi="13" fechaEmi="07/08/2015">AGRUPACIÓN EUROPEA DE COOPERACIÓN TERRITORIAL  ESPACIO PORTALET</emisor>
+    <emisor codEmi="1287" codTipEmi="13" fechaEmi="07/08/2015">AIRON COOPERATIVA DE VIVIENDAS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1493" codTipEmi="13" fechaEmi="07/08/2015">ALCOPEL, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1489" codTipEmi="13" fechaEmi="07/08/2015">ALEX IOANA TRANSPORTES, SOCIEDAD LIMITADA LABORAL</emisor>
+    <emisor codEmi="1094" codTipEmi="13" fechaEmi="07/08/2015">ALTHAEA, S. COOP</emisor>
+    <emisor codEmi="1125" codTipEmi="13" fechaEmi="07/08/2015">ALTOZANO, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1035" codTipEmi="13" fechaEmi="27/05/2013">ANA JURADO BERNIER</emisor>
+    <emisor codEmi="1453" codTipEmi="13" fechaEmi="07/08/2015">ARMANTES, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1382" codTipEmi="13" fechaEmi="07/08/2015">ASAMBLEA DE LA FEDERACIÓN ARAGONESA DE KARATE Y D.A.</emisor>
+    <emisor codEmi="1476" codTipEmi="13" fechaEmi="07/08/2015">ASESORÍA AGROPECUARIA ARAGONESA, S.L.</emisor>
+    <emisor codEmi="1185" codTipEmi="13" fechaEmi="07/08/2015">ASESORIA GEYCA, SL</emisor>
+    <emisor codEmi="1466" codTipEmi="13" fechaEmi="07/08/2015">ASESORÍA LÓPEZ CASTILLO, SL</emisor>
+    <emisor codEmi="1455" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN DE ESCRITORES NOVELES</emisor>
+    <emisor codEmi="1292" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN DE MEDIOS Y AGENCIAS PUBLICITARIAS DE ARAGÓN</emisor>
+    <emisor codEmi="1412" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN DE PROPIETARIOS DEL ÁREA 104 VIRGEN DEL PLANO</emisor>
+    <emisor codEmi="1509" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN PARA EL DESARROLLO INTEGRAL DEL BAJO MARTÍN Y ANDORRA-SIERRA DE ARCOS</emisor>
+    <emisor codEmi="1335" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN PARA EL DESARROLLO RURAL INTEGRAL DE LA SIERRA DE ALBARRACÍN.</emisor>
+    <emisor codEmi="1340" codTipEmi="13" fechaEmi="07/08/2015">ASOCIACIÓN PROPIETARIOS DEL ÁREA 31.B "CAMPO ESCOLAPIOS"</emisor>
+    <emisor codEmi="1168" codTipEmi="13" fechaEmi="07/08/2015">AUGUSTO ARIÑO GARCÍA- BELENGUER</emisor>
+    <emisor codEmi="1139" codTipEmi="13" fechaEmi="07/08/2015">AUTO TURISMO PROCAS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1330" codTipEmi="13" fechaEmi="27/05/2013">BEATRIZ MORENO CASTELLON</emisor>
+    <emisor codEmi="1518" codTipEmi="13" fechaEmi="07/08/2015">CABLEADOS DE BARDENA SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1012" codTipEmi="13" fechaEmi="07/08/2015">CAJA DE AHORROS DE LA INMACULADA DE ARAGÓN</emisor>
+    <emisor codEmi="883" codTipEmi="13" fechaEmi="07/08/2015">CAJA DE AHORROS Y MONTE DE PIEDAD DE ZARAGOZA, ARAGÓN Y RIOJA</emisor>
+    <emisor codEmi="1037" codTipEmi="13" fechaEmi="07/08/2015">CAJA RURAL DE TERUEL</emisor>
+    <emisor codEmi="1032" codTipEmi="13" fechaEmi="07/08/2015">CAMARAS OFICIALES DE COMERCIO E INDUSTRIA DE HUESCA, TERUEL Y ZARAGOZA</emisor>
+    <emisor codEmi="1376" codTipEmi="13" fechaEmi="07/08/2015">CANTERAS LA ESTRELLA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1306" codTipEmi="13" fechaEmi="07/08/2015">CÁRITAS DIOCESANA BARBASTRO-MONZÓN</emisor>
+    <emisor codEmi="1430" codTipEmi="13" fechaEmi="07/08/2015">CASA DEL TRADUCTOR.- CONSORCIO CASA DEL TRADUCTOR DE TARAZONA</emisor>
+    <emisor codEmi="1484" codTipEmi="13" fechaEmi="07/08/2015">CASTILLO DE DOÑA MARTINA, SOCIEDAD COOPERATIVA ARAGONESA</emisor>
+    <emisor codEmi="1132" codTipEmi="13" fechaEmi="19/10/2011">CENTRO DE ESTUDIOS DE FISICA DEL COSMOS DE ARAGON</emisor>
+    <emisor codEmi="1132" codTipEmi="13" fechaEmi="07/08/2015">CENTRO DE ESTUDIOS DE FÍSICA DEL COSMOS DE ARAGÓN</emisor>
+    <emisor codEmi="1169" codTipEmi="13" fechaEmi="07/08/2015">CENTRO DE TRANSPORTES DE CALATAYUD, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1051" codTipEmi="13" fechaEmi="07/08/2015">CENTRO DRAMÁTICO DE ARAGON, S.A.U.</emisor>
+    <emisor codEmi="1158" codTipEmi="13" fechaEmi="07/08/2015">CENTRO EUROPEO DE EMPRESAS E INNOVACION DE ARAGON, S.A.</emisor>
+    <emisor codEmi="1472" codTipEmi="13" fechaEmi="07/08/2015">CENTRO UNIVERSITARIO DE LA DEFENSA EN LA ACADEMIA GENERAL MILITAR</emisor>
+    <emisor codEmi="1215" codTipEmi="13" fechaEmi="07/08/2015">CEREALES TERUEL, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="58" codTipEmi="13" fechaEmi="07/08/2015">CIUDAD DEL MOTOR DE ARAGON</emisor>
+    <emisor codEmi="1243" codTipEmi="13" fechaEmi="07/08/2015">CLUB SOCIAL DE EMPLEADOS MUNICIPALES DEL AYUNTAMIENTO DE ZARAGOZA, SCDAD. COOP.</emisor>
+    <emisor codEmi="1390" codTipEmi="13" fechaEmi="07/08/2015">COFRAMA SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1129" codTipEmi="13" fechaEmi="07/08/2015">COLECTIVAS Y UNIFAMILIARES III, SOCIEDAD COOPERATIVA LIMITADA.</emisor>
+    <emisor codEmi="1017" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO OFICIAL DE GRADUADOS SOCIALES DE ZARAGOZA</emisor>
+    <emisor codEmi="1028" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO OFICIAL DE LICENCIADOS EN EDUCACIÓN FISICA Y ENCIAS DE LA ACTIVIDAD FISICA Y DEL DEPORTE DE</emisor>
+    <emisor codEmi="1015" codTipEmi="13" fechaEmi="19/10/2011">COLEGIO OFICIAL DE ODONTOLOGOS Y ESTOMATOLOGOS DE ARAGON</emisor>
+    <emisor codEmi="1015" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO OFICIAL DE ODONTÓLOGOS Y ESTOMATÓLOGOS DE ARAGÓN</emisor>
+    <emisor codEmi="1347" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO PROFESIONAL DE EDUCADORAS Y EDUCADORES SOCIALES DE ARAGÓN</emisor>
+    <emisor codEmi="896" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO PROFESIONAL DE FISIOTERAPEUTAS DE ARAGÓN</emisor>
+    <emisor codEmi="1186" codTipEmi="13" fechaEmi="27/05/2013">COLEGIO TERRITORIAL DE ADMINISTRADORES DE FINCAS DE ARAGON</emisor>
+    <emisor codEmi="1186" codTipEmi="13" fechaEmi="07/08/2015">COLEGIO TERRITORIAL DE ADMINISTRADORES DE FINCAS DE ARAGÓN</emisor>
+    <emisor codEmi="1055" codTipEmi="13" fechaEmi="07/08/2015">COMANDANCIA DE LA GUARDIA CIVIL DE HUESCA</emisor>
+    <emisor codEmi="884" codTipEmi="13" fechaEmi="07/08/2015">COMANDANCIA DE LA GUARDIA CIVIL DE ZARAGOZA</emisor>
+    <emisor codEmi="1393" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES ACEQUIA MORATA</emisor>
+    <emisor codEmi="1231" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES ACEQUIA PRINCIPAL DE RICLA</emisor>
+    <emisor codEmi="887" codTipEmi="13" fechaEmi="19/10/2011">COMUNIDAD DE REGANTES DE ALMUDEVAR</emisor>
+    <emisor codEmi="887" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES DE ALMUDÉVAR</emisor>
+    <emisor codEmi="876" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES DE LA HUERTA ALTA DE POMAR</emisor>
+    <emisor codEmi="1238" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES DEL AGUALLUEVE DE ANENTO</emisor>
+    <emisor codEmi="1405" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES LA ACEQUIA DE QUINTO</emisor>
+    <emisor codEmi="1367" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES "LA ALEGRÍA", DE MONZÓN</emisor>
+    <emisor codEmi="1064" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES LA COVA DE BINEFAR</emisor>
+    <emisor codEmi="1383" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES LA LOMA</emisor>
+    <emisor codEmi="1089" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES Nº VI DE LOS RIEGOS DE BÁRDENAS</emisor>
+    <emisor codEmi="1127" codTipEmi="13" fechaEmi="19/10/2011">COMUNIDAD DE REGANTES RIO PIEDRA DE LLUMES</emisor>
+    <emisor codEmi="1127" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES RÍO PIEDRA DE LLUMES</emisor>
+    <emisor codEmi="1062" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES SAN ESTEBAN DE LITERA</emisor>
+    <emisor codEmi="1058" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES SECTOR VIII - III TRAMO CANAL DE MONEGROS</emisor>
+    <emisor codEmi="21" codTipEmi="13" fechaEmi="19/10/2011">COMUNIDAD DE REGANTES TERMINO DE MAMBLAS</emisor>
+    <emisor codEmi="21" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES TÉRMINO DE MAMBLAS</emisor>
+    <emisor codEmi="1063" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD DE REGANTES TOMA PINIES DE ALGAYÓN</emisor>
+    <emisor codEmi="1298" codTipEmi="13" fechaEmi="07/08/2015">COMUNIDAD GENERAL DE USUARIOS DEL CANAL IMPERIAL DE ARAGÓN</emisor>
+    <emisor codEmi="879" codTipEmi="13" fechaEmi="07/08/2015">CONECT, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1103" codTipEmi="13" fechaEmi="07/08/2015">CONFECCIONES BORJA, SCL</emisor>
+    <emisor codEmi="1196" codTipEmi="13" fechaEmi="07/08/2015">CONSEJO ARAGONÉS DE CÁMARAS DE COMERCIO E INDUSTRIA</emisor>
+    <emisor codEmi="878" codTipEmi="13" fechaEmi="07/08/2015">CONSEJO ARAGONÉS DE LAS PERSONAS MAYORES</emisor>
+    <emisor codEmi="1247" codTipEmi="13" fechaEmi="07/08/2015">CONSEJO REGULADOR DE LA DENOMINACIÓN DE ORIGEN CAMPO DE BORJA</emisor>
+    <emisor codEmi="1057" codTipEmi="13" fechaEmi="07/08/2015">CONSEJO REGULADOR DE LA DENOMINACION DE ORIGEN JAMON DE TERUEL</emisor>
+    <emisor codEmi="1189" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO AERÓDROMO/AEROPUERTO DE TERUEL</emisor>
+    <emisor codEmi="1426" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO AGRUPACIÓN Nº 8 DE RESIDUOS SÓLIDOS Y URBANOS DE TERUEL</emisor>
+    <emisor codEmi="1010" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO AGRUPACIÓN NÚMERO 7 ALCAÑIZ</emisor>
+    <emisor codEmi="877" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO ARAGONÉS SANITARIO DE ALTA RESOLUCIÓN</emisor>
+    <emisor codEmi="1477" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO CAMPUS IBERUS</emisor>
+    <emisor codEmi="1224" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO CANDIDATURA JUEGOS OLIMPICOS ZARAGOZA PIRINEOS 2022</emisor>
+    <emisor codEmi="1013" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO DE TRANSPORTES DEL AREA DE ZARAGOZA</emisor>
+    <emisor codEmi="901" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO PARA EL EQUIPAMIENTO Y EXPLOTACION DEL LABORATORIO SUBTERRANEO DE CANFRANC</emisor>
+    <emisor codEmi="875" codTipEmi="13" fechaEmi="07/08/2015">CONSORCIO PARA LA GESTIÓN, CONSERVACIÓN Y EXPLOTACIÓN DEL TÚNEL DE BIELSA-ARAGNOUET Y SUS ACCESOS</emisor>
+    <emisor codEmi="1385" codTipEmi="13" fechaEmi="07/08/2015">CONSTRUCCIONES AFF, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1386" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA AGRARIA "SAN SEBASTIÁN" DE PRADILLA DE EBRO</emisor>
+    <emisor codEmi="1441" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA AITANA INFANTIL</emisor>
+    <emisor codEmi="1449" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA "CABLES DE OJOS NEGROS S.C.A."</emisor>
+    <emisor codEmi="1447" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA CEDRILLAS TEXTIL, S.C.LTDA.</emisor>
+    <emisor codEmi="1179" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE ACEITES DEL MATARRAÑA, S.C.L. Y COOPERATIVA SAN  RAMON</emisor>
+    <emisor codEmi="1495" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE TRABAJADORES MUNICIPALES DE ZARAGOZA II FASE S.COOP.LTDA</emisor>
+    <emisor codEmi="1512" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE VIVIENDAS CNH ZARAGOZA 2</emisor>
+    <emisor codEmi="1513" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE VIVIENDAS CNH ZARAGOZA 3</emisor>
+    <emisor codEmi="1202" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE VIVIENDAS CON ESTILO ARQUITECTÓNICO, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1052" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE VIVIENDAS MARTIN DEL RÍO</emisor>
+    <emisor codEmi="1337" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DE VIVIENDAS SPBA S.C.L.</emisor>
+    <emisor codEmi="1077" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DEL CAMPO SAN BLAS DE FÓRNOLES</emisor>
+    <emisor codEmi="1072" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA DEL MEZQUIN, S.C.L. Y COOPERATIVA DEL CAMPO SAN ANTONIO, SECCION OLEICOLA</emisor>
+    <emisor codEmi="1456" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA "EL ARQUILLO, S. COOP."</emisor>
+    <emisor codEmi="1429" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA FARMACÉUTICA ARAGONESA, ARAGOFAR, SCDAD. COOP.</emisor>
+    <emisor codEmi="1492" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA LA FOGUERA</emisor>
+    <emisor codEmi="1418" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA NTRA. SRA. DE LOS PUEYOS</emisor>
+    <emisor codEmi="1496" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA PLANTAS DE LOS MALLOS, SCDAD. COOP. LTDA.</emisor>
+    <emisor codEmi="1394" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA POSADA URBANA, S. COOP.</emisor>
+    <emisor codEmi="1073" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA SAN JOSE DE ABENFIGO</emisor>
+    <emisor codEmi="1502" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA VIVEZA</emisor>
+    <emisor codEmi="1361" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA VIVIENDAS RESIDENCIAL LOS OLIVOS DE LA MUELA</emisor>
+    <emisor codEmi="1421" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVA "2005 VALDESPARTERA, S. COOP."</emisor>
+    <emisor codEmi="1150" codTipEmi="13" fechaEmi="07/08/2015">COOPERATIVAS ACEITES DEL MATARRAÑA, S.C.L.  Y  SAN COSME Y SAN DAMIÁN</emisor>
+    <emisor codEmi="1142" codTipEmi="13" fechaEmi="07/08/2015">COPEDROLA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1468" codTipEmi="13" fechaEmi="07/08/2015">COSERZA SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1086" codTipEmi="13" fechaEmi="07/08/2015">DENTAL ARAGONESA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1511" codTipEmi="13" fechaEmi="07/08/2015">DEPILARTE ZARAGOZA, SDAD. COOPERATIVA</emisor>
+    <emisor codEmi="1221" codTipEmi="13" fechaEmi="06/10/2011">DISOLUCION SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1118" codTipEmi="13" fechaEmi="07/08/2015">DOMOINNOVA SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1126" codTipEmi="13" fechaEmi="07/08/2015">EDICTO DE SUBASTA</emisor>
+    <emisor codEmi="1422" codTipEmi="13" fechaEmi="07/08/2015">EL ARQUILLO, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1400" codTipEmi="13" fechaEmi="07/08/2015">ELECTRIC SHOW CHARANGA, S. COOP.</emisor>
+    <emisor codEmi="1277" codTipEmi="13" fechaEmi="07/08/2015">ENLUCIDOS ARAGON 3000, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1155" codTipEmi="13" fechaEmi="07/08/2015">ENTIDAD URBANISTICA DE CONSERVACION DE LA PLATAFORMA LOGISTICA DE HUESCA</emisor>
+    <emisor codEmi="1106" codTipEmi="13" fechaEmi="07/08/2015">ENTIDAD URBANÍSTICA DE CONSERVACIÓN DE LA PLATAFORMA LOGÍSTICA DE ZARAGOZA</emisor>
+    <emisor codEmi="1107" codTipEmi="13" fechaEmi="07/08/2015">ENTIDAD URBANÍSTICA DE CONSERVACIÓN DEL PARQUE TECNOLÓGICO DE RECICLADO LÓPEZ SORIANO</emisor>
+    <emisor codEmi="1384" codTipEmi="13" fechaEmi="07/08/2015">ENTIDAD URBANÍSTICA DE CONSERVACIÓN DEL PTR LÓPEZ SORIANO</emisor>
+    <emisor codEmi="1112" codTipEmi="13" fechaEmi="07/08/2015">ESTRUCTURAS METÁLICAS BAJO ARAGONESAS, SDAD. COOP.</emisor>
+    <emisor codEmi="1275" codTipEmi="13" fechaEmi="07/08/2015">EXCAVACIONES LOPEZ, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="804" codTipEmi="13" fechaEmi="07/08/2015">EXTRAVÍO DE TÍTULO</emisor>
+    <emisor codEmi="1304" codTipEmi="13" fechaEmi="07/08/2015">EXTRAVÍO DE TÍTULOS</emisor>
+    <emisor codEmi="1195" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA  DE PESCA Y CASTING</emisor>
+    <emisor codEmi="1360" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE ACTIVIDADES SUBACUÁTICAS</emisor>
+    <emisor codEmi="1357" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE AJEDREZ</emisor>
+    <emisor codEmi="1088" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE ATLETISMO</emisor>
+    <emisor codEmi="1110" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE AUTOMOVILISMO</emisor>
+    <emisor codEmi="1339" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BÁDMINTON</emisor>
+    <emisor codEmi="1321" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BAILE DEPORTIVO DE COMPETICIÓN</emisor>
+    <emisor codEmi="1151" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BALONCESTO</emisor>
+    <emisor codEmi="1153" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BALONMANO</emisor>
+    <emisor codEmi="1364" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BILLAR</emisor>
+    <emisor codEmi="1056" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE BOXEO</emisor>
+    <emisor codEmi="1033" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE CAZA</emisor>
+    <emisor codEmi="894" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE CICLISMO</emisor>
+    <emisor codEmi="1343" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE COLOMBICULTURA</emisor>
+    <emisor codEmi="1365" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE DEPORTES AÉREOS</emisor>
+    <emisor codEmi="1031" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE DEPORTES DE INVIERNO</emisor>
+    <emisor codEmi="1328" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE ESGRIMA</emisor>
+    <emisor codEmi="1344" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE ESPELEOLOGÍA</emisor>
+    <emisor codEmi="1049" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE FÚTBOL</emisor>
+    <emisor codEmi="1029" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE GIMNASIA</emisor>
+    <emisor codEmi="1020" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE GOLF</emisor>
+    <emisor codEmi="1138" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE HÍPICA</emisor>
+    <emisor codEmi="1366" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE HOCKEY</emisor>
+    <emisor codEmi="1085" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE JUDO Y DEPORTES ASOCIADOS</emisor>
+    <emisor codEmi="1011" codTipEmi="13" fechaEmi="19/10/2011">FEDERACIÓN ARAGONESA DE KÁRATE</emisor>
+    <emisor codEmi="1011" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE KÁRATE Y DEPORTES ASOCIADOS</emisor>
+    <emisor codEmi="1021" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE LOS DEPORTES AEREOS</emisor>
+    <emisor codEmi="1334" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE LUCHAS OLÍMPICAS Y DISCIPLINAS ASOCIADAS.</emisor>
+    <emisor codEmi="1325" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE MONTAÑISMO</emisor>
+    <emisor codEmi="1206" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE MOTOCICLISMO</emisor>
+    <emisor codEmi="897" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE MOTONAÚTICA</emisor>
+    <emisor codEmi="1326" codTipEmi="13" fechaEmi="07/08/2015">FEDERACION ARAGONESA DE NATACIÓN</emisor>
+    <emisor codEmi="1346" codTipEmi="13" fechaEmi="07/08/2015">FEDERACION ARAGONESA DE ORIENTACION</emisor>
+    <emisor codEmi="1349" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PÁDEL</emisor>
+    <emisor codEmi="1341" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PATINAJE</emisor>
+    <emisor codEmi="1355" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PELOTA</emisor>
+    <emisor codEmi="1368" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PENTATLÓN MODERNO Y TRIATLÓN</emisor>
+    <emisor codEmi="1117" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PETANCA</emisor>
+    <emisor codEmi="1319" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE PIRAGÜISMO</emisor>
+    <emisor codEmi="892" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE REMO</emisor>
+    <emisor codEmi="1350" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE RUGBY</emisor>
+    <emisor codEmi="1322" codTipEmi="13" fechaEmi="07/08/2015">FEDERACION ARAGONESA DE SALVAMENTO Y SOCORRISMO</emisor>
+    <emisor codEmi="1046" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE TAEKWONDO</emisor>
+    <emisor codEmi="1363" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE TENIS</emisor>
+    <emisor codEmi="1034" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE TENIS DE MESA</emisor>
+    <emisor codEmi="1245" codTipEmi="13" fechaEmi="07/08/2015">FEDERACION ARAGONESA DE TIRO OLIMPICO</emisor>
+    <emisor codEmi="1359" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE USUARIOS NISSAN</emisor>
+    <emisor codEmi="1333" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE VELA</emisor>
+    <emisor codEmi="1351" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DE VOLEIBOL</emisor>
+    <emisor codEmi="1353" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ARAGONESA DEPORTES TRADICIONALES</emisor>
+    <emisor codEmi="1147" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN ESTATAL DE COMERCIO, HOSTELERIA Y TURISMO DE COMISIONES OBRERAS</emisor>
+    <emisor codEmi="1027" codTipEmi="13" fechaEmi="07/08/2015">FEDERACIÓN HIPICA ARAGONESA</emisor>
+    <emisor codEmi="1183" codTipEmi="13" fechaEmi="07/08/2015">FERIA DE ZARAGOZA</emisor>
+    <emisor codEmi="1289" codTipEmi="13" fechaEmi="07/08/2015">FERNANDO MERCADAL S.L.P.</emisor>
+    <emisor codEmi="1356" codTipEmi="13" fechaEmi="07/08/2015">FE3DERACIÓN ARAGONESA DE AJEDREZ</emisor>
+    <emisor codEmi="1307" codTipEmi="13" fechaEmi="07/08/2015">FORMACIÓN PROFESIONAL EN RED, S.L.</emisor>
+    <emisor codEmi="1467" codTipEmi="13" fechaEmi="07/08/2015">FRUTAS AQUA, S.A.T.</emisor>
+    <emisor codEmi="1084" codTipEmi="13" fechaEmi="07/08/2015">FRUTOS FLAVIA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1239" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN CENTRO DE ESTUDIOS DE FÍSICA DEL COSMOS DE ARAGÓN</emisor>
+    <emisor codEmi="1048" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN CENTRO REGIONAL DE CALIDAD Y ACREDITACIÓN SANITARIA DE CASTILLA Y LEÓN</emisor>
+    <emisor codEmi="1464" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN CONJUNTO PALEONTOLÓGICO DE TERUEL - DINÓPOLIS</emisor>
+    <emisor codEmi="1109" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN CUENCA VILLORO</emisor>
+    <emisor codEmi="1123" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN ESPUBLICO</emisor>
+    <emisor codEmi="889" codTipEmi="13" fechaEmi="07/08/2015">FUNDACION FESTIVAL CINE DE HUESCA</emisor>
+    <emisor codEmi="1217" codTipEmi="13" fechaEmi="07/08/2015">FUNDACION IBERCAJA</emisor>
+    <emisor codEmi="1113" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN IBERCAJA</emisor>
+    <emisor codEmi="1078" codTipEmi="13" fechaEmi="07/08/2015">FUNDACION INSTITUTO ARAGONES DE ONCOLOGIA</emisor>
+    <emisor codEmi="1116" codTipEmi="13" fechaEmi="07/08/2015">FUNDACION MANUEL GIMÉNEZ ABAD</emisor>
+    <emisor codEmi="1461" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN PROLIENA</emisor>
+    <emisor codEmi="1417" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN TARAZONA MONUMENTAL</emisor>
+    <emisor codEmi="1473" codTipEmi="13" fechaEmi="07/08/2015">FUNDACIÓN TRANSPIRENAICA - TRAVESÍA CENTRAL DEL PIRINEO</emisor>
+    <emisor codEmi="1377" codTipEmi="13" fechaEmi="07/08/2015">GESCINSA SOCIEDAD COOPERATIVA DE EXPLOTACIÓN COMUNITARIA DE LA TIERRA</emisor>
+    <emisor codEmi="1354" codTipEmi="13" fechaEmi="07/08/2015">GESTIÓN, PUBLICIDAD Y DESARROLLO, S.L.</emisor>
+    <emisor codEmi="1516" codTipEmi="13" fechaEmi="07/08/2015">GESTORIA PONS S.L</emisor>
+    <emisor codEmi="1299" codTipEmi="13" fechaEmi="07/08/2015">GOYENECHE-PÉREZ, S.L. </emisor>
+    <emisor codEmi="1140" codTipEmi="13" fechaEmi="07/08/2015">GRÁFICAS GRÁVALOS, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1225" codTipEmi="13" fechaEmi="07/08/2015">GRUPO INMOBILIARIO MONASTERIO DE BOLTAÑA, S.L.</emisor>
+    <emisor codEmi="1074" codTipEmi="13" fechaEmi="07/08/2015">GRUPO V3, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1070" codTipEmi="13" fechaEmi="07/08/2015">GUARISME, S. COOP. LTDA.</emisor>
+    <emisor codEmi="1099" codTipEmi="13" fechaEmi="07/08/2015">HERMANOS MOMBIELA CIREZ, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1087" codTipEmi="13" fechaEmi="07/08/2015">HERREIZ, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1205" codTipEmi="13" fechaEmi="07/08/2015">HOGARES VALDESPARTERA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1420" codTipEmi="13" fechaEmi="07/08/2015">HORTÍCOLA MONEGRINA, SCDAD. COOP. ARAGONESA</emisor>
+    <emisor codEmi="1240" codTipEmi="13" fechaEmi="07/08/2015">INFRAESTRUCTURAS Y SERVICIOS DE TELECOMUNICACIONES DE ARAGÓN S.A.U.</emisor>
+    <emisor codEmi="1157" codTipEmi="13" fechaEmi="07/08/2015">INICIATIVA PARA EL DESARROLLO URBANISTICO</emisor>
+    <emisor codEmi="1156" codTipEmi="13" fechaEmi="07/08/2015">INSTITUCION FERIAL DE CASPE</emisor>
+    <emisor codEmi="1214" codTipEmi="13" fechaEmi="27/05/2013">ISABEL RUFAS DE BENITO</emisor>
+    <emisor codEmi="1450" codTipEmi="13" fechaEmi="07/08/2015">JARDINES DE VALDESPARTERA, SOCIEDAD COOPERATIVA ARAGONESA</emisor>
+    <emisor codEmi="1371" codTipEmi="13" fechaEmi="07/08/2015">JARDINSAR, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1408" codTipEmi="13" fechaEmi="07/08/2015">JOVIAR JÓVENES Y VIVIENDA DE ARAGÓN S. COOP.</emisor>
+    <emisor codEmi="1436" codTipEmi="13" fechaEmi="07/08/2015">JUAN BAUTISTA BELLOSTA</emisor>
+    <emisor codEmi="1399" codTipEmi="13" fechaEmi="07/08/2015">JUNTA DE COMPENSACIÓN SECTOR 3 ÁREA SUZ 56/5 DEL P.G.O.U. DE ZARAGOZA</emisor>
+    <emisor codEmi="1358" codTipEmi="13" fechaEmi="07/08/2015">JUNTA DE COMPENSACIÓN UE-27 DEL P.G.O.U. DE MONZÓN</emisor>
+    <emisor codEmi="1166" codTipEmi="13" fechaEmi="07/08/2015">JUNTA GESTORA DEL SECTOR 3 SUZ 56/5</emisor>
+    <emisor codEmi="1069" codTipEmi="13" fechaEmi="07/08/2015">KORBEL, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1416" codTipEmi="13" fechaEmi="07/08/2015">LAVANDERIA Y LIMPIEZAS DEL CINCA, SOC. COOP. DE T.A.</emisor>
+    <emisor codEmi="899" codTipEmi="13" fechaEmi="07/08/2015">LEONOR FELICIDAD ALQUÉZAR CIÉRCOLES</emisor>
+    <emisor codEmi="1105" codTipEmi="13" fechaEmi="07/08/2015">LIRI, SOCIEDAD COOPERATIVA ARAGONESA</emisor>
+    <emisor codEmi="1397" codTipEmi="13" fechaEmi="07/08/2015">LOS ARES DE LA MUELA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1024" codTipEmi="13" fechaEmi="07/08/2015">LUNARIA SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1104" codTipEmi="13" fechaEmi="07/08/2015">MALVI, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1148" codTipEmi="13" fechaEmi="07/08/2015">MARIO JOSE CASTRO PENA</emisor>
+    <emisor codEmi="1434" codTipEmi="13" fechaEmi="07/08/2015">MERCANTIL CLAVERÍA ALCALÁ BINÉFAR, S. L.</emisor>
+    <emisor codEmi="1483" codTipEmi="13" fechaEmi="07/08/2015">METAMORFOSIS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1276" codTipEmi="13" fechaEmi="07/08/2015">MONTAZAR, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1093" codTipEmi="13" fechaEmi="07/08/2015">MOTORBLOG, S. COOP.</emisor>
+    <emisor codEmi="1016" codTipEmi="13" fechaEmi="07/08/2015">NEREA ENGUITA HERNANDEZ</emisor>
+    <emisor codEmi="1443" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE CARLOS GESALÍ VAL</emisor>
+    <emisor codEmi="1374" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE EMILIO LATORRE MARTÍNEZ DE BAROJA</emisor>
+    <emisor codEmi="1137" codTipEmi="13" fechaEmi="07/08/2015">NOTARIA DE ENRIQUE MILARA VILCHES</emisor>
+    <emisor codEmi="1463" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE GONZALO DIVAR LOYOLA</emisor>
+    <emisor codEmi="1209" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE JACA</emisor>
+    <emisor codEmi="1369" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE JUAN BAUTISTA GÓMEZ OPIC</emisor>
+    <emisor codEmi="1497" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA DE JUAN MIGUEL BELLOD FERNÁNDEZ DE PALENCIA</emisor>
+    <emisor codEmi="1465" codTipEmi="13" fechaEmi="07/08/2015">NOTARÍA FERNANDO GIMÉNEZ VILLAR</emisor>
+    <emisor codEmi="1308" codTipEmi="13" fechaEmi="07/08/2015">NOTARIA JOSÉ ÁNGEL DE ANDRÉS RODRÍGUEZ</emisor>
+    <emisor codEmi="1372" codTipEmi="13" fechaEmi="07/08/2015">OTROS PODERES ADJUDICADORES</emisor>
+    <emisor codEmi="1332" codTipEmi="13" fechaEmi="07/08/2015">OVIARAGÓN, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="900" codTipEmi="13" fechaEmi="07/08/2015">PAPEOS, S.C.L.</emisor>
+    <emisor codEmi="1199" codTipEmi="13" fechaEmi="07/08/2015">PARQUE DE LAS ACACIAS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1233" codTipEmi="13" fechaEmi="07/08/2015">PEA INVERSIÓN Y DESARROLLOS, S.L.</emisor>
+    <emisor codEmi="56" codTipEmi="13" fechaEmi="07/08/2015">PLATAFORMA LOGÍSTICA DE ZARAGOZA</emisor>
+    <emisor codEmi="893" codTipEmi="13" fechaEmi="07/08/2015">PLATEA GESTIÓN, S.A.</emisor>
+    <emisor codEmi="1222" codTipEmi="13" fechaEmi="07/08/2015">PROCURADORES</emisor>
+    <emisor codEmi="1448" codTipEmi="13" fechaEmi="07/08/2015">PRODUCTORES DE LECHE DE ARAGÓN S.C.L.</emisor>
+    <emisor codEmi="1413" codTipEmi="13" fechaEmi="07/08/2015">PROMOTORES JUNTA COMPENSACIÓN DEL PLAN PARCIAL DE AMPLIACIÓN DEL POLÍGONO LAS PAULES DE MONZÓN.</emisor>
+    <emisor codEmi="1236" codTipEmi="13" fechaEmi="07/08/2015">PULIDOS Y LIJADOS CALATAYUD, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1159" codTipEmi="13" fechaEmi="07/08/2015">REAL ACADEMIA DE MEDICINA DE ZARAGOZA</emisor>
+    <emisor codEmi="1407" codTipEmi="13" fechaEmi="07/08/2015">REAL E ILUSTRE COLEGIO DE ABOGADOS DE ZARAGOZA</emisor>
+    <emisor codEmi="1486" codTipEmi="13" fechaEmi="07/08/2015">RED TRESTRANS, S.L.</emisor>
+    <emisor codEmi="1207" codTipEmi="13" fechaEmi="07/08/2015">RESIDENCIAL BILBILIS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1065" codTipEmi="13" fechaEmi="07/08/2015">RESTAURACIONES L´ESCABEL, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1014" codTipEmi="13" fechaEmi="07/08/2015">REYES ROMERO LAHUERTA</emisor>
+    <emisor codEmi="1030" codTipEmi="13" fechaEmi="07/08/2015">RIO ARAGON, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1352" codTipEmi="13" fechaEmi="07/08/2015">SAGIR MALPICA, S.L.</emisor>
+    <emisor codEmi="898" codTipEmi="13" fechaEmi="07/08/2015">SALLENT 2025, S.L.U.</emisor>
+    <emisor codEmi="1191" codTipEmi="13" fechaEmi="07/08/2015">SAN JUAN DE GARRAPINILLOS,  SOCIEDAD COOP. LTDA.</emisor>
+    <emisor codEmi="1432" codTipEmi="13" fechaEmi="07/08/2015">S.C.L. "ARTES GRÁFICAS LIBRERÍA GENERAL"</emisor>
+    <emisor codEmi="1425" codTipEmi="13" fechaEmi="07/08/2015">S.C.L. DE VIVIENDAS VICTORIA MARTÍNEZ</emisor>
+    <emisor codEmi="1401" codTipEmi="13" fechaEmi="07/08/2015">SDAD. MUN. ZGZ ARROBA DESARROLLO EXPO, S.A.</emisor>
+    <emisor codEmi="1200" codTipEmi="13" fechaEmi="07/08/2015">SIERRA DE LOS ALMENDROS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1435" codTipEmi="13" fechaEmi="07/08/2015">SIERRA DEL MONCAYO, SDAD. COOP.</emisor>
+    <emisor codEmi="1329" codTipEmi="13" fechaEmi="07/08/2015">SILENO, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1491" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA AGRARIA CASA NICANOR</emisor>
+    <emisor codEmi="1136" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA AGRARIA SAN SEBASTIAN</emisor>
+    <emisor codEmi="1370" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA AGRÍCOLA, GANADERA E INDUSTRIAL SAN ANTONIO ABAD </emisor>
+    <emisor codEmi="1111" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA APICOLA PROVINCIAL DE TERUEL</emisor>
+    <emisor codEmi="1391" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA ARAGONESA DE POLICIAS</emisor>
+    <emisor codEmi="891" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA ARAGONESA DE VIVIENDAS DE TRABAJADORES MUNICIPALES DE ZARAGOZA</emisor>
+    <emisor codEmi="1296" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA ARDUL LIMITADA</emisor>
+    <emisor codEmi="1114" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA AS PASADERAS</emisor>
+    <emisor codEmi="1487" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA CASTILLO DE DOÑA MATINA</emisor>
+    <emisor codEmi="1510" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA CELFA CABLE</emisor>
+    <emisor codEmi="1327" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA CHILDREN MUNDO INFANTIL</emisor>
+    <emisor codEmi="1470" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA COMARCAL HORTOFRUTÍCOLA BAJO JALÓN</emisor>
+    <emisor codEmi="1403" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA CON-AIR</emisor>
+    <emisor codEmi="1460" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE ACTORES DRAMATICOS TUROL II</emisor>
+    <emisor codEmi="1459" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE EXPLOTACIÓN COMÚN SAN MIGUEL</emisor>
+    <emisor codEmi="1019" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS AGUAS LIMPIAS 5, EN LIQUIDACION</emisor>
+    <emisor codEmi="1380" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS ARCOCASA</emisor>
+    <emisor codEmi="1331" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS BOLTAÑA 2010</emisor>
+    <emisor codEmi="1059" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS CINCO DE MARZO</emisor>
+    <emisor codEmi="1090" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS CLARO DE LUNA</emisor>
+    <emisor codEmi="1452" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS DE BULBUENTE</emisor>
+    <emisor codEmi="1508" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS FIGUERUELAS 2006</emisor>
+    <emisor codEmi="1378" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS MONTES DEL MONCAYO</emisor>
+    <emisor codEmi="1219" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS PEÑAS DE HERRERA DE BORJA</emisor>
+    <emisor codEmi="1060" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS PUENTE DE SANTIAGO</emisor>
+    <emisor codEmi="1379" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS RAMIRO I</emisor>
+    <emisor codEmi="1387" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS SAN BLAS</emisor>
+    <emisor codEmi="1061" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA DE VIVIENDAS VICTORIA MARTINEZ VALDESPARTERA</emisor>
+    <emisor codEmi="1230" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA LARES CESARAUGUSTA</emisor>
+    <emisor codEmi="1415" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA LIMITADA ARAGONESA DE TRABAJO ASOCIADO SANTISTEBETENSE</emisor>
+    <emisor codEmi="1388" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA LOS ROBLES DE VALDESPARTERA</emisor>
+    <emisor codEmi="1204" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA MONTE SASO DE BIOTA</emisor>
+    <emisor codEmi="1227" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA MONTEHOGAR TORRERO</emisor>
+    <emisor codEmi="1083" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA PROVINCIAL DE TRANSPORTES SAN CRISTOBAL</emisor>
+    <emisor codEmi="1381" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA SENDA DE VIDA</emisor>
+    <emisor codEmi="1392" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA SOCIALGAG</emisor>
+    <emisor codEmi="1427" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA TURIAMANTES</emisor>
+    <emisor codEmi="1228" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA VALDHOGAR</emisor>
+    <emisor codEmi="1431" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD COOPERATIVA VENECIAHOGAR, S.C.</emisor>
+    <emisor codEmi="22" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD DE DESARROLLO MEDIOAMBIENTAL DE ARAGON S.A.U.</emisor>
+    <emisor codEmi="1121" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD DE DESARROLLO URBANISTICO DE VILLANUEVA DE GALLEGO, S.A.</emisor>
+    <emisor codEmi="59" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD DE INFRAESTRUCUTRAS RURALES ARAGONESAS, S.A. (SIRASA)</emisor>
+    <emisor codEmi="1471" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD DE PROMOCIÓN Y GESTIÓN DEL TURISMO ARAGONÉS, S.L.U.</emisor>
+    <emisor codEmi="800" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD EXPOAGUA ZARAGOZA 2008, S.A.</emisor>
+    <emisor codEmi="51" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD MUNICIPAL DE REHABILITACIÓN URBANA Y PROMOCIÓN DE LA EDIFICACIÓN DE ZARAGOZA S.L.</emisor>
+    <emisor codEmi="880" codTipEmi="13" fechaEmi="07/08/2015">SOCIEDAD PARA EL DESARROLLO DE CALAMOCHA, S.A.</emisor>
+    <emisor codEmi="1211" codTipEmi="13" fechaEmi="07/08/2015">STARGLOB SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1237" codTipEmi="13" fechaEmi="07/08/2015">SUBASTA NOTARIAL</emisor>
+    <emisor codEmi="1216" codTipEmi="13" fechaEmi="07/08/2015">SUBASTAS</emisor>
+    <emisor codEmi="1504" codTipEmi="13" fechaEmi="07/08/2015">TALLERES CIAT, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1404" codTipEmi="13" fechaEmi="07/08/2015">TALLERES RPM SDAD. COOP. LIMITADA</emisor>
+    <emisor codEmi="1475" codTipEmi="13" fechaEmi="07/08/2015">TAPIZ 2000 SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1165" codTipEmi="13" fechaEmi="07/08/2015">TASTAVINS CENTRO GESTOR DE ESTIERCOLES, S.L.</emisor>
+    <emisor codEmi="1044" codTipEmi="13" fechaEmi="07/08/2015">TAUSTE CENTRO GESTOR DE ESTIÉRCOLES, S.L.</emisor>
+    <emisor codEmi="1485" codTipEmi="13" fechaEmi="07/08/2015">TECNO HÁBITAT, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1506" codTipEmi="13" fechaEmi="07/08/2015">TERAL SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1176" codTipEmi="13" fechaEmi="07/08/2015">TERAPEUTICUM DE ARAGÓN,  SOCIEDAD COOPERATIVA </emisor>
+    <emisor codEmi="1499" codTipEmi="13" fechaEmi="07/08/2015">TERAPIA FAMILIAR ZARAGOZA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1482" codTipEmi="13" fechaEmi="07/08/2015">TILDE ASESORES SL</emisor>
+    <emisor codEmi="1457" codTipEmi="13" fechaEmi="07/08/2015">TRAHIZ PROYECTOS AGRICOLAS E INDUSTRIALES, S. COOP.</emisor>
+    <emisor codEmi="1050" codTipEmi="13" fechaEmi="07/08/2015">TRANSFORMACIONES LACTEAS BLANCAS SDAD. COOP. LTDA.</emisor>
+    <emisor codEmi="1092" codTipEmi="13" fechaEmi="07/08/2015">TRANSPORTES GUADALOPILLO, S. COOP.</emisor>
+    <emisor codEmi="1521" codTipEmi="13" fechaEmi="07/08/2015">TREBEDE SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1446" codTipEmi="13" fechaEmi="07/08/2015">TRIBUNAL DE DEFENSA DE LA COMPETENCIA DE ARAGON</emisor>
+    <emisor codEmi="1149" codTipEmi="13" fechaEmi="07/08/2015">UNIDAD DE EJECUCION R-8 DEL PGOU DE CADRETE</emisor>
+    <emisor codEmi="1488" codTipEmi="13" fechaEmi="07/08/2015">UNIVERSAL BARCAUL, S.L.</emisor>
+    <emisor codEmi="1197" codTipEmi="13" fechaEmi="07/08/2015">VALLE DE LOS ÁLAMOS, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1198" codTipEmi="13" fechaEmi="07/08/2015">VALLE DE LOS ROBLES, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1164" codTipEmi="13" fechaEmi="07/08/2015">VALLE DE TENA, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1212" codTipEmi="13" fechaEmi="07/08/2015">VALLE DEL PONIENTE, SOCIEDAD COOPERATIVA</emisor>
+    <emisor codEmi="1419" codTipEmi="13" fechaEmi="07/08/2015">VIA ARASOV S.L.</emisor>
+    <emisor codEmi="1375" codTipEmi="13" fechaEmi="07/08/2015">VICTORIA MARTÍNEZ VALDESPARTERA 2004 SCL</emisor>
+    <emisor codEmi="1338" codTipEmi="13" fechaEmi="07/08/2015">VIVARAGÓN COOPERATIVA DE VIVIENDAS, SOCIEDAD COOPERATIVA LIMITADA</emisor>
+    <emisor codEmi="1301" codTipEmi="13" fechaEmi="07/08/2015">VIVIENDA 96, S.COOPERATIVA</emisor>
+    <emisor codEmi="1437" codTipEmi="13" fechaEmi="07/08/2015">VIVIENDAS SINDICALES DE ARAGÓN, SDAD. COOP. LTDA.</emisor>
+    <emisor codEmi="1442" codTipEmi="13" fechaEmi="07/08/2015">ZARAGOZA DINÁMICA</emisor>
+    <emisor codEmi="1193" codTipEmi="13" fechaEmi="07/08/2015">ZARAGOZA TURISMO</emisor>
+    <emisor codEmi="1514" codTipEmi="13" fechaEmi="07/08/2015">2001 ARQUITECTOS ASOCIADOS SLP</emisor>
+    <emisor codEmi="976" codTipEmi="14" fechaEmi="07/08/2015">AUDIENCIA PROVINCIAL DE HUESCA</emisor>
+    <emisor codEmi="996" codTipEmi="14" fechaEmi="07/08/2015">AUDIENCIA PROVINCIAL DE TERUEL</emisor>
+    <emisor codEmi="907" codTipEmi="14" fechaEmi="07/08/2015">AUDIENCIA PROVINCIAL DE ZARAGOZA</emisor>
+    <emisor codEmi="976" codTipEmi="14" fechaEmi="19/10/2011">AUDIENCIA PROVINCIAL HUESCA</emisor>
+    <emisor codEmi="946" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE  PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO UNO DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="946" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE  PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="1101" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE FAMILIA NÚMERO 5 DE ZARAGOZA</emisor>
+    <emisor codEmi="1053" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN Nº 11 DE ZARAGOZA</emisor>
+    <emisor codEmi="938" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO CINCO</emisor>
+    <emisor codEmi="938" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO CINCO DE ZARAGOZA</emisor>
+    <emisor codEmi="937" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO CUATRO</emisor>
+    <emisor codEmi="1440" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO CUATRO DE PAMPLONA</emisor>
+    <emisor codEmi="937" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO CUATRO DE ZARAGOZA</emisor>
+    <emisor codEmi="943" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO DIEZ</emisor>
+    <emisor codEmi="943" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO DIEZ DE ZARAGOZA</emisor>
+    <emisor codEmi="1311" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO DOCE DE ZARAGOZA</emisor>
+    <emisor codEmi="935" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO DOS</emisor>
+    <emisor codEmi="935" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="942" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO NUEVE</emisor>
+    <emisor codEmi="942" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO NUEVE DE ZARAGOZA</emisor>
+    <emisor codEmi="941" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO OCHO</emisor>
+    <emisor codEmi="941" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO OCHO DE ZARAGOZA</emisor>
+    <emisor codEmi="1079" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO ONCE DE ZARAGOZA</emisor>
+    <emisor codEmi="939" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO SEIS</emisor>
+    <emisor codEmi="939" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO SEIS DE ZARAGOZA</emisor>
+    <emisor codEmi="940" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO SIETE</emisor>
+    <emisor codEmi="940" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO SIETE DE ZARAGOZA</emisor>
+    <emisor codEmi="936" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO TRES</emisor>
+    <emisor codEmi="936" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO TRES DE ZARAGOZA</emisor>
+    <emisor codEmi="934" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE INSTRUCCIÓN NUMERO UNO</emisor>
+    <emisor codEmi="934" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE INSTRUCCIÓN NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1161" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO ADMINISTRATIVO NÚM. 5 DE ZARAGOZA</emisor>
+    <emisor codEmi="1161" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO ADMINISTRATIVO NÚMERO CINCO DE ZARAGOZA</emisor>
+    <emisor codEmi="1004" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO</emisor>
+    <emisor codEmi="1317" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO DE HUESCA</emisor>
+    <emisor codEmi="1004" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO DE TERUEL</emisor>
+    <emisor codEmi="1295" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NUMERO CUATRO</emisor>
+    <emisor codEmi="1295" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NÚMERO CUATRO DE ZARAGOZA</emisor>
+    <emisor codEmi="957" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NUMERO DOS</emisor>
+    <emisor codEmi="957" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="958" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NUMERO TRES</emisor>
+    <emisor codEmi="958" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NÚMERO TRES DE ZARAGOZA</emisor>
+    <emisor codEmi="956" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NUMERO UNO</emisor>
+    <emisor codEmi="956" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO CONTENCIOSO-ADMINISTRATIVO NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1025" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO MERCANTIL Nº 1 DE ZARAGOZA</emisor>
+    <emisor codEmi="1208" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO MERCANTIL Nº 2 DE ZARAGOZA</emisor>
+    <emisor codEmi="1208" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO MERCANTIL NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="1025" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO MERCANTIL NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1002" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL</emisor>
+    <emisor codEmi="987" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL</emisor>
+    <emisor codEmi="987" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL DE HUESCA</emisor>
+    <emisor codEmi="1002" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL DE TERUEL</emisor>
+    <emisor codEmi="1203" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL Nº 1 DE HUESCA</emisor>
+    <emisor codEmi="953" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO CINCO</emisor>
+    <emisor codEmi="953" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO CINCO DE ZARAGOZA</emisor>
+    <emisor codEmi="952" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO CUATRO</emisor>
+    <emisor codEmi="952" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO CUATRO DE ZARAGOZA</emisor>
+    <emisor codEmi="950" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO DOS</emisor>
+    <emisor codEmi="950" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="1313" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO NUEVE DE ZARAGOZA</emisor>
+    <emisor codEmi="1312" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO OCHO DE ZARAGOZA</emisor>
+    <emisor codEmi="954" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO SEIS</emisor>
+    <emisor codEmi="954" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO SEIS DE ZARAGOZA</emisor>
+    <emisor codEmi="955" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO SIETE</emisor>
+    <emisor codEmi="955" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO SIETE DE ZARAGOZA</emisor>
+    <emisor codEmi="951" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO TRES</emisor>
+    <emisor codEmi="951" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO TRES DE ZARAGOZA</emisor>
+    <emisor codEmi="949" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO PENAL NUMERO UNO</emisor>
+    <emisor codEmi="949" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO PENAL NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="988" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL</emisor>
+    <emisor codEmi="1003" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL</emisor>
+    <emisor codEmi="988" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL DE HUESCA</emisor>
+    <emisor codEmi="1003" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL DE TERUEL</emisor>
+    <emisor codEmi="1184" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 1 DE VALENCIA</emisor>
+    <emisor codEmi="1043" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 2 DE SANTANDER</emisor>
+    <emisor codEmi="1026" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 25 DE BARCELONA</emisor>
+    <emisor codEmi="1232" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 3 DE BURGOS</emisor>
+    <emisor codEmi="1068" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 4 DE BARCELONA</emisor>
+    <emisor codEmi="1071" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 4 DE MADRID</emisor>
+    <emisor codEmi="1291" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº 4 DE SEVILLA</emisor>
+    <emisor codEmi="1373" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚM. 7 DE SEVILLA</emisor>
+    <emisor codEmi="963" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO CINCO</emisor>
+    <emisor codEmi="963" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO CINCO DE ZARAGOZA</emisor>
+    <emisor codEmi="962" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO CUATRO</emisor>
+    <emisor codEmi="1068" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO CUATRO DE BARCELONA</emisor>
+    <emisor codEmi="1071" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO CUATRO DE MADRID</emisor>
+    <emisor codEmi="1291" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO CUATRO DE SEVILLA</emisor>
+    <emisor codEmi="962" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO CUATRO DE ZARAGOZA</emisor>
+    <emisor codEmi="960" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO DOS</emisor>
+    <emisor codEmi="1424" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO DOS DE LLEIDA</emisor>
+    <emisor codEmi="1043" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO DOS DE SANTANDER</emisor>
+    <emisor codEmi="960" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="1498" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO ONCE DE MADRID</emisor>
+    <emisor codEmi="964" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO SEIS</emisor>
+    <emisor codEmi="964" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO SEIS DE ZARAGOZA</emisor>
+    <emisor codEmi="965" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO SIETE</emisor>
+    <emisor codEmi="1160" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO SIETE DE BILBAO</emisor>
+    <emisor codEmi="965" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO SIETE DE ZARAGOZA</emisor>
+    <emisor codEmi="961" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO TRES</emisor>
+    <emisor codEmi="1235" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE ALICANTE</emisor>
+    <emisor codEmi="1232" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE BURGOS</emisor>
+    <emisor codEmi="1438" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE DONOSTIA-SAN SEBASTIÁN</emisor>
+    <emisor codEmi="1414" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE GIJÓN</emisor>
+    <emisor codEmi="1409" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE PAMPLONA</emisor>
+    <emisor codEmi="961" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO TRES DE ZARAGOZA</emisor>
+    <emisor codEmi="959" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL NUMERO UNO</emisor>
+    <emisor codEmi="1406" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO UNO DE GIJÓN</emisor>
+    <emisor codEmi="1474" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO UNO DE PAMPLONA</emisor>
+    <emisor codEmi="1184" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO UNO DE VALENCIA</emisor>
+    <emisor codEmi="959" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1454" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO 1 DE A CORUÑA</emisor>
+    <emisor codEmi="1362" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO 1 DE LLEIDA</emisor>
+    <emisor codEmi="1451" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE LO SOCIAL NÚMERO 2 DE SALAMANCA</emisor>
+    <emisor codEmi="1160" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE LO SOCIAL Nº7 DE BILBAO</emisor>
+    <emisor codEmi="989" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE MENORES</emisor>
+    <emisor codEmi="1005" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE MENORES</emisor>
+    <emisor codEmi="989" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE MENORES DE HUESCA</emisor>
+    <emisor codEmi="1005" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE MENORES DE TERUEL</emisor>
+    <emisor codEmi="967" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE MENORES NUMERO DOS</emisor>
+    <emisor codEmi="967" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE MENORES NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="966" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE MENORES NUMERO UNO</emisor>
+    <emisor codEmi="966" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE MENORES NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="975" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PAZ DE  ZARAGOZA</emisor>
+    <emisor codEmi="968" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PAZ DE  ZARAGOZA</emisor>
+    <emisor codEmi="990" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PAZ DE BARBASTRO</emisor>
+    <emisor codEmi="970" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PAZ DE CALATAYUD</emisor>
+    <emisor codEmi="979" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NUMERO DOS</emisor>
+    <emisor codEmi="979" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NÚMERO DOS DE HUESCA</emisor>
+    <emisor codEmi="985" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NUMERO DOS DE JACA</emisor>
+    <emisor codEmi="985" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NÚMERO DOS DE JACA</emisor>
+    <emisor codEmi="980" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NUMERO TRES</emisor>
+    <emisor codEmi="980" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NÚMERO TRES DE HUESCA</emisor>
+    <emisor codEmi="978" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NUMERO UNO</emisor>
+    <emisor codEmi="978" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NÚMERO UNO DE HUESCA</emisor>
+    <emisor codEmi="984" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NUMERO UNO DE JACA</emisor>
+    <emisor codEmi="984" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA  E INSTRUCCIÓN NÚMERO UNO DE JACA</emisor>
+    <emisor codEmi="1001" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN  DE CALAMOCHA</emisor>
+    <emisor codEmi="981" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE BARBASTRO</emisor>
+    <emisor codEmi="982" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE BOLTAÑA NUMERO UNO</emisor>
+    <emisor codEmi="1128" codTipEmi="14" fechaEmi="27/05/2013">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE CASPE</emisor>
+    <emisor codEmi="945" codTipEmi="14" fechaEmi="27/05/2013">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE DAROCA</emisor>
+    <emisor codEmi="983" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE FRAGA</emisor>
+    <emisor codEmi="947" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN DE TARAZONA</emisor>
+    <emisor codEmi="1345" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN Nº 2 DE BARBASTRO</emisor>
+    <emisor codEmi="1167" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCION NÚM. 3 DE HUESCA</emisor>
+    <emisor codEmi="1177" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCION NUM. 4 DE HUESCA</emisor>
+    <emisor codEmi="1177" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO CUATRO DE HUESCA</emisor>
+    <emisor codEmi="1000" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO DOS DE ALCAÑIZ</emisor>
+    <emisor codEmi="1000" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO DOS DE ALCAÑIZ</emisor>
+    <emisor codEmi="1018" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO DOS DE CALATAYUD</emisor>
+    <emisor codEmi="1396" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCION NUMERO DOS DE FRAGA</emisor>
+    <emisor codEmi="1316" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO DOS DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="986" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO DOS DE MONZON</emisor>
+    <emisor codEmi="986" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO DOS DE MONZON</emisor>
+    <emisor codEmi="998" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO DOS DE TERUEL</emisor>
+    <emisor codEmi="998" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO DOS DE TERUEL</emisor>
+    <emisor codEmi="1318" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO TRES DE TERUEL</emisor>
+    <emisor codEmi="999" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO UNO DE ALCAÑIZ</emisor>
+    <emisor codEmi="999" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE ALCAÑIZ</emisor>
+    <emisor codEmi="981" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE BARBASTRO</emisor>
+    <emisor codEmi="944" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO UNO DE CALATAYUD</emisor>
+    <emisor codEmi="944" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE CALATAYUD</emisor>
+    <emisor codEmi="1128" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE CASPE</emisor>
+    <emisor codEmi="945" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE DAROCA</emisor>
+    <emisor codEmi="983" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE FRAGA</emisor>
+    <emisor codEmi="1315" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="1146" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE MONZÓN</emisor>
+    <emisor codEmi="997" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NUMERO UNO DE TERUEL</emisor>
+    <emisor codEmi="997" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO UNO DE TERUEL</emisor>
+    <emisor codEmi="1479" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO 1 DE AOIZ/AGOITZ</emisor>
+    <emisor codEmi="1244" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO 1 DE CASPE</emisor>
+    <emisor codEmi="945" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN NÚMERO 1 DE DAROCA</emisor>
+    <emisor codEmi="1458" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA E INSTRUCCIÓN ÚNICO DE TARAZONA</emisor>
+    <emisor codEmi="1079" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA Nº 1 DE BARBASTRO</emisor>
+    <emisor codEmi="1066" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚM. 2 DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="1178" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚM. 4 DE HUESCA</emisor>
+    <emisor codEmi="1187" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚM. 5 DE HUESCA</emisor>
+    <emisor codEmi="1135" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚM. 7 DE DONOSTIA-SAN SEBASTIAN</emisor>
+    <emisor codEmi="927" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO CATORCE</emisor>
+    <emisor codEmi="927" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO CATORCE DE ZARAGOZA</emisor>
+    <emisor codEmi="918" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO CINCO</emisor>
+    <emisor codEmi="918" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO CINCO DE ZARAGOZA</emisor>
+    <emisor codEmi="917" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO CUATRO</emisor>
+    <emisor codEmi="1500" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO CUATRO DE MADRID</emisor>
+    <emisor codEmi="917" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO CUATRO DE ZARAGOZA</emisor>
+    <emisor codEmi="932" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DIECINUEVE</emisor>
+    <emisor codEmi="932" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DIECINUEVE DE ZARAGOZA</emisor>
+    <emisor codEmi="931" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DIECIOCHO</emisor>
+    <emisor codEmi="931" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DIECIOCHO DE ZARAGOZA</emisor>
+    <emisor codEmi="929" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DIECISEIS</emisor>
+    <emisor codEmi="929" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DIECISEIS DE ZARAGOZA</emisor>
+    <emisor codEmi="930" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DIECISIETE</emisor>
+    <emisor codEmi="930" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DIECISIETE DE ZARAGOZA</emisor>
+    <emisor codEmi="923" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DIEZ</emisor>
+    <emisor codEmi="923" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DIEZ DE ZARAGOZA</emisor>
+    <emisor codEmi="925" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DOCE</emisor>
+    <emisor codEmi="925" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DOCE DE ZARAGOZA</emisor>
+    <emisor codEmi="915" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DOS</emisor>
+    <emisor codEmi="1018" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DOS DE CALATAYUD</emisor>
+    <emisor codEmi="1066" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DOS DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="1128" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO DOS DE HUESCA</emisor>
+    <emisor codEmi="915" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="922" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO NUEVE</emisor>
+    <emisor codEmi="922" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO NUEVE DE ZARAGOZA</emisor>
+    <emisor codEmi="921" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO OCHO</emisor>
+    <emisor codEmi="921" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO OCHO DE ZARAGOZA</emisor>
+    <emisor codEmi="924" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO ONCE</emisor>
+    <emisor codEmi="924" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO ONCE DE ZARAGOZA</emisor>
+    <emisor codEmi="928" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO QUINCE</emisor>
+    <emisor codEmi="928" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO QUINCE DE ZARAGOZA</emisor>
+    <emisor codEmi="919" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO SEIS</emisor>
+    <emisor codEmi="919" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO SEIS DE ZARAGOZA</emisor>
+    <emisor codEmi="920" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO SIETE</emisor>
+    <emisor codEmi="1135" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO SIETE DE DONOSTIA-SAN SEBASTIÁN</emisor>
+    <emisor codEmi="920" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO SIETE DE ZARAGOZA</emisor>
+    <emisor codEmi="926" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO TRECE</emisor>
+    <emisor codEmi="926" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO TRECE DE ZARAGOZA</emisor>
+    <emisor codEmi="916" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO TRES</emisor>
+    <emisor codEmi="1410" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO TRES DE SANTANDER</emisor>
+    <emisor codEmi="916" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO TRES DE ZARAGOZA</emisor>
+    <emisor codEmi="914" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO UNO</emisor>
+    <emisor codEmi="1181" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NUMERO UNO DE TARAZONA</emisor>
+    <emisor codEmi="914" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1309" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO VEINTE DE ZARAGOZA</emisor>
+    <emisor codEmi="1246" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚMERO VEINTIUNO </emisor>
+    <emisor codEmi="1310" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE PRIMERA INSTANCIA NÚMERO VEINTIUNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1146" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA NÚMERO 1 DE MONZON</emisor>
+    <emisor codEmi="933" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE PRIMERA INSTANCIA REGISTRO CIVIL UNICO</emisor>
+    <emisor codEmi="948" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE VIGILANCIA PENITENCIARIA</emisor>
+    <emisor codEmi="1314" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE VIGILANCIA PENITENCIARIA NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="948" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE VIGILANCIA PENITENCIARIA NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1054" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE VIOLENCIA SOBRE LA MUJER Nº 1 DE ZARAGOZA</emisor>
+    <emisor codEmi="1213" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE VIOLENCIA SOBRE LA MUJER Nº 2 DE ZARAGOZA</emisor>
+    <emisor codEmi="1320" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE VIOLENCIA SOBRE LA MUJER NÚMERO DOS DE ZARAGOZA</emisor>
+    <emisor codEmi="1501" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DE VIOLENCIA SOBRE LA MUJER NÚMERO UNO DE ZARAGOZA</emisor>
+    <emisor codEmi="1133" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE 1ª INSTANCIA E INSTRUCCIÓN Nº 5 DE ALCAÑIZ</emisor>
+    <emisor codEmi="1039" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE 1ª INSTANCIA Nº 1 DE CALATAYUD</emisor>
+    <emisor codEmi="1041" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE 1ª INSTANCIA Nº 1 DE TERUEL</emisor>
+    <emisor codEmi="1042" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE 1ª INSTANCIA Nº 2 DE JACA</emisor>
+    <emisor codEmi="1220" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DE 1ª INSTANCIA NÚMERO 1 DE CASPE</emisor>
+    <emisor codEmi="977" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DECANO DE HUESCA</emisor>
+    <emisor codEmi="1115" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO DECANO DE ZARAGOZA</emisor>
+    <emisor codEmi="977" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DECANO HUESCA</emisor>
+    <emisor codEmi="913" codTipEmi="14" fechaEmi="19/10/2011">JUZGADO DECANO Y REPARTO</emisor>
+    <emisor codEmi="1515" codTipEmi="14" fechaEmi="07/08/2015">JUZGADO MERCANTIL DE TERUEL</emisor>
+    <emisor codEmi="982" codTipEmi="14" fechaEmi="19/10/2011">JUZGADODE PRIMERA INSTANCIA E INSTRUCCIÓN DE BOLTAÑA</emisor>
+    <emisor codEmi="968" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE  ZARAGOZA</emisor>
+    <emisor codEmi="1006" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE ALCAÑIZ</emisor>
+    <emisor codEmi="990" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE BARBASTRO</emisor>
+    <emisor codEmi="991" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE BOLTAÑA</emisor>
+    <emisor codEmi="1007" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE CALAMOCHA</emisor>
+    <emisor codEmi="970" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE CALATAYUD</emisor>
+    <emisor codEmi="971" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE CASPE</emisor>
+    <emisor codEmi="972" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE DAROCA</emisor>
+    <emisor codEmi="973" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="992" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE FRAGA</emisor>
+    <emisor codEmi="993" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE HUESCA</emisor>
+    <emisor codEmi="994" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE JACA</emisor>
+    <emisor codEmi="969" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="995" codTipEmi="14" fechaEmi="19/10/2011">JUZGADOS DE PAZ DE MONZON</emisor>
+    <emisor codEmi="995" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE MONZÓN</emisor>
+    <emisor codEmi="974" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE TARAZONA</emisor>
+    <emisor codEmi="1008" codTipEmi="14" fechaEmi="07/08/2015">JUZGADOS DE PAZ DE TERUEL</emisor>
+    <emisor codEmi="973" codTipEmi="14" fechaEmi="19/10/2011">JUZGADOS DE PAZ EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="969" codTipEmi="14" fechaEmi="19/10/2011">JUZGADOSDE PAZ DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="1163" codTipEmi="14" fechaEmi="19/10/2011">PROCURADORES</emisor>
+    <emisor codEmi="933" codTipEmi="14" fechaEmi="07/08/2015">REGISTRO CIVIL DE ZARAGOZA</emisor>
+    <emisor codEmi="904" codTipEmi="14" fechaEmi="19/10/2011">SALA DE LO CONTENCIOSO ADMINISTRATIVO 1ª ZARAGOZA</emisor>
+    <emisor codEmi="905" codTipEmi="14" fechaEmi="19/10/2011">SALA DE LO CONTENCIOSO ADMINISTRATIVO 2ª ZARAGOZA </emisor>
+    <emisor codEmi="906" codTipEmi="14" fechaEmi="19/10/2011">SALA DE LO CONTENCIOSO ADMINISTRATIVO 3ª ZARAGOZA </emisor>
+    <emisor codEmi="911" codTipEmi="14" fechaEmi="19/10/2011">SECCION CUARTA</emisor>
+    <emisor codEmi="908" codTipEmi="14" fechaEmi="19/10/2011">SECCION PRIMERA</emisor>
+    <emisor codEmi="912" codTipEmi="14" fechaEmi="19/10/2011">SECCION QUINTA</emisor>
+    <emisor codEmi="909" codTipEmi="14" fechaEmi="19/10/2011">SECCION SEGUNDA</emisor>
+    <emisor codEmi="910" codTipEmi="14" fechaEmi="19/10/2011">SECCION TERCERA</emisor>
+    <emisor codEmi="903" codTipEmi="14" fechaEmi="19/10/2011">SECRETARIADO DE GOBIERNO DEL TRIBUNAL SUPERIOR DE JUSTICIA DE ARAGON</emisor>
+    <emisor codEmi="1469" codTipEmi="14" fechaEmi="07/08/2015">TRIBUNAL  SUPREMO</emisor>
+    <emisor codEmi="902" codTipEmi="14" fechaEmi="19/10/2011">TRIBUNAL SUPERIOR DE JUSTICIA DE ARAGON</emisor>
+    <emisor codEmi="902" codTipEmi="14" fechaEmi="07/08/2015">TRIBUNAL SUPERIOR DE JUSTICIA DE ARAGÓN</emisor>
+    <emisor codEmi="1119" codTipEmi="14" fechaEmi="07/08/2015">TRIBUNAL SUPERIOR DE JUSTICIA DE BALEARES</emisor>
+    <emisor codEmi="1192" codTipEmi="14" fechaEmi="07/08/2015">TRIBUNAL SUPERIOR DE JUSTICIA DE LA RIOJA</emisor>
+    <emisor codEmi="1519" codTipEmi="14" fechaEmi="07/08/2015">TRIBUNAL SUPERIOR DE JUSTICIA DE NAVARRA</emisor>
+    <emisor codEmi="1256" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE ALBARRACÍN</emisor>
+    <emisor codEmi="1257" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE ALCAÑIZ</emisor>
+    <emisor codEmi="1273" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE ALIAGA</emisor>
+    <emisor codEmi="1264" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE ATECA</emisor>
+    <emisor codEmi="1248" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE BARBASTRO</emisor>
+    <emisor codEmi="1265" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE BELCHITE</emisor>
+    <emisor codEmi="1249" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE BENABARRE</emisor>
+    <emisor codEmi="1250" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE BOLTAÑA</emisor>
+    <emisor codEmi="1266" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE BORJA</emisor>
+    <emisor codEmi="1259" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE CALAMOCHA</emisor>
+    <emisor codEmi="1267" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE CALATAYUD</emisor>
+    <emisor codEmi="1268" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE CASPE</emisor>
+    <emisor codEmi="1260" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE CASTELLOTE</emisor>
+    <emisor codEmi="1269" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE DAROCA</emisor>
+    <emisor codEmi="1270" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE EJEA DE LOS CABALLEROS</emisor>
+    <emisor codEmi="1251" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE FRAGA</emisor>
+    <emisor codEmi="1261" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE HÍJAR</emisor>
+    <emisor codEmi="1252" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE JACA</emisor>
+    <emisor codEmi="1263" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE LA ALMUNIA DE DOÑA GODINA</emisor>
+    <emisor codEmi="1262" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE MORA DE RUBIELOS</emisor>
+    <emisor codEmi="1271" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE PINA DE EBRO</emisor>
+    <emisor codEmi="1255" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE SABIÑÁNIGO</emisor>
+    <emisor codEmi="1253" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE SARIÑENA</emisor>
+    <emisor codEmi="1254" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE TAMARITE DE LITERA</emisor>
+    <emisor codEmi="1272" codTipEmi="16" fechaEmi="07/08/2015">OFICINA LIQUIDADORA DE TARAZONA</emisor>
+    <emisor codEmi="1274" codTipEmi="36" fechaEmi="07/08/2015">CÁMARA DE CUENTAS DE ARAGÓN</emisor>
+    <emisor codEmi="1481" codTipEmi="76" fechaEmi="07/08/2015">CONSORCIO DE LA COMUNIDAD DE TRABAJO DE LOS PIRINEOS</emisor>
+    <emisor codEmi="1490" codTipEmi="76" fechaEmi="07/08/2015">CONSORCIO PARA LA GESTIÓN, CONSERVACIÓN Y MANTENIMIENTO DEL TÚNEL DE BIELSA-ARAGNOUET Y SUS ACCESOS</emisor>
+  </comboEmisores>
+  <comboRango>
+    <dispo>
+      <rangoDispo codRango="1" codTipEmi="1,5">LEY ORGÁNICA</rangoDispo>
+      <rangoDispo codRango="2" codTipEmi="1,5">CORRECCIÓN - LEY ORGÁNICA</rangoDispo>
+      <rangoDispo codRango="3" codTipEmi="1,5">LEY</rangoDispo>
+      <rangoDispo codRango="4" codTipEmi="1,5">CORRECCIÓN - LEY</rangoDispo>
+      <rangoDispo codRango="5" codTipEmi="1,5">REAL DECRETO LEGISLATIVO</rangoDispo>
+      <rangoDispo codRango="6" codTipEmi="1,5">CORRECCIÓN - REAL DECRETO LEGISLATIVO</rangoDispo>
+      <rangoDispo codRango="7" codTipEmi="1,5">REAL DECRETO LEY</rangoDispo>
+      <rangoDispo codRango="8" codTipEmi="1,5">CORRECCIÓN - REAL DECRETO LEY</rangoDispo>
+      <rangoDispo codRango="9" codTipEmi="1,5">REAL DECRETO</rangoDispo>
+      <rangoDispo codRango="10" codTipEmi="1,5">CORRECCIÓN - REAL DECRETO</rangoDispo>
+      <rangoDispo codRango="11" codTipEmi="1,5">ORDEN</rangoDispo>
+      <rangoDispo codRango="12" codTipEmi="1,5">CORRECCIÓN - ORDEN</rangoDispo>
+      <rangoDispo codRango="13" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,14,36">RESOLUCIÓN</rangoDispo>
+      <rangoDispo codRango="14" codTipEmi="1,2,4,5,6,7,8,9,10,11,36">CORRECCIÓN - RESOLUCIÓN</rangoDispo>
+      <rangoDispo codRango="15" codTipEmi="1,2,4,5,7,8,9,10,11">ACUERDOS</rangoDispo>
+      <rangoDispo codRango="16" codTipEmi="1,2,4,5,7,8,9,10,11,13">CORRECCIÓN - ACUERDO</rangoDispo>
+      <rangoDispo codRango="17" codTipEmi="5">DECRETO LEGISLATIVO</rangoDispo>
+      <rangoDispo codRango="18" codTipEmi="5">CORRECCIÓN  - DECRETO LEGISLATIVO</rangoDispo>
+      <rangoDispo codRango="19" codTipEmi="5">DECRETO DE LA PRESIDENCIA</rangoDispo>
+      <rangoDispo codRango="20" codTipEmi="5">CORRECCIÓN  - DECRETO DE LA PRESIDENCIA</rangoDispo>
+      <rangoDispo codRango="21" codTipEmi="5">DECRETO DEL GOBIERNO DE ARAGÓN</rangoDispo>
+      <rangoDispo codRango="22" codTipEmi="5">CORRECCIÓN  - DECRETO DEL GOBIERNO DE ARAGÓN</rangoDispo>
+      <rangoDispo codRango="25" codTipEmi="1,5">INSTRUCCIÓN</rangoDispo>
+      <rangoDispo codRango="26" codTipEmi="1,5">CORRECCIÓN  - INSTRUCCIÓN</rangoDispo>
+      <rangoDispo codRango="27" codTipEmi="1,5">CIRCULAR</rangoDispo>
+      <rangoDispo codRango="28" codTipEmi="1,5">CORRECCIÓN  - CIRCULAR</rangoDispo>
+      <rangoDispo codRango="29" codTipEmi="1,5">PACTO</rangoDispo>
+      <rangoDispo codRango="30" codTipEmi="1,5">CORRECCIÓN  - PACTO</rangoDispo>
+      <rangoDispo codRango="31" codTipEmi="4,5">CANDIDATURAS</rangoDispo>
+      <rangoDispo codRango="32" codTipEmi="4,5">CORRECCIÓN  - CANDIDATURAS</rangoDispo>
+      <rangoDispo codRango="102" codTipEmi="5,8,9,10,11,13">DECRETO</rangoDispo>
+      <rangoDispo codRango="103" codTipEmi="5,8,9,10,11">CORRECCIÓN - DECRETO</rangoDispo>
+      <rangoDispo codRango="104" codTipEmi="8,9,10,11">ORDENANZA</rangoDispo>
+      <rangoDispo codRango="105" codTipEmi="8,9,10,11">CORRECCIÓN - ORDENANZA</rangoDispo>
+      <rangoDispo codRango="121" codTipEmi="1,2,5,7,9,10,13">ACUERDO</rangoDispo>
+      <rangoDispo codRango="122" codTipEmi="1,2,5,7,9">CORRECCIÓN - ACUERDOS</rangoDispo>
+      <rangoDispo codRango="123" codTipEmi="2">NOMBRAMIENTO</rangoDispo>
+      <rangoDispo codRango="143" codTipEmi="5">DECRETO-LEY</rangoDispo>
+      <rangoDispo codRango="144" codTipEmi="5">CORRECCIÓN DECRETO-LEY</rangoDispo>
+      <rangoDispo codRango="163" codTipEmi="5,16">ANUNCIO</rangoDispo>
+      <rangoDispo codRango="164" codTipEmi="5,16">CORRECCIÓN - ANUNCIO</rangoDispo>
+      <rangoDispo codRango="183" codTipEmi="1">CUESTIÓN DE INCONSTITUCIONALIDAD</rangoDispo>
+      <rangoDispo codRango="203" codTipEmi="1">CONFLICTO</rangoDispo>
+      <rangoDispo codRango="223" codTipEmi="2">MODIFICACIÓN</rangoDispo>
+      <rangoDispo codRango="243" codTipEmi="1">RECURSO DE INCONSTITUCIONALIDAD</rangoDispo>
+    </dispo>
+    <anun>
+      <rangoAnun codRango="1" codTipEmi="1,2,4,5,6,7,8,9,10,11,16,36,76">ORDEN</rangoAnun>
+      <rangoAnun codRango="2" codTipEmi="1,2,4,5,6,7,8,9,10,11,16,36">CORRECCIÓN - ORDEN</rangoAnun>
+      <rangoAnun codRango="3" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36,76">RESOLUCIÓN</rangoAnun>
+      <rangoAnun codRango="4" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36">CORRECCIÓN - RESOLUCIÓN</rangoAnun>
+      <rangoAnun codRango="5" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36">NOTIFICACIÓN</rangoAnun>
+      <rangoAnun codRango="6" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36">CORRECCIÓN - NOTIFICACIÓN</rangoAnun>
+      <rangoAnun codRango="7" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36,76">ANUNCIO</rangoAnun>
+      <rangoAnun codRango="8" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,16,36,76">CORRECCIÓN - ANUNCIO</rangoAnun>
+      <rangoAnun codRango="106" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,14,16,36,76">EDICTO</rangoAnun>
+      <rangoAnun codRango="107" codTipEmi="1,2,4,5,6,7,8,9,10,11,13,14,16,36,76">CORRECCIÓN - EDICTO</rangoAnun>
+      <rangoAnun codRango="263" codTipEmi="14">CONFLICTO</rangoAnun>
+    </anun>
+  </comboRango>
+  <contadorAnexosNew>
+    <contAnexo>0</contAnexo>
+  </contadorAnexosNew>
+</root>

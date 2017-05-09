@@ -190,9 +190,10 @@ class PackageController(base.BaseController):
             abort(401, _('Not authorized to see this page'))
 
         # unicode format (decoded from utf8)
-#		q = c.q = request.params.get('q', u'')
-        q = c.q = asciify(request.params.get('q', u''))
-#        log.error('######La consulta en SolR al principio: %s', q)
+        #[M] no asciify in param q
+        q = c.q = request.params.get('q', u'')
+        #q = c.q = asciify(request.params.get('q', u''))
+        #log.error('######La consulta en SolR al principio: %s', q)
         c.query_error = False
         try:
             page = int(request.params.get('page', 1))
@@ -260,7 +261,8 @@ class PackageController(base.BaseController):
             fq = ''
             formats = ''
             for (param, value) in request.params.items():
-                if param not in ['q', 'page', 'sort'] \
+                #[M] added 'tags' as exception to not enter inside IF
+                if param not in ['q', 'page', 'sort', 'tags'] \
                         and len(value) and not param.startswith('_'):
 
                     if param.startswith('res_format') and value in ('XML', 'JSON', 'CSV'):
@@ -1939,7 +1941,7 @@ class PackageController(base.BaseController):
 #            print 'la query es '+str(query)
             
             i=0
-            ubicacion=0
+	    ubicacion=0
             for asd in query['results']:
                  if asd['name'] == packge_name:
                      ubicacion = i
@@ -2234,9 +2236,9 @@ class PackageController(base.BaseController):
     def _save_vista(self, vista, filtro):
 
 	#PRO
-        #connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
+        connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD)
         #PRE
-	connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
+	#connection = cx_Oracle.connect(configuracion.OPENDATA_USR + "/" + configuracion.OPENDATA_PASS  + "@" + configuracion.OPENDATA_CONEXION_BD_PRE)
 	
 	cursor = connection.cursor()
         resultado = cursor.var(cx_Oracle.NUMBER)
@@ -2269,14 +2271,18 @@ class PackageController(base.BaseController):
         
         vista_id = ga_od_core.get_view_id(vistaResourceId)
                
-        data = ga_od_core.download(vista_id,None,None,vistaFormato)
-        
+        data = ga_od_core.download(vista_id,None,None,vistaFormato,None,None)
+
+        #import urllib2
+        #data = urllib2.urlopen("http://preopendata.aragon.es/GA_OD_Core/download?view_id="+str(vista_id)+"&select_sql=*&filter_sql=&formato="+str(vistaFormato)).read()
+
         if (vistaFormato == 'JSON'):
             #response.headers['Content-Type'] = 'application/json;charset=utf-8'
             response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre) +"__ad" +  ".json" + '\"'),('Content-Type', 'application/json;charset=utf-8')]
         if (vistaFormato == 'CSV'):
             #response.headers['Content-Type'] = 'text/csv;charset=utf-8'
-            response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre)+ "__ad"+ ".csv" + '\"'),('Content-Type', 'text/csv')]
+
+            response.headers = [('Content-Disposition', 'attachment; filename=\"' + str(vistaNombre)+ "__ad"+ ".csv" + '\"'),('Content-Type', 'text/csv;charset=utf-8')]
         if (vistaFormato == 'XML'):
             response.headers['Content-Type'] = 'application/xml;charset=utf-8';
             response.headers['Content-Disposition'] = 'attachment; filename=' + str(vistaNombre) + '.xml';     

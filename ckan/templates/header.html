@@ -1,83 +1,132 @@
-{% block header_wrapper %}
-{% block header_account %}
+<link rel="stylesheet" type="text/css" href="/public/homeV3/prueba.css">
+<script>
+function myFunction() {
+    var _header = document.getElementsByClassName('header2')[0];
+    if (_header.style.display === 'none') {
+        _header.style.display = 'block';
+    } else {
+        _header.style.display = 'none';
+    }
+}
+</script>
 
-<header>
-<div id="cabeceraRelacionados">
-	<ul>
-		<li class="clear visible-xs tamCero"></li>
-		<li><a href="http://transparencia.aragon.es" title="Transparencia" target="_blank">TRANSPARENCIA</a></li>
-		<li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana" target="_blank">PARTICIPACI&Oacute;N CIUDADANA</a></li>
-		<li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
-	</ul>
+<script>
+function buscaCkan(){
+    text = document.getElementById("buscador_header").value;
+    window.location.href = "/catalogo/catalogo.html?q=" + text;
+    return false;
+}
+</script>
+<header><div id="aragonHeader">
+    <div id="cabeceraRelacionados">
+        <ul>
+            <li class="clear visible-xs tamCero"></li>
+            <li><a href="http://transparencia.aragon.es/" target="_blank" title="Transparencia">TRANSPARENCIA</a></li>
+            <li><a href="http://aragonparticipa.aragon.es" target="_blank" title="Participación ciudadana">PARTICIPACIÓN CIUDADANA</a></li>
+            <li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a>
+                <p class="clear visible-xs"></p>
+            </li>
+        </ul>
+    </div>
 </div>
-<div id="cabecera">
-	<ul>
-		<li><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></li>
-	</ul>
+<div id="aragonNav" class="header1">
+    
+    <div class="" id="h-top">
+    <a href="/" class="router-link-active"">
+        <img class="logo" src="/images/home/nav-bar/AOD-Logo.png">
+    </a>
+    <a class="menuLogin" href="/catalogo/pizarra">
+        <img src="/images/home/nav-bar/Boton-Acceso-Usuarios-OFF.png" 
+        onmouseover="this.src='/images/home/nav-bar/Boton-Acceso-Usuarios-ON.png'"
+        onmouseout="this.src='/images/home/nav-bar/Boton-Acceso-Usuarios-OFF.png'"
+        border="0" alt=""/>
+        <!--<img src="/images/home/nav-bar/Boton-Acceso-Usuarios-OFF.png">-->
+    </a>
+    <a class="menu"  onclick="myFunction()">
+        <img src="/images/home/nav-bar/Boton-Menu-Responsive-OFF.png" 
+        onmouseover="this.src='/images/home/nav-bar/Boton-Menu-Responsive-ON.jpg'"
+        onmouseout="this.src='/images/home/nav-bar/Boton-Menu-Responsive-OFF.png'"
+        border="0" alt=""/>
+        <!--<img class="boton" src="/images/home/nav-bar/Boton-Menu-Responsive-OFF.png">-->
+    </a>
+    </div>
 </div>
-
-<div class="banner">
-	<div class="bannerInline bannerLogo" style="text-align: right;" >
-		<a href="/" title="ARAGÓN OPEN DATA"><img class=""  id="idTotal" src="/public/i/logo_aod.png" alt="ARAGÓN OPEN DATA"></a>
-	</div>
-	<div class="bannerInline bannerBuscador" style="text-align: left; margin-top:0.5%;">
-		
-			<form id="cajaBusqBanner" action="/catalogo" method="get">
-<!--				<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
-			
-				<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner cajaDeBusqInput" type="text">
-				<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
-      {% if not c.userobj %}
-              <button class="btn-search" type="submit">Buscar</button>
-              <a href="{{ h.url_for('/user/login') }}" title="{{ _('Log in') }}">
-                <img src="/public/i/login.jpg" alt="{{ _('Log in') }}" class="btn-login">
-              </a>
-      {% else %}
-            {% block header_account_log_out_link %}
-              <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="Pizarra de administración">
-                <img src="/public/i/dashboard.jpg" alt="Pizarra de administración" class="btn-login">
-              </a>
-              <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
-                <img src="/public/i/logout.jpg" alt="{{ _('Log out') }}" class="btn-login">
-              </a>
-            {% endblock %}
-      {% endif %}
-			</form>
-
-	</div>
+<div id="aragonNav" class="header2" style="display:none;">
+    <div class="b-black" id="h-top">
+    <a href="/" class="router-link-active">
+        <img class="logo" src="/images/home/nav-bar/AOD-Logo-Responsive.png">
+    </a>
+    <a class="menuLogin" href="/catalogo/pizarra">
+        <img src="/images/home/nav-bar/Boton-Acceso-Usuarios-gris.png" 
+        onmouseover="this.src='/images/home/nav-bar/Boton-Acceso-Usuarios-blanco.png'"
+        onmouseout="this.src='/images/home/nav-bar/Boton-Acceso-Usuarios-gris.png'"
+        border="0" alt=""/>
+        <!--<img src="/images/home/nav-bar/Boton-Acceso-Usuarios-gris.png">-->
+    </a>
+    <a class="menu" onclick="myFunction()">
+        <img src="/images/home/nav-bar/Boton-Salir-Menu-Responsive-OFF.png" 
+        onmouseover="this.src='/images/home/nav-bar/Boton-Salir-Modo-Responsive-ON.png'"
+        onmouseout="this.src='/images/home/nav-bar/Boton-Salir-Menu-Responsive-OFF.png'"
+        border="0" alt=""/>
+        <!--<img src="/images/home/nav-bar/Boton-Salir-Menu-Responsive-OFF.png">-->
+    </a>
+    </div>
+    <!--template bindings={}--><div class="overlay overlay-hugeinc">
+        <nav>
+            <ul class="menus">
+                <li class="menuPrimero">
+                    <input id="datosCheckbox" name="menu" type="radio">
+                    <label class="linkPrimero" for="datosCheckbox">Datos</label>
+                    <ul class="submenus">
+                        <br>
+                        <li><a href="/datos/catalogo.html">Banco de datos</a></li>
+                        <li><a href="/datos/tema">Temas</a></li>
+                        <li><a href="/datos/organizacion">Publicadores</a></li>
+                    </ul>
+                </li>
+                <li class="menuPrimero">
+                    <input id="serviciosCheckbox" name="menu" type="radio">
+                    <label class="linkPrimero" for="serviciosCheckbox">Servicios</label>
+                    <ul class="submenus">
+                        <br>
+                        <li><a href="/servicios/aragopedia">Aragopedia</a></li>
+                        <li><a href="http://presupuesto.aragon.es/">Presupuestos</a></li>
+                        <li><a href="/servicios/open-social-data">Open Social Data</a></li>
+                        <li><a href="/servicios/cras">CRAs Aragón</a></li>
+                    </ul>
+                </li>
+                <li class="menuPrimero">
+                    <input id="informacionCheckbox" name="menu" type="radio">
+                    <label class="linkPrimero" for="informacionCheckbox">Informacion</label>
+                    <ul class="submenus">
+                        <br>
+                        <li><a href="/info/open-data">Informacion</a></li>
+                        <li><a href="/info/aplicaciones">Aplicaciones</a></li>
+                        <li><a href="/info/eventos">Eventos</a></li>
+                        <li><a href="/info/colabora">Colabora</a></li>
+                    </ul>
+                </li>
+                <li class="menuPrimero">
+                    <input id="herramientasCheckbox" name="menu" type="radio">
+                    <label class="linkPrimero" for="herramientasCheckbox">Herramientas</label>
+                    <ul class="submenus">
+                        <br>
+                        <li><a href="/campus">AOD Campus</a></li>
+                        <li><a href="/herramientas/desarrolladores">Desarrolladores</a></li>
+                        <li><a href="/herramientas/apis">APIs</a></li>
+                        <li><a href="/herramientas/sparql">SPARQL</a></li>
+                        <li><a href="https://github.com/aragonopendata/Aragon-Open-Data-3" target="_blank">GITHUB</a></li>
+                    </ul>
+                </li>
+                <li class="menuPrimeroUltimo">
+                    <form id="form_header" method="post" onsubmit="return buscaCkan()">
+                        <input autocomplete="off" id="buscador_header" placeholder="BUSCA DATOS ABIERTOS" type="search" />
+                        <button type="submit" class="submit"><i aria-hidden="true" class="fa fa-search"></i></button>
+                    </form>
+                </li>
+                <!--template bindings={}-->
+            </ul>
+        </nav>
+    </div>
 </div>
-<div class="clear"></div>
-
-  </header>
-  
-  
-{% endblock %}
-
-{% endblock %}
-<nav>
-  <div id="navegacion" class="botones botonesSuperiorLista">
-    <ul>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked first';" onmouseup="javascript:this.className='botonSuperiorClicked first';"
-            onmouseover="javascript:this.className='botonSuperiorOver first';" onmouseout="javascript:this.className='botonSuperiorClicked first';"
-            onclick="javascript:window.location='/catalogo';" class="botonSuperiorClicked first" title="Datos"><img src="/public/i/header/datos.png" alt="Datos" title="Datos"></li>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked second';" onmouseup="javascript:this.className='botonSuperior second';"
-            onmouseover="javascript:this.className='botonSuperiorOver second';" onmouseout="javascript:this.className='botonSuperior second';"
-            onclick="javascript:window.location='/aragopedia';" class="botonSuperior second" title="AragoPedia"><img src="/public/i/header/aragopedia.png" alt="AragoPedia" title="AragoPedia"></li>
-<li class="clear visible-xs tamCero"></li>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked third';" onmouseup="javascript:this.className='botonSuperior third';"
-            onmouseover="javascript:this.className='botonSuperiorOver third';" onmouseout="javascript:this.className='botonSuperior third';"
-            onclick="javascript:window.location='/portal/social-data';" class="botonSuperior third" title="Social Data"><img src="/public/i/header/socialData.png" alt="Social Data" title="Social Data"></li>
-<li class="clear visible-ms tamCero"></li>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked fourth';" onmouseup="javascript:this.className='botonSuperior fourth';"
-            onmouseover="javascript:this.className='botonSuperiorOver fourth';" onmouseout="javascript:this.className='botonSuperior fourth';"
-            onclick="javascript:window.location='/portal/colabora';" class="botonSuperior fourth" title="Colabora"><img src="/public/i/header/colabora.png" alt="Colabora" title="Colabora"></li>
-<li class="clear visible-xs tamCero"></li>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked fifth';" onmouseup="javascript:this.className='botonSuperior fifth';"
-            onmouseover="javascript:this.className='botonSuperiorOver fifth';" onmouseout="javascript:this.className='botonSuperior fifth';" 
-            onclick="javascript:window.location='/portal/aplicaciones';" class="botonSuperior fifth" title="Aplicaciones"><img src="/public/i/header/aplicaciones.png" alt="Aplicaciones" title="Aplicaciones"></li>
-      <li onmousedown="javascript:this.className='botonSuperiorClicked last';" onmouseup="javascript:this.className='botonSuperior last';"
-            onmouseover="javascript:this.className='botonSuperiorOver last';" onmouseout="javascript:this.className='botonSuperior last';" 
-            onclick="javascript:window.location='/portal/open-data';" class="botonSuperior last" title="Informaci&oacute;n sobre Open Data"><img src="/public/i/header/infoOpenData.png" alt="Informaci&oacute;n sobre Open Data" title="Informaci&oacute;n sobre Open Data"></li>
-      </ul>
-  </div>
-</nav>
+<div id="separacionMenu"></div></header>

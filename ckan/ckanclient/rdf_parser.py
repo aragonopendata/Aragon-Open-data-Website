@@ -9,6 +9,7 @@ import sys
 import config
 import cx_Oracle
 import psycopg2
+import config
 
 def clean_tag(tag):
     res = tag.encode('utf-8')
@@ -160,7 +161,7 @@ def diffDatasets(ckan, dataset):
                         if not encontradoResource:
                             coinciden = False;
 
-    print 'Se devuelve ', coinciden
+    print 'Los dataset coinciden ', coinciden
     return coinciden;
 
 
@@ -344,7 +345,7 @@ def create_resources(distributions_xml, title):
                 formato = get_tag_text(format_xml, label_tag)
                 resource['format'] = formato
                 resource['mimetype_inner'] = correctMimetypeInner(formato)
-                print '+++El modo de acceso es', modoAcceso, 'y el formato es ', formato, ' en el datase de nombre', resource['name']
+                #print '+++El modo de acceso es', modoAcceso, 'y el formato es ', formato, ' en el datase de nombre', resource['name']
 #                resource['format'] = get_tag_text(format_xml, label_tag)
             # resource size
 #            size_tag = '{0}//{1}//{2}'.format(
@@ -392,7 +393,11 @@ def create_dataset(xml):
     organizacion =""
     
     try:
+        #print "Organization_: "+str(get_tag_text(xml, dct_tag('organization')))
+        #print "xml:"+str(xml)
+        #print "prueba2: "+str(ckan.group_entity_get(get_tag_text(xml, dct_tag('organization'))))
         organizacion = ckan.group_entity_get(get_tag_text(xml, dct_tag('organization')))
+        #print str(organizacion)
         
         if (organizacion != ""):
             dataset['owner_org'] = organizacion.get('id')
@@ -401,11 +406,13 @@ def create_dataset(xml):
          organizacion = ""
          print("no existe la organizacion")
 
-    #print("********************** ORGANIZACION ************************: " + dataset['owner_org'])
+    print("********************** ORGANIZACION ************************: " + dataset['name'])
     # description
     dataset['notes'] = get_tag_text(xml, dct_tag('description'))
+    #print dataset['notes']
     # title
     dataset['title'] = get_tag_text(xml, dct_tag('title'))
+    #print dataset['title']
 
     dataset['author_email'] = get_tag_text(xml, dct_tag('author_email'))
     # tags
@@ -472,7 +479,7 @@ def create_dataset(xml):
     if (extra[1] != ""): extras.append(extra)
 
 
-    if (organizacion != "" and "instituto_aragones_de_estadistica" == organizacion.get('name')):
+    if (organizacion != "" and "instituto-aragones-estadistica" == organizacion.get('name')):
         extra = ['01_IAEST_Tema estadístico', get_tag_text(xml, dcat_tag('tema_estadistico'))]
         if (extra[1] != ""): extras.append(extra)
         extra = ['02_IAEST_Unidad Estadística', get_tag_text(xml, dcat_tag('unidad_estadistica'))]
@@ -501,7 +508,9 @@ def create_dataset(xml):
         #if (extra[1] != ""): extras.append(extra)
         #extra = ['14_IAEST_Código de la operación en el PEN 2013-2016', get_tag_text(xml, dcat_tag('cod_op_pen'))]
         #if (extra[1] != ""): extras.append(extra)
-        extra = ['15_IAEST_Legislación UE', get_tag_text(xml, dcat_tag('legislacion_ue'))]
+        print "\n\n\nLegalizacion\n"
+        print get_tag_text_basic(xml, dcat_tag('legislacion_ue'))
+        extra = ['15_IAEST_Legislación UE', get_tag_text_basic(xml, dcat_tag('legislacion_ue'))]
         if (extra[1] != ""): extras.append(extra)
 
     # author
@@ -546,6 +555,7 @@ def get_rdfs():
     return rdfs
 
 def parse_rdfs():
+    print "red_parser"
     rdfs = get_rdfs()
     print 'Hay ', len(rdfs), 'datasets '
     datasets = []
@@ -564,9 +574,10 @@ def parse_rdfs():
             #connection = cx_Oracle.connect("OPENDATA/OPENDATA@" + config.OPENDATA_CONEXION_BD_DES)
             #connection =  config.conexion('opendata-postgre')
             
-            connection = psycopg2.connect(config.OPENDATA_POSTGRE_CONEXION_BD)
+            #connection = psycopg2.connect(config.OPENDATA_POSTGRE_CONEXION_BD)
+            connection = config.conexion('opendata-postgre')
             cursor = connection.cursor()
-            consulta="SELECT package_revision.name, group_revision.name FROM public.package_revision, public.group_revision WHERE  package_revision.owner_org = group_revision.id AND package_revision.state = 'active' AND package_revision.current = 't' AND (group_revision.name='instituto_geografico_de_aragon' OR group_revision.name='instituto_aragones_de_gestion_ambiental' OR group_revision.name='direccion_general_de_urbanismo') AND package_revision.name NOT IN ('servicio-descarga-cartografica-e-1-1000-localidad', 'servicio-descarga-cartografica-e-1-1000-municipios', 'servicio-descarga-cartografica-e-1-5000-y-e-1-10000', 'expedientes-de-modificaciones-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-general-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-modificaciones-de-planeamiento-general-y-de-modificaciones-de-delimitaciones-de-suelo-urbano-de-aragon-de-la-direccion-general-de-urbanismo') ORDER BY group_revision.name ASC"
+            consulta="SELECT package_revision.name, group_revision.name FROM public.package_revision, public.group_revision WHERE  package_revision.owner_org = group_revision.id AND package_revision.state = 'active' AND package_revision.current = 't' AND (group_revision.name='instituto-geografico-aragon' OR group_revision.name='instituto-aragones-gestion-ambiental' OR group_revision.name='direccion-general-urbanismo') AND package_revision.name NOT IN ('servicio-descarga-cartografica-e-1-1000-localidad', 'servicio-descarga-cartografica-e-1-1000-municipios', 'servicio-descarga-cartografica-e-1-5000-y-e-1-10000', 'expedientes-de-modificaciones-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-de-desarrollo-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-planeamiento-general-de-aragon-de-la-direccion-general-de-urbanismo', 'expedientes-de-modificaciones-de-planeamiento-general-y-de-modificaciones-de-delimitaciones-de-suelo-urbano-de-aragon-de-la-direccion-general-de-urbanismo') ORDER BY group_revision.name ASC"
             q=cursor.execute(consulta)
             
             
@@ -589,7 +600,9 @@ def parse_rdfs():
         print "El script es "+script+" y el fichero con el rdf esta en "+rdf
 
         
-        tree = ET.parse(rdf)
+        parser = ET.XMLParser()
+        tree = ET.parse(rdf,parser)
+        print tree;
         contador = 0;
         for dataset in tree.findall(dataset_tag):
             contador = contador +1;

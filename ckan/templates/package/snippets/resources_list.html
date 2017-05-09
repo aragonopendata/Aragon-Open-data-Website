@@ -21,12 +21,33 @@ Example:
 	
   {% block resource_list %}
   {% if resources %}
+
       <div class="titularesPeques fieldName">Archivos con los datos</div>
+      		
+
       {% block resource_list_inner %}
       {% set contador = 0 %}
       {% for res in resources %}
+
+
+
+       
         {#% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %#}
         {% set url = res.url %}
+
+        	{% if '/showVista' in url %}
+      			{% if mostrado !=  1 %}
+			        <div class="textosNormales fieldValue"><p style="font-size:11px;">*Si la cantidad de datos es muy grande puede ayudarse de la paginación en la API que proporcionamos en el enlace.</p></div>
+			        {% set mostrado = 1 %}
+			    {% endif %}
+			{% endif %}
+
+        {% if '/recurso/territorio/Municipio' in url %}
+		{% set splitName = (url.split("recurso/territorio/Municipio/")[1]).split("?")[0] %}
+		{% set splitTitle = pkg.title.split("Municipio: ")[1] %}
+		<!-- splitTitle  es: {{ splitTitle }}-->
+		{% endif %}
+
         {% set elFormatoMimetype = res.mimetype_inner %}
         {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
         {% set modoAcceso = res.mimetype %}
@@ -41,7 +62,8 @@ Example:
              	<ul class="textosNormales" style="padding-top: 5px; padding-left: 15px;" >
              {% endif %}
             
-              <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
+              <!--<div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>-->
+              <div class="textosNormales fieldValue">Datos versión1 AragoPedia en  {{ splitTitle }}</div>
               <div style="padding-bottom: 15px;">
                 <!-- <ul> -->
             
@@ -57,8 +79,12 @@ Example:
              {% endif %}
             
          {% else %}#}
-		      <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
-
+		      {% if '/recurso/territorio/' in url %}
+		      
+		      <div class="textosNormales fieldValue">Datos versión1 AragoPedia en  {{ splitTitle }}</div>
+		      {% else %}
+			<div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
+		      {% endif %}
 		      {% if modoAcceso == None %}
 		       {% elif 'text/html' in modoAcceso %}
 		         <div class="textosNormales fieldValue">El archivo se sirve desde otra web</div>
@@ -105,6 +131,7 @@ Example:
 		       {% endif %}
 		       {% if '/recurso/territorio/' in url %}
 		         {% set splitURL = url.split("?") %}
+		         <!-- url: {{ url }}-->
 		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.xml'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
 		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">XML</span>
 		         </a></li>
@@ -117,9 +144,48 @@ Example:
 		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.ttl'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
 		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">TTL</span>
 		        </a></li>
+		        	{% if '/recurso/territorio/Municipio' in url %}
+		        	</ul>
+		        	<br/>
+		        	<div class="textosNormales fieldValue" style="padding-left: 0px;">Datos versión2 AragoPedia en  {{ splitTitle }}</div>
+		        	<ul class="textosNormales" >
+		        	<!--<p>AragoDBPedia 2.0</p>-->
+		        	<br />
+		        	{% set splitName = (url.split("recurso/territorio/Municipio/")[1]).split("?")[0] %}
+		        	<li><a class="recuadroNoResaltado" href="/sparql?default-graph-uri=&query=select+distinct+%3Fobs+%3Fx+%3Fy+where+%7B%0D%0A+%3Fobs+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fdimension%23refArea%3E+%3Chttp%3A%2F%2Fopendata.aragon.es%2Frecurso%2Fterritorio%2FMunicipio%2F{{ splitName }}%3E+.%0D%0A+%3Fobs+%3Fx+%3Fy++.%0D%0A%7D+%0D%0AORDER+BY+%3Fobs&format=text%2Fhtml&timeout=0&debug=on" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="">URL</span>
+		        	</a></li>
+
+		        	<li><a class="recuadroNoResaltado" href="/sparql?default-graph-uri=&query=select+distinct+%3Fobs+%3Fx+%3Fy+where+%7B%0D%0A+%3Fobs+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fdimension%23refArea%3E+%3Chttp%3A%2F%2Fopendata.aragon.es%2Frecurso%2Fterritorio%2FMunicipio%2F{{ splitName }}%3E+.%0D%0A+%3Fobs+%3Fx+%3Fy++.%0D%0A%7D+%0D%0AORDER+BY+%3Fobs&format=application%2Fsparql-results%2Bxml&timeout=0&debug=on" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="">XML</span>
+		        	</a></li>
+
+		        	<li><a class="recuadroNoResaltado" href="/sparql?default-graph-uri=&query=select+distinct+%3Fobs+%3Fx+%3Fy+where+%7B%0D%0A+%3Fobs+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fdimension%23refArea%3E+%3Chttp%3A%2F%2Fopendata.aragon.es%2Frecurso%2Fterritorio%2FMunicipio%2F{{ splitName }}%3E+.%0D%0A+%3Fobs+%3Fx+%3Fy++.%0D%0A%7D+%0D%0AORDER+BY+%3Fobs&format=text%2Fcsv&timeout=0&debug=on" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="">CSV</span>
+		        	</a></li>
+
+		        	<li><a class="recuadroNoResaltado" href="/sparql?default-graph-uri=&query=select+distinct+%3Fobs+%3Fx+%3Fy+where+%7B%0D%0A+%3Fobs+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fdimension%23refArea%3E+%3Chttp%3A%2F%2Fopendata.aragon.es%2Frecurso%2Fterritorio%2FMunicipio%2F{{ splitName }}%3E+.%0D%0A+%3Fobs+%3Fx+%3Fy++.%0D%0A%7D+%0D%0AORDER+BY+%3Fobs&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="">JSON</span>
+		        	</a></li>
+
+		        	<li><a class="recuadroNoResaltado" href="/sparql?default-graph-uri=&query=select+distinct+%3Fobs+%3Fx+%3Fy+where+%7B%0D%0A+%3Fobs+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fdimension%23refArea%3E+%3Chttp%3A%2F%2Fopendata.aragon.es%2Frecurso%2Fterritorio%2FMunicipio%2F{{ splitName }}%3E+.%0D%0A+%3Fobs+%3Fx+%3Fy++.%0D%0A%7D+%0D%0AORDER+BY+%3Fobs&format=text%2Fturtle&timeout=0&debug=on" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="">TTL</span>
+		        	</a></li>
+		        	</ul>
+		        	<br/>
+		        	<div class="textosNormales fieldValue" style="padding-left: 0px;">Datos versión2 AragoPedia en  {{ splitTitle }}</div>
+		        	<ul class="textosNormales" >
+		        	<!--<p>API</p>-->
+		        	<br/>
+		        	<li><a class="recuadroNoResaltado" href="http://opendata.aragon.es/recurso/iaest/cubosarea/{{ splitName }}.json?_view=basic&_pageSize=1000&_page=0&api_key=e103dc13eb276ad734e680f5855f20c6">
+		           <span class="format-label" property="dc:format" data-format="">API</span>
+		        	</a></li>
+
+		        	{% endif %}
 		       {% endif %}
 
 		       {% if '/showVista' in url %}
+		       
 		         <li><a class="recuadroNoResaltado" href="{{ url +  '&formato=XML&name=' + res.name }}" title="{{ res.name or res.description }}">
 		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">XML</span>
 		         </a></li>
@@ -129,11 +195,15 @@ Example:
 		         <li><a class="recuadroNoResaltado" href="{{  url + '&formato=JSON&name=' + res.name }}" title="{{ res.name or res.description }}">
 		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">JSON</span>
 		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="http://opendata.aragon.es/GA_OD_Core/ui/#!/default/download" title="API">
+		           <span class="format-label" property="" data-format="">API</span>
+		         </a></li>
+
 		       {% endif %}
 		       </ul>
 		       </div>
 		       
-		       
+		      
 		       
 		      {#% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %#}
 		    {#{% endif %}#}

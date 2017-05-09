@@ -7,3 +7,7 @@
 /public/themes/aod/tipografia.css~
 /ckan/controllers/package.py~
 /ckan/templates/organization/snippets/organization_ficha.html~
+/.idea/
+/.project
+/.pydevproject
+/.gitignore

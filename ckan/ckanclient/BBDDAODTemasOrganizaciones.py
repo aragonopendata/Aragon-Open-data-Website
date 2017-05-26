@@ -55,7 +55,22 @@ def obtenOrganizacion(organizacion):
 	conexionBBDD=configuracion.conexion('opendata-postgre')
 	cursor= conexionBBDD.cursor()
 	devolver =[]
-	consulta1="SELECT o.title, o.description, \"user\".email, (SELECT count(package_revision.*) FROM public.package_revision WHERE package_revision.owner_org = o.id AND package_revision.current=TRUE AND package_revision.state='active') as count FROM public.group_revision o, public.user, public.package_revision  WHERE o.title = \"user\".fullname AND o.state='active' AND o.current=TRUE AND is_organization=TRUE AND o.name ='"+organizacion.strip()+"'  GROUP BY o.title, o.description, \"user\".email, o.id;"
+	#consulta1="SELECT o.title, o.description, \"user\".email, (SELECT count(package_revision.*) FROM public.package_revision WHERE package_revision.owner_org = o.id AND package_revision.current=TRUE AND package_revision.state='active') as count FROM public.group_revision o, public.user, public.package_revision  WHERE o.title = \"user\".fullname AND o.state='active' AND o.current=TRUE AND is_organization=TRUE AND o.name ='"+organizacion.strip()+"'  GROUP BY o.title, o.description, \"user\".email, o.id;"
+	consulta1 = "SELECT g.title, g.description, u.email," \
+	"(SELECT count(package_revision.*) FROM public.package_revision WHERE public.package_revision.owner_org = g.id AND " \
+	"package_revision.current=TRUE " \
+	"AND package_revision.state='active') as count " \
+	"FROM public.group_revision g,member_revision m, public.user u " \
+	"WHERE " \
+	"g.id = m.group_id AND " \
+	"m.table_id = u.id AND " \
+	"type = 'organization' AND " \
+	"g.current = 't' AND " \
+	"g.name='"+organizacion.strip()+"' AND " \
+	"u.sysadmin != true;"
+
+
+
 	q=cursor.execute(consulta1)
 	resultado1 = cursor.fetchone()
 	if resultado1 is not None:

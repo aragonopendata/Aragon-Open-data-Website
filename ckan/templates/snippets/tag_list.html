@@ -6,7 +6,9 @@ tags: list of tags
 <ul class="{{ _class }}">
   {% for tag in tags %}
     <li>
-      <a class="tag recuadroNoResaltado" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 30) }}</a>
+      <!--<a class="tag recuadroNoResaltado" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 30) }}</a>-->
+
+      <a class="tag recuadroNoResaltado" href="/datos/catalogo.html?tags={{tag.display_name}}">{{ h.truncate(tag.display_name, 30) }}</a>
     </li>
   {% endfor %}
 </ul>

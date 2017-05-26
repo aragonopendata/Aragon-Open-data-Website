@@ -14,7 +14,9 @@
 <h1>PIZARRA DE ADMINISTRACIÓN</h1>
 <br>
 <div class="clear"></div>
-<h2 class="azul">{{c.user_dict.display_name}}</h2>
+<!--[M]-->
+<h2 class="azul">Usted está conectado como : {{c.user_dict.display_name}}</h2>
+<h2 style="text-decoration:underline;">>> <a href="/datos/user/_logout">Desconectar</a></h2>
 <div class="hueco30"></div>
 <div>
 <ul class="dashboardZone">
@@ -59,6 +61,7 @@
 
   {% block packages_list %}
       {% if c.search_result.results %}
+      
       {% set vars = {'title_string_asc': False, 'title_string_desc': False, 'views_total_asc': False, 'views_total_desc': False, 'metadata_modified_asc': False, 'metadata_modified_desc': False } %}
         {% if c.sort_by_selected %}
           {% set activeSortList = [] %}
@@ -94,6 +97,8 @@
         No hay datos en la organización
       {% endif %}
   {% endblock %}
+  
+  
 
 
   {% block page_pagination %}
@@ -106,5 +111,4 @@
 {{ c.dashboard_activity_stream2 }}
 </div>
 {% endblock %}
-</div>
 

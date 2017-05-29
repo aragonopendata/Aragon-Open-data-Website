@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update CKAN Version and repository change.
 
+## [1.0.2] - 2017-05-29
+### Added
+- New link to logout in the user main page.
+- New link to edit organizations.
+- New link to edit datasets.
+
+### Fixed
+- Organization URL dynamic edition.
+- Problem fixed with encoding in tag searching.
+- Possibility to edit an organization without be logged in restricted.
+
 ## [1.0.1] - 2017-05-09
 ### Added
 - New ETL to generate several files to the dataset "Festivos en la comunidad de Aragón 2017".

@@ -32,5 +32,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 [Unreleased]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/master...develop
+[1.0.2]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/aragonopendata/Aragon-Open-data-Website/releases/tag/v1.0.0

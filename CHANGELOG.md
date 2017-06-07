@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update CKAN Version and repository change.
 
+## [1.0.4] - 2017-06-07
+### Fixed
+- Button text fixed (Documeto -> Documento)
+
 ## [1.0.3] - 2017-06-01
 ### Changed
 - Update footer links in order to call to the new Terminos de Uso page.
@@ -39,6 +43,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 [Unreleased]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/master...develop
+[1.0.4]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.0...v1.0.1

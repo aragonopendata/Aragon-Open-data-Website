@@ -16,6 +16,13 @@
     <h2 class="i_i " style="width: 85%;">
       {% block page_heading %}
         {{ pkg.title or pkg.name }}
+
+        {% if h.check_access('package_update', {'id':pkg.id }) %}
+		  <div>
+		  <ul><li><a href="{{h.url_for(controller='package', action='edit', id=pkg.name)}}" title="test">Editar Dataset</a></li></ul>
+		  </div>
+		{% endif %}
+
       {% endblock %}
     </h2>
     

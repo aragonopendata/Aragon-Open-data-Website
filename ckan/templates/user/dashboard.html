@@ -12,6 +12,8 @@
 
 {% block primary_content_inner %}
 <h1>PIZARRA DE ADMINISTRACIÓN</h1>
+<!--[M]-->
+<li>{% link_for 'Editar Usuario', controller='user', action='edit', id=user.name, class_='btn', icon='cog' %}</li>
 <br>
 <div class="clear"></div>
 <!--[M]-->
@@ -61,7 +63,6 @@
 
   {% block packages_list %}
       {% if c.search_result.results %}
-      
       {% set vars = {'title_string_asc': False, 'title_string_desc': False, 'views_total_asc': False, 'views_total_desc': False, 'metadata_modified_asc': False, 'metadata_modified_desc': False } %}
         {% if c.sort_by_selected %}
           {% set activeSortList = [] %}
@@ -97,8 +98,6 @@
         No hay datos en la organización
       {% endif %}
   {% endblock %}
-  
-  
 
 
   {% block page_pagination %}

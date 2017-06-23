@@ -261,8 +261,7 @@ class PackageController(base.BaseController):
             fq = ''
             formats = ''
             for (param, value) in request.params.items():
-                #[M] added 'tags' as exception to not enter inside IF
-                if param not in ['q', 'page', 'sort', 'tags'] \
+                if param not in ['q', 'page', 'sort'] \
                         and len(value) and not param.startswith('_'):
 
                     if param.startswith('res_format') and value in ('XML', 'JSON', 'CSV'):

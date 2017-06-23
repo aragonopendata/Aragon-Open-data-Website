@@ -15,6 +15,10 @@
 
 <h2 class="i_i" style="width: 85%;">{{titulo}}</h2>
 
+<!--[M]-->
+{% if organizacion and h.check_access('organization_update', {'id': organizacion.name}) %}
+ 	{{ h.build_nav_icon('organization_edit', _('Edit'), id=organizacion.name) }}
+{% endif %}
 
 {% block package_social %}
 	{% snippet "snippets/socialAOD.html" %}

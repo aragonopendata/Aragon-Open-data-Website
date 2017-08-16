@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update CKAN Version and repository change.
 
+## [1.0.6] - 2017-08-16
+### Changed
+- New process added to the ETL called "Festivos en la comunidad de Aragón 2017" for generating the Comunity files.
+
 ## [1.0.5] - 2017-06-23
 ### Added
 - Federator xml file modified to serve all the resources generated from a core view.
@@ -51,6 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 [Unreleased]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/master...develop
+[1.0.6]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/aragonopendata/Aragon-Open-data-Website/compare/v1.0.2...v1.0.3

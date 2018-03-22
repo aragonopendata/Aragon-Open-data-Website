@@ -1,0 +1,503 @@
+{% import 'macros/form.html' as form %}
+
+{% set placeholder = placeholder if placeholder else _('Search...') %}
+{% set sorting = sorting if sorting else [(_('Name Ascending'), 'name asc'), (_('Name Descending'), 'name desc')] %}
+{% set search_class = search_class if search_class else 'search-giant' %}
+{% set urlToGo = request.path %}
+
+<form class="search-form" method="get" data-module="select-switch" id="searchFormId" action="/catalogo">
+
+  {% block search_input %}
+	<ul class="searchTypesOptions">
+		<li class="i_i">
+			<div class="filtros" id="zonaTemaYTipo">
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/datosSobre.png" alt="DATOS SOBRE" title="Datos sobre">
+					<label for="temaFilter" class="oculto">DATOS SOBRE</label>
+					<select id="temaFilter" name="temaFilter">
+						<option value="" selected="selected">Todos los temas</option>
+						<option value="ciencia-tecnologia">Ciencia y tecnolog&iacute;a</option>
+						<option value="comercio">Comercio</option>
+						<option value="cultura-ocio">Cultura y ocio</option>
+						<option value="demografia">Demograf&iacute;a</option>
+						<option value="deporte">Deporte</option>
+						<option value="economia">Econom&iacute;a</option>
+						<option value="educacion">Educaci&oacute;n</option>
+						<option value="empleo">Empleo</option>
+						<option value="energia">Energ&iacute;a</option>
+						<option value="hacienda">Hacienda</option>
+						<option value="industria">Industria</option>
+						<option value="legislacion-justicia">Legislaci&oacute;n y justicia</option>
+						<option value="medio-ambiente">Medio ambiente</option>
+						<option value="medio-rural-pesca">Medio rural</option>
+						<option value="salud">Salud</option>
+						<option value="sector-publico">Sector p&uacute;blico</option>
+						<option value="seguridad">Seguridad</option>
+						<option value="sociedad-bienestar">Sociedad y bienestar</option>
+						<option value="transporte">Transporte</option>
+						<option value="turismo">Turismo</option>
+						<option value="urbanismo-infraestructuras">Urbanismo e infraestructuras</option>
+						<option value="vivienda">Vivienda</option>
+					</select>
+				</div>
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/delTipo.png" alt="DEL TIPO" title="Del tipo">
+					<label for="tipoFilter" class="oculto">DEL TIPO</label>
+					<select id="tipoFilter" name="tipoFilter">
+						<option value="" selected="selected">Todos los tipos</option>
+						<option value="calendario">Calendario</option>
+						<option value="fotos">Fotos</option>
+						<option value="hojas-de-calculo">Hojas de c&aacute;lculo</option>
+						<option value="mapas">Mapas</option>
+						<option value="recursos-educativos">Recursos educativos</option>
+						<option value="recursos-web">Recursos web</option>
+						<option value="rss">RSS</option>
+						<option value="texto-plano">Texto plano</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="zonaLibre"  class="filtros oculto">
+				<div class="filtro">
+				 <ul>
+					<li class="i_i"><img src="/public/i/buscaDatos/datosTexto.png" alt="DATOS CON EL TEXTO" title="Datos con el texto"></li>
+					<li class="i_i"><label for="cajaDeBusqInputLibre" class="oculto">DATOS CON EL TEXTO </label></li>
+					<li class="i_i"><input id="cajaDeBusqInputLibre" type="text" name="q" value="" class="search anchoSearchBanner placeholderCajaDeBusq"  /></li>
+					<li class="i_i"><a href="javascript:submitTxtQuery();" title="BUSCAR DATOS">
+						<img src="/public/i/lupa.jpg" alt="BUSCAR DATOS" title="BUSCAR DATOS">      
+					</a></li>
+				 </ul>
+				</div>
+			</div>
+
+			<div id="zonaInfoEstadistica" class="filtros oculto">
+				<div class="filtro" id="estadisNivel1_FilterDiv">
+					<img src="/public/i/buscaDatos/delGrupo.png" alt="DEL GRUPO" title="Del grupo">
+					<label for="estadisNivel1_Filter" class="oculto">DEL GRUPO</label>
+					<select id="estadisNivel1_Filter" name="estad&iacute;sNivel1_Filter">
+						<option value="" selected="selected">Todos los grupos</option>
+						<option value="01">Territorio</option>
+						<option value="02">Demograf&iacute;a y Poblaci&oacute;n</option>
+						<option value="03">Educaci&oacute;n y Formaci&oacute;n</option>
+						<option value="04">Salud</option>
+						<option value="05">Nivel, Calidad y Condiciones de Vida</option>
+						<option value="06">An&aacute;lisis Sociales, Justicia, Cultura y Deporte</option>
+						<option value="07">Trabajo, Salarios y Relaciones Laborales</option>
+						<option value="08">Agricultura, Industria y Construcci&oacute;n</option>
+						<option value="09">Servicios, Comercio, Transporte y Turismo</option>
+						<option value="10">Precios</option>
+						<option value="11">PIB, Renta, Comercio Exterior y Empresas</option>
+						<option value="12">Financieras. Mercantiles. Tributarias</option>
+						<option value="13">I+D+i y Tecnolog&iacute;as de la Informaci&oacute;n (TIC)</option>
+						<option value="14">Medio Ambiente y Energ&iacute;a</option>
+						<option value="15">Sector P&uacute;blico. Elecciones</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp01_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp01_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp01_Filter" name="estadisNivel2_grp01_Filter">
+						<option value="01" selected="selected">Todos los subgrupos</option>
+						<option value="0101">Espacio f&iacute;sico. Caracter&iacute;sticas geogr&aacute;ficas</option>
+						<option value="0102">Usos del suelo</option>
+						<option value="0103">Nomenclaturas territoriales</option>
+						<option value="0104">Infraestructuras</option>
+						<option value="0105">Municipios</option>
+						<option value="0106">Comarcas</option>
+						<option value="0107">Zonas sectoriales</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp02_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp02_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp02_Filter" name="estadisNivel2_grp02_Filter">
+						<option value="02" selected="selected">Todos los subgrupos</option>
+						<option value="0201">Cifras de poblaci&oacute;n y Censos demogr&aacute;ficos</option>
+						<option value="0202">Indicadores demogr&aacute;ficos</option>
+						<option value="0203">Estudios demogr&aacute;ficos</option>
+						<option value="0204">Migraciones</option>
+						<option value="0205">Movimiento Natural de Poblaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp03_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp03_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp03_Filter" name="estadisNivel2_grp03_Filter">
+						<option value="03" selected="selected">Todos los subgrupos</option>
+						<option value="0301">Ense&ntilde;anza no universitaria</option>
+						<option value="0302">Ense&ntilde;anza universitaria</option>
+						<option value="0303">Gasto p&uacute;blico en educaci&oacute;n</option>
+						<option value="0304">Becas y ayudas</option>
+						<option value="0305">Transici&oacute;n Educativa-Laboral</option>
+						<option value="0306">Encuesta sobre la participaci&oacute;n de la poblaci&oacute;n adulta en las actividades de aprendizaje</option>
+						<option value="0307">Nivel educativo de la poblaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp04_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp04_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp04_Filter" name="estadisNivel2_grp04_Filter">
+						<option value="04" selected="selected">Todos los subgrupos</option>
+						<option value="0401">Esperanza de vida en salud</option>
+						<option value="0402">Poblaci&oacute;n y pir&aacute;mides de poblaci&oacute;n por zonas de salud</option>
+						<option value="0403">Tarjetas Sanitarias</option>
+						<option value="0404">Encuesta Nacional de Salud</option>
+						<option value="0405">Sectores sanitarios y zonas de salud</option>
+						<option value="0406">Infraestructura sanitaria</option>
+						<option value="0407">Dotaci&oacute;n de personal</option>
+						<option value="0408">Discapacidades y Dependencia</option>
+						<option value="0409">Morbilidad Hospitalaria</option>
+						<option value="0410">Defunciones seg&uacute;n la causa de muerte</option>
+						<option value="0411">Estad&iacute;sticas de Donaci&oacute;n y Trasplantes</option>
+						<option value="0412">Interrupci&oacute;n Voluntaria del Embarazo (IVE's)</option>
+						<option value="0413">Otras estad&iacute;sticas de Salud</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp05_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp05_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp05_Filter" name="estadisNivel2_grp05_Filter">
+						<option value="05" selected="selected">Todos los subgrupos</option>
+						<option value="0501">Condiciones de vida y pobreza</option>
+						<option value="0502">Presupuestos Familiares, Gastos e Ingresos</option>
+						<option value="0503">Otras Estad&iacute;sticas de Hogares</option>
+						<option value="0504">&Iacute;ndice de Precios al Consumo</option>
+						<option value="0505">Pensiones y Prestaciones Sociales</option>
+						<option value="0506">Vivienda</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp06_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp06_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp06_Filter" name="estadisNivel2_grp06_Filter">
+						<option value="06" selected="selected">Todos los subgrupos</option>
+						<option value="0601">An&aacute;lisis sociales</option>
+						<option value="0602">La Dependencia en Arag&oacute;n</option>
+						<option value="0603">Cooperaci&oacute;n para el desarrollo</option>
+						<option value="0604">Encuesta de Usos ling&uuml;&iacute;sticos</option>
+						<option value="0605">Sector no lucrativo</option>
+						<option value="0606">Estad&iacute;sticas de g&eacute;nero</option>
+						<option value="0607">Justicia y Seguridad Ciudadana</option>
+						<option value="0608">Cultura</option>
+						<option value="0609">Deporte</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp07_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp07_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp07_Filter" name="estadisNivel2_grp07_Filter">
+						<option value="07" selected="selected">Todos los subgrupos</option>
+						<option value="0701">Encuesta de Poblaci&oacute;n Activa</option>
+						<option value="0702">Paro registrado</option>
+						<option value="0703">Afilados a la Seguridad Social</option>
+						<option value="0704">Movimiento Laboral Registrado</option>
+						<option value="0705">Relaciones Laborales</option>
+						<option value="0706">Costes Laborales</option>
+						<option value="0707">Salarios</option>
+						<option value="0708">Prestaciones por desempleo y otras</option>
+						<option value="0709">Accidentes y Enfermedades profesionales</option>
+						<option value="0710">Actividad laboral seg&uacute;n los Censos de Poblaci&oacute;n</option>
+						<option value="0711">Pricipales Indicadores del mercado laboral</option>
+						<option value="0712">Herramientas de apoyo</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp08_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp08_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp08_Filter" name="estadisNivel2_grp08_Filter">
+						<option value="08" selected="selected">Todos los subgrupos</option>
+						<option value="0801">Agricultura, ganader&iacute;a, selvicultura y pesca</option>
+						<option value="0802">Industria manufacturera y extractiva</option>
+						<option value="0803">Construcci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp09_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp09_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp09_Filter" name="estadisNivel2_grp09_Filter">
+						<option value="09" selected="selected">Todos los subgrupos</option>
+						<option value="0901">Encuestas globales del sector servicios</option>
+						<option value="0902">Comercio</option>
+						<option value="0903">Transporte y servicios postales</option>
+						<option value="0904">Turismo</option>
+						<option value="0905">Actividad Inmobiliaria y Vivienda</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp10_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp10_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp10_Filter" name="estadisNivel2_grp10_Filter">
+						<option value="10" selected="selected">Todos los subgrupos</option>
+						<option value="1001">&iacute;ndice de precios de consumo (IPC)</option>
+						<option value="1002">Precios de gasolinas y gas&oacute;leos</option>
+						<option value="1003">Precios de la vivienda</option>
+						<option value="1004">Precios del suelo urbano</option>
+						<option value="1005">Precios del suelo agrario/de la tierra</option>
+						<option value="1006">Precios de la Industria</option>
+						<option value="1007">Precios hosteleros</option>
+						<option value="1008">Precios agrarios</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp11_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp11_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp11_Filter" name="estadisNivel2_grp11_Filter">
+						<option value="11" selected="selected">Todos los subgrupos</option>
+						<option value="1101">PIB, Valor A&ntilde;adido y Renta</option>
+						<option value="1102">Comercio exterior</option>
+						<option value="1103">Empresas</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp12_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp12_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp12_Filter" name="estadisNivel2_grp12_Filter">
+						<option value="12" selected="selected">Todos los subgrupos</option>
+						<option value="1201">Entidades de dep&oacute;sito y cr&eacute;dito</option>
+						<option value="1202">Efectos de comercio devueltos impagados</option>
+						<option value="1203">Hipotecas</option>
+						<option value="1204">Sociedades mercantiles</option>
+						<option value="1205">Estados contables de las empresas Aragonesas</option>
+						<option value="1206">Suspensiones de pagos y declaraciones de quiebras</option>
+						<option value="1207">Estad&iacute;stica de procedimiento concursal</option>
+						<option value="1208">Informaci&oacute;n tributaria</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp13_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp13_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp13_Filter" name="estadisNivel2_grp13_Filter">
+						<option value="13" selected="selected">Todos los subgrupos</option>
+						<option value="1301">Investigaci&oacute;n y Desarrollo (I+D) e Innovaci&oacute;n</option>
+						<option value="1302">Tecnolog&iacute;as de la Informaci&oacute;n y Comunicaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp14_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp14_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp14_Filter" name="estadisNivel2_grp14_Filter">
+						<option value="" selected="selected">Todos los subgrupos</option>
+						<option value="14">Sectores Productivos y Medio ambiente</option>
+						<option value="1401">Agua</option>
+						<option value="1402">Calidad del aire / Contaminaci&oacute;n atmosf&eacute;rica</option>
+						<option value="1403">Cambio clim&aacute;tico / Emisiones a la atm&oacute;sfera</option>
+						<option value="1404">Clima / Datos climatol&oacute;gicos</option>
+						<option value="1405">Gasto en Medio Ambiente y Cuentas Ambientales</option>
+						<option value="1406">Hogares y Medio Ambiente</option>
+						<option value="1407">Medio ambiente urbano</option>
+						<option value="1408">Naturaleza y biodiversidad</option>
+						<option value="1409">Prevenci&oacute;n ambiental</option>
+						<option value="1410">Residuos</option>
+						<option value="1411">Riesgos naturales y tecnol&oacute;gicos</option>
+						<option value="1412">Suelos y Usos del suelo</option>
+						<option value="1413">Tributos ambientales</option>
+						<option value="1414">Utilizaci&oacute;n de recursos naturales</option>
+						<option value="1415">Medio ambiente y desarrollo sostenible</option>
+						<option value="1416">Diccionario de t&eacute;rminos medioambientales</option>
+						<option value="1417">Energ&iacute;a</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp15_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp15_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp15_Filter" name="estadisNivel2_grp15_Filter">
+						<option value="15" selected="selected">Todos los subgrupos</option>
+						<option value="1501">Empleo P&uacute;blico</option>
+						<option value="1502">Presupuestos de la Administraci&oacute;n P&uacute;blica</option>
+						<option value="1503">Actividades del Sector P&uacute;blico</option>
+						<option value="1504">Elecciones</option>
+					</select>
+				</div>
+			</div>
+			
+			
+			<div id="zonaBBDD" class="filtros oculto">
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/bbddSobre.png" alt="ACCESO EN TIEMPO REAL A BASES DE DATOS DE" title="ACCESO EN TIEMPO REAL A BASES DE DATOS DE">
+					<label for="bbddFilter" class="oculto">DATOS SOBRE</label>
+					<select id="bbddFilter" name="bbddFilter">
+						<option value="" selected="selected">Todos los temas</option>
+						<option value="ciencia-tecnologia">Ciencia y tecnolog&iacute;a</option>
+						<option value="comercio">Comercio</option>
+						<option value="cultura-ocio">Cultura y ocio</option>
+						<option value="demografia">Demograf&iacute;a</option>
+						<option value="deporte">Deporte</option>
+						<option value="economia">Econom&iacute;a</option>
+						<option value="educacion">Educaci&oacute;n</option>
+						<option value="empleo">Empleo</option>
+						<option value="energia">Energ&iacute;a</option>
+						<option value="hacienda">Hacienda</option>
+						<option value="industria">Industria</option>
+						<option value="legislacion-justicia">Legislaci&oacute;n y justicia</option>
+						<option value="medio-ambiente">Medio ambiente</option>
+						<option value="medio-rural-pesca">Medio rural</option>
+						<option value="salud">Salud</option>
+						<option value="sector-publico">Sector p&uacute;blico</option>
+						<option value="seguridad">Seguridad</option>
+						<option value="sociedad-bienestar">Sociedad y bienestar</option>
+						<option value="transporte">Transporte</option>
+						<option value="turismo">Turismo</option>
+						<option value="urbanismo-infraestructuras">Urbanismo e infraestructuras</option>
+						<option value="vivienda">Vivienda</option>
+					</select>
+				</div>
+				
+			</div>
+			
+			<div class="filtros oculto" id="zonaOrganizacionYTipo">
+				<div id="organizacion" class="filtro">
+					<img src="/public/i/buscaDatos/datosSobre.png" alt="DATOS SOBRE" title="Datos sobre">
+					<label for="organizacionFilter" class="oculto">DATOS SOBRE</label>
+					<select id="organizacionFilter" name="organizacionFilter">
+						<option value="" selected="selected">Todas las organizaciones</option>
+						<option value="direccion_de_comunicacion">Direcci&oacute;n de Comunicaci&oacute;n</option>
+						<option value="direccion_general_de_administracion_electronica_y_sociedad_de_la_informacion">Direcci&oacute;n General de Administraci&oacute;n Electr&oacute;nica y Sociedad de la Informaci&oacute;n</option>
+						<option value="direccion_general_de_administracion_local">Direcci&oacute;n General de Administraci&oacute;n Local</option>
+						<option value="direccion_general_de_contratacion_patrimonio_y_organizacion">Direcci&oacute;n General de Contrataci&oacute;n, Patrimonio y Organizaci&oacute;n</option>
+						<option value="direccion_general_de_cultura_y_patrimonio">Direcci&oacute;n General de Cultura y Patrimonio</option>
+						<option value="direccion_general_de_industria_pymes_comercio_y_artesania">Direcci&oacute;n General de Industria, PYMES, Comercio y Artesan&iacute;a</option>
+						<option value="direccion_general_de_planificacion_y_formacion_profesional">Direcci&oacute;n General de Planificaci&oacute;n y Formaci&oacute;n Profesional</option>
+						<option value="direccion_general_de_presupuestos_financiacion_y_tesoreria">Direcci&oacute;n General de Presupuestos, Financiaci&oacute;n y Tesorer&iacute;a</option>
+						<option value="direccion_general_de_produccion_agraria">Direcci&oacute;n General de Producci&oacute;n Agraria</option>
+						<option value="direccion_general_de_proteccion_de_consumidores_y_usuarios">Direcci&oacute;n General de Protecci&oacute;n de Consumidores y Usuarios</option>
+						<option value="direccion_general_de_relaciones_institucionales_y_desarrollo_estatutario">Direcci&oacute;n General de Relaciones Institucionales y Desarrollo Estatutario</option>
+						<option value="direccion_general_de_trabajo">Direcci&oacute;n General de Trabajo</option>
+						<option value="direccion_general_de_turismo">Direcci&oacute;n General de Turismo</option>
+						<option value="direccion_general_de_urbanismo">Direcci&oacute;n General de Urbanismo</option>
+						<option value="direccion_general_de_vivienda_y_rehabilitacion">Direcci&oacute;n General de Vivienda y Rehabilitaci&oacute;n</option>
+						<option value="instituto_aragones_de_estadistica">Instituto Aragon&eacute;s de Estad&iacute;stica</option>
+						<option value="instituto_aragones_de_gestion_ambiental">Instituto Aragon&eacute;s de Gesti&oacute;n Ambiental</option>
+						<option value="instituto_geografico_de_aragon">Instituto Geogr&aacute;fico de Arag&oacute;n</option>
+						<option value="intervencion_general">Intervenci&oacute;n General</option>
+						<option value="secretaria_general_tecnica_de_educacion_cultura_y_deportes">Secretar&iacute;a General T&eacute;cnica de Educaci&oacute;n, Cultura y Deportes</option>
+						<option value="secretaria_general_tecnica_de_presidencia">Secretar&iacute;a General T&eacute;cnica de Presidencia</option>
+					</select>
+				</div>
+				<div id="organizacionTipo" class="filtro oculto">
+					<img src="/public/i/buscaDatos/delTipo.png" alt="DEL TIPO" title="Del tipo">
+					<label for="organizacionTipoFilter" class="oculto">DEL TIPO</label>
+					<select id="organizacionTipoFilter" name="organizacionTipoFilter">
+						<option value="" selected="selected">Todos los tipos</option>
+						<option value="calendario">Calendario</option>
+						<option value="fotos">Fotos</option>
+						<option value="hojas-de-calculo">Hojas de c&aacute;lculo</option>
+						<option value="mapas">Mapas</option>
+						<option value="recursos-educativos">Recursos educativos</option>
+						<option value="recursos-web">Recursos web</option>
+						<option value="rss">RSS</option>
+						<option value="texto-plano">Texto plano</option>
+					</select>
+				</div>
+			</div>
+			
+
+			<div class="filtros oculto" id="zonaHOMER">
+				<div class="filtro">
+<ul>
+<li class="i_i">
+					<div id="labelBuscarHomer_es"><img src="/public/i/buscaDatos/buscaHomer_es.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_en" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_en.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_fr" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_fr.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_it" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_it.png" alt="BUSCAR" title="Buscar"></div>
+					
+					<div id="labelBuscarHomer_el" class="textoGrande azul oculto">&Alpha;&nu;&alpha;&zeta;&#942;&tau;&eta;&sigma;&eta;</div>
+					<div id="labelBuscarHomer_sl" class="textoGrande azul oculto"><!--img src="/public/i/buscaDatos/buscaHomer_sl.png" alt="BUSCAR" title="Buscar"-->Iskanje</div>
+					<div id="labelBuscarHomer_sr" class="textoGrande azul oculto">&#1087;&#1088;&#1077;&#1090;&#1088;&#1072;&#1075;&#1072;</div>
+					
+</li>
+<li class="i_i">
+					<input type="text" id="txtHOMER" name="txtHOMER" value="" autocomplete="off">
+</li>
+<li class="i_i">
+					<div id="labelIdiomaHomer_es"><img src="/public/i/buscaDatos/langHomer_es.png" alt="EN" title="en"></div>
+					<div id="labelIdiomaHomer_en" class="oculto"><img src="/public/i/buscaDatos/langHomer_en.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_fr" class="oculto"><img src="/public/i/buscaDatos/langHomer_fr.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_it" class="oculto"><img src="/public/i/buscaDatos/langHomer_it.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_el" class="textoGrande azul oculto">&sigma;&epsilon;</div>
+					<div id="labelIdiomaHomer_sl" class="textoGrande azul oculto"><!--img src="/public/i/buscaDatos/langHomer_sl.png" alt="v" title="v"-->V</div>
+					<div id="labelIdiomaHomer_sr" class="textoGrande azul oculto">&#1085;&#1072;</div>
+</li>
+<li class="i_i">
+					<select id="langHOMERFilter" name="langHOMERFilter">
+						<option value="es" selected="selected">Español</option>
+						<option value="en">English</option>
+						<option value="fr">Français</option>
+						<option value="it">Italiano</option>
+						<option value="el">ελληνικά</option>
+						<option value="sl">Slovenščina</option>
+						<option value="sr">Српски</option>
+					</select>
+</li>
+</ul>
+				</div>
+
+				<a href="javascript:submitHomer();" title="BUSCAR EN HOMER">
+					<img class="i_i" src="/public/i/lupa.jpg" alt="BUSCAR EN HOMER" title="BUSCAR EN HOMER">      
+				</a>
+			</div>
+		</li>
+		<li class="d_d width220">
+			<select id="tipoBusquedaFilter" name="tipoBusquedaFilter">
+				<option value="zonaTemaYTipo" selected="selected">Tema y tipo</option>
+				<option value="zonaBBDD">Base de datos</option>
+				<option value="zonaLibre">B&uacute;squeda libre</option>
+				<option value="zonaEtiquetas">Etiquetas</option>
+				<option value="zonaInfoEstadistica">Informaci&oacute;n estad&iacute;stica</option>
+				<option value="zonaOrganizacionYTipo">Organizaci&oacute;n y tipo</option>
+				<option value="zonaHOMER" data_img_src="/public/i/buscaDatos/logoHomerHorizontal.jpg">HOMER</option>
+				<option value="zonaSPARQL">SPARQL</option>
+				<option value="zonaAPI">API</option>
+				
+			</select>
+		</li>
+	</ul>
+
+	<script type="text/javascript">
+		currentUrl = "{{urlToGo}}";
+	</script>    
+  {% endblock %}
+
+  {% block search_search_fields %}
+    {% if fields -%}
+      <span>{{ form.hidden_from_list(fields=fields) }}</span>
+    {%- endif %}
+  {% endblock %}
+
+  {% block search_title %}
+    {% if not no_title %}
+      <h2>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</h2>
+    {% endif %}
+  {% endblock %}
+
+  {% block search_facets %}
+  
+  {% endblock %}
+
+</form>
+
+<div class="clear"></div>
+
+{% if error %}
+    <div class="failWarning">Se produjo un error al realizar la b&uacute;squeda</div>
+    <div class="failWarning">Por favor intente una nueva b&uacute;squeda</div>
+{% else %}
+  {% if count == 0 %}
+      <div class="failWarning">No se encontraron resultados</div>
+      <div class="failWarning">Por favor intente una nueva b&uacute;squeda</div>
+  {% endif %}
+{% endif %}

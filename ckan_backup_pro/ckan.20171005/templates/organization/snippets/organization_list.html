@@ -1,0 +1,26 @@
+{#
+Display a grid of organization items.
+
+organizations - A list of organizations.
+
+Example:
+
+    {% snippet "organization/snippets/organization_list.html" %}
+
+#}
+       <table class="tablaResultadosDataset">
+         <tr>
+          <th class="cabeceraTablaResultadosDataset">
+           <div class="labelCabeceraTablaResultadosDataset">Hay {{organizations|length}} organizaciones</div>
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+            <div class="labelCabeceraTablaResultadosDataset">N&ordm; Datasets</div>
+          </th>
+        </tr>
+  {% for organization in organizations %}
+    {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+  {% endfor %}
+</table>
+
+<div class="huecoInicioPagina"></div>
+

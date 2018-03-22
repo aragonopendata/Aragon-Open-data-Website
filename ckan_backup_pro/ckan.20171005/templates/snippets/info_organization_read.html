@@ -1,0 +1,103 @@
+{# This snippet shows and edit the information about the organization of user
+#}
+
+  <table>
+    <tr>
+      <td style="width:454px">
+        <label for="title" class="fieldName">Nombre de organización:</label>
+      </td>
+      <td style="padding-top: 10px;">
+        <p style="text-align: justify;">{{group_dict.title}}</p>
+      </td>
+    </tr>
+    {% set webpageList = [] %}
+    {% set addressList = [] %}
+    {% set personList = [] %}
+
+    {% for extra in h.sorted_extras(group_dict.extras) %}
+        {% set key, value = extra %}
+        {% if key == 'webpage' %}
+          {% do webpageList.append(value) %}
+        {% elif key == 'address' %}
+          {% do addressList.append(value) %}
+        {% elif key == 'person' %}
+          {% do personList.append(value) %}
+        {% endif %}
+    {% endfor %}
+
+    <tr>
+      <td>
+        <label for="webpage" class="fieldName">Página Web de la Organización:</label>
+      </td>
+      <td style="padding-top: 10px;">
+      {% if webpageList|length > 0 %}
+        <p id="webpage"><a href="{{webpageList[0]}}">{{group_dict.title}}</a></p>
+      {% else %}
+        <p id="webpage">No disponible</p>
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;">
+        <label for="description" class="fieldName">Descripción de la Organización:</label>
+      </td>
+      <td style="padding-top: 10px;">
+      {% if group_dict.description %}
+         <p style="text-align: justify; font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+         <!--         Para generar los saltos de liena de un texto-->
+            {% for line in group_dict.description.splitlines() %}
+               {{line}}<br>
+            {% endfor %}
+         </p>
+      {% else %}
+        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">No disponible</textarea>
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="address" class="fieldName">Dirección de la Organización:</label>
+      </td>
+      <td style="padding-top: 10px;">
+      {% if addressList|length > 0 %}
+        <p id="address">{{addressList[0]}}</p>
+      {% else %}
+        <p id="address">No disponible</p>
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="person" class="fieldName">Persona responsable dentro de la Organización:</label>
+      </td>
+      <td style="padding-top: 10px;">
+      {% if personList|length > 0 %}
+        <p id="person">{{personList[0]}}</p>
+      {% else %}
+        <p id="person">No disponible</p>
+      {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="email" class="fieldName">Email de contacto:</label>
+      </td>
+      <td style="padding-top: 10px;">
+      {% for user in group_dict.users%}
+        {% if user.name != 'admin' %}
+          {% if user.email %}
+            <p id="email">{{user.email}}</p>
+          {% else %}
+            <p id="email">No disponible</p>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </td>
+    </tr>
+   </table>
+   
+   
+   <div class="huecoInicioPagina"></div>
+
+   
+

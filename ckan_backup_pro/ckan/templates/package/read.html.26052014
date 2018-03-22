@@ -1,0 +1,127 @@
+{% extends "package/read_base.html" %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
+
+{% block primary_content_inner %}
+  {{ super() }}
+  {% block package_description %}
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="icon-lock"></i>
+        {{ _('Private') }}
+      </span>
+    {% endif %}
+    <h1 class="i_i tituloDataset">
+      {% block page_heading %}
+        {{ pkg.title or pkg.name }}
+      {% endblock %}
+    </h1>
+    
+    {% block package_social %}
+	    {% snippet "snippets/socialAOD.html" %}
+    {% endblock %}
+    
+  {% endblock %}
+
+  {% block data_preview %}
+     {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None } %}
+
+     {% for resource in pkg.resources %}
+       {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
+         {% if (resource.format|upper == 'XLS') %}
+            {% if resource.size|int > 2000000  %}
+            {% else %}
+               {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+	    {% endif %}
+         {% else %}
+             {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+         {% endif %}
+       {% endif %}
+     {% endfor %}
+     
+     {% if (vars.XLS != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.XLS, pkg)}}</div>
+     {% elif (vars.CSV != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+      {% elif vars.GML  != None %}
+      	
+        <div style="display:none;"><div id="mapa"><div id="loadingDataMap" style="visibility:hidden;position:relative; top:184px; left: 184px;"><img alt="Cargando..." src="/catalogo/fanstatic/ckanext-reclinepreview/img/ajaxload-circle.gif"/></div></div></div>
+         <div class="failWarning">Previsualizaci&oacute;n no disponible</div>
+	<script type="text/javascript" src="/public/OpenLayers-2.12/OpenLayers.js"></script>
+	<link rel="stylesheet" href="/public/OpenLayers-2.12/styleMapAOD.css" media="screen" type="text/css" />
+        <script type="text/javascript">
+	var theUrl = "";
+	var auxStr = '{{vars.GML.url}}';
+	var auxStrMayusc;
+	var todoOk = false;
+	var strInicio = "http://sitar.aragon.es/datosdescarga/descarga.php?file=";
+	var idxInicio = auxStr.indexOf(strInicio);
+	if (idxInicio != -1) {
+		auxStr = auxStr.substring(strInicio.length);
+		idxInicio = auxStr.lastIndexOf("/");
+		if (idxInicio != -1) {
+			auxStrMayusc = auxStr.substring(idxInicio+1);
+			idxInicio = auxStrMayusc.lastIndexOf(".gml.zip");
+			if (idxInicio != -1) {
+				auxStrMayusc = auxStrMayusc.substring(0, idxInicio).toUpperCase();
+				todoOk = true;
+			}
+		}
+	}
+			
+	if (todoOk) {
+		var bounds = new OpenLayers.Bounds(630000, 4410000, 760000, 4770000);
+		var mapOptions = {projection: "EPSG:25830", units: 'm', maxExtent: bounds, fractionalZoom: true}
+
+		map = new OpenLayers.Map('mapa', mapOptions);
+
+		layerFoto = new OpenLayers.Layer.WMS( "Aragon Foto",
+		  "http://sitarimagenes.aragon.es/ecwp/ecw_wms.dll?ServiceName=AragonFoto", {layers: 'MODIS,spot,orto_reciente', format:"image/jpeg"}, {singleTile: true} );
+
+		layer = new OpenLayers.Layer.WMS( "AragonWMS",
+		  "http://sitar.aragon.es/AragonWMS", {layers: 'ComunidadAutonoma,Provincia', format:"image/png", transparent:true}, {singleTile:true} );
+
+		map.addLayers([layer, layerFoto]);
+		map.zoomToMaxExtent();
+
+		document.getElementById('loadingDataMap').style.visibility = "visible";
+		theUrl = "/descargaSITAR?fichero=" + auxStr + "&inzip=" + auxStrMayusc + ".gml";
+
+		//http://sitar.aragon.es/datosdescarga/descarga.php?file=medioambiente/inagis_descargas/rma_consorcios_te.gml.zip
+		//	/descargaSITAR?fichero=medioambiente/inagis_descargas/rma_consorcios_te.gml.zip&inzip=RMA_CONSORCIOS_TE.gml
+
+		//map.zoomToExtent(new OpenLayers.Bounds(-3.922119,44.335327,4.866943,49.553833));
+		var gmlLayer = new OpenLayers.Layer.Vector("GML", {
+		    protocol: new OpenLayers.Protocol.HTTP({
+		      url: theUrl,
+		       format: new OpenLayers.Format.GML()
+		    }),
+		    strategies: [new OpenLayers.Strategy.Fixed()]
+  	        });
+
+		gmlLayer.events.register("loadend", gmlLayer, function (e) {
+			document.getElementById('loadingDataMap').style.visibility = "hidden";
+		}); 
+		map.addLayer(gmlLayer);
+}
+
+</script>
+     {% elif (vars.XML != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.XML, pkg)}}</div>
+     {% elif (vars.JPG != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.JPG, pkg)}}</div>
+     {% else %}
+         <div class="failWarning">Previsualizaci&oacute;n no disponible</div>
+      {% endif %}
+  {% endblock %}  
+  
+  <div class="metadataZone">
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg, c_aux=c %}
+  </div>
+  <div class="resourceZone">
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  </div>
+  <div class="huecoInicioPagina"></div>
+{% endblock %}

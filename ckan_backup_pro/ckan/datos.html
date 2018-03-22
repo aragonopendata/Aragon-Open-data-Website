@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<head>
+	<title>ARAG&Oacute;N OPEN DATA</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Arag�n Open Data" />
+  <meta name="keywords" content="default, keywords, here" />
+  <meta name="author" content="Idearium Consultores SL y Eder Unzue (AMS)" />
+<!--  <meta name="viewport"content="width=980" />-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <meta name="google-site-verification" content="cr3MWGC2O0Hl9d6yV4lJDSwnDXtiVQ19MuC3h6OWa-k" />
+
+  <link rel="favourites icon" href="/public/i/favicon.ico" />
+
+  <link rel="stylesheet" href="/public/themes/aod/style.css" media="screen" type="text/css" />
+ <link rel="stylesheet" href="/public/themes/aod/tipografia.css" media="screen" type="text/css" />
+  <!--link rel="stylesheet" href="/public/themes/aod/screen.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="/public/themes/aod/print.css" media="print" type="text/css" /-->
+  <link rel="alternate" type="application/rss+xml" title="Wolf Default RSS Feed" href="http://opendata.aragon.es/rss.xml" />
+<link rel="stylesheet" href="/public/chosenImage.css" type="text/css" />
+
+  <link rel="stylesheet" href="/public/jquery/jquery-ui_1_10_3_smoothness.css">
+
+	<script type="text/javascript">
+		var currentUrl = "portal/aragopedia_datos";
+	</script>
+	<script type="text/javascript" src="/public/getDataCount.js"></script>
+  <script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2013-12-16T14:36:29.02/jquery.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2013-12-16T14:36:29.02/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;select2/select2.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/base/:version:2013-12-17T09:28:00.73/:bundle:plugins/jquery.inherit.js;plugins/jquery.proxy-all.js;plugins/jquery.url-helpers.js;plugins/jquery.date-helpers.js;plugins/jquery.slug.js;plugins/jquery.slug-preview.js;plugins/jquery.truncator.js;plugins/jquery.masonry.js;plugins/jquery.form-warning.js;sandbox.js;module.js;pubsub.js;client.js;notify.js;i18n.js;main.js;modules/select-switch.js;modules/slug-preview.js;modules/basic-form.js;modules/confirm-action.js;modules/api-info.js;modules/autocomplete.js;modules/custom-fields.js;modules/related-item.js;modules/data-viewer.js;modules/table-selectable-rows.js;modules/resource-form.js;modules/resource-upload-field.js;modules/follow.js;modules/activity-stream.js;modules/dashboard.js;modules/table-toggle-more.js;modules/dataset-visibility.js;modules/media-grid.js;modules/jquery-ui_1_10_3.js;modules/chosen.jquery.js;modules/chosenImage.jquery.js;modules/aod_funcs.js;modules/aod_funcs_editor.js"></script>
+
+<style>
+	.mini .banner{top:-7px;}
+</style>
+
+
+  <script type="text/javascript" src="/public/portalAOD_funcs.js"></script>
+<!-- Goo Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36118896-2']);
+  _gaq.push(['_setDomainName', 'aragon.es']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https:/'+'/' : 'http:/'+'/') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Fin Goo Analytics -->
+</head>
+<body>
+
+<header>
+<div id="cabeceraRelacionados">
+	<ul>
+		
+		<li class="clear visible-xs tamCero"></li>
+		<li><a href="http://transparencia.aragon.es/" title="Transparencia" target="_blank">TRANSPARENCIA</a></li>
+		<li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana" target="_blank">PARTICIPACI&Oacute;N CIUDADANA</a></li>
+		<li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
+	</ul>
+</div>
+<div id="cabecera">
+	<ul>
+		<li><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></li>
+	</ul>
+</div>
+
+<div class="banner">
+	<div class="bannerInline bannerLogo" style="text-align: right;" >
+		<a href="/" title="ARAG�N OPEN DATA"><img  id="idTotal" src="http://opendata.aragon.es/public/i/logo_aod.png" alt="ARAG�N OPEN DATA"></a>
+	</div>
+	<div class="bannerInline bannerBuscador" style="text-align: left;">
+		<form id="cajaBusqBanner" action="/catalogo" method="get">
+<!--			<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
+			
+			<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner" type="text">
+			<button class="btn-search" type="submit">Buscar</button>
+			<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
+		</form>
+	</div>
+</div>
+<div class="clear"></div>
+</header><nav>
+  <div id="navegacion" class="botones botonesSuperiorLista">
+    <ul>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked first';" onmouseup="javascript:this.className='botonSuperior first';"
+            onmouseover="javascript:this.className='botonSuperiorOver first';" onmouseout="javascript:this.className='botonSuperior first';"
+            onclick="javascript:window.location='/catalogo';" class="botonSuperior first" title="Datos"><img src="/public/i/header/datos.png" alt="Datos" title="Datos"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked second';" onmouseup="javascript:this.className='botonSuperior second';"
+            onmouseover="javascript:this.className='botonSuperiorOver second';" onmouseout="javascript:this.className='botonSuperior second';"
+            onclick="javascript:window.location='/aragopedia';" class="botonSuperior second" title="AragoPedia"><img src="/public/i/header/aragopedia.png" alt="AragoPedia" title="AragoPedia"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked third';" onmouseup="javascript:this.className='botonSuperior third';"
+            onmouseover="javascript:this.className='botonSuperiorOver third';" onmouseout="javascript:this.className='botonSuperior third';"
+            onclick="javascript:window.location='/portal/social-data';" class="botonSuperior third" title="Social Data"><img src="/public/i/header/socialData.png" alt="Social Data" title="Social Data"></li>
+<li class="clear visible-ms tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fourth';" onmouseup="javascript:this.className='botonSuperior fourth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fourth';" onmouseout="javascript:this.className='botonSuperior fourth';"
+            onclick="javascript:window.location='/portal/colabora';" class="botonSuperior fourth" title="Colabora"><img src="/public/i/header/colabora.png" alt="Colabora" title="Colabora"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fifth';" onmouseup="javascript:this.className='botonSuperior fifth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fifth';" onmouseout="javascript:this.className='botonSuperior fifth';" 
+            onclick="javascript:window.location='/portal/aplicaciones';" class="botonSuperior fifth" title="Aplicaciones"><img src="/public/i/header/aplicaciones.png" alt="Aplicaciones" title="Aplicaciones"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked last';" onmouseup="javascript:this.className='botonSuperior last';"
+            onmouseover="javascript:this.className='botonSuperiorOver last';" onmouseout="javascript:this.className='botonSuperior last';" 
+            onclick="javascript:window.location='/portal/open-data';" class="botonSuperior last" title="Informaci&oacute;n sobre Open Data"><img src="/public/i/header/infoOpenData.png" alt="Informaci&oacute;n sobre Open Data" title="Informaci&oacute;n sobre Open Data"></li>
+      </ul>
+  </div>
+</nav><div id="contenido" role="main">
+<link rel="stylesheet" href="/public/aragopedia/css/datos.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="/public/chosen.css" type="text/css" />
+<link rel="stylesheet" href="/public/chosenImage.css" type="text/css" />
+
+<link rel="stylesheet" href="/public/aragopedia/css/remodal.css" />
+<link rel="stylesheet" href="/public/aragopedia/css/remodal-default-theme.css" />
+
+<link href="/public/aragopedia/css/jquery.bxslider.css" rel="stylesheet" />
+<link rel="stylesheet" href="/public/aragopedia/css/accordion.css"> <!-- Resource style -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<!-- nuevos Banco de datos-->
+<script src="/public/aragopedia/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/public/aragopedia/config/configDatos.js"></script>
+<script type="text/javascript" src="/public/aragopedia/dataCache/infoDonde.js"></script>
+<script type="text/javascript" src="/public/aragopedia/dataCache/infoTerritorialDonde.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/cookiesUse.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/sparqlQueries.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/territorialFuncs.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/datos.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/jquery.dotdotdot.min.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/remodal.js"></script>
+<script src="/public/aragopedia/js/d3.v3.min.js"></script>
+<script src="/public/aragopedia/js/topojson.v1.min.js"></script>
+<script type="text/javascript" src="/public/aragopedia/js/map.js"></script>
+
+<script type="text/javascript" src="/public/temaOrganizacion/js/jquery.dataTables.min.js"></script>
+<script src="/public/aragopedia/js/modernizr.js"></script> <!-- Modernizr -->
+<!-- JS multi level -->
+<script src="/public/aragopedia/js/main.js"></script> <!-- Resource jQuery -->
+
+<!-- fin nuevos BDD -->
+
+
+<div class="huecoInicioPagina"></div>
+<div class="separadorContenidoPagina"></div>
+<div class="clear"></div>
+
+<div class="separadorContenidoPagina"></div>
+
+<div class="pagina">
+	<div>
+		<div class="huecoInicioPagina"></div>
+		<h1 class="azul i_i">Aragopedia: Los datos</h1>
+		<div class="huecoInicioPagina"></div>
+		<div class="descripcionTitulo1 i_i grisMedio">Busca toda la estad�stica local en tres pasos</div>
+		<div class="huecoInicioPagina"></div>
+
+		<div class="contenido">
+			<ul class="menuBancoDatos">
+				<li class="first">
+					<div id="donde">
+						<div class="cabecera titulosSecundariosNegritas">D&Oacute;NDE</div>
+						<div class="option" id="dondeOption" onclick="javascript:activateOption('donde');">
+							<div class="optionResumen elipsis optionOneLine" id="dondeOptionResumen">
+								Arag&oacute;n
+							</div>
+							<div class="optionDetalle oculto" id="dondeOptionDetalle">
+								<div class="optionDetalleTexto" id="dondeOptionDetalleTexto">
+								</div>
+							</div>
+						</div>
+						<!--
+						<div class="pie" id="dondePie">
+							<a title="Cambiar">CAMBIAR</a>
+						</div>
+-->
+					</div>
+				</li>
+				<li class="second">
+					<div id="que">
+						<div class="cabecera titulosSecundariosNegritas">QU&Eacute;</div>
+						<div class="option" id="queOption" onclick="javascript:activateOption('que');">
+							<div class="optionResumen optionTwoLines" id="queOptionResumen">
+								Cifras oficiales de poblaci�n anuales desde 1996
+							</div>
+							<div class="optionDetalle" id="queOptionDetalle">
+								<div class="optionDetalleTexto optionDetalleTextoTwoLines" id="queOptionDetalleTexto">
+
+									Demograf�a y Poblaci�n &gt; Cifras de poblaci�n y Censos demogr�ficos &gt; Datos hist�ricos &gt; Series...
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="last">
+					<div id="cuando">
+						<div class="cabecera titulosSecundariosNegritas">CU&Aacute;NDO</div>
+						<div class="option" id="cuandoOption" onclick="javascript:activateOption('cuando');">
+							<div class="optionResumen optionOneLine elipsis " id="cuandoOptionResumen">
+								1996 - 2015
+							</div>
+							<div class="optionDetalle oculto" id="cuandoOptionDetalle">
+								<div class="optionDetalleTexto" id="cuandoOptionDetalleTexto">
+								</div>
+							</div>
+						</div>
+						<!--
+						<div class="pie" id="cuandoPie">
+							<a title="Cambiar">CAMBIAR</a>
+						</div>
+-->
+					</div>
+				</li>
+			</ul>
+			<div class="huecoInicioPagina"></div>
+			<div id="dondeZone" class="remodal" data-remodal-id="dondeZoneModal" role="dialog">
+				<div class="modalInner">
+
+				<button data-remodal-action="close" class="remodal-close remodal-close-top" aria-label="Close"></button>
+				<button data-remodal-action="close" class="remodal-close remodal-close-bottom" aria-label="Close"></button>
+
+				<div class="titleBDAZone">D&Oacute;NDE
+					<button data-remodal-action="close" class="aplybutton">APLICAR</button>
+				</div>
+				<div class="clear_i"></div>
+				<div class="descripcionTitulo1 i_i grisMedio"><div class="descripcionTitulo1_mini">Selecciona los territorios de los que quieres datos</div></div>
+				<div class="huecoInicioPagina"></div>
+
+				<div class="clear_i"></div>
+				<!--<div class="preview">PREVISUALIZACI&Oacute;N DEL RESULTADO</div>-->
+				<ul class="dondeTypes">
+					<li class="type first selected" id="dondeAragon" onclick="javascript:showAragon()">TODO ARAG&Oacute;N</li>
+					<li class="type second" id="dondeProvincia" onclick="javascript:showProvincia()">PROVINCIAS</li>
+					<li class="type third" id="dondeComarca" onclick="javascript:showComarca()">COMARCAS</li>
+					<li class="type fourth lastType" id="dondeMunicipio" onclick="javascript:showMunicipio()">MUNICIPIOS</li>
+				</ul>
+				<div id="dondeAragonItems">
+				</div>
+				<div id="dondeProvinciaItems" class="oculto">
+					<div id="directorioProvincia">
+						<ul class="dondeProvinciaType">
+							<li class="typeProvincia first" id="itemProvinciaP22" onclick="javascript:selProvincia('P22', true)">HUESCA</li>
+							<li class="typeProvincia second" id="itemProvinciaP50" onclick="javascript:selProvincia('P50', true)">ZARAGOZA</li>
+							<li class="typeProvincia third lastProvinciaType" id="itemProvinciaP44" onclick="javascript:selProvincia('P44', true)">TERUEL</li>
+						</ul>
+						<div class="huecoInicioPagina"></div>
+						
+						<div class="dondeBottomLinks">
+							<a href="javascript:activateSeleccionCondicionada('Provincia');" class="i_i">Ir a selecci�n avanzada para acceder a m�s filtros de b�squeda</a>
+						</div>
+					</div>
+					<div id="dondeSeleccionCondicionadaProvincia" style="display:none;">
+						<div id="dondeSeleccionCondicionadaItemsProvincia" class="dondeSeleccionCondicionadaItems">
+							<div class="subtitleBDAZone">SELECCI&Oacute;N AVANZADA</div>
+							<div class="dondeSeleccionCondicionadaQuestion">
+								<p class="textosNormales i_i">Provincias que cumplen</p>
+								<select id="dondeSeleccionCondicionadaLogicalProvincia" class="comboFiltro dondeSeleccionCondicionadaLogical i_i">
+									<option value="AND">todas</option>
+									<option value="OR">alguna de</option>
+								</select>
+								<p class="textosNormales i_i">las condiciones</p>
+							</div>
+							<div id="conditionProvinciaZone" class="conditionZone">
+							</div>
+						</div>
+						<div class="selCondicionada">
+									<!--
+						<div id="selCondicionadaShowProvincia">
+							<div class="selCondicionadaBtn greyBtn" onclick="javascript:showSeleccionCondicionada('Provincia')">SELECCI&Oacute;N CONDICIONADA</div>
+							<div class="selCondicionadaText">
+								<p class="negrita">Elementos que cumplen con cierta condici&oacute;n.</p>
+								<p>Ejemplo: Provincias con m&aacute;s de 10.000 habitantes.</p>
+							</div>
+						</div>
+-->
+							<div id="selCondicionadaAddProvincia" class="selCondicionadaAdd">
+								<div class="addCondition" onclick="javascript:addNewConditionBlock('Provincia')">A&Ntilde;ADIR OTRA CONDICI&Oacute;N</div>
+								<div class="aplicar" onclick="javascript:applyCondicionada()">APLICAR CONDICIONES</div>
+							</div>
+						</div>
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:deactivateSeleccionCondicionada('Provincia');" class="i_i">Volver al directorio para buscar �nicamente por nombre</a>
+						</div>
+					</div>
+				</div>
+				<div id="dondeComarcaItems" class="oculto">
+					<div id="directorioComarca">
+						<ul class="dondeComarcaType" id="dondeComarcaType1">
+						</ul>
+						<ul class="dondeComarcaType" id="dondeComarcaType2">
+						</ul>
+						<div class="huecoInicioPagina"></div>
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:activateSeleccionCondicionada('Comarca');" class="i_i">Ir a selecci�n avanzada para acceder a m�s filtros de b�squeda</a>
+						</div>
+					</div>
+					<div id="dondeSeleccionCondicionadaComarca" style="display:none;">
+						<div id="dondeSeleccionCondicionadaItemsComarca" class="dondeSeleccionCondicionadaItems">
+							<div class="subtitleBDAZone">SELECCI&Oacute;N AVANZADA</div>
+							<div class="dondeSeleccionCondicionadaQuestion">
+								<p class="textosNormales i_i">Comarcas que cumplen</p>
+								<select id="dondeSeleccionCondicionadaLogicalComarca" class="comboFiltro dondeSeleccionCondicionadaLogical i_i">
+									<option value="AND">todas</option>
+									<option value="OR">alguna de</option>
+								</select>
+								<p class="textosNormales i_i">las condiciones</p>
+							</div>
+							<div id="conditionComarcaZone" class="conditionZone">
+							</div>
+						</div>
+						<div class="selCondicionada">
+									<!--
+						<div id="selCondicionadaShowComarca">
+							<div class="selCondicionadaBtn greyBtn" onclick="javascript:showSeleccionCondicionada('Comarca')">SELECCI&Oacute;N CONDICIONADA</div>
+							<div class="selCondicionadaText">
+								<p class="negrita">Elementos que cumplen con cierta condici&oacute;n.</p>
+								<p>Ejemplo: Comarcas con m&aacute;s de 10.000 habitantes.</p>
+							</div>
+						</div>
+-->
+							<div id="selCondicionadaAddComarca" class="selCondicionadaAdd">
+								<div class="addCondition" onclick="javascript:addNewConditionBlock('Comarca')">A&Ntilde;ADIR OTRA CONDICI&Oacute;N</div>
+								<div class="aplicar" onclick="javascript:applyCondicionada()">APLICAR CONDICIONES</div>
+							</div>
+						</div>
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:deactivateSeleccionCondicionada('Comarca');" class="i_i">Volver al directorio para buscar �nicamente por nombre</a>
+						</div>
+					</div>
+				</div>
+				<div id="dondeMunicipioItems" class="oculto">
+					<div id="directorioMunicipio">
+						<div class="directorioMunicipios">
+							<div class="i_i">
+								<ul class="dondeMuniInitialType" id="directorioMunicipiosList">
+								</ul>
+							</div>
+							<div class="d_d oculto" id="directoryShowFilter">
+							</div>
+						</div>
+						<div class="" id="dondeMunicipioItemsOptions">
+							<div class="dondeMunicipioItemsOptions_8columns" id="dondeMunicipioItemsOptions_8columns_A">
+								<ul class="bxslider" id="bxslider_municipioA">
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_1">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_2">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_3">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_4">
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_5">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_6">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_7">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8A_8">
+										</ul>
+									</div>
+								</li>
+								</ul>
+							</div>
+							<div class="dondeMunicipioItemsOptions_8columns" id="dondeMunicipioItemsOptions_8columns_B">
+								<ul class="bxslider" id="bxslider_municipioB">
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_1">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_2">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_3">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_4">
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_5">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_6">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_7">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8B_8">
+										</ul>
+									</div>
+								</li>
+								</ul>
+							</div>
+							<div class="dondeMunicipioItemsOptions_8columns" id="dondeMunicipioItemsOptions_8columns_C">
+								<ul class="bxslider" id="bxslider_municipioC">
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_1">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_2">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_3">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_4">
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_5">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_6">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_7">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8C_8">
+										</ul>
+									</div>
+								</li>
+								</ul>
+							</div>
+							<div class="dondeMunicipioItemsOptions_8columns" id="dondeMunicipioItemsOptions_8columns_L">
+								<ul class="bxslider" id="bxslider_municipioL">
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_1">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_2">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_3">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_4">
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_5">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_6">
+										</ul>
+									</div>
+									<div class="dondeMunicipioItemsOptions_2columns">
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_7">
+										</ul>
+										<ul class="dondeMunicipioType" id="dondeMunicipioType8L_8">
+										</ul>
+									</div>
+								</li>
+								</ul>
+							</div>
+							<div class="oculto dondeMunicipioItemsOptions_4columns">
+								<div class="dondeMunicipioItemsOptions_2columns">
+									<ul class="dondeMunicipioType" id="dondeMunicipioType4_1">
+									</ul>
+									<ul class="dondeMunicipioType" id="dondeMunicipioType4_2">
+									</ul>
+								</div>
+								<div class="dondeMunicipioItemsOptions_2columns">
+									<ul class="dondeMunicipioType" id="dondeMunicipioType4_3">
+									</ul>
+									<ul class="dondeMunicipioType" id="dondeMunicipioType4_4">
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:showActivateDeactivate('Municipio');" class="i_i">Activar / desactivar todos los de una provincia o comarca</a><br>
+							<div class="huecoInicioPagina"></div>
+							<a href="javascript:activateSeleccionCondicionada('Municipio');" class="i_i">Ir a selecci�n avanzada para acceder a m�s filtros de b�squeda</a>
+						</div>
+						<div class="huecoInicioPagina"></div>
+					</div>
+					<div id="dondeActivateDeactivateZoneMunicipio" style="display:none;">
+						<div class="activateDeactivateZone">
+							<div class="i_i">
+								<select id="comboDeacActivateType">
+									<option value="activate">Activar</option>
+									<option value="deactivate">Desactivar</option>
+								</select>
+							</div>
+							<div class="i_i">
+								los municipios de:&nbsp;
+							</div>
+										
+							<div class="huecoInicioPagina"></div>
+							<ul>
+								<li onclick="javascript:applyDeacActivate('A');">Todo Arag�n</a></li>
+							</ul>
+							<ul>
+								<li onclick="javascript:applyDeacActivate('P22');">Provincia de Huesca</a></li>
+							</ul>
+							<ul>
+								<li onclick="javascript:applyDeacActivate('P44');">Provincia de Teruel</a></li>
+							</ul>
+							<ul>
+								<li onclick="javascript:applyDeacActivate('P50');">Provincia de Zaragoza</a></li>
+							</ul>
+							<div class="huecoInicioPagina"></div>
+							<div class="dondeMunicipioItemsOptions_2columns">
+								<ul>
+									<li onclick="javascript:applyDeacActivate('C2');">Alto G�llego</a></li>
+									<li onclick="javascript:applyDeacActivate('C27');">Andorra - Sierra de Arcos</a></li>
+									<li onclick="javascript:applyDeacActivate('C14');">Aranda</a></li>
+									<li onclick="javascript:applyDeacActivate('C28');">Bajo Arag�n</a></li>
+									<li onclick="javascript:applyDeacActivate('C19');">Bajo Arag�n - Caspe / Baix Arag� - Casp</a></li>
+									<li onclick="javascript:applyDeacActivate('C11');">Bajo Cinca / Baix Cinca</a></li>
+									<li onclick="javascript:applyDeacActivate('C23');">Bajo Mart�n</a></li>
+									<li onclick="javascript:applyDeacActivate('C22');">Campo de Belchite</a></li>
+									<li onclick="javascript:applyDeacActivate('C13');">Campo de Borja</a></li>
+								</ul>
+								<ul>
+									<li onclick="javascript:applyDeacActivate('C21');">Campo de Cari�ena</a></li>
+									<li onclick="javascript:applyDeacActivate('C24');">Campo de Daroca</a></li>
+									<li onclick="javascript:applyDeacActivate('C8');">Cinca Medio</a></li>
+									<li onclick="javascript:applyDeacActivate('C5');">Cinco Villas</a></li>
+									<li onclick="javascript:applyDeacActivate('C20');">Comunidad de Calatayud</a></li>
+									<li onclick="javascript:applyDeacActivate('C29');">Comunidad de Teruel</a></li>
+									<li onclick="javascript:applyDeacActivate('C26');">Cuencas Mineras</a></li>
+									<li onclick="javascript:applyDeacActivate('C17');">D.C. Zaragoza</a></li>
+								</ul>
+							</div>
+							<div class="dondeMunicipioItemsOptions_2columns">
+								<ul>
+									<li onclick="javascript:applyDeacActivate('C32');">G�dar - Javalambre</a></li>
+									<li onclick="javascript:applyDeacActivate('C6');">Hoya de Huesca / Plana de Uesca</a></li>
+									<li onclick="javascript:applyDeacActivate('C25');">Jiloca</a></li>
+									<li onclick="javascript:applyDeacActivate('C1');">La Jacetania</a></li>
+									<li onclick="javascript:applyDeacActivate('C9');">La Litera / La Llitera</a></li>
+									<li onclick="javascript:applyDeacActivate('C4');">La Ribagorza</a></li>
+									<li onclick="javascript:applyDeacActivate('C10');">Los Monegros</a></li>
+									<li onclick="javascript:applyDeacActivate('C30');">Maestrazgo</a></li>
+								</ul>
+								<ul>
+									<li onclick="javascript:applyDeacActivate('C33');">Matarra�a / Matarranya</a></li>
+									<li onclick="javascript:applyDeacActivate('C15');">Ribera Alta del Ebro</a></li>
+									<li onclick="javascript:applyDeacActivate('C18');">Ribera Baja del Ebro</a></li>
+									<li onclick="javascript:applyDeacActivate('C31');">Sierra de Albarrac�n</a></li>
+									<li onclick="javascript:applyDeacActivate('C3');">Sobrarbe</a></li>
+									<li onclick="javascript:applyDeacActivate('C7');">Somontano de Barbastro</a></li>
+									<li onclick="javascript:applyDeacActivate('C12');">Tarazona y El Moncayo</a></li>
+									<li onclick="javascript:applyDeacActivate('C16');">Valdejal�n</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:deactivateSeleccionCondicionada('Municipio');" class="i_i">Volver al directorio para buscar �nicamente por nombre</a>
+						</div>
+							<div class="huecoInicioPagina"></div>
+					</div>
+
+					<div id="dondeSeleccionCondicionadaMunicipio" style="display:none;">
+						<div id="dondeSeleccionCondicionadaItemsMunicipio" class="dondeSeleccionCondicionadaItems">
+							<div class="subtitleBDAZone">SELECCI&Oacute;N AVANZADA</div>
+							<div class="dondeSeleccionCondicionadaQuestion">
+								<p class="textosNormales i_i">Municipios que cumplen</p>
+								<select id="dondeSeleccionCondicionadaLogicalMunicipio" class="comboFiltro dondeSeleccionCondicionadaLogical i_i">
+									<option value="AND">todas</option>
+									<option value="OR">alguna de</option>
+								</select>
+								<p class="textosNormales i_i">las condiciones</p>
+							</div>
+							<div id="conditionMunicipioZone" class="conditionZone">
+							</div>
+						</div>
+						<div class="selCondicionada">
+									<!--
+						<div id="selCondicionadaShowMunicipio">
+							<div class="selCondicionadaBtn greyBtn" onclick="javascript:showSeleccionCondicionada('Municipio')">SELECCI&Oacute;N CONDICIONADA</div>
+							<div class="selCondicionadaText">
+								<p class="negrita">Elementos que cumplen con cierta condici&oacute;n.</p>
+								<p>Ejemplo: Comarcas con m&aacute;s de 10.000 habitantes.</p>
+							</div>
+						</div>
+-->
+							<div id="selCondicionadaAddMunicipio" class="selCondicionadaAdd">
+								<div class="addCondition" onclick="javascript:addNewConditionBlock('Municipio')">A&Ntilde;ADIR OTRA CONDICI&Oacute;N</div>
+								<div class="aplicar" onclick="javascript:applyCondicionada()">APLICAR CONDICIONES</div>
+							</div>
+						</div>
+
+						<div class="huecoInicioPagina"></div>
+						<div class="dondeBottomLinks">
+							<a href="javascript:deactivateSeleccionCondicionada('Municipio');" class="i_i">Volver al directorio para buscar �nicamente por nombre</a>
+						</div>
+					</div>
+					<!--
+					<div class="huecoInicioPagina"></div>
+-->
+				</div>
+				<div class="mapZonePreview">
+					<ul class="bxslider" id="bxslider_info">
+						<li>
+							<div class="mapPreview" id="mapPreviewAragon"></div>
+							<div class="mapPreview oculto" id="mapPreviewProvincia"></div>
+							<div class="mapPreview oculto" id="mapPreviewComarca"></div>
+							<div class="mapPreview oculto" id="mapPreviewMunicipio"></div>
+						</li>
+						<li>
+							<div class="infoAboutSelection">
+								<div class="infoAboutSelectionSummary">Seleccionado Arag�n</div>
+								<div class="oculto infoAboutSelectionDetail"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--
+				<div class="huecoInicioPagina"></div>
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+-->
+			</div>
+			</div>
+
+			<div id="queZone" class="remodal" data-remodal-id="queZoneModal" role="dialog">
+				<div class="modalInner">
+
+				<button data-remodal-action="close" class="remodal-close remodal-close-top" aria-label="Close"></button>
+				<button data-remodal-action="close" class="remodal-close remodal-close-bottom" aria-label="Close"></button>
+
+				<div class="titleBDAZone">QU&Eacute;</div>
+				<div class="clear_i"></div>
+				<div class="descripcionTitulo1 i_i grisMedio"><div class="descripcionTitulo1_mini">Selecciona el tema sobre el que quieres informaci�n</div></div>
+				<div class="huecoInicioPagina"></div>
+
+				<div class="clear_i"></div>
+
+				<div id="quePredefinedZone">
+					<!--<div class="headText"></div>-->
+					<input type="text" class="informeAutocomplete" id="informeAutocompleteQue" placeholder="Buscar el texto">
+					<div onmousedown="javascript:this.className='boton botonQue botonClicked';" onmouseup="javascript:this.className='boton botonQue botonNormal';"
+						onmouseover="javascript:this.className='boton botonQue botonOver';" onmouseout="javascript:this.className='boton botonQue botonNormal';"
+						onclick="javascript:showDirectorioReports()" class="boton botonQue botonNormal" title="APLICAR">
+						Banco de Datos
+					</div>
+					<div class="huecoInicioPagina"></div>
+					<div class="recentQue">
+						<h3 class="titulosSecundariosNegritas i_i">B&uacute;squedas m&aacute;s recientes</h3>
+
+						<div class="clear"></div>
+						<ul class="queOpciones textosNormales" id="recentReports">
+							<li class="queOpcion" id="recentReport1"><a href="javascript:selectItemDirectoryReports('Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos', '01-010043', 'Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos> Presupuestos de las Entidades Locales > Presupuestos de la Administraci�n P�blica > Sector P�blico. Elecciones >')" title="Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos" class="i_i">Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos</a></li>
+							<li class="queOpcion" id="recentReport2"><a href="javascript:selectItemDirectoryReports('Paro registrado Grupos de edad y sexo', '05-050202', 'Grupos de edad y sexo> Paro registrado > Trabajo, Salarios y Relaciones Laborales >')" title="Paro registrado Grupos de edad y sexo" class="i_i">Paro registrado Grupos de edad y sexo</a></li>
+							<li class="queOpcion" id="recentReport3"><a href="javascript:selectItemDirectoryReports('Presupuestos. Ingresos', '01-010039', 'Presupuestos. Ingresos> Presupuestos de las Entidades Locales > Presupuestos de la Administraci�n P�blica > Sector P�blico. Elecciones >')" title="Presupuestos. Ingresos" class="i_i">Presupuestos. Ingresos</a></li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+					<div class="popularQue">
+						<h3 class="titulosSecundariosNegritas i_i">B&uacute;squedas m&aacute;s consultadas</h3>
+
+						<div class="clear"></div>
+						<ul class="queOpciones textosNormales" id="popularReports">
+							<li class="queOpcion"><a href="javascript:selectItemDirectoryReports('Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos', '01-010043', 'Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos> Presupuestos de las Entidades Locales > Presupuestos de la Administraci�n P�blica > Sector P�blico. Elecciones >')" title="Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos" class="i_i">Liquidaciones de presupuestos. Gastos. Clasificaci�n por cap�tulos</a></li>
+							<li class="queOpcion"><a href="javascript:selectItemDirectoryReports('Paro registrado Grupos de edad y sexo', '05-050202', 'Grupos de edad y sexo> Paro registrado > Trabajo, Salarios y Relaciones Laborales >')" title="Paro registrado Grupos de edad y sexo" class="i_i">Paro registrado Grupos de edad y sexo</a></li>
+							<li class="queOpcion"><a href="javascript:selectItemDirectoryReports('Usos del suelo (nomenclatura a 1 d�gito)', '04-040009', 'Usos del suelo (nomenclatura a 1 d�gito)> Corine Land Cover > Ocupaci�n del suelo  > Usos del suelo > Territorio  >')" title="Usos del suelo (nomenclatura a 1 d�gito)" class="i_i">Usos del suelo (nomenclatura a 1 d�gito)</a></li>
+						</ul>
+					</div>
+					<div class="huecoInicioPagina"></div>
+				</div>
+
+				<div id="queReportTreeZone" style="display:none;">
+					<div id="queReportTree">
+					</div>
+					<div class="huecoInicioPagina"></div>
+					<div class="dondeBottomLinks">
+						<a href="javascript:returnPredefinedQue();" class="i_i">Volver a la selecci�n por b�squeda de texto, m�s recientes o m�s consultadas</a>
+					</div>
+				</div>
+
+				<!--
+				<div class="huecoInicioPagina"></div>
+
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+-->
+			</div>
+			</div>
+
+			<div id="cuandoZone"  class="remodal" data-remodal-id="cuandoZoneModal" role="dialog">
+				<div class="modalInner">
+
+				<button data-remodal-action="close" class="remodal-close remodal-close-top" aria-label="Close"></button>
+				<button data-remodal-action="close" class="remodal-close remodal-close-bottom" aria-label="Close"></button>
+
+				<div class="titleBDAZone">CU&Aacute;NDO
+					<button data-remodal-action="close" class="aplybutton">APLICAR</button>
+				</div>
+
+				<div class="clear_i"></div>
+				<div class="descripcionTitulo1 i_i grisMedio"><div class="descripcionTitulo1_mini">Selecciona el per�odo temporal del que quieres datos</div></div>
+				<div class="huecoInicioPagina"></div>
+				<div class="clear_i"></div>
+				<ul class="yearInterval">
+					<li>
+						<div class="headText">Desde</div>
+							<select id="cuandoDesdeYear" class="comboFiltro comboFiltroSmall">
+								<option value="1996" selected="">1996</option>
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+							</select>
+					</li>
+					<li>
+							<div class="headText">Hasta</div>
+							<select id="cuandoHastaYear" class="comboFiltro comboFiltroSmall">
+								<option value="1996" selected="">1996</option>
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015" selected>2015</option>
+							</select>
+					</li>
+					<!--
+					<li>
+						<div onmousedown="javascript:this.className='boton botonCuando botonClicked';" onmouseup="javascript:this.className='boton botonCuando botonNormal';"
+									onmouseover="javascript:this.className='boton botonCuando botonOver';" onmouseout="javascript:this.className='boton botonCuando botonNormal';"
+									onclick="javascript:updateDataPreview();" class="boton botonCuando botonNormal" title="APLICAR">
+									Aplicar
+						</div>
+					</li>
+-->
+				</ul>
+				<ul class="cuandoOpciones textosNormales">
+					<li class="cuandoOpcion">
+						<a href="javascript:selectAllAvailableYears()" title="Todos los datos" class="i_i">Todos los datos</a>
+						<div id="cuandoAllYears" class="i_i">(1996 - 2015)</div>
+					</li>
+					<li class="cuandoOpcion">
+						<a href="javascript:selectLastAvailableYear()" title="El &uacute;ltimo a&ntilde;o disponible" class="i_i">El &uacute;ltimo a&ntilde;o disponible</a>
+						<div id="cuandoLastYear" class="i_i">(2015)</div>
+					</li>
+				</ul>
+
+				<!--
+				<div class="huecoInicioPagina"></div>
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+-->
+			</div>
+			</div>
+
+			<div class="resultsTableBDA">
+				<div class="separadorContenidoPagina"></div>
+				<div id="queItemsHidden" class="oculto">http://opendata.aragon.es/def/iaest/medida#poblacion@</div>
+				<div id="queItemsHiddenLabel" class="oculto">Poblaci�n@</div>
+				<div id="queItemsHiddenRange" class="oculto">http://www.w3.org/2001/XMLSchema#int@</div>
+				<div id="queDirectorio" class="oculto"></div>
+				<input type="hidden" id="idReportQue" value="03-030001">
+
+				<div class="huecoInicioPagina"></div>
+				<!--<div class="titleBDAZone">PREVISUALIZACI&Oacute;N DE DATOS</div>-->
+				<div class="clear_i"></div>
+				<h2 id="titlePreview">Cifras oficiales de poblaci�n anuales desde 1996</h2>
+
+				<div class="downloadZone">
+					<ul class="downloadFormat">
+						<li class="first"><a class="recuadroNoResaltado textosNormales" href="javascript:download('text/csv')" title="Descarga en formato CSV">CSV</a></li>
+						<li><a class="recuadroNoResaltado textosNormales" href="javascript:download('application/json')" title="Descarga en formato JSON">JSON</a></li>
+					</ul>
+					<img src="/public/aragopedia/i/32-Download-OFF.png" alt="Descarga" title="Descarga" class="d_d" id="iconDownload"/>
+				</div>
+
+				<div id="hierarchyPreview"> Demograf�a y Poblaci�n   &gt; Cifras de poblaci�n y Censos demogr�ficos  &gt; Datos hist�ricos  &gt; Series hist�ricas de poblaci�n  &gt;Cifras oficiales de poblaci�n anuales desde 1996</div>
+				<div class="huecoInicioPagina"></div>
+				<div class="textosNormales">Fuente: Instituto Aragon�s de Estad�stica (IAEST)</div>
+				<div class="huecoInicioPagina"></div>
+				<div id="queItems">
+					<ul class="infoQue">
+						<li><input type="checkbox" checked="" id="queColumn0" onclick="javascript:updateDataPreview()"> Poblaci�n</li>
+					</ul>
+				</div>
+				<div class="huecoInicioPagina"></div>
+				<div id="noResults" class="oculto textosNormales">No hay datos que cumplan con las caracter�sticas seleccionadas</div></div>
+				<table class="resultsTableBDA oculto" cellpadding="0" cellspacing="0" id="resultsTableBDA">
+				</table>
+			</div>
+			<div class="huecoInicioPagina"></div>
+		</div>
+	</div>
+</div> 
+</div>
+<footer>
+<div id="pie">
+<ul id="pieUL"><li id="pieULLI">
+<div class="pieInterior">
+	<div class="pieZonaUno">
+		<a title="Home Arag&oacute;n Open Data" href="/"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data" id="pieZonaUnoRoot"/> </a>
+<img alt="Flecha" src="/public/i/footer/flechaFooter.png"> 
+<a class="footerLink pieEnlace" title="Home Arag&oacute;n Open Data" href="/"> HOME</a>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaDos">
+		<ul>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoAvisoLegal.png" alt="Aviso legal"/></td></tr>
+			<tr><td><a href="/terminos" title="T&eacute;rminos de uso"><img src="/public/i/footer/cajaTerminosUso.jpg" alt="T&eacute;rminos de uso"/></a></td></tr>
+			<tr><td><a href="https://creativecommons.org/licenses/by/4.0/ " title="Licencia Creative Commons"><img src="/public/i/footer/cajaCCconTexto.jpg" alt="Licencia Creative Commons" height="96" width="215"/></a></td></tr>
+			<tr><td><img src="/public/i/footer/banderaUEconTexto.png" alt="Uni&oacute;n Europea - Fondo Europeo de Desarrollo Regional" class="recuadroPie" /></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9" src="/public/i/footer/textoPoweredBy.png" alt="Powered by"/></td></tr>
+			<tr><td><a href="http://ckan.org/" title="CKAN"><img src="/public/i/footer/cajaLogoCKAN.jpg" alt="CKAN"/></a></td></tr>
+			<tr><td><a href="http://www.wolfcms.org/" title="Wolf CMS"><img src="/public/i/footer/cajaLogoWolfCMS.jpg" alt="Wolf CMS"/></a></td></tr>
+			<tr><td><a href="http://www.mediawiki.org/" title="MediaWiki"><img src="/public/i/footer/cajaLogoMediaWiki.jpg" alt="MediaWiki"/></a></td></tr>
+			<tr><td><a href="http://virtuoso.openlinksw.com/" title="Virtuoso"><img src="/public/i/footer/cajaLogoVirtuoso.jpg" alt="Virtuoso"/></a></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+<li class="clear visible-ms tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data"/></td></tr>
+			<tr><td>
+<div class="pieZonaEnlaces">
+<ul class="styleDiscUL">
+<li><a href="/catalogo" title="Datos" class="pieEnlace">DATOS</a></li>
+<li><a href="/aragopedia" title="AragoPedia" class="pieEnlace">ARAGOPEDIA</a></li>
+<li><a href="/portal/social-data" title="Social Data" class="pieEnlace">SOCIAL DATA</a></li>
+<li><a href="/portal/colabora" title="Colabora" class="pieEnlace">COLABORA</a></li>
+<li><a href="/portal/aplicaciones" title="Aplicaciones" class="pieEnlace">APLICACIONES</a></li>
+<li><a href="/portal/open-data" title="Informaci&oacute;n Open Data" class="pieEnlace">INFO OPEN DATA</a></li>
+</ul>
+</div>
+</td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table class="last">
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoRedesSociales.png" alt="Redes Sociales"/></td></tr>
+			<tr><td><a href="http://www.facebook.com/observatorio.aragones" title="Facebook"><img src="/public/i/footer/cajaLogoFacebook.jpg" alt="Facebook"/></a></td></tr>
+			<tr><td><a href="http://www.twitter.com/oasi" title="Twitter"><img src="/public/i/footer/cajaLogoTwitter.jpg" alt="Twitter"/></a></td></tr>
+			<tr><td><a href="http://www.youtube.com/watch?v=8d409yteTJM&list=PLQ3k0vA0UZvhBVOz_mCq-9Wyn3VCB6QCe" title="YouTube"><img src="/public/i/footer/cajaLogoYouTube.jpg" alt="YouTube"/></a></td></tr>
+			<tr><td><a href="mailto:opendata@aragon.es" title="Contacto AOD"><img src="/public/i/footer/cajaCorreoAOD.jpg" alt="Contacto AOD"/></a></td></tr>
+		</table>
+		</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaTres">
+		<ul>
+			<li class="izquierda textoPie">
+				<p>GOBIERNO DE ARAG&Oacute;N</p>
+				<p>EDIFICIO PIGNATELLI</p>
+				<address>PASEO MAR&iacute;A AGUST&iacute;N, 36 50071 ZARAGOZA TEL. 976 714 000</address>
+			</li>
+			<li class="derecha">
+				<a target="_blank" href="http://www.aragon.es" title="Gobierno de Arag&oacute;n"><img width="132" height="28" alt="Gobierno de Arag&oacute;n" src="/public/i/footer/logo_aragob_pie.png"></a>
+			</li>
+		</ul>
+	</div>
+<div class="clear"></div>
+</div>
+</li></ul>
+</div>
+</footer>
+</body>
+</html>

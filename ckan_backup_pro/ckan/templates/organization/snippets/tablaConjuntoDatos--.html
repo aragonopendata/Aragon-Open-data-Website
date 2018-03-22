@@ -1,0 +1,37 @@
+{% set totalConjuntosDeDatos = organizacion.totalConjuntosDeDatos %}
+{% set conjuntosDeDatos = organizacion.conjuntosDeDatos %}
+
+{% if totalConjuntosDeDatos > 0 %}
+	<table class="tablaResultadosDataset textosNormales">
+		<thead>
+			<tr>
+				<th class="cabeceraTablaResultadosDataset">
+					<div class="labelCabeceraTablaResultadosDataset">{{totalConjuntosDeDatos}} conjuntos de datos encontrados</div>
+				</th>
+				<th class="cabeceraTablaResultadosDataset tamEstrecho">
+					<div class="labelCabeceraTablaResultadosDataset">N&ordm; ACCESOS</div>
+				
+				</th>
+				<th class="cabeceraTablaResultadosDataset tamEstrecho">
+					<div class="labelCabeceraTablaResultadosDataset">FECHA (ACT)</div>
+				
+				</th>
+			</tr>
+		</thead>
+	<tbody>
+	{% for dataset in conjuntosDeDatos %}
+		{% snippet 'organization/snippets/lineaDataset.html', dataset=dataset %}
+	{% endfor %}
+	</tbody>
+	
+	</table>
+	<br/>
+	<div class="textPopular"><img src="http://opendata.aragon.es/public/i/popular.png" alt="Popular" title="Popular"> Se ha accedido al conjunto de datos m&aacute;s de 10 veces en los &uacute;ltimos 14 d&iacute;as</div>
+	<div id="paginacion"></div>
+{% else %}
+	<div>No hay conjunto de datos</div>
+{% endif %}
+
+
+
+<div class="huecoInicioPagina"></div>

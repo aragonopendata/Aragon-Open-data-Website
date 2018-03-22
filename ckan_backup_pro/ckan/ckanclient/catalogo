@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="es" class="ie ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="es" class="ie ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="es" class="ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es"> <!--<![endif]-->
+  <head>
+    <!--[if lte ie 8]><script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2014-01-27T18:46:47.36/html5.min.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="/catalogo/fanstatic/vendor/:version:2014-01-27T18:46:47.36/select2/select2.min.css" />
+<!--[if ie 7]><link rel="stylesheet" type="text/css" href="/catalogo/fanstatic/vendor/:version:2014-01-27T18:46:47.36/font-awesome/css/font-awesome-ie7.css" /><![endif]-->
+
+    <meta charset="utf-8" />
+      <meta name="generator" content="ckan 2.1.1" />
+    <title>Buscar un Conjunto de datos - ARAGÓN OPEN DATA</title>
+
+    
+    <link rel="shortcut icon" href="/public/i/favicon.ico" />
+    
+    
+
+    
+      
+      
+    
+    
+    
+  <link rel="stylesheet" href="/public/themes/aod/style.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="/public/jquery/jquery-ui_1_10_3_smoothness.css" type="text/css" />
+  <link rel="stylesheet" href="/public/chosen.css" type="text/css" />
+
+	<link rel="stylesheet" href="/public/chosenImage.css" type="text/css" />
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="http://localhost/themes/aod/css/ie.css?mvqiib" media="all" />
+<![endif]-->
+
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="http://localhost/themes/aod/css/ie6.css?mvqiib" media="all" />
+<![endif]-->
+	<script>
+		var currentUrl = "";
+	</script>
+<!-- Goo Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36118896-2']);
+  _gaq.push(['_setDomainName', 'aragon.es']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https:/'+'/' : 'http:/'+'/') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Fin Goo Analytics -->
+  </head>
+
+  
+  <body data-site-root="http://preopendata.aragon.es/catalogo/" data-locale-root="http://preopendata.aragon.es/catalogo/" data-api-root="">
+
+    
+    
+
+
+<header>
+<div id="cabeceraRelacionados">
+	<ul>
+		<li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
+<li class="clear visible-xs tamCero"></li>
+		<li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana">PARTICIPACI&Oacute;N CIUDADANA</a></li>
+	</ul>
+</div>
+<div id="cabecera">
+	<ul>
+		<li><a href="http://www.aragon.es" target="_blank"><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></a></li>
+	</ul>
+</div>
+
+<div class="banner">
+	<div class="bannerInline bannerLogo" style="text-align: right;" >
+		<a href="/" title="ARAGÓN OPEN DATA"><img class=""  id="idTotal" src="http://opendata.aragon.es/public/i/logo_aod.png" alt="ARAGÓN OPEN DATA"></a>
+	</div>
+	<div class="bannerInline bannerBuscador" style="text-align: left; padding-top: 1.5%;">
+		<form id="cajaBusqBanner" action="/catalogo" method="get">
+<!--			<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
+			
+			<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner" type="text"">
+			<button class="btn-search" type="submit">Buscar</button>
+			<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
+		</form>
+	</div>
+</div>
+<div class="clear"></div>
+
+  </header>
+  
+  
+
+
+
+<nav>
+  <div id="navegacion" class="botones botonesSuperiorLista">
+    <ul>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked first';" onmouseup="javascript:this.className='botonSuperiorClicked first';"
+            onmouseover="javascript:this.className='botonSuperiorOver first';" onmouseout="javascript:this.className='botonSuperiorClicked first';"
+            onclick="javascript:window.location='/catalogo';" class="botonSuperiorClicked first" title="Datos"><img src="/public/i/header/datos.png" alt="Datos" title="Datos"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked second';" onmouseup="javascript:this.className='botonSuperior second';"
+            onmouseover="javascript:this.className='botonSuperiorOver second';" onmouseout="javascript:this.className='botonSuperior second';"
+            onclick="javascript:window.location='/aragopedia';" class="botonSuperior second" title="AragoPedia"><img src="/public/i/header/aragopedia.png" alt="AragoPedia" title="AragoPedia"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked third';" onmouseup="javascript:this.className='botonSuperior third';"
+            onmouseover="javascript:this.className='botonSuperiorOver third';" onmouseout="javascript:this.className='botonSuperior third';"
+            onclick="javascript:window.location='/portal/social-data';" class="botonSuperior third" title="Social Data"><img src="/public/i/header/socialData.png" alt="Social Data" title="Social Data"></li>
+<li class="clear visible-ms tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fourth';" onmouseup="javascript:this.className='botonSuperior fourth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fourth';" onmouseout="javascript:this.className='botonSuperior fourth';"
+            onclick="javascript:window.location='/portal/colabora';" class="botonSuperior fourth" title="Colabora"><img src="/public/i/header/colabora.png" alt="Colabora" title="Colabora"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fifth';" onmouseup="javascript:this.className='botonSuperior fifth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fifth';" onmouseout="javascript:this.className='botonSuperior fifth';" 
+            onclick="javascript:window.location='/portal/aplicaciones';" class="botonSuperior fifth" title="Aplicaciones"><img src="/public/i/header/aplicaciones.png" alt="Aplicaciones" title="Aplicaciones"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked last';" onmouseup="javascript:this.className='botonSuperior last';"
+            onmouseover="javascript:this.className='botonSuperiorOver last';" onmouseout="javascript:this.className='botonSuperior last';" 
+            onclick="javascript:window.location='/portal/open-data';" class="botonSuperior last" title="Informaci&oacute;n sobre Open Data"><img src="/public/i/header/infoOpenData.png" alt="Informaci&oacute;n sobre Open Data" title="Informaci&oacute;n sobre Open Data"></li>
+      </ul>
+  </div>
+</nav>
+
+    <div class="container">
+      
+    </div>
+  
+    <div role="main">
+      <div id="content" class="container">
+        
+         
+
+          <div class="wrapper no-nav">
+		<div class="huecoInicioPagina"></div>
+		<div class="separadorContenidoPagina"></div>
+		<div class="huecoInicioPagina"></div>
+		<div class="clear"></div>
+            
+            
+            
+
+            
+              <div class="primary">
+                
+                
+<div class="buscaDatos">
+  <h1><img class="logoBuscaDatos" src="/public/i/buscaDatos/buscarDatos.png" title="Buscar datos" alt="BUSCAR DATOS"><span class="altLogoBuscaDatos">BUSCAR DATOS</span></h1>
+
+  <div class="huecoInicioPagina"></div>
+  
+  <section class="module">
+    <div class="module-content">
+      
+        
+      
+      
+        
+        
+        
+<!-- Snippet snippets/search_form.html start -->
+
+
+
+
+
+
+
+<form class="search-form" method="get" data-module="select-switch" id="searchFormId" action="/catalogo">
+
+  
+	<ul class="searchTypesOptions">
+		<li class="i_i">
+			<div class="filtros" id="zonaTemaYTipo">
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/datosSobre.png" alt="DATOS SOBRE" title="Datos sobre">
+					<label for="temaFilter" class="oculto">DATOS SOBRE</label>
+					<select id="temaFilter" name="temaFilter">
+						<option value="" selected="selected">Todos los temas</option>
+						<option value="ciencia-tecnologia">Ciencia y tecnolog&iacute;a</option>
+						<option value="comercio">Comercio</option>
+						<option value="cultura-ocio">Cultura y ocio</option>
+						<option value="demografia">Demograf&iacute;a</option>
+						<option value="deporte">Deporte</option>
+						<option value="economia">Econom&iacute;a</option>
+						<option value="educacion">Educaci&oacute;n</option>
+						<option value="empleo">Empleo</option>
+						<option value="energia">Energ&iacute;a</option>
+						<option value="hacienda">Hacienda</option>
+						<option value="industria">Industria</option>
+						<option value="legislacion-justicia">Legislaci&oacute;n y justicia</option>
+						<option value="medio-ambiente">Medio ambiente</option>
+						<option value="medio-rural-pesca">Medio rural</option>
+						<option value="salud">Salud</option>
+						<option value="sector-publico">Sector p&uacute;blico</option>
+						<option value="seguridad">Seguridad</option>
+						<option value="sociedad-bienestar">Sociedad y bienestar</option>
+						<option value="transporte">Transporte</option>
+						<option value="turismo">Turismo</option>
+						<option value="urbanismo-infraestructuras">Urbanismo e infraestructuras</option>
+						<option value="vivienda">Vivienda</option>
+					</select>
+				</div>
+				<div class="filtro">
+					<img src="/public/i/buscaDatos/delTipo.png" alt="DEL TIPO" title="Del tipo">
+					<label for="tipoFilter" class="oculto">DEL TIPO</label>
+					<select id="tipoFilter" name="tipoFilter">
+						<option value="" selected="selected">Todos los tipos</option>
+						<option value="hojas-de-calculo">Hojas de c&aacute;lculo</option>
+						<option value="texto-plano">Texto plano</option>
+						<option value="mapas">Mapas</option>
+						<option value="fotos">Fotos</option>
+						<option value="rss">RSS</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="zonaLibre"  class="filtros oculto">
+				<div class="filtro">
+				 <ul>
+					<li class="i_i"><img src="/public/i/buscaDatos/datosTexto.png" alt="DATOS CON EL TEXTO" title="Datos con el texto"></li>
+					<li class="i_i"><label for="cajaDeBusqInputLibre" class="oculto">DATOS CON EL TEXTO </label></li>
+					<li class="i_i"><input id="cajaDeBusqInputLibre" type="text" name="q" value="" class="search anchoSearchBanner placeholderCajaDeBusq"  /></li>
+					<li class="i_i"><a href="javascript:submitTxtQuery();" title="BUSCAR DATOS">
+						<img src="/public/i/lupa.jpg" alt="BUSCAR DATOS" title="BUSCAR DATOS">      
+					</a></li>
+				 </ul>
+				</div>
+			</div>
+
+			<div id="zonaInfoEstadistica" class="filtros oculto">
+				<div class="filtro" id="estadisNivel1_FilterDiv">
+					<img src="/public/i/buscaDatos/delGrupo.png" alt="DEL GRUPO" title="Del grupo">
+					<label for="estadisNivel1_Filter" class="oculto">DEL GRUPO</label>
+					<select id="estadisNivel1_Filter" name="estad&iacute;sNivel1_Filter">
+						<option value="" selected="selected">Todos los grupos</option>
+						<option value="01">Territorio</option>
+						<option value="02">Demograf&iacute;a y Poblaci&oacute;n</option>
+						<option value="03">Educaci&oacute;n y Formaci&oacute;n</option>
+						<option value="04">Salud</option>
+						<option value="05">Nivel, Calidad y Condiciones de Vida</option>
+						<option value="06">An&aacute;lisis Sociales, Justicia, Cultura y Deporte</option>
+						<option value="07">Trabajo, Salarios y Relaciones Laborales</option>
+						<option value="08">Agricultura, Industria y Construcci&oacute;n</option>
+						<option value="09">Servicios, Comercio, Transporte y Turismo</option>
+						<option value="10">Precios</option>
+						<option value="11">PIB, Renta, Comercio Exterior y Empresas</option>
+						<option value="12">Financieras. Mercantiles. Tributarias</option>
+						<option value="13">I+D+i y Tecnolog&iacute;as de la Informaci&oacute;n (TIC)</option>
+						<option value="14">Medio Ambiente y Energ&iacute;a</option>
+						<option value="15">Sector P&uacute;blico. Elecciones</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp01_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp01_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp01_Filter" name="estadisNivel2_grp01_Filter">
+						<option value="01" selected="selected">Todos los subgrupos</option>
+						<option value="0101">Espacio f&iacute;sico. Caracter&iacute;sticas geogr&aacute;ficas</option>
+						<option value="0102">Usos del suelo</option>
+						<option value="0103">Nomenclaturas territoriales</option>
+						<option value="0104">Infraestructuras</option>
+						<option value="0105">Municipios</option>
+						<option value="0106">Comarcas</option>
+						<option value="0107">Zonas sectoriales</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp02_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp02_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp02_Filter" name="estadisNivel2_grp02_Filter">
+						<option value="02" selected="selected">Todos los subgrupos</option>
+						<option value="0201">Cifras de poblaci&oacute;n y Censos demogr&aacute;ficos</option>
+						<option value="0202">Indicadores demogr&aacute;ficos</option>
+						<option value="0203">Estudios demogr&aacute;ficos</option>
+						<option value="0204">Migraciones</option>
+						<option value="0205">Movimiento Natural de Poblaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp03_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp03_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp03_Filter" name="estadisNivel2_grp03_Filter">
+						<option value="03" selected="selected">Todos los subgrupos</option>
+						<option value="0301">Ense&ntilde;anza no universitaria</option>
+						<option value="0302">Ense&ntilde;anza universitaria</option>
+						<option value="0303">Gasto p&uacute;blico en educaci&oacute;n</option>
+						<option value="0304">Becas y ayudas</option>
+						<option value="0305">Transici&oacute;n Educativa-Laboral</option>
+						<option value="0306">Encuesta sobre la participaci&oacute;n de la poblaci&oacute;n adulta en las actividades de aprendizaje</option>
+						<option value="0307">Nivel educativo de la poblaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp04_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp04_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp04_Filter" name="estadisNivel2_grp04_Filter">
+						<option value="04" selected="selected">Todos los subgrupos</option>
+						<option value="0401">Esperanza de vida en salud</option>
+						<option value="0402">Poblaci&oacute;n y pir&aacute;mides de poblaci&oacute;n por zonas de salud</option>
+						<option value="0403">Tarjetas Sanitarias</option>
+						<option value="0404">Encuesta Nacional de Salud</option>
+						<option value="0405">Sectores sanitarios y zonas de salud</option>
+						<option value="0406">Infraestructura sanitaria</option>
+						<option value="0407">Dotaci&oacute;n de personal</option>
+						<option value="0408">Discapacidades y Dependencia</option>
+						<option value="0409">Morbilidad Hospitalaria</option>
+						<option value="0410">Defunciones seg&uacute;n la causa de muerte</option>
+						<option value="0411">Estad&iacute;sticas de Donaci&oacute;n y Trasplantes</option>
+						<option value="0412">Interrupci&oacute;n Voluntaria del Embarazo (IVE's)</option>
+						<option value="0413">Otras estad&iacute;sticas de Salud</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp05_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp05_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp05_Filter" name="estadisNivel2_grp05_Filter">
+						<option value="05" selected="selected">Todos los subgrupos</option>
+						<option value="0501">Condiciones de vida y pobreza</option>
+						<option value="0502">Presupuestos Familiares, Gastos e Ingresos</option>
+						<option value="0503">Otras Estad&iacute;sticas de Hogares</option>
+						<option value="0504">&Iacute;ndice de Precios al Consumo</option>
+						<option value="0505">Pensiones y Prestaciones Sociales</option>
+						<option value="0506">Vivienda</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp06_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp06_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp06_Filter" name="estadisNivel2_grp06_Filter">
+						<option value="06" selected="selected">Todos los subgrupos</option>
+						<option value="0601">An&aacute;lisis sociales</option>
+						<option value="0602">La Dependencia en Arag&oacute;n</option>
+						<option value="0603">Cooperaci&oacute;n para el desarrollo</option>
+						<option value="0604">Encuesta de Usos ling&uuml;&iacute;sticos</option>
+						<option value="0605">Sector no lucrativo</option>
+						<option value="0606">Estad&iacute;sticas de g&eacute;nero</option>
+						<option value="0607">Justicia y Seguridad Ciudadana</option>
+						<option value="0608">Cultura</option>
+						<option value="0609">Deporte</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp07_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp07_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp07_Filter" name="estadisNivel2_grp07_Filter">
+						<option value="07" selected="selected">Todos los subgrupos</option>
+						<option value="0701">Encuesta de Poblaci&oacute;n Activa</option>
+						<option value="0702">Paro registrado</option>
+						<option value="0703">Afilados a la Seguridad Social</option>
+						<option value="0704">Movimiento Laboral Registrado</option>
+						<option value="0705">Relaciones Laborales</option>
+						<option value="0706">Costes Laborales</option>
+						<option value="0707">Salarios</option>
+						<option value="0708">Prestaciones por desempleo y otras</option>
+						<option value="0709">Accidentes y Enfermedades profesionales</option>
+						<option value="0710">Actividad laboral seg&uacute;n los Censos de Poblaci&oacute;n</option>
+						<option value="0711">Pricipales Indicadores del mercado laboral</option>
+						<option value="0712">Herramientas de apoyo</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp08_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp08_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp08_Filter" name="estadisNivel2_grp08_Filter">
+						<option value="08" selected="selected">Todos los subgrupos</option>
+						<option value="0801">Agricultura, ganader&iacute;a, selvicultura y pesca</option>
+						<option value="0802">Industria manufacturera y extractiva</option>
+						<option value="0803">Construcci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp09_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp09_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp09_Filter" name="estadisNivel2_grp09_Filter">
+						<option value="09" selected="selected">Todos los subgrupos</option>
+						<option value="0901">Encuestas globales del sector servicios</option>
+						<option value="0902">Comercio</option>
+						<option value="0903">Transporte y servicios postales</option>
+						<option value="0904">Turismo</option>
+						<option value="0905">Actividad Inmobiliaria y Vivienda</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp10_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp10_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp10_Filter" name="estadisNivel2_grp10_Filter">
+						<option value="10" selected="selected">Todos los subgrupos</option>
+						<option value="1001">&iacute;ndice de precios de consumo (IPC)</option>
+						<option value="1002">Precios de gasolinas y gas&oacute;leos</option>
+						<option value="1003">Precios de la vivienda</option>
+						<option value="1004">Precios del suelo urbano</option>
+						<option value="1005">Precios del suelo agrario/de la tierra</option>
+						<option value="1006">Precios de la Industria</option>
+						<option value="1007">Precios hosteleros</option>
+						<option value="1008">Precios agrarios</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp11_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp11_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp11_Filter" name="estadisNivel2_grp11_Filter">
+						<option value="11" selected="selected">Todos los subgrupos</option>
+						<option value="1101">PIB, Valor A&ntilde;adido y Renta</option>
+						<option value="1102">Comercio exterior</option>
+						<option value="1103">Empresas</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp12_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp12_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp12_Filter" name="estadisNivel2_grp12_Filter">
+						<option value="12" selected="selected">Todos los subgrupos</option>
+						<option value="1201">Entidades de dep&oacute;sito y cr&eacute;dito</option>
+						<option value="1202">Efectos de comercio devueltos impagados</option>
+						<option value="1203">Hipotecas</option>
+						<option value="1204">Sociedades mercantiles</option>
+						<option value="1205">Estados contables de las empresas Aragonesas</option>
+						<option value="1206">Suspensiones de pagos y declaraciones de quiebras</option>
+						<option value="1207">Estad&iacute;stica de procedimiento concursal</option>
+						<option value="1208">Informaci&oacute;n tributaria</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp13_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp13_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp13_Filter" name="estadisNivel2_grp13_Filter">
+						<option value="13" selected="selected">Todos los subgrupos</option>
+						<option value="1301">Investigaci&oacute;n y Desarrollo (I+D) e Innovaci&oacute;n</option>
+						<option value="1302">Tecnolog&iacute;as de la Informaci&oacute;n y Comunicaci&oacute;n</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp14_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp14_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp14_Filter" name="estadisNivel2_grp14_Filter">
+						<option value="" selected="selected">Todos los subgrupos</option>
+						<option value="14">Sectores Productivos y Medio ambiente</option>
+						<option value="1401">Agua</option>
+						<option value="1402">Calidad del aire / Contaminaci&oacute;n atmosf&eacute;rica</option>
+						<option value="1403">Cambio clim&aacute;tico / Emisiones a la atm&oacute;sfera</option>
+						<option value="1404">Clima / Datos climatol&oacute;gicos</option>
+						<option value="1405">Gasto en Medio Ambiente y Cuentas Ambientales</option>
+						<option value="1406">Hogares y Medio Ambiente</option>
+						<option value="1407">Medio ambiente urbano</option>
+						<option value="1408">Naturaleza y biodiversidad</option>
+						<option value="1409">Prevenci&oacute;n ambiental</option>
+						<option value="1410">Residuos</option>
+						<option value="1411">Riesgos naturales y tecnol&oacute;gicos</option>
+						<option value="1412">Suelos y Usos del suelo</option>
+						<option value="1413">Tributos ambientales</option>
+						<option value="1414">Utilizaci&oacute;n de recursos naturales</option>
+						<option value="1415">Medio ambiente y desarrollo sostenible</option>
+						<option value="1416">Diccionario de t&eacute;rminos medioambientales</option>
+						<option value="1417">Energ&iacute;a</option>
+					</select>
+				</div>
+
+				<div class="filtro oculto" id="estadisNivel2_grp15_FilterDiv">
+					<img src="/public/i/buscaDatos/delSubgrupo.png" alt="DEL SUBGRUPO" title="Del subgrupo">
+					<label for="estadisNivel2_grp15_Filter" class="oculto">DEL SUBGRUPO</label>
+					<select id="estadisNivel2_grp15_Filter" name="estadisNivel2_grp15_Filter">
+						<option value="15" selected="selected">Todos los subgrupos</option>
+						<option value="1501">Empleo P&uacute;blico</option>
+						<option value="1502">Presupuestos de la Administraci&oacute;n P&uacute;blica</option>
+						<option value="1503">Actividades del Sector P&uacute;blico</option>
+						<option value="1504">Elecciones</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="filtros oculto" id="zonaHOMER">
+				<div class="filtro">
+<ul>
+<li class="i_i">
+					<div id="labelBuscarHomer_es"><img src="/public/i/buscaDatos/buscaHomer_es.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_en" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_en.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_fr" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_fr.png" alt="BUSCAR" title="Buscar"></div>
+					<div id="labelBuscarHomer_it" class="oculto"><img src="/public/i/buscaDatos/buscaHomer_it.png" alt="BUSCAR" title="Buscar"></div>
+					
+					<div id="labelBuscarHomer_el" class="textoGrande azul oculto">&Alpha;&nu;&alpha;&zeta;&#942;&tau;&eta;&sigma;&eta;</div>
+					<div id="labelBuscarHomer_sl" class="textoGrande azul oculto"><!--img src="/public/i/buscaDatos/buscaHomer_sl.png" alt="BUSCAR" title="Buscar"-->Iskanje</div>
+					<div id="labelBuscarHomer_sr" class="textoGrande azul oculto">&#1087;&#1088;&#1077;&#1090;&#1088;&#1072;&#1075;&#1072;</div>
+					
+</li>
+<li class="i_i">
+					<input type="text" id="txtHOMER" name="txtHOMER" value="" autocomplete="off">
+</li>
+<li class="i_i">
+					<div id="labelIdiomaHomer_es"><img src="/public/i/buscaDatos/langHomer_es.png" alt="EN" title="en"></div>
+					<div id="labelIdiomaHomer_en" class="oculto"><img src="/public/i/buscaDatos/langHomer_en.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_fr" class="oculto"><img src="/public/i/buscaDatos/langHomer_fr.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_it" class="oculto"><img src="/public/i/buscaDatos/langHomer_it.png" alt="IN" title="in"></div>
+					<div id="labelIdiomaHomer_el" class="textoGrande azul oculto">&sigma;&epsilon;</div>
+					<div id="labelIdiomaHomer_sl" class="textoGrande azul oculto"><!--img src="/public/i/buscaDatos/langHomer_sl.png" alt="v" title="v"-->V</div>
+					<div id="labelIdiomaHomer_sr" class="textoGrande azul oculto">&#1085;&#1072;</div>
+</li>
+<li class="i_i">
+					<select id="langHOMERFilter" name="langHOMERFilter">
+						<option value="es" selected="selected">Español</option>
+						<option value="en">English</option>
+						<option value="fr">Français</option>
+						<option value="it">Italiano</option>
+						<option value="el">ελληνικά</option>
+						<option value="sl">Slovenščina</option>
+						<option value="sr">Српски</option>
+					</select>
+</li>
+</ul>
+				</div>
+
+				<a href="javascript:submitHomer();" title="BUSCAR EN HOMER">
+					<img class="i_i" src="/public/i/lupa.jpg" alt="BUSCAR EN HOMER" title="BUSCAR EN HOMER">      
+				</a>
+			</div>
+		</li>
+		<li class="d_d width220">
+			<select id="tipoBusquedaFilter" name="tipoBusquedaFilter">
+				<option value="zonaTemaYTipo" selected="selected">Tema y tipo</option>
+				<option value="zonaInfoEstadistica">Informaci&oacute;n estad&iacute;stica</option>
+				<option value="zonaLibre">B&uacute;squeda libre</option>
+				<option value="zonaHOMER" data_img_src="/public/i/buscaDatos/logoHomerHorizontal.jpg">HOMER</option>
+				<option value="zonaSPARQL">SPARQL</option>
+				<option value="zonaAPI">API</option>
+			</select>
+		</li>
+	</ul>
+
+	<script type="text/javascript">
+		currentUrl = "/catalogo/catalogo.html";
+	</script>    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+  
+  
+
+</form>
+
+<div class="clear"></div>
+
+
+  
+
+<!-- Snippet snippets/search_form.html end -->
+
+      
+
+      
+
+      
+        
+           
+                     
+                     
+           
+                     
+                     
+           
+      
+
+      
+       <table class="tablaResultadosDataset">
+         <tr>
+          <th class="cabeceraTablaResultadosDataset">
+           <div class="labelCabeceraTablaResultadosDataset">
+<!-- Snippet snippets/search_result_text.html start -->
+
+
+  
+  
+  
+  
+
+1.892 conjuntos de datos encontrados
+<!-- Snippet snippets/search_result_text.html end -->
+</div>
+	   
+<!-- Snippet snippets/orderButtons.html start -->
+
+
+<ul class="d_d">
+         <li><a href="javascript:changeOrder('sort=title_string+asc')"  title="Orden ascendente">
+		
+			<img src="/public/i/buscaDatos/flechaAzulUp.png" alt="Orden ascendente">
+		
+	</a></li>
+         <li><a href="javascript:changeOrder('sort=title_string+desc')"  title="Orden descendente">
+		
+			<img src="/public/i/buscaDatos/flechaAzulDown.png" alt="Orden descendente">
+		
+	 </a></li>
+</ul>
+<!-- Snippet snippets/orderButtons.html end -->
+
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+            <div class="labelCabeceraTablaResultadosDataset">N&ordm; ACCESOS</div>
+	    
+<!-- Snippet snippets/orderButtons.html start -->
+
+
+<ul class="d_d">
+         <li><a href="javascript:changeOrder('sort=views_total+asc')"  title="Orden ascendente">
+		
+			<img src="/public/i/buscaDatos/flechaAzulUp.png" alt="Orden ascendente">
+		
+	</a></li>
+         <li><a href="javascript:changeOrder('sort=views_total+desc')"  title="Orden descendente">
+		
+			<img src="/public/i/buscaDatos/flechaAzulDown.png" alt="Orden descendente">
+		
+	 </a></li>
+</ul>
+<!-- Snippet snippets/orderButtons.html end -->
+
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+           <div class="labelCabeceraTablaResultadosDataset">FECHA (ACT)</div>
+           
+<!-- Snippet snippets/orderButtons.html start -->
+
+
+<ul class="d_d">
+         <li><a href="javascript:changeOrder('sort=metadata_modified+asc')"  title="Orden ascendente">
+		
+			<img src="/public/i/buscaDatos/flechaAzulUp.png" alt="Orden ascendente">
+		
+	</a></li>
+         <li><a href="javascript:changeOrder('sort=metadata_modified+desc')"  title="Orden descendente">
+		
+			<img src="/public/i/buscaDatos/flechaBlancaDown.png" alt="Orden descendente">
+		
+	 </a></li>
+</ul>
+<!-- Snippet snippets/orderButtons.html end -->
+
+          </th>
+        </tr>
+      
+        
+          
+<!-- Snippet snippets/package_list.html start -->
+
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-visibilidad-del-paisaje-de-matarranya---matarranya-1-25000-c33_e25_d6_1_c33_e25_d6_1">Mapa de Visibilidad del paisaje de Matarraña - Matarranya 1:25.000 C33_E25_D6_1</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	10
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-visibilidad-del-paisaje-de-matarranya---matarranya-1-25000-c33_e25_d6_2_c33_e25_d6_2">Mapa de Visibilidad del paisaje de Matarraña - Matarranya 1:25.000 C33_E25_D6_2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	9
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-tipos-de-paisaje-matarranya---matarranya-c33_d2_c33_d2">Geodato de Tipos de Paisaje Matarraña - Matarranya C33_D2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	5
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-visibilidad-del-paisaje-de-matarranya---matarranya-1-50000-c33_e50_d6_2_c33_e50_d6_2">Mapa de Visibilidad del paisaje de Matarraña - Matarranya 1:50.000 C33_E50_D6_2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	11
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-visibilidad-del-paisaje-de-matarranya---matarranya-1-50000-c33_e50_d6_1_c33_e50_d6_1">Mapa de Visibilidad del paisaje de Matarraña - Matarranya 1:50.000 C33_E50_D6_1</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	12
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-impactos-negativos-sobre-el-paisaje-de-matarranya---matarranya-c33_d4_c33_d4">Geodato de Impactos negativos sobre el paisaje de Matarraña - Matarranya C33_D4</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	5
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-tipos-de-paisaje-matarranya---matarranya-1-50000-c33_e50_d2_c33_e50_d2">Mapa de Tipos de Paisaje Matarraña - Matarranya 1:50.000 C33_E50_D2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	4
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-tipos-de-paisaje-matarranya---matarranya-1-25000-c33_e25_d2_c33_e25_d2">Mapa de Tipos de Paisaje Matarraña - Matarranya 1:25.000 C33_E25_D2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	6
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/memoria-tecnica-de-engarce-con-mapas-de-zonas-limitros-de-la-comarca-de-matarranya---matarranya-c33_">Memoria Técnica de engarce con mapas de zonas limítros de la Comarca de Matar...</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	16
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-unidades-de-paisaje-matarranya---matarranya-1-50000-c33_e50_d1_c33_e50_d1">Mapa de Unidades de Paisaje Matarraña - Matarranya 1:50.000 C33_E50_D1</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	7
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-catalogo-de-elementos-singulares-de-paisaje-matarranya---matarranya-c33_d5_c33_d5">Geodato de Catálogo de elementos singulares de Paisaje Matarraña - Matarranya...</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	9
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-recorridos-de-interes-paisajistico-matarranya---matarranya-c33_d14_c33_d14">Geodato de Recorridos de interés paisajístico Matarraña - Matarranya C33_D14</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	5
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-unidades-de-paisaje-matarranya---matarranya-c33_d6_c33_d6">Mapa de Unidades de Paisaje Matarraña - Matarranya C33_D6</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	5
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-unidades-de-paisaje-matarranya---matarranya-1-25000-c33_e25_d1_c33_e25_d1">Mapa de Unidades de Paisaje Matarraña - Matarranya 1:25.000 C33_E25_D1</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	7
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-impactos-negativos-sobre-el-paisaje-de-matarranya---matarranya-1-50000-c33_e50_d4_c33_e50_d4">Mapa de Impactos negativos sobre el paisaje de Matarraña - Matarranya 1:50.00...</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	7
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-impactos-negativos-sobre-el-paisaje-de-matarranya---matarranya-1-25000-c33_e25_d4_c33_e25_d4">Mapa de Impactos negativos sobre el paisaje de Matarraña - Matarranya 1:25.00...</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	6
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/anejo-fotografico-matarranya---matarranya-c33_album_c33_album">Anejo Fotográfico Matarraña - Matarranya C33_Album</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	11
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-unidades-de-paisaje-matarranya---matarranya-c33_d1_c33_d1">Geodato de Unidades de Paisaje Matarraña - Matarranya C33_D1</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	6
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/geodato-de-impactos-negativos-sobre-el-paisaje-de-gudar--javalambre-c30_d4_c30_d4">Geodato de Impactos negativos sobre el paisaje de Gúdar - Javalambre C30_D4</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	8
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+      
+<!-- Snippet snippets/package_item.html start -->
+
+
+
+
+
+
+<tr class="dataset-item"  onmouseover="javascript:this.className='over';" onmouseout="javascript:this.className='';">
+  
+    <!--div class="dataset-content"-->
+    <td class="izquierda">
+      <h3 class="dataset-heading">
+        
+        <a href="/catalogo/mapa-de-visibilidad-del-paisaje-de-gudar--javalambre-1-25000-c32_e25_d6_2_c32_e25_d6_2">Mapa de Visibilidad del paisaje de Gúdar - Javalambre 1:25.000 C32_E25_D6_2</a>
+        
+        
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+      </h3>
+      </td>
+      <td>
+	6
+      </td>
+     <td>
+      
+        
+        16.07.2014
+      
+    </td>
+  
+</tr>
+<!-- Snippet snippets/package_item.html end -->
+
+    
+
+<!-- Snippet snippets/package_list.html end -->
+
+        
+       </table>
+<br/>
+    		<div><img src="/public/i/popular.png" alt="Popular" title="Popular"> Se ha accedido al conjunto de datos  m&aacute;s de 10 veces en los últimos 14 &iacute;as</div>
+      
+    </div>
+
+    
+	<div class='pagination pagination-centered'><ul> <li class="active"><a href="/catalogo/?page=1">1</a></li> <li><a href="/catalogo/?page=2">2</a></li> <li><a href="/catalogo/?page=3">3</a></li> <li class="disabled"><a href="#">...</a></li> <li><a href="/catalogo/?page=95">95</a></li> <li><a href="/catalogo/?page=2">»</a></li></ul></div>
+    
+  </section>
+<div class="huecoInicioPagina"></div>
+  <section>
+        
+          
+<!-- Snippet package/snippets/datos_destacados.html start -->
+	<div class="huecoSeccionHome"></div>
+	<div id="datosDestacadosTitulo">
+		<a href="#cabeceraRelacionados" title="Ir al principio"><img src="/public/i/flechaUp.png" alt="Ir al principio" class="d_d flechaUp"/></a>
+		<img src="/public/i/tituloDatosDestacados.png" alt="Datos destacados" class="i_i"/>
+	</div>
+	<div class="huecoSeccionHome"></div>
+	<div id="datosDestacadosTexto"><img src="/public/i/textoDatosDestacados.png" alt="Texto Datos destacados" class="i_i"/></div>
+	<ul id="ventanasDatosDestacados">
+	<li>
+	<div class="i_i hueco60y30">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloNuevosDatos.png" alt="Nuevos datos" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados" id="zonaVentanaDatosRecientes1">
+			<div><a title="Registro de Convenios de Aragón desde 1984 hasta la actualidad" href="/catalogo/registro-de-convenios-de-aragon-1984-2084">Registro de Convenios de Aragón desde 1984 hasta la actualidad</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2013" href="/catalogo/registro-de-convenios-de-aragon-2013">Registro de Convenios de Aragón 2013</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2012" href="/catalogo/registro-de-convenios-de-aragon-2012">Registro de Convenios de Aragón 2012</a></div>
+		</div>
+	</div>
+	</li>
+	<li>
+	<div class="i_i hueco60y30">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloDatosMasDescargados.png" alt="Datos más descargados" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados" id="zonaVentanaDatosDescargados1">
+			<div><a title="Registro de Convenios de Aragón desde 1984 hasta la actualidad" href="/catalogo/registro-de-convenios-de-aragon-1984-2084">Registro de Convenios de Aragón desde 1984 hasta la actualidad</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2013" href="/catalogo/registro-de-convenios-de-aragon-2013">Registro de Convenios de Aragón 2013</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2012" href="/catalogo/registro-de-convenios-de-aragon-2012">Registro de Convenios de Aragón 2012</a></div>
+		</div>
+	</div>
+	</li>
+	<li class="last">
+	<div class="i_i hueco60">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloEstadisticas.png" alt="Estadísticas" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados">
+			<div class="azul negrita">
+				NÚMERO DE DATASETS
+			</div>
+			<div class="azul" id="timestampNumDatasets">
+<?php 
+date_default_timezone_set('Europe/Madrid');
+echo date("j.m.Y | G:i:s"); ?>
+			</div>
+			<div id="numDatasets">
+				Cargando...
+			</div>
+			<div class="separadorVentana"></div>
+			<div class="azul negrita">
+				NÚMERO DE RECURSOS
+			</div>
+			<div class="azul" id="timestampNumResources">
+<?php 
+date_default_timezone_set('Europe/Madrid');
+echo date("j.m.Y | G:i:s"); ?>
+			</div>
+			<div id="numRecursos">
+				Cargando...
+			</div>
+		</div>
+	</div>
+	</li>
+	</ul>
+<div class="huecoSeccionHome"></div>
+
+<!-- Snippet package/snippets/datos_destacados.html end -->
+
+        
+  </section>
+
+
+              </div>
+            
+
+            
+            
+            
+          </div>
+        
+	</div>
+      </div>
+  
+    <footer>
+<div id="pie">
+<ul id="pieUL"><li id="pieULLI">
+<div class="pieInterior">
+	<div class="pieZonaUno">
+		<a title="Home Arag&oacute;n Open Data" href="/"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data" id="pieZonaUnoRoot"/> </a>
+<img alt="Flecha" src="/public/i/footer/flechaFooter.png"> 
+<a class="footerLink pieEnlace" title="Home Arag&oacute;n Open Data" href="/"> HOME</a>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaDos">
+		<ul>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoAvisoLegal.png" alt="Aviso legal"/></td></tr>
+			<tr><td><a href="/terminos" title="T&eacute;rminos de uso"><img src="/public/i/footer/cajaTerminosUso.jpg" alt="T&eacute;rminos de uso"/></a></td></tr>
+			<tr><td><img src="/public/i/footer/cajaCCconTexto.jpg" alt="Licencia Creative Commons" height="96" width="215"/></td></tr>
+			<tr><td><img src="/public/i/footer/banderaUEconTexto.png" alt="Uni&oacute;n Europea - Fondo Europeo de Desarrollo Regional" class="recuadroPie" /></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9" src="/public/i/footer/textoPoweredBy.png" alt="Powered by"/></td></tr>
+			<tr><td><a href="http://ckan.org/" title="CKAN"><img src="/public/i/footer/cajaLogoCKAN.jpg" alt="CKAN"/></a></td></tr>
+			<tr><td><a href="http://www.wolfcms.org/" title="Wolf CMS"><img src="/public/i/footer/cajaLogoWolfCMS.jpg" alt="Wolf CMS"/></a></td></tr>
+			<tr><td><a href="http://www.mediawiki.org/" title="MediaWiki"><img src="/public/i/footer/cajaLogoMediaWiki.jpg" alt="MediaWiki"/></a></td></tr>
+			<tr><td><a href="http://virtuoso.openlinksw.com/" title="Virtuoso"><img src="/public/i/footer/cajaLogoVirtuoso.jpg" alt="Virtuoso"/></a></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+<li class="clear visible-ms tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data"/></td></tr>
+			<tr><td>
+<div class="pieZonaEnlaces">
+<ul class="styleDiscUL">
+<li><a href="/catalogo" title="Datos" class="pieEnlace">DATOS</a></li>
+<li><a href="/aragopedia" title="AragoPedia" class="pieEnlace">ARAGOPEDIA</a></li>
+<li><a href="/portal/social-data" title="Social Data" class="pieEnlace">SOCIAL DATA</a></li>
+<li><a href="/portal/colabora" title="Colabora" class="pieEnlace">COLABORA</a></li>
+<li><a href="/portal/aplicaciones" title="Aplicaciones" class="pieEnlace">APLICACIONES</a></li>
+<li><a href="/portal/open-data" title="Informaci&oacute;n Open Data" class="pieEnlace">INFO OPEN DATA</a></li>
+</ul>
+</div>
+</td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table class="last">
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoRedesSociales.png" alt="Redes Sociales"/></td></tr>
+			<tr><td><a href="http://www.facebook.com/observatorio.aragones" title="Facebook"><img src="/public/i/footer/cajaLogoFacebook.jpg" alt="Facebook"/></a></td></tr>
+			<tr><td><a href="http://www.twitter.com/oasi" title="Twitter"><img src="/public/i/footer/cajaLogoTwitter.jpg" alt="Twitter"/></a></td></tr>
+			<tr><td><a href="http://www.youtube.com/watch?v=8d409yteTJM&list=PLQ3k0vA0UZvhBVOz_mCq-9Wyn3VCB6QCe" title="YouTube"><img src="/public/i/footer/cajaLogoYouTube.jpg" alt="YouTube"/></a></td></tr>
+			<tr><td><a href="mailto:opendata@aragon.es" title="Contacto AOD"><img src="/public/i/footer/cajaCorreoAOD.jpg" alt="Contacto AOD"/></a></td></tr>
+		</table>
+		</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaTres">
+		<ul>
+			<li class="izquierda textoPie">
+				<p>GOBIERNO DE ARAG&Oacute;N</p>
+				<p>EDIFICIO PIGNATELLI</p>
+				<address>PASEO MAR&iacute;A AGUST&iacute;N, 36 50071 ZARAGOZA TEL. 976 714 000</address>
+			</li>
+			<li class="derecha">
+				<a target="_blank" href="http://www.aragon.es" title="Gobierno de Arag&oacute;n"><img width="132" height="28" alt="Gobierno de Arag&oacute;n" src="/public/i/footer/logo_aragob_pie.png"></a>
+			</li>
+		</ul>
+	</div>
+<div class="clear"></div>
+</div>
+</li></ul>
+</div>
+</footer>
+  
+    
+    
+    
+        
+    
+  
+    
+
+      
+  <script>document.getElementsByTagName('html')[0].className += ' js';</script>
+<script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2014-01-27T18:46:47.36/jquery.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2014-01-27T18:46:47.36/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;select2/select2.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/base/:version:2014-06-26T08:48:12.05/:bundle:plugins/jquery.inherit.min.js;plugins/jquery.proxy-all.min.js;plugins/jquery.url-helpers.min.js;plugins/jquery.date-helpers.min.js;plugins/jquery.slug.min.js;plugins/jquery.slug-preview.min.js;plugins/jquery.truncator.min.js;plugins/jquery.masonry.min.js;plugins/jquery.form-warning.min.js;sandbox.min.js;module.min.js;pubsub.min.js;client.min.js;notify.min.js;i18n.min.js;main.min.js;modules/select-switch.min.js;modules/slug-preview.min.js;modules/basic-form.min.js;modules/confirm-action.min.js;modules/api-info.min.js;modules/autocomplete.min.js;modules/custom-fields.min.js;modules/related-item.min.js;modules/data-viewer.min.js;modules/table-selectable-rows.min.js;modules/resource-form.min.js;modules/resource-upload-field.min.js;modules/follow.min.js;modules/activity-stream.min.js;modules/dashboard.min.js;modules/table-toggle-more.min.js;modules/dataset-visibility.min.js;modules/media-grid.min.js;modules/jquery-ui_1_10_3.js;modules/chosen.jquery.js;modules/chosenImage.jquery.js;modules/aod_funcs.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/base/:version:2014-06-26T08:48:12.05/tracking.min.js"></script></body>
+</html>

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:time="http://www.w3.org/2006/time#"
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:tema="http://datos.gob.es/kos/sector-publico/sector/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <dcat:Catalog rdf:about="http://opendata.aragon.es/catalogo/federador.rdf">
+	<dct:identifier>http://opendata.aragon.es/catalogo</dct:identifier>
+	<dct:title xml:lang="es">Catálogo de datos abiertos de Aragón Open Data</dct:title>
+	<dct:description xml:lang="es">El catálogo de Aragón Open Data recoge el conjunto de datos recopilados por la iniciativa de apertura de datos del Gobierno de Aragón. Aragón Open Data es el repositorio estructurado de datos abiertos y en formatos reutilizables de Aragón. Los datos se sirven para que puedan ser manipulados y enriquecidos por ciudanos en general y desarrolladores en particular. El catálogo de datos de Aragón Open Data se forma sobre el vocabulario DCAT, vocabulario reconocido por las principales organizaciones independientes que velan por la neutralidad e interoperabilidad tecnológica de internet en el largo plazo. </dct:description>
+	<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/A02002834" />
+
+	<dct:extent>
+	  <dct:SizeOrDuration>
+		<rdf:value
+		  rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">${len(c.pkg)}</rdf:value>
+	  </dct:SizeOrDuration>
+	</dct:extent>
+
+	<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-06T00:00:00</dct:issued>
+<py:if test="len(c.pkg) > 0">
+	<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${ c.fecha }</dct:modified>
+</py:if>
+	<dc:language>es</dc:language>
+	<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon" />
+	<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/" />
+	<foaf:homepage rdf:resource="http://opendata.aragon.es/catalogo" />
+	<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
+    <py:for each="item in c.pkg">
+  <py:if test="item.get('type') == 'dataset'">
+	<dcat:dataset>
+	  <dcat:Dataset rdf:about="http://opendata.aragon.es/catalogo/${item.get('name')}">
+		<dct:identifier>http://opendata.aragon.es/catalogo/${item.get('name')}</dct:identifier>
+		<dct:title xml:lang="es">${item.get('title')}</dct:title>
+		<dct:description xml:lang="es">${item.get('notes')}</dct:description>
+	  <py:for each="group in item.get('groups')">
+     <py:choose>
+      <py:when test="group.get('name').lower() == 'urbanismo-e-infraestructuras'">
+		   <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/urbanismo-infraestructuras" />
+      </py:when>
+      <py:otherwise>
+		   <dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/${group.get('name')}" />
+      </py:otherwise>
+     </py:choose>
+    </py:for>
+	   <py:for each="tag_dict in item.get('tags')">
+		<dcat:keyword>${ tag_dict["name"] }</dcat:keyword>
+	   </py:for>
+
+	    <py:for each="extra_dict in item.get('extras',None)">
+		<dct:issued py:if="extra_dict.get('key', '') == 'issuedDate'" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${extra_dict.get('value','')}T00:00:00</dct:issued>
+		<dct:modified py:if="extra_dict.get('key', '') == 'modifiedDate'" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${extra_dict.get('value','')}T00:00:00</dct:modified>
+
+		<py:if test="extra_dict.get('key', '') == 'Frequency'">
+    <py:choose>
+      <py:when test="extra_dict.get('value').lower() == 'anual'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:years>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+      <py:when test="extra_dict.get('value').lower() == 'mensual'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:months>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+      <py:when test="extra_dict.get('value').lower() == 'diaria'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:days>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+      <py:when test="extra_dict.get('value').lower() == 'diario'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:days>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+      <py:when test="extra_dict.get('value').lower() == 'trimestral'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</time:months>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+      <py:when test="extra_dict.get('value').lower() == 'bienal'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</time:years>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+<py:when test="extra_dict.get('value') == 'Instantánea'">
+		<dct:accrualPeriodicity>
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>
+         <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</time:minutes>
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+      </py:when>
+     </py:choose>
+		</py:if>
+		<dct:language py:if="extra_dict.get('key', '') == 'Language'">${extra_dict.get('value','')}</dct:language>
+	   </py:for>
+		<dc:language>es</dc:language>
+		<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/A02002834" />
+		<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
+		<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Aragon" />
+
+	   <py:for each="rsc_dict in item.get('resources')">
+	  <py:if test="'/recurso/territorio/' in rsc_dict['url']">
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get('HTML_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/html/' + rsc_dict['HTML_position']}</dct:identifier>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/html'}</dct:identifier>
+			</py:otherwise>
+			</py:choose>
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">Datos disponibles en AragoDBPedia de ${rsc_dict.get('name')} en formato HTML</dct:title>
+			</py:if>
+			<dcat:accessURL  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode((rsc_dict['url'].split("?"))[0]+  '.html?api_key=e103dc13eb276ad734e680f5855f20c6&amp;_view=completa').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+			<dct:format><dct:IMT rdf:value="text/html" rdfs:label="HTML" /></dct:format><dcat:mediaType>text/html</dcat:mediaType>
+			</dcat:Distribution>
+		</dcat:distribution>
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get('XML_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/xml/' + rsc_dict['XML_position']}</dct:identifier>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/xml'}</dct:identifier>
+			</py:otherwise>
+			</py:choose>
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">Datos disponibles en AragoDBPedia de ${rsc_dict.get('name')} en formato XML</dct:title>
+			</py:if>
+			<dcat:accessURL  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode((rsc_dict['url'].split("?"))[0]+  '.xml?api_key=e103dc13eb276ad734e680f5855f20c6&amp;_view=completa').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+			<dct:format><dct:IMT rdf:value="application/xml" rdfs:label="XML" /></dct:format><dcat:mediaType>application/xml</dcat:mediaType>
+			</dcat:Distribution>
+		</dcat:distribution>
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get('CSV_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/csv/' + rsc_dict['CSV_position']}</dct:identifier>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/csv'}</dct:identifier>
+			</py:otherwise>
+			</py:choose>
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">Datos disponibles en AragoDBPedia de ${rsc_dict.get('name')} en formato CSV</dct:title>
+			</py:if>
+			<dcat:accessURL  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode((rsc_dict['url'].split("?"))[0]+  '.csv?api_key=e103dc13eb276ad734e680f5855f20c6&amp;_view=completa').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+			<dct:format><dct:IMT rdf:value="text/csv" rdfs:label="CSV" /></dct:format><dcat:mediaType>text/csv</dcat:mediaType>
+			</dcat:Distribution>
+		</dcat:distribution>
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get('JSON_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/json/' + rsc_dict['JSON_position']}</dct:identifier>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/json'}</dct:identifier>
+			</py:otherwise>
+			</py:choose>
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">Datos disponibles en AragoDBPedia de ${rsc_dict.get('name')} en formato JSON</dct:title>
+			</py:if>
+			<dcat:accessURL  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode((rsc_dict['url'].split("?"))[0]+  '.json?api_key=e103dc13eb276ad734e680f5855f20c6&amp;_view=completa').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+			<dct:format><dct:IMT rdf:value="application/json" rdfs:label="JSON" /></dct:format><dcat:mediaType>application/json</dcat:mediaType>
+			</dcat:Distribution>
+		</dcat:distribution>
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get('TTL_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/ttl/' + rsc_dict['TTL_position']}</dct:identifier>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/ttl'}</dct:identifier>
+			</py:otherwise>
+			</py:choose>
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">Datos disponibles en AragoDBPedia de ${rsc_dict.get('name')} en formato TTL</dct:title>
+			</py:if>
+			<dcat:accessURL  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${c.urlenco(unicode((rsc_dict['url'].split("?"))[0]+  '.ttl?api_key=e103dc13eb276ad734e680f5855f20c6&amp;_view=completa').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+			<dct:format><dct:IMT rdf:value="text/turtle" rdfs:label="RDF-Turtle" /></dct:format><dcat:mediaType>text/turtle</dcat:mediaType>
+			</dcat:Distribution>
+		</dcat:distribution>
+	   </py:if>
+	   <py:if test="not('/recurso/territorio/' in rsc_dict['url'])">
+		<dcat:distribution>
+		  <dcat:Distribution>
+			<py:choose>
+			<py:when test="rsc_dict.get(rsc_dict.get('format').upper() + '_position')">
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/' + rsc_dict.get('format').lower() + '/' + rsc_dict[rsc_dict.get('format').upper() + '_position']}</dct:identifier>
+			   <dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/' + rsc_dict.get('format').lower() + '/' + rsc_dict[rsc_dict.get('format').upper() + '_position']}</dcat:accessURL>
+			</py:when>
+			<py:otherwise>
+			   <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/' + rsc_dict.get('format').lower()}</dct:identifier>
+			   <dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/' + rsc_dict.get('format').lower()}</dcat:accessURL>
+			</py:otherwise>
+			</py:choose>
+
+			<py:if test="rsc_dict.get('name')">
+			   <dct:title xml:lang="es">${rsc_dict.get('name')}</dct:title>
+			</py:if>
+
+			<py:if test="rsc_dict.get('format')">
+      <py:choose>
+
+        <py:when test="rsc_dict.get('format').lower() == 'csv'">
+				<dct:format><dct:IMT rdf:value="text/csv" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/csv</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'dgn'">
+				<dct:format><dct:IMT rdf:value="image/vnd.dgn" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>image/vnd.dgn</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'dwg'">
+				<dct:format><dct:IMT rdf:value="image/vnd.dwg" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>image/vnd.dwg</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'dxf'">
+				<dct:format><dct:IMT rdf:value="application/dxf" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/dxf</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'elp'">
+				<dct:format><dct:IMT rdf:value="application/elp" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/elp</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'html'">
+				<dct:format><dct:IMT rdf:value="text/html" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/html</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'ics'">
+				<dct:format><dct:IMT rdf:value="text/calendar" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/calendar</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'jpg'">
+				<dct:format><dct:IMT rdf:value="image/jpeg" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>image/jpeg</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'gml'">
+				<dct:format><dct:IMT rdf:value="application/gml+xml" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/gml+xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'geojson'">
+				<dct:format><dct:IMT rdf:value="application/json" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/json</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'json'">
+				<dct:format><dct:IMT rdf:value="application/json" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/json</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'kml'">
+				<dct:format><dct:IMT rdf:value="application/vnd.google-earth.kml+xml" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.google-earth.kml+xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'kmz'">
+				<dct:format><dct:IMT rdf:value="application/vnd.google-earth.kmz" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.google-earth.kmz</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'png'">
+				<dct:format><dct:IMT rdf:value="image/png" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>image/png</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'px'">
+				<dct:format><dct:IMT rdf:value="text/pc-axis" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/pc-axis</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'rss'">
+				<dct:format><dct:IMT rdf:value="application/rss+xml" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/rss+xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'scorm'">
+				<dct:format><dct:IMT rdf:value="application/scorm" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/scorm</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'shp'">
+				<dct:format><dct:IMT rdf:value="application/x-zipped-shp" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/x-zipped-shp</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'sig'">
+				<dct:format><dct:IMT rdf:value="application/pgp-signature" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/pgp-signature</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'url'">
+				<dct:format><dct:IMT rdf:value="text/html" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/html</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'txt'">
+				<dct:format><dct:IMT rdf:value="text/plain" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>text/plain</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'xls'">
+				<dct:format><dct:IMT rdf:value="application/vnd.ms-excel" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.ms-excel</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'xlsx'">
+				<dct:format><dct:IMT rdf:value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'xslx'">
+				<dct:format><dct:IMT rdf:value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'xml'">
+				<dct:format><dct:IMT rdf:value="application/xml" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/xml</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'zip'">
+				<dct:format><dct:IMT rdf:value="application/zip" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/zip</dcat:mediaType>
+        </py:when>
+        <py:when test="rsc_dict.get('format').lower() == 'ods'">
+				<dct:format><dct:IMT rdf:value="application/vnd.oasis.opendocument.spreadsheet" rdfs:label="${rsc_dict.get('format')}" /></dct:format><dcat:mediaType>application/vnd.oasis.opendocument.spreadsheet</dcat:mediaType>
+        </py:when>
+        <py:otherwise>
+				<dct:format><dct:IMT rdfs:label="${rsc_dict.get('format')}" /></dct:format>
+        </py:otherwise>
+       </py:choose>
+			</py:if>
+		  </dcat:Distribution>
+		</dcat:distribution>
+
+
+		<py:if test="rsc_dict.get('mimetype') == ''">
+			<py:if test="rsc_dict.get('format').lower() == 'xls'">
+				<dcat:distribution>dsdfdsfsaf
+				  <dcat:Distribution>
+				<py:choose>
+				<py:when test="rsc_dict.get('XML_position')">
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/xml/' + rsc_dict['XML_position']}</dct:identifier>
+				</py:when>
+				<py:otherwise>
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/xml'}</dct:identifier>
+				</py:otherwise>
+				</py:choose>
+				<py:if test="rsc_dict.get('name')">
+					 <dct:title xml:lang="es">${rsc_dict.get('name')} en formato XML</dct:title>
+				</py:if>
+				<dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode('http://opendata.aragon.es/catalogo/render/resource/' + rsc_dict['name'] + '.xml').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+				<dct:format><dct:IMT rdf:value="application/xml" rdfs:label="XML" /></dct:format><dcat:mediaType>application/xml</dcat:mediaType>
+				  </dcat:Distribution>
+				</dcat:distribution>
+				<dcat:distribution>
+				 <dcat:Distribution>
+				<py:choose>
+				<py:when test="rsc_dict.get('CSV_position')">
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/csv/' + rsc_dict['CSV_position']}</dct:identifier>
+				</py:when>
+				<py:otherwise>
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/csv'}</dct:identifier>
+				</py:otherwise>
+				</py:choose>
+				<py:if test="rsc_dict.get('name')">
+					 <dct:title xml:lang="es">${rsc_dict.get('name')} en formato CSV</dct:title>
+				</py:if>
+				<dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode('http://opendata.aragon.es/catalogo/render/resource/' + rsc_dict['name'] + '.csv').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+				<dct:format><dct:IMT rdf:value="text/csv" rdfs:label="CSV" /></dct:format><dcat:mediaType>text/csv</dcat:mediaType>
+				  </dcat:Distribution>
+				</dcat:distribution>
+				<dcat:distribution>
+				  <dcat:Distribution>
+				<py:choose>
+				<py:when test="rsc_dict.get('JSON_position')">
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/json/' + rsc_dict['JSON_position']}</dct:identifier>
+				</py:when>
+				<py:otherwise>
+					 <dct:identifier>${'http://opendata.aragon.es/catalogo/data/'+ item.get('name') + '/json'}</dct:identifier>
+				</py:otherwise>
+				</py:choose>
+				<py:if test="rsc_dict.get('name')">
+					 <dct:title xml:lang="es">${rsc_dict.get('name')} en formato JSON</dct:title>
+				</py:if>
+				<dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ c.urlenco(unicode('http://opendata.aragon.es/catalogo/render/resource/' + rsc_dict['name'] + '.json').encode('utf8'), ':?=/&amp;%') }</dcat:accessURL>
+				<dct:format><dct:IMT rdf:value="application/json" rdfs:label="JSON" /></dct:format><dcat:mediaType>application/json</dcat:mediaType>
+				</dcat:Distribution>
+				</dcat:distribution>
+			</py:if>
+		</py:if>
+	    </py:if>
+	   </py:for>
+	  </dcat:Dataset>
+	</dcat:dataset>
+    </py:if>
+    </py:for>
+  </dcat:Catalog>
+</rdf:RDF>

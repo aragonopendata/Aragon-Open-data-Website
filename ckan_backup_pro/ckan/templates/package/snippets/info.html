@@ -1,0 +1,67 @@
+{#
+Displays a sidebard module with information for given package
+
+pkg    - The package dict that owns the resources.
+active - The active resource.
+action - The action that this is coming from.
+
+Example:
+
+  {% snippet "package/snippets/info.html", pkg=pkg %}
+
+#}
+
+{% import 'macros/form.html' as form %}
+
+
+{% set data = data or {} %}
+{% set errors = errors or {} %}
+{% set action = form_action or h.url_for(controller='package', action='new_resource', id=pkg.id) %}
+{% set pkg_id = pkg.id or '' %}
+
+<section class="module module-narrow">
+  {% set resources = pkg.resources or [] %}
+
+  <script>
+    var resourceCount = {{resources|length}}
+    var changedResource = new Array();
+    for (var i = 0; i < resourceCount+10; i++) {
+       changedResource[i] = false;
+    }
+    var currentViewResource = new Array();
+    var currentUser = '{{h.user_logged()}}';
+  </script>
+
+  {% set formatLabelList = h.getFormatList() %}
+
+  {% set formatValueList = h.getMimetypeToFormatList() %}
+
+  {% for resource in resources %}
+    <div id="existing_resource{{ loop.index0 }}">
+      {% set actionExisting = h.url_for(controller='package', action='resource_edit', id=pkg.name, resource_id=resource.id) %}
+      {{ form.resourceItem(pkg_id=pkg.id, action=actionExisting, name=resource.name, format=resource.format, mimetype=resource.mimetype, mimetype_inner=resource.mimetype_inner, resource_type=resource.resource_type, url=resource.url, resource_id=resource.id, idx=loop.index0, formatLabelList=formatLabelList, formatValueList=formatValueList) }}
+
+      {% if resource.vista_id %}
+        <script>
+          currentViewResource[{{loop.index0}}] = '{{resource.vista_id}}';
+        </script>
+      {% else %}
+        <script>
+          currentViewResource[{{loop.index0}}] = '-1';
+        </script>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+
+  {% for prefix in range(0, 10) %}
+    {% set aux_idx = prefix + resources|length %}
+    <div id="new_resource{{ aux_idx }}" class="oculto">
+      {{ form.resourceItem(pkg_id=pkg.id, action=action, name='', format='', mimetype='', mimetype_inner='', resource_type='', url='', resource_id='', idx=(aux_idx), formatLabelList=formatLabelList, formatValueList=formatValueList) }}
+    </div>
+  {% endfor %}
+
+  <br>
+  <div style="padding-left:10px"><a class="hintPopup hintPopupAdd" title="Añadir" href="javascript:addResource();">+</a></div>
+
+</section>

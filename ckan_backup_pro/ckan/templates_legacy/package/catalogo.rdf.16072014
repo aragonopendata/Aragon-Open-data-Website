@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dct="http://purl.org/dc/terms/"
+	 xmlns:py="http://genshi.edgewall.org/"
+	 xmlns:dcat="http://www.w3.org/ns/dcat#"
+	 xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
+
+<dcat:Catalog rdf:about="http://opendata.aragon.es/catalogo/">
+  <dct:title xml:lang="es">Catálogo de Aragón Open Data</dct:title>
+  <dct:description xml:lang="es">Descripción del Catálogo de Aragón Open Data</dct:description>
+  <dct:publisher rdf:resource="http://www.aragon.es/"/>
+  <dct:issued rdf:datatype="xsd:dateTime">2013-11-26T12:00:00CET</dct:issued>
+  <dct:modified rdf:datatype="xsd:dateTime">${ c.fecha }CET</dct:modified>
+  <dct:language>es</dct:language>
+  <dcat:themeTaxonomy rdf:resource="http://opendata.aragon.es/temas"/>
+  <foaf:homepage rdf:resource="http://opendata.aragon.es/"/>
+  <dct:license rdf:resource="http://opendata.aragon.es/terminos"/>
+
+  <py:for each="item in c.pkg">
+	<dcat:dataset rdf:resource="http://opendata.aragon.es/catalogo/${item.get('name')}"/>
+    </py:for>
+
+</dcat:Catalog>
+</rdf:RDF>

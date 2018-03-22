@@ -1,0 +1,189 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+import psycopg2
+import urllib2
+import config
+
+
+DIR='/var/www/wolfcms/'
+
+
+#Método que genera una sentencia del fichero siteMap dado unos parámetros
+#Fecha tendra el formato yyyy-MM-dd
+#frecuencia tiene los valores always, hourly, daily, weekly, monthly, yearly, never
+def generaSentenciaSiteMap(url, fecha=None, frecuencia=None, prioridad=None):
+	ret = comprobaURL(url)
+	devolver=''
+	if ret==200:
+		devolver='\t<url>\n\t\t<loc>'+url+'</loc>\n'
+		if fecha is not None:
+			devolver+='\t\t<lastmod>'+fecha+'</lastmod>\n'
+		if frecuencia is not None:
+			devolver+='\t\t<changefreq>'+frecuencia+'</changefreq>\n'
+		if prioridad is not None:
+			devolver+='\t\t<priority>'+prioridad+'</priority>\n'
+		devolver+='\t</url>\n'
+	else:
+		print 'Error en la url '+url+' '+str(ret)
+	return devolver
+
+
+#Método que sirve para revisaruna URL
+#Devuelve el código de estado de HTTP, 200 = Ok. http://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
+def comprobaURL(url):
+	try:
+		ret = urllib2.urlopen(url).code
+	except urllib2.HTTPError, e:
+		ret = e.code
+	except urllib2.URLError, e:
+		print e.args
+	return ret
+
+def main():
+	##PostgreSQL
+	CONEXION_BD = config.OPENDATA_POSTGRE_CONEXION_BD
+	URL="http://preopendata.aragon.es/"
+	CATALOGO=URL+"catalogo/"
+	PORTAL=URL+"portal/"
+	ARAGOPEDIA=URL+"aragopedia/"
+	PAGINA_ARAGOPEDIA=ARAGOPEDIA+"index.php/"
+	BASEDATOS=CATALOGO+'base-datos/'
+	TEMA=CATALOGO+'group/'
+	ORGANIZACION=CATALOGO+'organization/'
+	TAGS=CATALOGO+'?tags='
+	
+	
+	#Urls del wolfcms que seran las primeras en aparecer en el sitemaps
+	
+	urlWolf = [URL, CATALOGO, CATALOGO+'catalogo.html', ARAGOPEDIA, PORTAL+'social-data', PORTAL+'colabora', PORTAL+'aplicaciones', PORTAL+'aragon-open-data', PORTAL+'multimedia/videos', PORTAL+'multimedia/imagenes', PORTAL+'multimedia/presentaciones', PORTAL+'documentacion', PORTAL+'desarrolladores/resumen', PORTAL+'desarrolladores/api-ckan', PORTAL+'desarrolladores/api-social-data', PORTAL+'desarrolladores/api-aragopedia', PORTAL+'desarrolladores/api-aragodbpedia', PORTAL+'desarrolladores/punto-sparql', URL+'def/Aragopedia.html', PORTAL+'cliente-sparql', PORTAL+'jacathon', URL+'terminos', URL+'condiciones-utilizacion-social-data']
+	
+	urlBusqueda = [CATALOGO+'ciencia-tecnologia',CATALOGO+'comercio',CATALOGO+'cultura-ocio',CATALOGO+'demografia',CATALOGO+'deporte',CATALOGO+'economia',CATALOGO+'educacion',CATALOGO+'empleo',CATALOGO+'energia',CATALOGO+'hacienda',CATALOGO+'industria',CATALOGO+'legislacion-justicia',CATALOGO+'medio-ambiente',CATALOGO+'medio-rural-pesca',CATALOGO+'salud',CATALOGO+'sector-publico',CATALOGO+'seguridad',CATALOGO+'sociedad-bienestar',CATALOGO+'transporte',CATALOGO+'turismo',CATALOGO+'urbanismo-infraestructuras',CATALOGO+'vivienda',CATALOGO+'ciencia-tecnologia'+'/hojas-de-calculo',CATALOGO+'comercio'+'/hojas-de-calculo',CATALOGO+'cultura-ocio'+'/hojas-de-calculo',CATALOGO+'demografia'+'/hojas-de-calculo',CATALOGO+'deporte'+'/hojas-de-calculo',CATALOGO+'economia'+'/hojas-de-calculo',CATALOGO+'educacion'+'/hojas-de-calculo',CATALOGO+'empleo'+'/hojas-de-calculo',CATALOGO+'energia'+'/hojas-de-calculo',CATALOGO+'hacienda'+'/hojas-de-calculo',CATALOGO+'industria'+'/hojas-de-calculo',CATALOGO+'legislacion-justicia'+'/hojas-de-calculo',CATALOGO+'medio-ambiente'+'/hojas-de-calculo',CATALOGO+'medio-rural-pesca'+'/hojas-de-calculo',CATALOGO+'salud'+'/hojas-de-calculo',CATALOGO+'sector-publico'+'/hojas-de-calculo',CATALOGO+'seguridad'+'/hojas-de-calculo',CATALOGO+'sociedad-bienestar'+'/hojas-de-calculo',CATALOGO+'transporte'+'/hojas-de-calculo',CATALOGO+'turismo'+'/hojas-de-calculo',CATALOGO+'urbanismo-infraestructuras'+'/hojas-de-calculo',CATALOGO+'vivienda'+'/hojas-de-calculo',CATALOGO+'ciencia-tecnologia'+'/texto-plano',CATALOGO+'comercio'+'/texto-plano',CATALOGO+'cultura-ocio'+'/texto-plano',CATALOGO+'demografia'+'/texto-plano',CATALOGO+'deporte'+'/texto-plano',CATALOGO+'economia'+'/texto-plano',CATALOGO+'educacion'+'/texto-plano',CATALOGO+'empleo'+'/texto-plano',CATALOGO+'energia'+'/texto-plano',CATALOGO+'hacienda'+'/texto-plano',CATALOGO+'industria'+'/texto-plano',CATALOGO+'legislacion-justicia'+'/texto-plano',CATALOGO+'medio-ambiente'+'/texto-plano',CATALOGO+'medio-rural-pesca'+'/texto-plano',CATALOGO+'salud'+'/texto-plano',CATALOGO+'sector-publico'+'/texto-plano',CATALOGO+'seguridad'+'/texto-plano',CATALOGO+'sociedad-bienestar'+'/texto-plano',CATALOGO+'transporte'+'/texto-plano',CATALOGO+'turismo'+'/texto-plano',CATALOGO+'urbanismo-infraestructuras'+'/texto-plano',CATALOGO+'vivienda'+'/texto-plano',CATALOGO+'ciencia-tecnologia'+'/mapas',CATALOGO+'comercio'+'/mapas',CATALOGO+'cultura-ocio'+'/mapas',CATALOGO+'demografia'+'/mapas',CATALOGO+'deporte'+'/mapas',CATALOGO+'economia'+'/mapas',CATALOGO+'educacion'+'/mapas',CATALOGO+'empleo'+'/mapas',CATALOGO+'energia'+'/mapas',CATALOGO+'hacienda'+'/mapas',CATALOGO+'industria'+'/mapas',CATALOGO+'legislacion-justicia'+'/mapas',CATALOGO+'medio-ambiente'+'/mapas',CATALOGO+'medio-rural-pesca'+'/mapas',CATALOGO+'salud'+'/mapas',CATALOGO+'sector-publico'+'/mapas',CATALOGO+'seguridad'+'/mapas',CATALOGO+'sociedad-bienestar'+'/mapas',CATALOGO+'transporte'+'/mapas',CATALOGO+'turismo'+'/mapas',CATALOGO+'urbanismo-infraestructuras'+'/mapas',CATALOGO+'vivienda'+'/mapas',CATALOGO+'ciencia-tecnologia'+' ',CATALOGO+'comercio'+'/fotos',CATALOGO+'cultura-ocio'+'/fotos',CATALOGO+'demografia'+'/fotos',CATALOGO+'deporte'+'/fotos',CATALOGO+'economia'+'/fotos',CATALOGO+'educacion'+'/fotos',CATALOGO+'empleo'+'/fotos',CATALOGO+'energia'+'/fotos',CATALOGO+'hacienda'+'/fotos',CATALOGO+'industria'+'/fotos',CATALOGO+'legislacion-justicia'+'/fotos',CATALOGO+'medio-ambiente'+'/fotos',CATALOGO+'medio-rural-pesca'+'/fotos',CATALOGO+'salud'+'/fotos',CATALOGO+'sector-publico'+'/fotos',CATALOGO+'seguridad'+'/fotos',CATALOGO+'sociedad-bienestar'+'/fotos',CATALOGO+'transporte'+'/fotos',CATALOGO+'turismo'+'/fotos',CATALOGO+'urbanismo-infraestructuras'+'/fotos',CATALOGO+'vivienda'+'/fotos',CATALOGO+'ciencia-tecnologia'+'/rss',CATALOGO+'comercio'+'/rss',CATALOGO+'cultura-ocio'+'/rss',CATALOGO+'demografia'+'/rss',CATALOGO+'deporte'+'/rss',CATALOGO+'economia'+'/rss',CATALOGO+'educacion'+'/rss',CATALOGO+'empleo'+'/rss',CATALOGO+'energia'+'/rss',CATALOGO+'hacienda'+'/rss',CATALOGO+'industria'+'/rss',CATALOGO+'legislacion-justicia'+'/rss',CATALOGO+'medio-ambiente'+'/rss',CATALOGO+'medio-rural-pesca'+'/rss',CATALOGO+'salud'+'/rss',CATALOGO+'sector-publico'+'/rss',CATALOGO+'seguridad'+'/rss',CATALOGO+'sociedad-bienestar'+'/rss',CATALOGO+'transporte'+'/rss',CATALOGO+'turismo'+'/rss',CATALOGO+'urbanismo-infraestructuras'+'/rss',CATALOGO+'vivienda'+'/rss', CATALOGO+'busqueda-libre',CATALOGO+'base-datos',BASEDATOS+'ciencia-tecnologia',BASEDATOS+'comercio',BASEDATOS+'cultura-ocio',BASEDATOS+'demografia',BASEDATOS+'deporte',BASEDATOS+'economia',BASEDATOS+'educacion',BASEDATOS+'empleo',BASEDATOS+'energia',BASEDATOS+'hacienda',BASEDATOS+'industria',BASEDATOS+'legislacion-justicia',BASEDATOS+'medio-ambiente',BASEDATOS+'medio-rural-pesca',BASEDATOS+'salud',BASEDATOS+'sector-publico',BASEDATOS+'seguridad',BASEDATOS+'sociedad-bienestar',BASEDATOS+'transporte',BASEDATOS+'turismo',BASEDATOS+'urbanismo-infraestructuras',BASEDATOS+'vivienda']
+	
+	print 'Se genera el fichero sitemap en '+DIR+"sitemap.xml"
+	sitemap=open(DIR+"sitemap.xml","w")
+	#sitemap=open("sitemap.xml","w")
+	numURLs=0
+	
+	sitemap.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset\n\txmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9\n\t\thttp://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">\n")
+	
+	#Añadimos las url de wolfcms
+	for url in urlWolf:
+		sentencia = generaSentenciaSiteMap(url)
+		numURLs+=1
+		sitemap.write(sentencia)
+	#Añadimos las url de las búsquedas
+	for url in urlBusqueda:
+		sentencia = generaSentenciaSiteMap(url)
+		numURLs+=1
+		sitemap.write(sentencia)
+	
+	#Nos conectamos a la base de datos
+	connection = psycopg2.connect(CONEXION_BD)
+	cursor =connection.cursor()
+	
+	#Añadimos las organizaciones
+	consulta="SELECT name FROM public.group_revision WHERE current='t' AND is_organization='t'"
+	
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	
+	if resultados is not None:
+		for organizacion in resultados:
+			sentencia = generaSentenciaSiteMap(ORGANIZACION+organizacion[0])
+			numURLs+=1
+			sitemap.write(sentencia)
+	else:
+		print 'No hay Organizaciones'
+		
+	
+	
+	#Añadimos los temas
+	consulta="SELECT name FROM public.group_revision WHERE current='t' AND is_organization='f'"
+	
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	
+	if resultados is not None:
+		for tema in resultados:
+			sentencia = generaSentenciaSiteMap(TEMA+tema[0])
+			numURLs+=1
+			sitemap.write(sentencia)
+	else:
+		print 'No hay temas'
+		
+	#Ahora metemos el los datasets
+	consulta="SELECT package_revision.name, package_revision.revision_timestamp, package_extra_revision.value FROM public.package_revision, public.package_extra_revision WHERE package_extra_revision.package_id = package_revision.id AND package_revision.current='t' AND package_revision.type='dataset' AND package_extra_revision.current ='t' AND package_extra_revision.key = 'Frequency' ORDER BY package_revision.revision_timestamp DESC"
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	if resultados is not None:
+		for dataset in resultados:
+			urlDataset=CATALOGO+dataset[0]
+			fechaDataset=dataset[1]
+			aux=dataset[2]
+			
+			if str(aux.lower())=='instantánea':
+				frecuencia='always'
+			elif str(aux.lower())=='diaria':
+				frecuencia='daily'
+			elif str(aux.lower())=='semanal':
+				frecuencia='weekly'
+			elif str(aux.lower())=='trimestral':
+				frecuencia='monthly'
+			elif str(aux.lower())=='mensual':
+				frecuencia='monthly'
+			elif str(aux.lower())=='anual':
+				frecuencia='yearly'
+			else:
+				frecuencia=''
+			#print 'La frecuencia es '+ aux +' y fechfreq es '+ frecuencia
+			strFechaDataset = str(fechaDataset)[:10]
+			
+			if frecuencia=='':
+				sentencia = generaSentenciaSiteMap(urlDataset, strFechaDataset)
+			else:
+				sentencia = generaSentenciaSiteMap(urlDataset, strFechaDataset, frecuencia)
+			numURLs+=1
+			sitemap.write(sentencia)
+	else:
+		print 'No hay dataset'
+		
+	#Artículo de la Aragopedia
+	
+	"""f = open("articulosAragopedia.txt", "r")
+	
+	for pagina in f:
+		#quitamos el último caracter que es salto de línea
+		url = PAGINA_ARAGOPEDIA+pagina[:len(pagina)-1]
+		sentencia = generaSentenciaSiteMap(url)
+		numURLs+=1
+		sitemap.write(sentencia)
+	f.close()"""
+	
+	#Añadimos los tags
+	consulta="SELECT  name FROM public.tag"
+	
+	q = cursor.execute(consulta)
+	resultados = cursor.fetchall()
+	
+	if resultados is not None:
+		for tag in resultados:
+			sentencia = generaSentenciaSiteMap(TAGS+tag[0])
+			numURLs+=1
+			sitemap.write(sentencia)
+	else:
+		print 'No hay tags'
+	
+	
+	cursor.close()
+	connection.close()
+	
+	
+	sitemap.write("</urlset>\n")
+	sitemap.close()
+	
+	print 'Se han añadido '+str(numURLs)+' urls en el sitemaps'
+	print 'Fin'
+
+main()

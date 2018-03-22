@@ -1,0 +1,144 @@
+{# 
+Renders a list of resources with icons and view links.
+
+resources - A list of resources to render
+pkg - A package object that the resources belong to.
+
+Example:
+
+  {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+
+#}
+<section id="dataset-resources" class="resources">
+	<div style="border-bottom: solid 2px #76a1b8; padding-left: 15px; padding-right: 15px; padding-top: 5px; padding-bottom: 5px;">
+		<h4 class="titulosSecundariosNegritas i_i"  >DESCARGAS</h4><br/>
+	</div>
+
+  <div class="titularesPeques fieldName">Metadato de la colecci&oacute;n</div>
+  <div>
+   <ul><li><a class="recuadroNoResaltado textosNormales" title="Metadato de la colecci&oacute;n en RDF" href="{{h.url_for(controller='package', action='read', id=pkg.name)}}.rdf">RDF</a></li></ul>
+</div>
+	
+  {% block resource_list %}
+  {% if resources %}
+      <div class="titularesPeques fieldName">Archivos con los datos</div>
+      {% block resource_list_inner %}
+      {% set contador = 0 %}
+      {% for res in resources %}
+        {#% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %#}
+        {% set url = res.url %}
+        {% set elFormatoMimetype = res.mimetype_inner %}
+        {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
+        {% set modoAcceso = res.mimetype %}
+
+        
+         {# {% if  (('presupuesto-y-ejecucion-presupuestaria-de-comarcas-de-aragon' in pkg.name) or ('presupuesto-y-ejecucion-presupuestaria-de-municipios-de-aragon' in pkg.name)) %}
+             
+
+
+             
+             {% if contador == 0 %}
+             	<ul class="textosNormales" style="padding-top: 5px; padding-left: 15px;" >
+             {% endif %}
+            
+              <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
+              <div style="padding-bottom: 15px;">
+                <!-- <ul> -->
+            
+                  <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}"> <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span></a></li>
+              
+           
+               <!--  </ul> -->
+              </div>
+           
+            {% set contador = contador +1 %}
+            {% if contador == resources|length %}
+             	</ul>
+             {% endif %}
+            
+         {% else %}#}
+		      <div class="textosNormales fieldValue">{{ h.resource_display_name(res) | truncate(100) }}</div>
+
+		      {% if modoAcceso == None %}
+		       {% elif 'text/html' in modoAcceso %}
+		         <div class="textosNormales fieldValue">El archivo se sirve desde otra web</div>
+		       {% elif 'application/zip' in modoAcceso %}
+		         <div class="textosNormales fieldValue">El archivo se sirve a través de un fichero comprimido</div>
+		       {% endif %}
+		      <div style="padding-bottom: 15px;">
+		      <ul class="textosNormales" >
+		         {% if not '/showVista' in url %}
+		           {% if modoAcceso == None %}
+		             <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">             
+		           {% elif 'text/html' in modoAcceso %}
+		             <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
+		           {% elif 'application/zip' in modoAcceso %}
+		             <li><a class="recuadroNoResaltado AGN" href="{{ url }}" target="_blank" title="{{ res.name or res.description }}">
+		           {% else %}
+		             <li><a class="recuadroNoResaltado AGN" href="{{ url }}" download title="{{ res.name or res.description }}">
+		           {% endif %}
+
+		              <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">{{ elFormato.upper() }}</span>
+
+		          </a></li>
+		         {% endif %}
+		       {% if elFormato.lower() == 'xls' %}
+		         {# Si se tiene alg&uacute;n modo de acceso (zip, html...) no se mostraran las conversiones a xml, csv y json que se generan al vuelo, en caso de tenerlo si #}
+		         {% if not modoAcceso  %}
+		            {% set urlConversionFormato = '/catalogo/render/resource/' + res.name %}
+		         <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.xml' }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">XML</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.csv' }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">CSV</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ urlConversionFormato + '.json' }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ elFormato.lower() or 'data' }}">JSON</span>
+		        </a></li>
+		
+	{#%
+		          <a py:if="res.get('format') == 'XLS'" class="recuadroNoResaltado" href="${h.resource_url_for(res, 'xml')}" title="${h.resource_display_name(res)} (${res.get('format')})">XML</a>
+		          <a py:if="res.get('format') == 'XLS'" class="recuadroNoResaltado" href="${h.resource_url_for(res, 'csv')}" title="${h.resource_display_name(res)} (${res.get('format')})">CSV</a>
+		          <a py:if="res.get('format') == 'XLS'" class="recuadroNoResaltado" href="${h.resource_url_for(res, 'json')}" title="${h.resource_display_name(res)} (${res.get('format')})">JSON</a>
+	%#}
+		         {% endif %}
+		       {% endif %}
+		       {% if '/recurso/territorio/' in url %}
+		         {% set splitURL = url.split("?") %}
+		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.xml'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">XML</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.csv'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">CSV</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.json'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">JSON</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ splitURL[0] + '.ttl'  + '?' + splitURL[1] }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">TTL</span>
+		        </a></li>
+		       {% endif %}
+
+		       {% if '/showVista' in url %}
+		         <li><a class="recuadroNoResaltado" href="{{ url +  '&formato=XML&name=' + res.name }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">XML</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{ url +  '&formato=CSV&name=' + res.name }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">CSV</span>
+		         </a></li>
+		         <li><a class="recuadroNoResaltado" href="{{  url + '&formato=JSON&name=' + res.name }}" title="{{ res.name or res.description }}">
+		           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">JSON</span>
+		         </a></li>
+		       {% endif %}
+		       </ul>
+		       </div>
+		       
+		       
+		       
+		      {#% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %#}
+		    {#{% endif %}#}
+      {% endfor %}
+      {% endblock %}
+  {% endif %}
+  {% endblock %}
+</section>

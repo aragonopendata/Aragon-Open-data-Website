@@ -1,0 +1,10 @@
+Removing files from /data/ckan_tmp
+http://opendata.aragon.es/catalogo/downloadIaest
+
+org-iaest
+Obteniendo datos extra
+llego a antes de borrar
+false
+Group deporte already created, skipping
+Dataset participantes-federados-en-juegos-escolares updated
+None

@@ -1,0 +1,236 @@
+{% import 'macros/form.html' as form %}
+
+<script src="/public/moment.min.js"></script>
+<script src="/public/aragopedia.js"></script>
+
+<iframe class="oculto" name="hiddenIframe" id="hiddenIframe"></iframe>
+
+<input type="hidden" name="pkg_previous_name" value="{{data.name}}" id="field-previous-name">
+
+<div id="editorZonePage0">
+{% block package_basic_fields_title %}
+    <br>
+{{ form.input('title', id='field-title', label=_('Title') , placeholder=_('eg. A descriptive title'), value=data.title, error=errors.title, classes=['control-full', 'control-large'], attrs={'data-module': 'slug-preview-target'}, mandatory='*', content=['Por favor, dale un nombre a tu conjunto de datos. El nombre que des al conjunto de datos es importante porque se convierte en su identificador.'], moreInfo='Ejemplo 1: Encuesta TIC en los hogares aragoneses de 2010.
+
+Ejemplo 2: Cafeterías y restaurantes en la Comunidad Autónoma de Aragón') }}
+  <div style="height:22px"></div>
+{% endblock %}
+
+{% block package_basic_fields_url %}
+{% set prefix = h.url_for(controller='package', action='read', id='') %}
+{% set domain = h.url_for(controller='package', action='read', id='', qualified=true) %}
+{% set attrs = {'data-module': 'slug-preview-slug', 'data-module-prefix': domain, 'data-module-placeholder': '<dataset>', 'data-module-allowmodification': h.check_access('sysadmin')|lower() } %}
+{% if h.check_access('sysadmin') %}
+  {{ form.prepend('name', id='field-name', label=_('URL'), prepend=domain, placeholder=_('eg. my-dataset'), value=data.name, error=errors.name, attrs=attrs) }}
+{% else %}
+  {% if not data.name %}
+    {{ form.prepend('name', id='field-name', label=_('URL'), prepend=domain, placeholder=_('eg. my-dataset'), value=data.name, error=errors.name, attrs=attrs) }}
+  {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block package_basic_fields_custom %}
+{% endblock %}
+
+{% block package_basic_fields_description %}
+{{ form.markdown('notes', id='field-notes', label=_('Description'), placeholder=_('eg. Some useful notes about the data'), value=data.notes, error=errors.notes, mandatory='*', content=['Por favor, añade una descripción a tu conjunto de datos. ¿Qué contiene? ¿Por qué se ha generado?', 'La descripción es la primera aproximación de un usuario a tu conjunto de datos, así que se debería comenzar contando brevemente qué contiene el mismo. Si el conjunto de datos contiene informaciones parciales, limitaciones o deficiencias este es el lugar en el que puedes mencionarlas de forma que los usuarios puedan saber el alcance de la información. En algunos casos los usuarios ayudan a mejorar la información, así que no desaproveches la oportunidad de acercarles la realidad del dato.'], moreInfo='Ejemplo 1: "El Observatorio Aragonés de la Sociedad de la Información (OASI) realiza encuestas periódicas, que sirven como base para medir la penetración de las Tecnologías de la Información y las Comunicaciones (TIC) en los hogares aragoneses, valorar los recursos asociados a las TIC a los que tiene acceso la ciudadanía en Aragón e identificar las principales características y tendencias en el uso de Internet por parte de quienes habitan en Aragón. El conjunto de datos siguiente muestra el comportamiento de las TIC dentro de los hogares aragoneses en el año 2010"
+
+Ejemplo 2: "Este conjunto de datos contiene información sobre los apartamentos turísticos registrados en la Dirección General de Turismo del Gobierno de Aragón. Se muestra acceso directo a la base de datos, con lo que el usuario tiene acceso a los mismos datos con los que trabaja el Gobierno de Aragón"') }}
+{% endblock %}
+</div>
+<div id="editorZonePage1" style="display:none;">
+
+{% block package_basic_fields_org %}
+{# if we have a default group then this wants remembering #}
+{% if data.group_id %}
+  <input type="hidden" name="groups__0__id" value="{{ data.group_id }}" />
+{% endif %}
+
+  {% block dataset_fields %}
+    {% set groupList = {
+      'ciencia-tecnologia': 'Ciencia y tecnología',
+      'comercio': 'Comercio',
+      'cultura-ocio': 'Cultura y ocio',
+      'demografia': 'Demografía',
+      'deporte': 'Deporte',
+      'economia': 'Economía',
+      'educacion': 'Educación',
+      'empleo': 'Empleo',
+      'energia': 'Energía',
+      'hacienda': 'Hacienda',
+      'industria': 'Industria',
+      'legislacion-justicia': 'Legislación y justicia',
+      'medio-ambiente': 'Medio ambiente',
+      'medio-rural-pesca': 'Medio rural',
+      'salud': 'Salud',
+      'sector-publico': 'Sector público',
+      'seguridad': 'Seguridad',
+      'sociedad-bienestar': 'Sociedad y bienestar',
+      'transporte': 'Transporte',
+      'turismo': 'Turismo',
+      'urbanismo-infraestructuras': 'Urbanismo e infraestructuras',
+      'vivienda': 'Vivienda',
+      '': 'Sin asignar'
+      }
+    %}
+    <div class="control-group">
+      <br>
+      <div class="control-label fieldName">Temática</div>
+      <div class="mandatory" title="Obligatorio">*</div>
+      <div class="hintPopup i_i hintPopupHelp" title='Ejemplo 1: "Ciencia y Tecnología"
+
+Ejemplo2: "Turismo"'>i</div>
+      <div style="height:44px"></div>  
+
+      <div class="controls">
+        <div style="padding-left:10px;padding-right:10px;">
+          Por favor, escoge la temática que crees que se adapta mejor a la información que contiene tu conjunto de datos
+          <select id="groups__0__id" name="groups__0__id">
+          {% if data.groups %}
+            {% for item in h.groups_available() %}
+              <option value="{{ item.id }}" {% if item.name == data.groups[0].name %} selected {% endif %} >{{ item.display_name }}</option>
+            {% endfor %}
+          {% else %}
+            {% for item in h.groups_available() %}
+              <option value="{{ item.id }}">{{ item.display_name }}</option>
+            {% endfor %}
+          {% endif %}
+
+          </select>
+        </div>
+      </div>
+    </div>
+  <div style="height:22px"></div>
+  {% endblock %}
+
+{% block package_basic_fields_tags %}
+{% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source': '/api/2/util/tag/autocomplete?incomplete=?'} %}
+
+{{ form.inputTag('tag_string', id='field-tags', label=_('Tags'), placeholder='Términos de EUROVOC', value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs, idAutocomplete='autocomplete_eurovoc', moreInfo='Ejemplo 1: "2010; Aragón, Ciencia y tecnología, Comercio electrónico, Conexión, Correo electrónico, Encuesta, Hogares, Internet, Nuevas Tecnologías, OASI, Observatorio aragonés de la sociedad de la información, Ordenador, Personas, Sociedad de la información, TIC"
+
+Ejemplo 2: "Aragón, Cafetería, Categoría, Establecimiento, Plaza, Registro, Restaurante, Turismo"') }}
+
+{% endblock %}
+</div>
+<div id="editorZonePage2" style="display:none;">
+{% block package_metadata_fields_custom_spatial %}
+  {% snippet 'snippets/custom_form_fields_spatial.html', extras=data.extras, errors=errors %}
+{% endblock %}
+</div>
+<div id="editorZonePage3" style="display:none;">
+{% block package_metadata_fields_custom_temporal %}
+  {% snippet 'snippets/custom_form_fields_temporal.html', extras=data.extras, errors=errors, data=data %}
+{% endblock %}
+</div>
+<div id="editorZonePage4" style="display:none;">
+{% block package_metadata_fields_custom_language %}
+  {% snippet 'snippets/custom_form_fields_language.html', extras=data.extras, errors=errors %}
+{% endblock %}
+</div>
+<div id="editorZonePage5" style="display:none;">
+{% block package_metadata_fields_custom_extras %}
+  {% snippet 'snippets/custom_form_fields.html', extras=data.extras, extrasIAEST=data.extrasIAEST, errors=errors, limit=3 , pkg_name=data.id %}
+{% endblock %}
+</div>
+<div id="editorZonePage6" style="display:none;">
+{% block package_basic_fields_license %}
+
+{% block package_metadata_organization %}
+    <br>
+
+  {% set organizations = h.organizations_available() %}
+
+  <script>
+    var availableOrganizations = {{organizations|length}};
+    {% if data.organization %}
+      var currentOrganization = '{{data.organization.name}}';
+    {% else %}
+      {% if organizations|length > 0 %}
+        var currentOrganization = '{{organizations[0].name}}';
+      {% else %}
+        var currentOrganization = '';
+      {% endif %}
+    {% endif %}
+    var organizationList = new Array();
+  </script>
+
+  {% if organizations %}
+    <label class="control-label fieldName" for="owner_org">Publicador</label>
+    {% if organizations|length > 1 %}
+      <div>
+        <div style="padding-left:10px;padding-right:10px;padding-bottom:10px;">
+        <div style="height:44px"></div>
+        <div>Seleccione una organización entre las disponibles:</div>
+        <div style="height:11px"></div>
+        <select id="owner_org" name="owner_org">
+        {% if data.organization %}
+          {% for organization in organizations %}
+            <option value="{{ organization.id }}" {% if data.organization.name == organization.name %} selected {% endif %} >{{ organization.display_name }}</option>
+          {% endfor %}
+        {% else %}
+          {% for organization in organizations %}
+            <option value="{{ organization.id }}" {% if loop.first %} selected {% endif %}>{{ organization.display_name }}</option>
+          {% endfor %}
+        {% endif %}
+        </select>
+        </div>
+        {% for organization in organizations %}
+          <script>
+            organizationList['{{organization.display_name}}'] = '{{organization.name}}';
+          </script>
+          {% if data.organization %}
+            {% if data.organization.name == organization.name %}
+              {{ form.organization('organization%d' % (loop.index-1), label='Publicador', id='organization%d' % (loop.index-1), placeholder='Organización', value=organization, classes=[], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.'], showLabel=false) }}
+            {% else %}
+              {{ form.organization('organization%d' % (loop.index-1), label='Publicador', id='organization%d' % (loop.index-1), placeholder='Organización', value=organization, classes=['oculto'], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.'], showLabel=false) }}
+            {% endif %}
+          {% else %}
+            {% if loop.first %}
+              {{ form.organization('organization%d' % loop.index, label='Publicador', id='organization%d' % loop.index, placeholder='Organización', value=organization, classes=[], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.'], showLabel=false) }}
+            {% else %}
+              {{ form.organization('organization%d' % loop.index, label='Publicador', id='organization%d' % loop.index, placeholder='Organización', value=organization, classes=['oculto'], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.'], showLabel=false) }}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      {% if data.organization %}
+        <input type="hidden" name="owner_org" value="{{ data.organization.id }}" />
+        <div style="height:44px"></div>
+        {{ form.organization('organization', label='Publicador', id='organization', placeholder='Organización', value=data.organization, classes=[], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.']) }}
+      {% else %}
+        {% for organization in organizations %}
+          <input type="hidden" name="owner_org" value="{{ organization.id }}" />
+          <div style="height:44px"></div>
+          {{ form.organization('organization', label='Publicador', id='organization', placeholder='Organización', value=organization, classes=[], attrs={'disabled': 'true'}, content=['En esta sección se muestran la organización encargada de la publicación de este conjunto de datos tal y cómo se facilitarán a los usuarios.','Esta información se ha confeccionado con los datos aportados al dar de alta la organización publicadora, para modificarla utiliza la pizarra de administración de tu organización.']) }}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+  <div style="height:22px"></div>
+
+  <div class="control-group{{ " error" if error }}{{ " " ~ classes | join(' ') }}">
+
+    <div class="control-label fieldName">Licencia</div>
+    <div style="height:44px"></div>  
+
+    <div class="controls{{ " " ~ control_classes | join(' ') }}">
+      <div style="padding-left:10px;padding-right:10px;">
+        Para promover la máxima reutilización, en Aragón Open Data establecemos por defecto una licencia Creative Commons Attribution 4.0 según se expone en la sección "<a href="http://opendata.aragon.es/terminos" title="Términos de uso">Términos de uso</a>" (<a href="http://opendata.aragon.es/terminos" title="http://opendata.aragon.es/terminos">http://opendata.aragon.es/terminos</a>). Si tu conjunto de datos por alguna razón legal, contractual o de otro tipo no puede ser ofrecido con esta licencia escríbenos a <a href="mailto:opendata@aragon.es" title="opendata@aragon.es">opendata@aragon.es</a> y la modificaremos.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% set dataset_is_draft = data.get('state', 'draft').startswith('draft') or data.get('state', 'none') ==  'none' %}
+{% set dataset_has_organization = data.owner_org or data.group_id %}
+{% set organizations_available = h.organizations_available('create_dataset') %}
+{% set user_is_sysadmin = h.check_access('sysadmin') %}
+{% set show_organizations_selector = organizations_available and (user_is_sysadmin or dataset_is_draft) %}
+{% set show_visibility_selector = dataset_has_organization or (organizations_available and (user_is_sysadmin or dataset_is_draft)) %}
+
+
+{% endblock %}

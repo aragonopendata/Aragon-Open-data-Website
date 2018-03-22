@@ -1,0 +1,37 @@
+{% set isFirst = 0 %}
+
+{% for extra in h.sorted_extras(pkg_dict.extrasIAEST) %}
+  {% set key, value = extra %}
+
+  {% if value != "" and value != "-1" %}
+    {% if isFirst != 1 %}
+      <section class="additional-info">
+        <div class="metadataZone">
+          
+          <div class="propiedadesIAEST">
+						<h4 class="titulosSecundariosNegritas i_i"  >PROPIEDADES ADICIONALES DE LOS METADATOS</h4><br/>
+					</div>
+          
+<!--          <h4 class="textoCajasInverso">PROPIEDADES ADICIONALES DE LOS METADATOS</h4>-->
+          {% set isFirst = 1 %}
+    {% endif %}
+
+          <div>
+             <div class="titularesPeques fieldName" property="rdfs:label">{{ key.split("_IAEST_")[1] }}</div>
+             <div class="textosNormales fieldValue" property="rdf:value">{{ value|safe }}</div>
+          </div>
+  {% endif %}
+{% endfor %}
+
+
+{% for extra in h.sorted_extras(pkg_dict.extrasIAEST) %}
+  {% set key, value = extra %}
+
+  {% if value != "" and value != "-1" %}
+    {% if isFirst != 1 %}
+        </div>
+      </section>
+      {% set isFirst = 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}

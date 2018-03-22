@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:time="http://www.w3.org/2006/time#"
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:tema="http://datos.gob.es/kos/sector-publico/sector/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <dcat:Catalog rdf:about="http://opendata.aragon.es/catalogo/"> 
+	<dct:identifier>http://opendata.aragon.es/catalogo/</dct:identifier>
+	<dct:title xml:lang="es"> Catálogo de datos abiertos de Aragón Opendata</dct:title>
+	<dct:description xml:lang="es">El catálogo de Aragón Open Data recoge el conjunto de datos recopilados por la iniciativa Aragón Open Data.  </dct:description> <!-- Una línea por idioma -->
+	<dct:publisher rdf:resource="http://datos.gob.es/recurso/sectorpublico/org/Organismo/A02003485" />
+
+	<dct:extent>
+	  <dct:SizeOrDuration>
+		<rdf:value
+		  rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">${len(c.pkg)}</rdf:value>
+	  </dct:SizeOrDuration>
+	</dct:extent>
+	
+	<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-26T12:00:00</dct:issued>
+	<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${ c.fecha }</dct:modified>
+	<dc:language>es</dc:language>
+	<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/autonomia/Aragon" />
+	<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/" />
+	<foaf:homepage rdf:resource="http://opendata.aragon.es/catalogo" />
+	<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
+    <py:for each="item in c.pkg">
+	<dcat:dataset>
+	  <dcat:Dataset rdf:about="http://opendata.aragon.es/catalogo/${item.get('name')}">
+		<dct:identifier>http://opendata.aragon.es/catalogo/${item.get('name')}</dct:identifier>
+		<dct:title xml:lang="es">${item.get('title')}</dct:title>
+		<dct:description xml:lang="es">${item.get('notes')}</dct:description>
+	  <py:for each="group in item.get('groups')">
+		<dcat:theme rdf:resource="http://datos.gob.es/kos/sector-publico/sector/${group.get('name')}" />
+	  </py:for>		
+	   <py:for each="tag_dict in item.get('tags')">
+		<dcat:keyword>${ tag_dict["name"] }</dcat:keyword>
+	   </py:for>
+	   
+	    <py:for each="extra_dict in item.get('extras',None)">
+		<dct:issued py:if="extra_dict.get('key', '') == 'issuedDate'" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${extra_dict.get('value','')}T00:00:00</dct:issued>
+		<dct:modified py:if="extra_dict.get('key', '') == 'modifiedDate'" rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${extra_dict.get('value','')}T00:00:00</dct:modified>
+		<dct:accrualPeriodicity  py:if="extra_dict.get('key', '') == 'Frequency'">
+		  <dct:Frequency>
+			<rdf:value>
+			  <time:DurationDescription>
+			   <rdfs:label>${extra_dict.get('value','')}</rdfs:label>			   
+			  </time:DurationDescription>
+			</rdf:value>
+		  </dct:Frequency>
+		</dct:accrualPeriodicity>
+		<dct:language py:if="extra_dict.get('key', '') == 'Language'">${extra_dict.get('value','')}</dct:language>
+	   </py:for>
+		<dc:language>es</dc:language>
+		<dct:publisher rdf:resource="http://datos.gob.es/recurso/sectorpublico/org/Organismo/A02003485" />
+		<dct:license rdf:resource="http://opendata.aragon.es/terminos" />
+		<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/autonomia/Aragon" />
+
+	   <py:for each="rsc_dict in item.get('resources')">
+		<dcat:distribution>	
+		  <dcat:Distribution>			
+			<dct:identifier>${'http://opendata.aragon.es/data/'+ item.get('name') + '/' + rsc_dict.get('format').lower()}</dct:identifier>
+			<py:if test="rsc_dict.get('description')">
+			   <dct:title xml:lang="es">${rsc_dict.get('description')}</dct:title>			
+			</py:if>			
+			<dcat:accessURL
+			  rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ rsc_dict['url'] }</dcat:accessURL>
+			<dct:format py:if="rsc_dict.get('format')">
+				<dct:IMT rdf:value="${rsc_dict.get('mimetype')}" rdfs:label="${rsc_dict.get('format')}" />
+			</dct:format>
+		  </dcat:Distribution>
+		</dcat:distribution>
+	   </py:for>
+	  </dcat:Dataset>
+	</dcat:dataset>
+    </py:for>
+  </dcat:Catalog>
+</rdf:RDF>

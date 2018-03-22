@@ -1,0 +1,213 @@
+{% extends "package/read_base.html" %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
+
+{% block primary_content_inner %}
+  {{ super() }}
+  {% block package_description %}
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="icon-lock"></i>
+        {{ _('Private') }}
+      </span>
+    {% endif %}
+    <h2 class="i_i " style="width: 85%;">
+      {% block page_heading %}
+        {{ pkg.title or pkg.name }}
+
+        {% if h.check_access('package_update', {'id':pkg.id }) %}
+		  <div>
+		  <ul><li><a href="{{h.url_for(controller='package', action='edit', id=pkg.name)}}" title="test">Editar Dataset</a></li></ul>
+		  </div>
+		{% endif %}
+
+      {% endblock %}
+    </h2>
+    
+    {% block package_social %}
+	    {% snippet "snippets/socialAOD.html" %}
+    {% endblock %}
+    
+  {% endblock %}
+  
+  
+
+  {% block data_preview %}
+     
+     <script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2015-03-26T12:54:49.60/jquery.min.js"></script>
+     
+     {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None, 'PX': None  } %}
+
+     
+     {% for resource in pkg.resources %}
+       {% set elFormatoMimetype = resource.mimetype_inner %}
+       {% set elFormato = h.getFormatFromMimetype(elFormatoMimetype) %}
+       {% set modoAcceso = resource.mimetype %}
+       
+       
+	     {% if resource.url != 'http://www.boa.aragon.es/EBOA/buscaopen.htm' %}
+	       {% if (elFormato|upper == 'XLS') %}
+	          {% if resource.size|int > 2000000  %}
+	          {% else %}
+	             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	          {% endif %}
+	       {% elif (elFormato|upper == 'XML') %}
+	          {% if resource.size|int > 2000000  %}
+	          {% elif resource.url.startswith('http://sitar.aragon.es/datosdescarga/descarga.php?file=') %}
+	          {% else %}
+	             {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	          {% endif %}
+	       {% else %}
+	           {% if vars.update({elFormato|upper: resource}) %}{% endif %}
+	       {% endif %}
+	     {% endif %}
+		     
+     {% endfor %}
+     
+     {% if (vars.XLS != None) %}
+        
+       {% if ((vars.XLS['mimetype'] == None) or(vars.XLS['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.XLS, pkg)}}</div>
+       {% else%}
+       	<script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script>
+       {% endif %}
+     
+      {% elif vars.GML  != None %}
+        {% if ((vars.GML['mimetype'] == None) or (vars.GML['mimetype']|length!=0)) %}
+      
+				<div class="title-ckanext-datapreview" style="width:966px; border-top: 2px solid #76A1B8;border-left: 2px solid #76A1B8;border-right: 2px solid #76A1B8; margin-top: 15px; padding: 5px;">
+					<h4 class="textoCajasInverso" style="border-bottom: 0px !important;">PREVISUALIZACIÓN DEL CONJUNTO DE DATOS</h4>
+				</div>
+				<div id="mapaDiv" >
+					<div id="loadingDataMap">
+						<img alt="Cargando..." src="/catalogo/fanstatic/ckanext-reclinepreview/img/ajaxload-circle.gif"/>
+					</div>
+					<div id="mapa">
+					</div>
+				</div>
+	<script type="text/javascript" src="/public/OpenLayers-2.12/OpenLayers.js"></script>
+	<link rel="stylesheet" href="/public/OpenLayers-2.12/styleMapAOD.css" media="screen" type="text/css" />
+        <script type="text/javascript">
+	var theUrl = "";
+	var auxStr = '{{vars.GML.url}}';
+	var auxStrMayusc;
+	var todoOk = false;
+	var strInicio = "http://idearagon.aragon.es/datosdescarga/descarga.php?file=";
+	var idxInicio = auxStr.indexOf(strInicio);
+	if (idxInicio != -1) {
+		auxStr = auxStr.substring(strInicio.length);
+		idxInicio = auxStr.lastIndexOf("/");
+		if (idxInicio != -1) {
+			auxStrMayusc = auxStr.substring(idxInicio+1);
+			idxInicio = auxStrMayusc.lastIndexOf(".gml.zip");
+			if (idxInicio != -1) {
+				auxStrMayusc = auxStrMayusc.substring(0, idxInicio).toUpperCase();
+				todoOk = true;
+			}
+		}
+	}
+
+	if (todoOk) {
+		var bounds = new OpenLayers.Bounds(630000, 4410000, 760000, 4770000);
+		var mapOptions = {projection: "EPSG:25830", units: 'm', maxExtent: bounds, fractionalZoom: true}
+
+		map = new OpenLayers.Map('mapa', mapOptions);
+
+		layerFoto = new OpenLayers.Layer.WMS( "Aragon Foto",
+		  "http://sitarimagenes.aragon.es/ecwp/ecw_wms.dll?ServiceName=AragonFoto", {layers: 'MODIS,spot,orto_reciente', format:"image/jpeg"}, {singleTile: true} );
+
+		layer = new OpenLayers.Layer.WMS( "AragonWMS",
+		  "http://sitar.aragon.es/AragonWMS", {layers: 'ComunidadAutonoma,Provincia', format:"image/png", transparent:true}, {singleTile:true} );
+
+		map.addLayers([layer, layerFoto]);
+		map.zoomToMaxExtent();
+
+		document.getElementById('loadingDataMap').style.visibility = "visible";
+		theUrl = "/descargaSITAR?fichero=" + auxStr + "&inzip=" + auxStrMayusc + ".gml";
+
+		//http://sitar.aragon.es/datosdescarga/descarga.php?file=medioambiente/inagis_descargas/rma_consorcios_te.gml.zip
+		//	/descargaSITAR?fichero=medioambiente/inagis_descargas/rma_consorcios_te.gml.zip&inzip=RMA_CONSORCIOS_TE.gml
+
+		//map.zoomToExtent(new OpenLayers.Bounds(-3.922119,44.335327,4.866943,49.553833));
+		var gmlLayer = new OpenLayers.Layer.Vector("GML", {
+		    protocol: new OpenLayers.Protocol.HTTP({
+		      url: theUrl,
+		       format: new OpenLayers.Format.GML()
+		    }),
+		    strategies: [new OpenLayers.Strategy.Fixed()]
+  	        });
+
+		gmlLayer.events.register("loadend", gmlLayer, function (e) {
+			document.getElementById('loadingDataMap').style.visibility = "hidden";
+		}); 
+		map.addLayer(gmlLayer);
+}
+
+</script>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     
+     {% elif (vars.CSV != None) %}
+       {% if ((vars.CSV['mimetype'] == None) or (vars.CSV['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+       {% else %}          
+          <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     
+     {% elif (vars.XML != None) %}
+       {% if ((vars.XML['mimetype'] == None) or (vars.XML['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.XML, pkg)}}</div>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     {% elif (vars.JPG != None) %}
+       {% if ((vars.JPG['mimetype'] == None) or (vars.JPG['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.JPG, pkg)}}</div>
+       {% else %}
+         <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     {% elif (vars.PX != None) %}
+       {% if ((vars.PX['mimetype'] == None) or (vars.PX['mimetype']|length==0)) %}
+         <div class="previewZone">{{h.resource_preview(vars.PX, pkg)}}</div>
+       {% elif (vars.PX['mimetype']|length==0) %}
+        <script>
+					$('.socialDataset ul').css('padding-bottom', '30px');
+				</script> 
+       {% endif %}
+     {% else %}
+         <div style="margin-bottom: 30px;" >Previsualizaci&oacute;n del conjunto de datos no disponible</div>
+      {% endif %}
+      
+      
+  {% endblock %}  
+  
+  <div class="metadataZone">
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg, c_aux=c %}
+  </div>
+  <div class="resourceZone">
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  </div>
+
+  {% snippet "package/snippets/additional_info_extras.html", pkg_dict=pkg, c_aux=c %}
+  
+  <div class="huecoInicioPagina"></div>
+		{% if c.page.item_count > 0 %}
+			{% snippet "package/snippets/recommend_datasets.html", recomendPackages=c.page.items %}
+		{% endif %}
+
+
+  <div class="huecoInicioPagina"></div>
+{% endblock %}

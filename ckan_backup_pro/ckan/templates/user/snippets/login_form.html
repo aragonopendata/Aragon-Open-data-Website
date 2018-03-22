@@ -1,0 +1,68 @@
+{# 
+Renders the login form.
+
+action        - The url that the form should be submitted to.
+error_summary - A tuple/list of form errors.
+
+Example:
+
+  {% snippet "user/snippets/login_form.html", action=c.login_handler, error_summary=error_summary %}
+
+#}
+{% import 'macros/form.html' as form %}
+
+{% set username_error = true if error_summary %}
+{% set password_error = true if error_summary %}
+<div class="contenidoDashboard">
+<form action="{{ action }}" method="post" id="loginForm">
+  {{ form.errors(errors=error_summary) }}
+  <table>
+    <tr>
+      <td style="width:225px">
+      </td>
+      <td style="width:240px">
+        <label class="fieldName">{{_("Username")}}</label>
+      </td>
+      <td>
+        <input id="field-login" type="text" placeholder="" value="" name="login" style="width:240px;" autocomplete="off">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <label class="fieldName">{{_("Password")}}</label>
+      </td>
+      <td>
+          <input id="field-password" type="password" placeholder="" value="" name="password" style="width:240px;" autocomplete="off">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td colspan="2" style="padding-top:20px;">
+        {{ form.checkbox('remember', label=_("Remember me"), id='field-remember', checked=true, value="63072000") }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <a class="recuadroRecto letraGrande bigButton" href="javascript:$('#loginForm').submit();">{{ _('Log in') }}</a>
+        <input type="hidden" name="save">
+      </td>
+      <td>
+      </td>
+    </tr>
+
+
+   </table>
+</form>
+
+<br>
+<p>Si has olvidado tu usuario o contraseña escríbenos un email a <a href="mailto:opendata@aragon.es" title="opendata@aragon.es">opendata@aragon.es</a> y nos pondremos en contacto contigo</p>
+<br>
+<p>Si eres una organización, departamento, fundación, etc y quieres participar con tus datos en Aragón Open Data escríbenos a <a href="mailto:opendata@aragon.es" title="opendata@aragon.es">opendata@aragon.es</a> y nos pondremos en contacto contigo</p>
+</div>

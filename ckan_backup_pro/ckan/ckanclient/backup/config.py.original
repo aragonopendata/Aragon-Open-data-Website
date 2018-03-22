@@ -1,0 +1,28 @@
+#!/usr/bin/python
+URL_FILE="/usr/lib/ckan/default/src/ckan/ckan/ckanclient/url.properties"
+DOWNLOAD_PATH="/data/ckan_tmp"
+DOWNLOAD_TEMPORAL="/data/ckan_tmp"
+UPLOAD_DOCUMENTS="/data/ckan_ficheros/opendata/"
+URL_VISTAS="http://localhost:80/dataset/showVista?id="
+URL_DOCUMENTS="http://opendata.aragon.es/opendata/"
+
+AST1_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=proapp1.dga.es)))"
+AST2_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=preapp1.dga.es)))"
+OPENDATA_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=proapp1.dga.es)))"
+###OPENDATA_CONEXION_BD="(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=backdes1.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=desapp1.dga.es)))"
+
+OPENDATA_USR="OPENDATA_USR"
+OPENDATA_PASS="OPENDATA_USR"
+
+AST1_USR="USUARIO"
+AST1_PASS="PASS"
+
+API_KEY="d058d2d7-2ff5-44f6-a364-b637384ee510"
+BASE_LOCATION="http://localhost:80/catalogo/api"
+INDEX_LOCATION="http://localhost:80/dataset/index"
+RSS_LOCATION="http://localhost:80/feeds/dataset.atom"
+DCAT_NAMESPACE = "http://www.w3.org/ns/dcat#"
+DCT_NAMESPACE = "http://purl.org/dc/terms/"
+RDFS_NAMESPACE = "http://www.w3.org/2000/01/rdf-schema#"
+FOAF_NAMESPACE = "http://xmlns.com/foaf/0.1/"
+RDF_NAMESPACE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"

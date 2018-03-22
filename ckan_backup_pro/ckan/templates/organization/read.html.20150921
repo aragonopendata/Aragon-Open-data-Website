@@ -1,0 +1,84 @@
+{% extends "organization/read_base.html" %}
+{% import 'macros/form.html' as form %}
+
+{% block page_primary_action %}
+{% endblock %}
+
+
+{% block primary_content_inner %}
+
+<h1>Información sobre: {{c.group_dict.title}}</h1>
+<div class="clear"></div>
+<div class="hueco30"></div>
+
+<div class="clear"></div>
+<div class="contenidoDashboard">
+  {% snippet 'snippets/info_organization_read.html', group_dict=c.group_dict %}
+</div>
+<section class="module">
+    <div class="module-content">
+      {% block page_primary__inner_action %}
+        {% if h.check_access('package_create') %}
+        {% endif %}
+      {% endblock %}
+      {% block form %}
+        {% set facets = {
+          'fields': c.fields_grouped,
+          'search': c.search_facets,
+          'titles': c.facet_titles,
+          'translated_fields': c.translated_fields,
+          'remove_field': c.remove_field }
+        %}
+        {% set sorting = [
+          (_('Relevance'), 'score desc, metadata_modified desc'),
+          (_('Name Ascending'), 'title_string asc'),
+          (_('Name Descending'), 'title_string desc'),
+          (_('Last Modified'), 'metadata_modified desc'),
+          (_('Popular'), 'views_total desc') if g.tracking_enabled else (false, false) ]
+        %}
+        
+      {% endblock %}
+
+      {% set vars = {'title_string_asc': False, 'title_string_desc': False, 'views_total_asc': False, 'views_total_desc': False, 'metadata_modified_asc': False, 'metadata_modified_desc': False } %}
+
+      {% if c.sort_by_selected %}
+        {% set activeSortList = [] %}
+           {% for value in ''.join(c.sort_by_selected).split(',') %}
+              {% set finalValue = value.strip().replace(' ', '_') %}       
+              {% if vars.update({finalValue: True}) %}{% endif %}       
+           {% endfor %}
+      {% endif %}
+
+      {% if c.page.item_count > 0 %}
+       <table class="tablaResultadosDataset">
+         <tr>
+          <th class="cabeceraTablaResultadosDataset">
+           <div class="labelCabeceraTablaResultadosDataset">{% snippet 'snippets/search_result_text.html', query=None, count=c.page.item_count, type='dataset' %}</div>
+	   {% snippet 'snippets/orderButtons.html', orderType='title_string', asc_selected=vars.title_string_asc, desc_selected=vars.title_string_desc, destination='' %}
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+            <div class="labelCabeceraTablaResultadosDataset">N&ordm; ACCESOS</div>
+	    {% snippet 'snippets/orderButtons.html', orderType='views_total', asc_selected=vars.views_total_asc, desc_selected=vars.views_total_desc, destination=''  %}
+          </th>
+          <th class="cabeceraTablaResultadosDataset tamEstrecho">
+           <div class="labelCabeceraTablaResultadosDataset">FECHA (ACT)</div>
+           {% snippet 'snippets/orderButtons.html', orderType='metadata_modified', asc_selected=vars.metadata_modified_asc, desc_selected=vars.metadata_modified_desc, destination=''  %}
+          </th>
+        </tr>
+      
+        {% block package_search_results_list %}
+          {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
+        {% endblock %}
+       </table>
+<br/>
+    		<div><img src="/public/i/popular.png" alt="Popular" title="Popular"> Se ha accedido al conjunto de datos m&aacute;s de 10 veces en los &uacute;ltimos 14 d&iacute;as</div>
+      {% endif %}
+    </div>
+
+    {% block page_pagination %}
+	{{ c.page.pager(q=c.q) }}
+    {% endblock %}
+  </section>
+<div class="huecoInicioPagina"></div>
+
+{% endblock %}

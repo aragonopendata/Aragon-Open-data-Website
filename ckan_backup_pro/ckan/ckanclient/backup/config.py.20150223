@@ -1,0 +1,36 @@
+#!/usr/bin/python
+URL_FILE="/usr/lib/ckan/default/src/ckan/ckan/ckanclient/url.properties"
+DOWNLOAD_PATH="/data/ckan_tmp"
+DOWNLOAD_TEMPORAL="/data/ckan_tmp"
+UPLOAD_DOCUMENTS="/data/ckan_ficheros/opendata/"
+URL_VISTAS="http://preopendata.aragon.es/catalogo/dataset/showVista?id="
+URL_DOCUMENTS="http://preopendata.aragon.es/catalogo/opendata/"
+
+AST1_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=preapp1.dga.es)))"
+AST2_CONEXION_BD="(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=pre01-scan.aragon.local)(PORT=47034)))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME = ASTJ2EE_GN1_01.ARAGON.LOCAL)))"
+OPENDATA_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpre2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=preapp1.dga.es)))"
+OPENDATA_CONEXION_BD_DES="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=backdes1.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=desapp1.dga.es)))"
+
+###OPENDATA_CONEXION_BD="(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro1.dga.es)(PORT=1523))(ADDRESS=(PROTOCOL=TCP)(HOST=vir_backpro2.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=proapp1.dga.es)))"
+#OPENDATA_CONEXION_BD_DES="(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=backdes1.dga.es)(PORT=1523))(CONNECT_DATA=(SERVICE_NAME=desapp1.dga.es)))"
+
+
+OPENDATA_USR="OPENDATA_USR"
+OPENDATA_PASS="OPENDATA_USR"
+
+OPENDATA="OPENDATA"
+
+AST_USR="OPENDATA_USR"
+AST_PASS="OPENDATA_USR"
+
+API_KEY="7cc367ac-67e3-4e9e-8c1e-24c75b0e03f4"
+BASE_LOCATION="http://preopendata.aragon.es/catalogo/api"
+INDEX_LOCATION="http://preopendata.aragon.es/catalogo/dataset/index"
+RSS_LOCATION="http://preopendata.aragon.es/catalogo/feeds/dataset.atom"
+DCAT_NAMESPACE = "http://www.w3.org/ns/dcat#"
+DCT_NAMESPACE = "http://purl.org/dc/terms/"
+RDFS_NAMESPACE = "http://www.w3.org/2000/01/rdf-schema#"
+FOAF_NAMESPACE = "http://xmlns.com/foaf/0.1/"
+RDF_NAMESPACE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+USR_ADMIN="admin"

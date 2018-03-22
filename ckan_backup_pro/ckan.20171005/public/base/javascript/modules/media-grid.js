@@ -1,0 +1,1 @@
+this.ckan.module("media-grid",function(b,a){return{initialize:function(){var c=this.el;c.imagesLoaded(function(){c.masonry({itemSelector:".media-item"})})}}});

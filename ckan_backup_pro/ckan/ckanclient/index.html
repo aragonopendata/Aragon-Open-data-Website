@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<head>
+	<title>Bienvenidos a Aragón Open Data - ARAG&Oacute;N OPEN DATA</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Aragón Open Data" />
+  <meta name="keywords" content="default, keywords, here" />
+  <meta name="author" content="Idearium Consultores SL" />
+<!--  <meta name="viewport"content="width=980" />-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+  <link rel="favourites icon" href="/public/i/favicon.ico" />
+
+  <link rel="stylesheet" href="/public/themes/aod/style.css" media="screen" type="text/css" />
+  <!--link rel="stylesheet" href="/public/themes/aod/screen.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="/public/themes/aod/print.css" media="print" type="text/css" /-->
+  <link rel="alternate" type="application/rss+xml" title="Wolf Default RSS Feed" href="http://opendata.aragon.es/rss.xml" />
+<link rel="stylesheet" href="/public/chosenImage.css" type="text/css" />
+
+  <link rel="stylesheet" href="/public/jquery/jquery-ui_1_10_3_smoothness.css">
+
+	<script type="text/javascript">
+		var currentUrl = "";
+	</script>
+  <script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2013-12-16T14:36:29.02/jquery.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/vendor/:version:2013-12-16T14:36:29.02/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;select2/select2.min.js"></script>
+<script type="text/javascript" src="/catalogo/fanstatic/base/:version:2013-12-17T09:28:00.73/:bundle:plugins/jquery.inherit.js;plugins/jquery.proxy-all.js;plugins/jquery.url-helpers.js;plugins/jquery.date-helpers.js;plugins/jquery.slug.js;plugins/jquery.slug-preview.js;plugins/jquery.truncator.js;plugins/jquery.masonry.js;plugins/jquery.form-warning.js;sandbox.js;module.js;pubsub.js;client.js;notify.js;i18n.js;main.js;modules/select-switch.js;modules/slug-preview.js;modules/basic-form.js;modules/confirm-action.js;modules/api-info.js;modules/autocomplete.js;modules/custom-fields.js;modules/related-item.js;modules/data-viewer.js;modules/table-selectable-rows.js;modules/resource-form.js;modules/resource-upload-field.js;modules/follow.js;modules/activity-stream.js;modules/dashboard.js;modules/table-toggle-more.js;modules/dataset-visibility.js;modules/media-grid.js;modules/jquery-ui_1_10_3.js;modules/chosen.jquery.js;modules/chosenImage.jquery.js;modules/aod_funcs.js"></script>
+
+
+
+  <script type="text/javascript" src="/public/portalAOD_funcs.js"></script>
+<!-- Goo Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36118896-2']);
+  _gaq.push(['_setDomainName', 'aragon.es']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https:/'+'/' : 'http:/'+'/') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Fin Goo Analytics -->
+</head>
+<body>
+
+<header>
+<div id="cabeceraRelacionados">
+	<ul>
+		<li class="active"><a href="http://opendata.aragon.es" title="Open data">OPEN DATA</a><p class="clear visible-xs"></p></li>
+<li class="clear visible-xs tamCero"></li>
+		<li><a href="http://aragonparticipa.aragon.es" title="Participaci&oacute;n ciudadana">PARTICIPACI&Oacute;N CIUDADANA</a></li>
+	</ul>
+</div>
+<div id="cabecera">
+	<ul>
+		<li><a href="http://www.aragon.es" target="_blank"><img src="/public/i/logo_aragob.png" width="127" height="28" alt="Gobierno de Arag&oacute;n" title="Gobierno de Arag&oacute;n" /></a></li>
+	</ul>
+</div>
+
+<div class="banner">
+	<div class="bannerInline bannerLogo" style="text-align: right;" >
+		<a href="/" title="ARAGÓN OPEN DATA"><img  id="idTotal" src="http://opendata.aragon.es/public/i/logo_aod.png" alt="ARAGÓN OPEN DATA"></a>
+	</div>
+	<div class="bannerInline bannerBuscador" style="text-align: left;">
+		<form id="cajaBusqBanner" action="/catalogo" method="get">
+<!--			<label for="cajaDeBusqInput" class="oculto">Buscar conjuntos de datos</label>-->
+			
+			<input id="cajaDeBusqInput" name="q" value="" class="search anchoSearchBanner" type="text">
+			<button class="btn-search" type="submit">Buscar</button>
+			<!--<input id="cajaBusqInput" type="text" name="q" value="" class="search anchoSearchBanner d_d" placeholder="ARAG&Oacute;N OPEN DATA BUSCA DATOS" />-->
+		</form>
+	</div>
+</div>
+<div class="clear"></div>
+</header><nav>
+  <div id="navegacion" class="botones botonesSuperiorLista">
+    <ul>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked first';" onmouseup="javascript:this.className='botonSuperior first';"
+            onmouseover="javascript:this.className='botonSuperiorOver first';" onmouseout="javascript:this.className='botonSuperior first';"
+            onclick="javascript:window.location='/catalogo';" class="botonSuperior first" title="Datos"><img src="/public/i/header/datos.png" alt="Datos" title="Datos"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked second';" onmouseup="javascript:this.className='botonSuperior second';"
+            onmouseover="javascript:this.className='botonSuperiorOver second';" onmouseout="javascript:this.className='botonSuperior second';"
+            onclick="javascript:window.location='/aragopedia';" class="botonSuperior second" title="AragoPedia"><img src="/public/i/header/aragopedia.png" alt="AragoPedia" title="AragoPedia"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked third';" onmouseup="javascript:this.className='botonSuperior third';"
+            onmouseover="javascript:this.className='botonSuperiorOver third';" onmouseout="javascript:this.className='botonSuperior third';"
+            onclick="javascript:window.location='/portal/social-data';" class="botonSuperior third" title="Social Data"><img src="/public/i/header/socialData.png" alt="Social Data" title="Social Data"></li>
+<li class="clear visible-ms tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fourth';" onmouseup="javascript:this.className='botonSuperior fourth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fourth';" onmouseout="javascript:this.className='botonSuperior fourth';"
+            onclick="javascript:window.location='/portal/colabora';" class="botonSuperior fourth" title="Colabora"><img src="/public/i/header/colabora.png" alt="Colabora" title="Colabora"></li>
+<li class="clear visible-xs tamCero"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked fifth';" onmouseup="javascript:this.className='botonSuperior fifth';"
+            onmouseover="javascript:this.className='botonSuperiorOver fifth';" onmouseout="javascript:this.className='botonSuperior fifth';" 
+            onclick="javascript:window.location='/portal/aplicaciones';" class="botonSuperior fifth" title="Aplicaciones"><img src="/public/i/header/aplicaciones.png" alt="Aplicaciones" title="Aplicaciones"></li>
+      <li onmousedown="javascript:this.className='botonSuperiorClicked last';" onmouseup="javascript:this.className='botonSuperior last';"
+            onmouseover="javascript:this.className='botonSuperiorOver last';" onmouseout="javascript:this.className='botonSuperior last';" 
+            onclick="javascript:window.location='/portal/open-data';" class="botonSuperior last" title="Informaci&oacute;n sobre Open Data"><img src="/public/i/header/infoOpenData.png" alt="Informaci&oacute;n sobre Open Data" title="Informaci&oacute;n sobre Open Data"></li>
+      </ul>
+  </div>
+</nav><div id="contenido" role="main">
+<div class="huecoInicioPagina"></div>
+<div class="separadorContenidoPagina"></div>
+<div class="clear"></div>
+<div id="videoHome">
+	<div id="divVideo">
+<ul><li>
+		<div id="tituloVideo"><img alt="Entra a conocernos" src="/public/i/tituloVideo.png"/></div>
+		<div id="playVideo" onclick="javascript:clickVideo()"><img alt="Ver video" src="/public/i/playVideo.png"/></div>
+
+		<img src="/public/i/portadaVideo.jpg" id="divVideoImg" alt="Portada video"/>
+
+		<div id="videoPlayer"></div>
+
+		<script type="text/javascript">
+			// 2. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement('script');
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		</script>
+</li></ul>
+	</div>
+</div>
+
+<div class="separadorContenidoPagina"></div>
+<div class="seccionHome">
+	<div class="huecoSeccionHome"></div>
+	<div id="serviciosODTitulo">
+		<a href="#cabeceraRelacionados" title="Ir al principio"><img src="/public/i/flechaUp.png" alt="Ir al principio" class="d_d flechaUp"/></a>
+		<img src="/public/i/serviciosOD_titulo.png" alt="Servicios Open Data" class="i_i"/>
+	</div>
+	<div class="huecoSeccionHome"></div>
+	<div><img src="/public/i/serviciosOD_texto.png" alt="Texto Servicios Open Data" class="i_i"/></div>
+	<div class="huecoSeccionHome"></div>
+	<div class="seccionHomeIconos">
+		<ul>
+		<li class="item1">
+			<p><a href="/catalogo" title="Catálogo"><img src="/public/i/bannerHome/bannerBuscaDatos.png" alt="Busca datos"/></a></p>
+			<div class="texto">
+<p><img src="/public/i/buscaDatosItemTitulo.png" alt="Busca datos"/></p>
+<p>Lo más importante de Aragón Open Data son sus datos y los hemos ordenado para que se puedan buscar fácilmente. Si eres un ciudadano puedes acceder a ellos haciendo búsquedas libres o usando filtros de búsqueda. Si eres un infomediario accede a ellos a través de nuestra API o del punto SPARQL de consulta.</p>
+<p><a href="/catalogo" title="Ver más"><img src="/public/i/verMas.png" alt="Ver más"/></a></p>
+			</div>
+		</li>
+		<li class="item2">
+			<p><a href="/aragopedia" title="AragoPedia"><img src="/public/i/bannerHome/bannerAragopedia.png" alt="AragoPedia"/></a></p>
+			<div class="texto">
+<p><img src="/public/i/aragopediaItemTitulo.png" alt="AragoPedia"/></p>
+<p>Hemos trabajado con los datos abiertos de Aragón Open Data para que puedas ver territorios. Ahora tienes los datos de tu municipio o de tu comarca para que puedas consultarlos. Además si quieres, los puedes descargar como un dato más de Aragón Open Data para reutilizarlo en lo que tú desees.</p>
+<p><a href="/aragopedia" title="Ver más"><img src="/public/i/verMas.png" alt="Ver más"/></a></p>
+			</div>
+		</li>
+		<li class="item3">
+			<p><a href="/portal/social-data" title="Escucha activa"><img src="/public/i/bannerHome/bannerOpenSocialData.png" alt="Open Social Data"/></a></p>
+			<div class="texto">
+<p><img src="/public/i/openSocialDataItemTitulo.png" alt="Open Social Data"/></p>
+<p>Hoy en día estamos en las redes sociales y en Aragón Open Data hemos pensado que es importante escuchar activamente lo que ahí sucede. Hemos capturado la información relevante y te la mostramos para que puedas saber lo que se dice sobre Aragón. ¡Bájate la información y entérate de todo lo que pasa en tu comunidad!</p>
+<p><a href="/portal/social-data" title="Ver más"><img src="/public/i/verMas.png" alt="Ver más"/></a></p>
+			</div>
+		</li>
+		</ul>
+	</div>
+</div>
+<div class="separadorContenidoPagina"></div>
+
+<div class="seccionHome">
+	<div class="huecoSeccionHome"></div>
+	<div id="contenidosODTitulo">
+		<a href="#cabeceraRelacionados" title="Ir al principio"><img src="/public/i/flechaUp.png" alt="Ir al principio" class="d_d flechaUp"/></a>
+		<img src="/public/i/contenidosOD_titulo.png" alt="Contenidos Open Data" class="i_i"/>
+	</div>
+	<div class="huecoSeccionHome"></div>
+	<div id="contenidosODTexto"><img src="/public/i/contenidosOD_texto.png" alt="Texto Contenidos Open Data" class="i_i"/></div>
+	<div class="huecoSeccionHome"></div>
+
+	<!--img src="/public/i/espacioImagen.jpg" class="i_i" alt="Imagen contenidos Open Data"/-->
+
+	<div class="i_i">
+		<div class="tituloVentana">
+			<div class="texto">
+				Jacathon - Aragón Open Data
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<a href="/portal/jacathon" title="jacathon"><img src="/public/i/jacathon.home.png" alt="Jacathon" title="Jacathon" class="i_i"></a>
+	</div>
+
+	<!--img src="/public/i/espacioVideo.jpg" class="d_d" alt="Video contenidos Open Data"/-->
+	<div class="d_d">
+		<div class="tituloVentana">
+			<div class="texto">
+				¿Qué puedes encontrar en Aragón Open Data?
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div id="zonaVideoPlayerMini">
+			<iframe id="videoPlayerMini" width="458" height="203" src="http://www.youtube.com/embed/VdygIPeDxpE?rel=0" frameborder="0" allowfullscreen class="bordeAzulVentana"></iframe>
+		</div>
+	</div>
+
+	<div class="clear visible-xs"></div>
+	<div class="d_d hueco30">
+		<div class="tituloVentana">
+			<div class="texto">
+				Noticias
+				<!--<img src="/public/i/tituloNoticias.png" alt="Noticias" class="i_i"/>-->
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div id="zonaNoticias">
+			<div class="titularNoticia">
+			</div>
+<div>
+                                <p class="centrado">La jornada "Un año de Aragón Open Data" en los medios:</p>
+<p class="centrado"><a target="_blank" href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/id.144552" title="Aragón Hoy">Aragón Hoy</a></p>
+<p class="centrado"><a target="_blank" href="http://www.aragonradio2.com/podcast/emision/el-proyecto-aragon-open-data-cumple-un-ano/" title="Aragón Radio">Aragón Radio</a></p>
+<p class="centrado"><a target="_blank" href="http://www.europapress.es/aragon/noticia-aragon-open-data-cumple-ano-mas-datos-nuevos-servicios-disponibles-20140206161113.html" title="Europa Press">Europa Press</a></p>
+</div>
+			<!--div class="separadorVentana"></div-->
+		</div>
+	</div>
+</div>
+<div class="separadorContenidoPagina"></div>
+<div class="seccionHome">
+	<div class="huecoSeccionHome"></div>
+	<div id="otrasIniciativasTitulo">
+		<a href="#cabeceraRelacionados" title="Ir al principio"><img src="/public/i/flechaUp.png" alt="Ir al principio" class="d_d flechaUp"/></a>
+		<img src="/public/i/tituloOtrasIniciativas.png" alt="Otras Iniciativas" class="i_i"/>
+	</div>
+	<div class="huecoSeccionHome"></div>
+	<div><img src="/public/i/textoOtrasIniciativas.png" alt="Texto Otras Iniciativas" class="i_i"/></div>
+	<div class="huecoSeccionHome"></div>
+	<div class="seccionHomeIconos">
+		<ul>
+		<li class="item1">
+			<p><a href="http://presupuesto.aragon.es" title="Aragón Presupuestos"><img src="/public/i/bannerPresupuesto.png" alt="Aragón Presupuestos"/></a></p>
+			<div class="texto">
+<p><img src="/public/i/presupuestoItemTitulo.png" alt="Aragón Presupuestos"/></p>
+<p>¿Cómo y en qué gastan el Gobierno y los entes locales de Aragón? Te mostramos de un modo claro cómo se distribuyen los presupuestos. De dónde vienen los ingresos, a qué se destina el gasto y en qué políticas se emplea lo que tú aportas. Descubre de forma sencilla en qué se emplea tu dinero en Aragón.</p>
+<p><a href="http://presupuesto.aragon.es" title="Ver más"><img src="/public/i/verMas.png" alt="Ver más"/></a></p>
+			</div>
+		</li>
+		<li class="item2">
+			<p><img src="/public/i/bannerTransparenciaProx2.png" title="Aragón Transparencia" alt="Aragón Transparencia"/></p>
+			<div class="texto">
+<p><img src="/public/i/transparenciaItemTitulo.png" alt="Aragón Transparencia"/></p>
+<p>Conoce la actividad del Gobierno de Aragón de manera transparente. Descubre a los miembros del Gobierno, al personal que presta los servicios públicos o las subvenciones otorgadas por el Gobierno de Aragón. De forma fácil e interactiva te enseñamos los aspectos más sensibles a la acción de Gobierno.</p>
+			</div>
+		</li>
+		<li class="item3">
+			<p><a href="http://aragonparticipa.aragon.es/" title="Aragón participa"><img src="/public/i/bannerParticipa.png" alt="Aragón participa"/></a></p>
+			<div class="texto">
+<p><img src="/public/i/participaItemTitulo.png" alt="Aragón participa"/></p>
+<p>A través de Aragón Participa tienes acceso a los casos de participación ciudadana propiciados por el Gobierno de Aragón.</p>
+<p>Descubre las acciones de apertura de las políticas públicas a la participación ciudadan y comprueba cómo el proceso participativo influye en los resultados de estas políticas.</p>
+<p><a href="http://aragonparticipa.aragon.es/" title="Ver más"><img src="/public/i/verMas.png" alt="Ver más"/></a></p>
+			</div>
+		</li>
+		</ul>
+	</div>
+</div>
+<div class="separadorContenidoPagina"></div>
+
+<div class="seccionHome">
+	<div class="huecoSeccionHome"></div>
+	<div id="datosDestacadosTitulo">
+		<a href="#cabeceraRelacionados" title="Ir al principio"><img src="/public/i/flechaUp.png" alt="Ir al principio" class="d_d flechaUp"/></a>
+		<img src="/public/i/tituloDatosDestacados.png" alt="Datos destacados" class="i_i"/>
+	</div>
+	<div class="huecoSeccionHome"></div>
+	<div id="datosDestacadosTexto"><img src="/public/i/textoDatosDestacados.png" alt="Texto Datos destacados" class="i_i"/></div>
+	<ul id="ventanasDatosDestacados">
+	<li>
+	<div class="i_i hueco60y30">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloNuevosDatos.png" alt="Nuevos datos" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados" id="zonaVentanaDatosRecientes1">
+			<div><a title="Registro de Convenios de Aragón desde 1984 hasta la actualidad" href="/catalogo/registro-de-convenios-de-aragon-1984-2084">Registro de Convenios de Aragón desde 1984 hasta la actualidad</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2013" href="/catalogo/registro-de-convenios-de-aragon-2013">Registro de Convenios de Aragón 2013</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2012" href="/catalogo/registro-de-convenios-de-aragon-2012">Registro de Convenios de Aragón 2012</a></div>
+		</div>
+	</div>
+	</li>
+	<li>
+	<div class="i_i hueco60y30">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloDatosMasDescargados.png" alt="Datos más descargados" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados" id="zonaVentanaDatosDescargados1">
+			<div><a title="Registro de Convenios de Aragón desde 1984 hasta la actualidad" href="/catalogo/registro-de-convenios-de-aragon-1984-2084">Registro de Convenios de Aragón desde 1984 hasta la actualidad</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2013" href="/catalogo/registro-de-convenios-de-aragon-2013">Registro de Convenios de Aragón 2013</a></div><div class="separadorVentana"></div><div><a title="Registro de Convenios de Aragón 2012" href="/catalogo/registro-de-convenios-de-aragon-2012">Registro de Convenios de Aragón 2012</a></div>
+		</div>
+	</div>
+	</li>
+	<li class="last">
+	<div class="i_i hueco60">
+		<div class="tituloVentana">
+			<div class="hueco">
+				<img src="/public/i/tituloEstadisticas.png" alt="Estadísticas" class="i_i"/>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="zonaVentanaDatosDestacados">
+			<div class="azul negrita">
+				NÚMERO DE DATASETS
+			</div>
+			<div class="azul" id="timestampNumDatasets">
+18.07.2014 | 14:25:18			</div>
+			<div id="numDatasets">
+				Cargando...
+			</div>
+			<div class="separadorVentana"></div>
+			<div class="azul negrita">
+				NÚMERO DE RECURSOS
+			</div>
+			<div class="azul" id="timestampNumResources">
+18.07.2014 | 14:25:18			</div>
+			<div id="numRecursos">
+				Cargando...
+			</div>
+		</div>
+	</div>
+	</li>
+	</ul>
+<div class="huecoSeccionHome"></div>
+<a href="/catalogo" title="Acceso al catálogo de Aragón Open Data"><img src="/public/i/bannerHorizontal/bannerAccesoCatalogoAzul.png" alt="Acceso al catálogo de Aragón Open Data" onmouseout="javascript:this.src='/public/i/bannerHorizontal/bannerAccesoCatalogoAzul.png';" onmouseover="javascript:this.src='/public/i/bannerHorizontal/bannerAccesoCatalogoNegro.png';" onmouseup="javascript:this.src='/public/i/bannerHorizontal/bannerAccesoCatalogoAzul.png';" onmousedown="javascript:this.src='/public/i/bannerHorizontal/bannerAccesoCatalogoNegro.png';"/></a>
+<div class="huecoSeccionHome"></div>
+</div> 
+</div>
+<footer>
+<div id="pie">
+<ul id="pieUL"><li id="pieULLI">
+<div class="pieInterior">
+	<div class="pieZonaUno">
+		<a title="Home Arag&oacute;n Open Data" href="/"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data" id="pieZonaUnoRoot"/> </a>
+<img alt="Flecha" src="/public/i/footer/flechaFooter.png"> 
+<a class="footerLink pieEnlace" title="Home Arag&oacute;n Open Data" href="/"> HOME</a>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaDos">
+		<ul>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoAvisoLegal.png" alt="Aviso legal"/></td></tr>
+			<tr><td><a href="/terminos" title="T&eacute;rminos de uso"><img src="/public/i/footer/cajaTerminosUso.jpg" alt="T&eacute;rminos de uso"/></a></td></tr>
+			<tr><td><img src="/public/i/footer/cajaCCconTexto.jpg" alt="Licencia Creative Commons" height="96" width="215"/></td></tr>
+			<tr><td><img src="/public/i/footer/banderaUEconTexto.png" alt="Uni&oacute;n Europea - Fondo Europeo de Desarrollo Regional" class="recuadroPie" /></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img height="9" src="/public/i/footer/textoPoweredBy.png" alt="Powered by"/></td></tr>
+			<tr><td><a href="http://ckan.org/" title="CKAN"><img src="/public/i/footer/cajaLogoCKAN.jpg" alt="CKAN"/></a></td></tr>
+			<tr><td><a href="http://www.wolfcms.org/" title="Wolf CMS"><img src="/public/i/footer/cajaLogoWolfCMS.jpg" alt="Wolf CMS"/></a></td></tr>
+			<tr><td><a href="http://www.mediawiki.org/" title="MediaWiki"><img src="/public/i/footer/cajaLogoMediaWiki.jpg" alt="MediaWiki"/></a></td></tr>
+			<tr><td><a href="http://virtuoso.openlinksw.com/" title="Virtuoso"><img src="/public/i/footer/cajaLogoVirtuoso.jpg" alt="Virtuoso"/></a></td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+<li class="clear visible-ms tamCero"></li>
+		<li>
+		<table>
+			<tr><td class="titulo"><img src="/public/i/footer/textoAOD.png" alt="Arag&oacute;n Open Data"/></td></tr>
+			<tr><td>
+<div class="pieZonaEnlaces">
+<ul class="styleDiscUL">
+<li><a href="/catalogo" title="Datos" class="pieEnlace">DATOS</a></li>
+<li><a href="/aragopedia" title="AragoPedia" class="pieEnlace">ARAGOPEDIA</a></li>
+<li><a href="/portal/social-data" title="Social Data" class="pieEnlace">SOCIAL DATA</a></li>
+<li><a href="/portal/colabora" title="Colabora" class="pieEnlace">COLABORA</a></li>
+<li><a href="/portal/aplicaciones" title="Aplicaciones" class="pieEnlace">APLICACIONES</a></li>
+<li><a href="/portal/open-data" title="Informaci&oacute;n Open Data" class="pieEnlace">INFO OPEN DATA</a></li>
+</ul>
+</div>
+</td></tr>
+		</table>
+		</li>
+<li class="clear visible-xs tamCero"></li>
+		<li>
+		<table class="last">
+			<tr><td class="titulo"><img height="9"  src="/public/i/footer/textoRedesSociales.png" alt="Redes Sociales"/></td></tr>
+			<tr><td><a href="http://www.facebook.com/observatorio.aragones" title="Facebook"><img src="/public/i/footer/cajaLogoFacebook.jpg" alt="Facebook"/></a></td></tr>
+			<tr><td><a href="http://www.twitter.com/oasi" title="Twitter"><img src="/public/i/footer/cajaLogoTwitter.jpg" alt="Twitter"/></a></td></tr>
+			<tr><td><a href="http://www.youtube.com/watch?v=8d409yteTJM&list=PLQ3k0vA0UZvhBVOz_mCq-9Wyn3VCB6QCe" title="YouTube"><img src="/public/i/footer/cajaLogoYouTube.jpg" alt="YouTube"/></a></td></tr>
+			<tr><td><a href="mailto:opendata@aragon.es" title="Contacto AOD"><img src="/public/i/footer/cajaCorreoAOD.jpg" alt="Contacto AOD"/></a></td></tr>
+		</table>
+		</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="pieZonaTres">
+		<ul>
+			<li class="izquierda textoPie">
+				<p>GOBIERNO DE ARAG&Oacute;N</p>
+				<p>EDIFICIO PIGNATELLI</p>
+				<address>PASEO MAR&iacute;A AGUST&iacute;N, 36 50071 ZARAGOZA TEL. 976 714 000</address>
+			</li>
+			<li class="derecha">
+				<a target="_blank" href="http://www.aragon.es" title="Gobierno de Arag&oacute;n"><img width="132" height="28" alt="Gobierno de Arag&oacute;n" src="/public/i/footer/logo_aragob_pie.png"></a>
+			</li>
+		</ul>
+	</div>
+<div class="clear"></div>
+</div>
+</li></ul>
+</div>
+</footer>
+</body>
+</html>

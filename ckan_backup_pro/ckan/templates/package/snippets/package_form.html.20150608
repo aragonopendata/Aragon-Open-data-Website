@@ -1,0 +1,172 @@
+{% import 'macros/form.html' as form %}
+{% set action = c.form_action or '' %}
+<script>
+  {% if data.id %}
+    var isEditing = true;
+  {% else %}
+    var isEditing = false;
+  {% endif %}
+  {% if h.check_access('sysadmin') %}
+    var isSysAdmin = true;
+  {% else %}
+    var isSysAdmin = false;
+  {% endif %}
+</script>
+<h1>PIZARRA DE ADMINISTRACIÓN</h1>
+<br>
+<div class="clear"></div>
+<h2 class="azul">{{h.user_displayname_logged()}}</h2>
+<div class="hueco30"></div>
+<div>
+<ul class="dashboardZone">
+<li><a id="tab_organizacion" href="/catalogo/pizarra/info-organizacion" title="Info organización"><div class="blockDashboard">INFO ORGANIZACIÓN</div></a></li>
+<li><a id="tab_datos" href="/catalogo/pizarra/datos" title="Mis datos"><div class="blockDashboardSelected">MIS DATOS</div></a></li>
+<li><a id="tab_actividad" href="/catalogo/pizarra/actividad" title="Mi actividad"><div class="blockDashboard">MI ACTIVIDAD</div></a></li>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="hueco30"></div>
+
+{# This provides a full page that renders a form for adding a dataset. It can
+then itself be extended to add/remove blocks of functionality. #}
+<form autocomplete="off" class="dataset-form form-horizontal" method="post" action="{{ action }}" data-module="basic-form" id="metadataEditorForm" >
+  <input type="hidden" name="pkg_name" value="{{ data.id }}" />
+  <input type="hidden" name="save" value="" />
+
+  {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
+
+  <div class="menuLateral">
+    <div class="blockEditorSelected" id="editorZone0">
+      <div class="mandatory" title="Obligatorio">*</div>
+      <a>NOMBRE Y DESCRIPCIÓN</a>
+    </div>
+    <div class="blockEditor" id="editorZone1">
+      <div class="mandatory" title="Obligatorio">*</div>
+      <a>TEMÁTICA Y ETIQUETAS</a>
+    </div>
+    <div class="blockEditor" id="editorZone2">
+      <div class="mandatory" title="Obligatorio">*</div>
+      <a>COBERTURA GEOGRÁFICA</a>
+    </div>
+    <div class="blockEditor" id="editorZone3">
+      <a>COBERTURA TEMPORAL</a>
+    </div>
+    <div class="blockEditor" id="editorZone4">
+      <div class="mandatory no-visible">*</div>
+      <a class="blockEditorOneRow">IDIOMAS</a>
+    </div>
+    <div class="blockEditor" id="editorZone5">
+      <div class="mandatory no-visible">*</div>
+      <a class="blockEditorOneRow">EXTRAS</a>
+    </div>
+    <div class="blockEditor" id="editorZone6">
+      <div class="mandatory no-visible">*</div>
+      <a>PUBLICADOR Y LICENCIA</a>
+    </div>
+    <div class="blockEditor" id="editorZone7">
+      <div class="mandatory" title="Obligatorio">*</div>
+      <a>FICHEROS DE DATOS</a>
+    </div>
+  </div>
+
+  <div class="editorZone">
+ 
+    <h2 class="module-heading">
+      {% if data.title %}
+        {{ _("Edit Dataset") }} <br><br> {{ data.title }}
+      {% elif data.name %}
+        {{ _("Edit Dataset") }} <br><br> {{ data.name }}
+      {% else %}
+        Crear nuevo conjunto de datos
+      {% endif %}
+    </h2>
+
+  {% block basic_fields %}
+    {% set group_list_complete = h.groups_available() %}
+    {% snippet 'package/snippets/package_basic_fields.html', data=data, errors=errors, licenses=c.licenses, groups_available=c.groups_available, group_list=group_list_complete %}
+  {% endblock %}
+
+  </div>
+</form>
+
+<div id="editorZonePage7" style="display:none;" >
+  <div class="resourceEditorZone editorZone">
+<br/>
+
+  {% call form.input_block(for='', label="Ficheros de datos", error="", classes=[], control_classes=[], extra_html="", mandatory="*", moreInfo='Ejemplo 1:
+"Nombre: OASIEncuestaTICHogares2010"
+"Formato de descarga: XLS"
+"Formato de acceso: ZIP"
+"Enlaza a un archivo, ruta: http://xxxxxxxxxx.zip"
+
+Ejemplo2:
+"Nombre: Cafeterías y restaurantes en la Comunidad Autónoma de Aragón"
+"Formato de descarga: JSON"
+"Formato de acceso:" En este caso lo dejamos en blanco ya que no hay un formato intermedio para acceder al formato de descarga
+"Vista de base de datos, http://xxxxxxxxxx.id=xxx"', showLabel=true) %}
+  {% endcall %}
+<div>
+<ul style="list-style:disc;padding-left:30px; padding-right:10px">
+<li>Nombre del recurso: Introduce un nombre descriptivo del archivo descargable, puedes utilizar el mismo nombre que para el conjunto de datos</li>
+<li>Formato de descarga: Introduce el formato del recurso que contiene la información</li>
+<li>Formato de acceso: Si a tu descargable se accede a través de algún formato intermedio (por ejemplo, a través de una página web => HTML, de un fichero comprimido => ZIP…) indícanoslo en este campo. Si no existe un formato intermedio deja este campo en blanco</li>
+<li>Acceso al recurso: Elige si enlazar a una URL de descarga, conectar con una vista de base de datos o subir un recurso a nuestro servidor (este último caso lo desaconsejamos y sólo se realizará si no existe otra forma de suministrar la información)</li>
+</ul>
+</div>
+        {% snippet 'package/snippets/info.html', pkg=data, action='package_edit' %}
+
+<div style="padding-top:10px;padding-left:10px;padding-right:10px;">
+Importante:
+<ul style="list-style:disc; padding-left:20px;padding-right:10px;">
+<li>No introduzcas nada en formato PDF, ya que no es reutilizable y lo eliminaremos en cuanto lo detectemos</li>
+<li>Los formatos más habituales y preferidos por nosotros y por los reutilizadores son CSV, XML, JSON y RDF</li>
+<li>Introduce sólo los enlaces que permitan la descarga del conjunto de datos, cualquier otro enlace de interés para el usuario lo puedes introducir en la sección "Extras"</li>
+</ul>
+</div>
+
+    <script>
+// Funciones para VISTA
+/*
+function ocultarDatos(bool, id){
+    if (bool){
+        document.getElementById("datos_"+id).style.display = 'none';
+        document.getElementById("uploadFile_"+id).style.display = 'none';
+        document.getElementById("vista_"+id).style.display = '';
+    }else{
+       document.getElementById("datos_"+id).style.display = '';
+       document.getElementById("vista_"+id).style.display = 'none';
+       resetSelect();
+    }
+}
+*/
+ var usrLogged = "{{h.user_logged()}}";
+</script>
+</div>
+</div>
+
+  <div class="huecoInicioPagina"></div>
+<div style="font-weight: bold">
+
+<div style="white-space:nowrap;float:left;margin-top:10px;margin-right:6px">Los campos marcados con este asterisco </div><div class="mandatory i_i">*</div><div style="white-space:nowrap;float:left;margin-top:10px;margin-left:6px;">son obligatorios, recuerda rellenarlos</div>
+<div class="clear"></div>
+<div style="white-space:nowrap;float:left;margin-top:10px;margin-right:6px">Si pasas el ratón por encima de los lugares en los que aparece esta </div><div class="hintPopup i_i hintPopupHelp">i</div><div style="white-space:nowrap;float:left;margin-top:10px;margin-left:6px;"> aparecerán dos ejemplos para que sepas cómo rellenar cada metadato.</div>
+<div style="float:left;margin-top:4px;">El primer ejemplo se refiere a la "Encuesta TIC a los hogares aragoneses 2010", el segundo ejemplo se refiere a "Cafeterías y restaurantes de la Comunidad Autónoma de Aragón"</div>
+</div>
+
+ {% block form_actions %}
+    <div class="form-actions buttonsEditor">
+     <ul>
+      {% block delete_button %}
+        {% if h.check_access('package_delete', {'id': data.id})  %}
+          {% set locale = h.dump_json({'content': _('Are you sure you want to delete this dataset?')}) %}
+          <li><a class="btn-danger pull-left recuadroRecto letraGrande bigButton" href="javascript:confirmRemove('{% url_for controller='package', action='delete', id=data.id %}')" >{% block delete_button_text %}{{ _('Delete') }}{% endblock %}</a></li>
+        {% endif %}
+      {% endblock %}
+      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(false)" name="save">Guarda y finaliza</a>
+      <li><a class="recuadroRecto letraGrande bigButton" href="javascript:sendContent(true)" name="saveContinue">Guarda y sigue</a>
+      <input type="hidden" name="save"></li>
+     </ul>
+    </div>
+  {% endblock %}
+
+  <div class="huecoInicioPagina"></div>

@@ -1,0 +1,114 @@
+{% import 'macros/form.html' as form %}
+
+{% set placeholder = placeholder if placeholder else _('Search...') %}
+{% set sorting = sorting if sorting else [(_('Name Ascending'), 'name asc'), (_('Name Descending'), 'name desc')] %}
+{% set search_class = search_class if search_class else 'search-giant' %}
+{% set urlToGo = request.path %}
+
+<form class="search-form" method="get" data-module="select-switch">
+
+  {% block search_input %}
+   <!-- <div class="search-input control-group {{ search_class }}">
+      <input type="text" class="search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
+      <button type="submit" value="search">
+        <i class="icon-search"></i>
+        <span>{{ _('Submit') }}</span>
+      </button>
+    </div>-->
+	<div class="filtros">
+		<div class="filtro">
+			<img src="/public/i/buscaDatos/datosSobre.png" alt="DATOS SOBRE" title="Datos sobre">
+			<label for="temaFilter" class="oculto">DATOS SOBRE</label>
+			<select id="temaFilter" name="temaFilter">
+				<option value="" selected="selected">Todos los temas</option>
+				<option value="ciencia-tecnologia">Ciencia y tecnolog&iacute;a</option>
+				<option value="comercio">Comercio</option>
+				<option value="cultura-ocio">Cultura y ocio</option>
+				<option value="demografia">Demograf&iacute;a</option>
+				<option value="deporte">Deporte</option>
+				<option value="economia">Econom&iacute;a</option>
+				<option value="educacion">Educaci&oacute;n</option>
+				<option value="empleo">Empleo</option>
+				<option value="energia">Energ&iacute;a</option>
+				<option value="hacienda">Hacienda</option>
+				<option value="industria">Industria</option>
+				<option value="legislacion-justicia">Legislaci&oacute;n y justicia</option>
+				<option value="medio-ambiente">Medio ambiente</option>
+				<option value="medio-rural-pesca">Medio Rural</option>
+				<option value="salud">Salud</option>
+				<option value="sector-publico">Sector p&uacute;blico</option>
+				<option value="seguridad">Seguridad</option>
+				<option value="sociedad-bienestar">Sociedad y bienestar</option>
+				<option value="transporte">Transporte</option>
+				<option value="turismo">Turismo</option>
+				<option value="urbanismo-infraestructuras">Urbanismo e infraestructuras</option>
+				<option value="vivienda">Vivienda</option>
+			</select>
+		</div>
+		<div class="filtro">
+			<img src="/public/i/buscaDatos/delTipo.png" alt="DEL TIPO" title="Del tipo">
+			<label for="tipoFilter" class="oculto">DEL TIPO</label>
+			<select id="tipoFilter" name="tipoFilter">
+				<option value="" selected="selected">Todos los tipos</option>
+				<option value="tablas">Tablas</option>
+				<option value="arboles-de-datos">&Aacute;rboles de datos</option>
+				<option value="mapas">Mapas</option>
+				<option value="fotos">Fotos</option>
+				<option value="rss">RSS</option>
+				<option value="informacion-estadistica">Informaci&oacute;n estad&iacute;stica</option>
+			</select>
+		</div>
+		
+		<a href="/sparql" title="SPARQL"><img class="d_d" src="/public/i/buscaDatos/cajaSPARQL.png" alt="SPARQL" title="SPARQL"></a>
+	</div>
+	<div class="clear"></div>
+	
+	<script>
+		currentUrl = "{{urlToGo}}";
+	</script>    
+  {% endblock %}
+
+  {% block search_search_fields %}
+    {% if fields -%}
+      <span>{{ form.hidden_from_list(fields=fields) }}</span>
+    {%- endif %}
+  {% endblock %}
+
+  {% block search_title %}
+    {% if not no_title %}
+      <h2>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</h2>
+    {% endif %}
+  {% endblock %}
+
+  {% block search_facets %}
+    {% if facets %}
+      <p class="filter-list">
+        {% for field in facets.fields %}
+          {% set search_facets_items = facets.search.get(field)['items'] %}
+          <span class="facet">{{ facets.titles.get(field) }}:</span>
+          {% for value in facets.fields[field] %}
+            <span class="filtered pill">
+              {%- if facets.translated_fields and facets.translated_fields.has_key((field,value)) -%}
+                {{ facets.translated_fields[(field,value)] }}
+              {%- else -%}
+                {{ h.list_dict_filter(search_facets_items, 'name', 'display_name', value) }}
+              {%- endif %}
+              <a href="{{ facets.remove_field(field, value) }}" class="remove" title="{{ _('Remove') }}"><i class="icon-remove"></i></a>
+            </span>
+          {% endfor %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  {% endblock %}
+
+</form>
+
+{% if show_empty and count == 0 %}
+    <div class="failWarning">No se encontraron resultados</div>
+    <div class="failWarning">Por favor intente una nueva b&uacute;squeda</div>
+{% endif %}
+
+{% if error %}
+    <div class="failWarning">Se produjo un error al realizar la b&uacute;squeda</div>
+    <div class="failWarning">Por favor intente una nueva b&uacute;squeda</div>
+{% endif %}

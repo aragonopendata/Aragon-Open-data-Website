@@ -1,0 +1,104 @@
+{#
+Adds a block of custom form fields.
+
+extras - The fields to add.
+errors - A dict of errors for the fields.
+limit  - The total number of fields that should be output.
+Example:
+
+  {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
+
+#}
+{% import "macros/form.html" as form %}
+
+<div data-module="custom-fields">
+<br>
+  {% set nombre = {"Language": "Idiomas"} %}
+  {% set placehol = {"Language": "Español, inglés..."} %}
+  {% set keys = ["Language"] %}
+  {% set detail = {
+     "Language": ["Por favor, selecciona el idioma o idiomas en los que existe información en tu conjunto de datos"]
+  } %}
+  {% set hint = {"Language": 'Ejemplo1: "Español"
+
+Ejemplo2: "Español, Aragonés"'} %}
+
+  {% set existsES = [] %}
+  {% set existsEN = [] %}
+  {% set existsFR = [] %}
+  {% set existsAR = [] %}
+  {% set existsOther = [] %}
+  {% set existsOtherValue = [] %}
+  {% set existsAny = [] %}
+
+  {% for extra in extras %}
+    {% if extra.key == 'langES' %}
+      {% do existsES.append(extra.value) %}
+      {% do existsAny.append(extra.value) %}
+    {% endif %}
+    {% if extra.key == 'langEN' %}
+      {% do existsEN.append(extra.value) %}
+      {% do existsAny.append(extra.value) %}
+    {% endif %}
+    {% if extra.key == 'langFR' %}
+      {% do existsFR.append(extra.value) %}
+      {% do existsAny.append(extra.value) %}
+    {% endif %}
+    {% if extra.key == 'langAR' %}
+      {% do existsAR.append(extra.value) %}
+      {% do existsAny.append(extra.value) %}
+    {% endif %}
+    {% if extra.key == 'langOther' %}
+      {% do existsOther.append(extra.value) %}
+      {% do existsAny.append(extra.value) %}
+    {% endif %}
+    {% if extra.key == 'langOtherValue' %}
+      {% do existsOtherValue.append(extra.value) %}
+    {% endif %}
+  {% endfor %}
+
+  {% if existsES %}
+    {{ form.checkboxLang(name='langES', id='extras__3000', label="Español", value='ES', checked=existsES[0], error="", classes=[], attrs={}, mandatory='', content=detail["Language"],  moreInfo=hint["Language"], title="Idioma") }}
+  {% else %}
+    {% if existsAny %}
+      {{ form.checkboxLang(name='langES', id='extras__3000', label="Español", value='ES', checked=false, error="", classes=[], attrs={}, mandatory='', content=detail["Language"],  moreInfo=hint["Language"], title="Idioma") }}
+    {% else %}
+      {{ form.checkboxLang(name='langES', id='extras__3000', label="Español", value='ES', checked=true, error="", classes=[], attrs={}, mandatory='', content=detail["Language"],  moreInfo=hint["Language"], title="Idioma") }}
+    {% endif %}
+  {% endif %}
+
+  {% if existsEN %}
+    {{ form.checkboxLang(name='langEN', id='extras__3001', label="Inglés", value='EN', checked=existsEN[0], error="", classes=[], attrs={}, showLabel=false) }}
+  {% else %}
+    {{ form.checkboxLang(name='langEN', id='extras__3001', label="Inglés", value='EN', checked=false, error="", classes=[], attrs={}, showLabel=false) }}
+  {% endif %}
+
+  {% if existsFR %}
+    {{ form.checkboxLang(name='langFR', id='extras__3002', label="Francés", value='FR', checked=existsFR[0], error="", classes=[], attrs={}, showLabel=false) }}
+  {% else %}
+    {{ form.checkboxLang(name='langFR', id='extras__3002', label="Francés", value='FR', checked=false, error="", classes=[], attrs={}, showLabel=false) }}
+  {% endif %}
+
+  {% if existsAR %}
+    {{ form.checkboxLang(name='langAR', id='extras__3003', label="Lenguas aragonesas", value='AR', checked=existsAR[0], error="", classes=[], attrs={}, showLabel=false) }}
+  {% else %}
+    {{ form.checkboxLang(name='langAR', id='extras__3003', label="Lenguas aragonesas", value='AR', checked=false, error="", classes=[], attrs={}, showLabel=false) }}
+  {% endif %}
+
+  {% set extra2 = [] %}
+
+  {% if existsOtherValue %}
+    {% do extra2.append(existsOtherValue[0]) %}
+  {% else %}
+    {% do extra2.append("") %}
+  {% endif %}
+
+
+  {% if existsOther %}
+    {{ form.checkboxLang(name='langOther', id='extras__3098', label="Otro:", value='Other', checked=existsOther[0], error="", classes=[], attrs={}, showLabel=false,  idOther='extras__3099', keyOther='langOtherValue', valueOther=extra2[0]) }}
+  {% else %}
+    {{ form.checkboxLang(name='langOther', id='extras__3098', label="Otro:", value='Other', checked=false, error="", classes=[], attrs={}, showLabel=false, idOther='extras__3099', keyOther='langOtherValue', valueOther=extra2[0]) }}
+  {% endif %}
+
+
+</div>

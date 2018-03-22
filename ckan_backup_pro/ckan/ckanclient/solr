@@ -1,0 +1,22 @@
+
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="solr-admin.css">
+<link rel="icon" href="favicon.ico" type="image/ico"></link>
+<link rel="shortcut icon" href="favicon.ico" type="image/ico"></link>
+<title>Welcome to Solr</title>
+</head>
+
+<body>
+<h1>Welcome to Solr!</h1>
+<a href="."><img border="0" align="right" height="78" width="142" src="admin/solr_small.png" alt="Solr"/></a>
+
+
+<a href="ckan_default/admin/">Admin ckan_default</a><br/>
+
+<a href="ckan_wiki/admin/">Admin ckan_wiki</a><br/>
+
+
+</body>
+</html>

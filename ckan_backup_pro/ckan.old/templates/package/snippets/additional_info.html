@@ -1,0 +1,88 @@
+<section class="additional-info">
+  <h3>PROPIEDADES DE LOS METADATOS</h3>
+  <div class="fieldName">T&iacute;tulo</div>
+  <div class="fieldValue">{{ pkg_dict.title }}</div>
+  <div class="fieldName">Descripci&oacute;n</div>
+  <div class="fieldValue">{{ c_aux.pkg_notes_formatted }}</div>
+  <div class="fieldName">Categor&iacute;a</div>
+  <div class="fieldValue">
+  {% for group in pkg_dict.get('groups') %}
+   <p><a href="{{h.url_for(controller='package', action='searchAOD', tema=group.name)}}" title="Ir a categor&iacute;a {{group.title}}">{{group.title}}</a></p>
+  {% endfor %}
+  </div>
+  
+  <div class="fieldName">Palabra clave / etiqueta</div>
+  <div class="fieldValue">
+    {% snippet "package/snippets/tags.html", tags=pkg_dict.tags %}
+  </div>
+  
+  <div class="fieldName">Fecha de actualizaci&oacute;n / modificaci&oacute;n</div>
+  <div class="fieldValue">
+    {% set auxModified = (pkg_dict.metadata_modified.split("T"))[0].split("-") %}
+    {{auxModified[2]+'.'+auxModified[1]+'.'+auxModified[0]}}
+  </div>
+  <div class="fieldName">Fecha de creaci&oacute;n</div>
+  <div class="fieldValue">
+    {% set auxCreated = (pkg_dict.metadata_created.split("T"))[0].split("-") %}
+    {{auxCreated[2]+'.'+auxCreated[1]+'.'+auxCreated[0]}}
+  </div>
+  
+  <div class="fieldName">Publicador</div>
+  <div class="fieldValue">  
+     {% if pkg_dict.url != '' %}
+		<a href="{{pkg_dict.url}}" title="{{c_aux.pkg_author_link}}">{{c_aux.pkg_author_link}}</a>
+      {% else %}
+		{{c_aux.pkg_author_link}}
+      {% endif %}
+  </div>
+  
+    {% for extra in h.sorted_extras(pkg_dict.extras) %}
+        {% set key, value = extra %}
+        {% if key == 'Frequency' %}
+	  <div class="fieldName">Frecuencia</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% elif key == 'Spatial' %}
+	  <div class="fieldName">Cobertura espacial / geogr&aacute;fica</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% elif key == 'Temporal' %}
+	  <div class="fieldName">Cobertura temporal</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% elif  key == 'Language' %}
+	  <div class="fieldName">Idioma</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% endif %}
+    {% endfor %}
+
+  <div class="fieldName">Licencia</div>
+  <div class="fieldValue">
+      {% if pkg_dict.license_url %}
+          <a href="{{pkg_dict.license_url}}" title="{{pkg_dict.license_title}}">{{pkg_dict.license_title}}</a>
+      {% elif pkg_dict.license %}
+           {{c.pkg_dict.license_title }}
+       {% endif %}
+       ({{pkg_dict.license_id}})
+  </div>
+
+    {% for extra in h.sorted_extras(pkg_dict.extras) %}
+        {% set key, value = extra %}
+        {% if key == 'Granularity' %}
+	  <div class="fieldName">Nivel de detalle</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% elif key == 'Data Quality' %}
+	  <div class="fieldName">Calidad de los datos</div>
+          <div class="fieldValue">
+	    {% if value.startswith('http') %}
+	       <a href="{{value}}" title="Enlace">Enlace</a>
+	     {% else %}
+	        {{ value }}
+	     {% endif %}
+	  </div>
+        {% elif key == 'Data Dictionary' %}
+	  <div class="fieldName">Diccionario de datos</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% elif key == 'References' %}
+	  <div class="fieldName">Referencia</div>
+          <div class="fieldValue">{{ value }}</div>
+        {% endif %}
+    {% endfor %}
+</section>

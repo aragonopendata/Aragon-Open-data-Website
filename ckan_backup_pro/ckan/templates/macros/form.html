@@ -1,0 +1,685 @@
+{#
+Creates all the markup required for an input element. Handles matching labels to
+inputs, error messages and other useful elements.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+value       - The value of the input.
+placeholder - Some placeholder text.
+type        - The type of input eg. email, url, date (default: text).
+error       - A list of error strings for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.input('title', label=_('Title'), value=data.title, error=errors.title) }}
+
+#}
+{% macro input(name, id='', label='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', showLabel=true, widthDesired='780') %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo, showLabel=showLabel) %}
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+
+    <input autocomplete="off" id="{{ id or name }}" style="width:{{ widthDesired }}px;" type="{{ type }}" name="{{ name }}" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+  {% endcall %}
+{% endmacro %}
+
+{% macro inputTag(name, id='', label='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', idAutocomplete='') %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+
+  <p class="descriptionAboutField">Por favor, introduce un listado de etiquetas que describan el contenido de tu conjunto de datos. Utiliza palabras comunes para describirlo. A poder ser utiliza palabras de las que te sugiere el formulario, ya que son palabras que provienen de EuroVoc (<a href="http://eurovoc.europa.eu/drupal/?q=es" title="EuroVoc">http://eurovoc.europa.eu/drupal/?q=es</a>) y su uso mejora mucho la interoperabilidad del conjunto de datos.</p>
+  <p class="descriptionAboutField">Escribe la primera letra en mayúscula y el resto en minúscula.</p>
+
+  <input autocomplete="off" type="text" style="width:740px;margin-bottom:10px;" placeholder="{{ placeholder }}" value="" name="{{idAutocomplete}}" id="{{idAutocomplete}}">
+  
+  <a class="hintPopup hintPopupAdd" title="Añadir" href="javascript:addTag();">+</a>
+
+
+  <input autocomplete="off" id="{{ id or name }}" style="width:780px;" type="{{ type }}" name="{{ name }}" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+  {% endcall %}
+{% endmacro %}
+
+
+{% macro inputExtra(name, id='', label='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', showLabel=true, isTextArea=false) %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo, showLabel=showLabel) %}
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+
+  <div id="{{ id }}__block">
+    <input autocomplete="off" id="{{ id }}__key" type="hidden" name="{{ id }}__key" value="{{name}}" {{ attributes(attrs) }} />
+    {% if isTextArea %}
+      <textarea autocomplete="off" id="{{ id }}__value" style="width:780px;" rows="5" name="{{ id }}__value" placeholder="{{ placeholder }}" {{ attributes(attrs) }}>{{ value | empty_and_escape }}</textarea>
+    {% else %}
+      <input autocomplete="off" id="{{ id }}__value" style="width:780px;" type="text" name="{{ id }}__value" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+    {% endif %}
+  </div>
+  {% endcall %}
+{% endmacro %}
+
+{% macro inputList(name, id='', label='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='') %}
+  {%- set extra_html = caller() if caller -%}
+
+  <div style="padding:10px;">
+
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+
+  {% for extra in value %}
+    {% set prefix = loop.index0 %}
+    <div id="{{ id }}{{ prefix }}__block" style="padding-top:5px;padding-bottom:5px">
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__key" type="hidden" name="{{ id }}{{ prefix }}__key" value="{{name}}{{ prefix }}" {{ attributes(attrs) }} />
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__value" style="width:740px;" type="text" name="{{ id }}{{ prefix }}__value" value="{{ extra | empty_and_escape }}" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+      <a class="hintPopup hintPopupRemove d_d" title="Borrar" href="javascript:removeURL('{{ id }}', '{{ prefix }}');">-</a>
+    </div>
+  {% endfor %}
+
+  {% if ((value|length) < 10) %}
+    {% set prefix = value|length %}
+    <div id="{{ id }}{{ prefix }}__block" style="padding-top:5px;padding-bottom:5px">
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__key" type="hidden" name="{{ id }}{{ prefix }}__key" value="{{name}}{{ prefix }}" {{ attributes(attrs) }} />
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__value" style="width:740px;" type="text" name="{{ id }}{{ prefix }}__value" value="" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+      <a class="hintPopup hintPopupRemove d_d" title="Borrar" href="javascript:removeURL('{{ id }}', '{{ prefix }}');">-</a>
+    </div>
+  {% endif %}
+  
+  {% for prefix in range((value|length)+1, 10) %}
+    <div id="{{ id }}{{ prefix }}__block" class="urlListItem oculto">
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__key" type="hidden" name="{{ id }}{{ prefix }}__key" value="{{name}}{{ prefix }}" {{ attributes(attrs) }} />
+      <input autocomplete="off" id="{{ id }}{{ prefix }}__value" style="width:740px;" type="text" name="{{ id }}{{ prefix }}__value" value="" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+      <a class="hintPopup hintPopupRemove d_d" title="Borrar" href="javascript:removeURL('{{ id }}', '{{ prefix }}');">-</a>
+    </div>
+  {% endfor %}
+
+  <br>
+  <a class="hintPopup hintPopupAdd" title="Añadir" href="javascript:addURL('{{ id }}');">+</a>
+
+  </div>
+{% endmacro %}
+
+{#
+Builds the content for showing an organization
+#}
+{% macro organization(name, id='', label='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', showLabel=false) %}
+<div id="{{id}}_org" class="{{ classes | join(' ') }}">  
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error, classes=[], extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo, showLabel=showLabel) %}
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+  <ul class="publisher">
+  <li>Publicado por: {{ value.title | empty_and_escape }}</li>
+  <li style="padding-top:10px">Enlace a la pizarra de administración: <a href="/catalogo/pizarra" class="recuadroRecto padd9">Pizarra</a></li>
+  </ul>
+  {% endcall %}
+</div>
+{% endmacro %}
+
+{#
+Builds a set of inputs for showing a timestamp
+#}
+
+{% macro inputTime(name, id='', label='', value='', placeholder='', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', showLabel=true) %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo, showLabel=showLabel) %}
+
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+
+  {% if value.split('T')[0].split('-')|length >= 3 %}
+    Día:<input autocomplete="off" id="{{ id or name }}_day" style="width:24px;" type="text" name="{{ name }}_day" value="{{ value.split('T')[0].split('-')[2] | empty_and_escape }}" placeholder="31" {{ attributes(attrs) }} />
+  {% else %}
+    Día:<input autocomplete="off" id="{{ id or name }}_day" style="width:24px;" type="text" name="{{ name }}_day" value="" placeholder="31" {{ attributes(attrs) }} />
+  {% endif %}
+
+  {% if value.split('-')|length >= 2 %}
+    Mes:<input autocomplete="off" id="{{ id or name }}_month" style="width:24px;" type="text" name="{{ name }}_month" value="{{ value.split('-')[1] | empty_and_escape }}" placeholder="12" {{ attributes(attrs) }} />  
+  {% else %}
+    Mes:<input autocomplete="off" id="{{ id or name }}_month" style="width:24px;" type="text" name="{{ name }}_month" value="" placeholder="12" {{ attributes(attrs) }} />
+  {% endif %}
+
+    Año:<input autocomplete="off" id="{{ id or name }}_year" style="width:40px;" type="text" name="{{ name }}_year" value="{{ value.split('-')[0] | empty_and_escape }}" placeholder="2013" {{ attributes(attrs) }} />
+
+  {% if value.split('T')|length >= 2 %}
+    Hora:<input autocomplete="off" id="{{ id or name }}_hour" style="width:24px;" type="text" name="{{ name }}_hour" value="{{ value.split('T')[1].split(':')[0] | empty_and_escape }}" placeholder="23" {{ attributes(attrs) }} />
+
+    {% if value.split('T')[1].split(':')|length >= 2 %}
+      Min:<input autocomplete="off" id="{{ id or name }}_min" style="width:24px;" type="text" name="{{ name }}_min" value="{{ value.split('T')[1].split(':')[1] | empty_and_escape }}" placeholder="59" {{ attributes(attrs) }} />
+    {% else %}
+      Min:<input autocomplete="off" id="{{ id or name }}_min" style="width:24px;" type="text" name="{{ name }}_min" value="" placeholder="59" {{ attributes(attrs) }} />
+    {% endif %}
+
+    {% if value.split('T')[1].split(':')|length >= 3 %}
+      Seg:<input autocomplete="off" id="{{ id or name }}_sec" style="width:24px;" type="text" name="{{ name }}_sec" 
+             value="{{ value.split('T')[1].split(':')[2].split('.')[0].split('Z')[0].split('+')[0].split('-')[0] | empty_and_escape }}" placeholder="59" {{ attributes(attrs) }} />
+    {% else %}
+      Seg:<input autocomplete="off" id="{{ id or name }}_sec" style="width:24px;" type="text" name="{{ name }}_sec" value="" placeholder="59" {{ attributes(attrs) }} />
+    {% endif %}
+
+  {% else %}
+    Hora:<input autocomplete="off" id="{{ id or name }}_hour" style="width:24px;" type="text" name="{{ name }}_hour" value="" placeholder="23" {{ attributes(attrs) }} />
+    Min:<input autocomplete="off" id="{{ id or name }}_min" style="width:24px;" type="text" name="{{ name }}_min" value="" placeholder="59" {{ attributes(attrs) }} />
+    Seg:<input autocomplete="off" id="{{ id or name }}_sec" style="width:24px;" type="text" name="{{ name }}_sec" value="" placeholder="59" {{ attributes(attrs) }} />
+  {% endif %}
+
+  {% endcall %}
+{% endmacro %}
+
+
+{#
+Builds a single checkbox input.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+value       - The value of the input.
+checked     - If true the checkbox will be checked
+error       - An error string for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Example:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.checkbox('remember', checked=true) }}
+
+#}
+{% macro checkbox(name, id='', label='', value='', checked=false, placeholder='', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='') %}
+  {%- set extra_html = caller() if caller -%}
+  <div class="control-group{{ " " ~ classes | join(" ") }}{% if error %} error{% endif %}">
+    <div class="controls">
+      <label class="checkbox" for="{{ id or name }}">
+        <input autocomplete="off" id="{{ id or name }}" type="checkbox" name="{{ name }}" value="{{ value | empty_and_escape }}" {{ "checked " if checked }} {{ attributes(attrs) }} />
+        {{ label or name }}
+        {% if error and error is iterable %}<strong class="error-inline">{{ error|join(', ') }}</strong>{% endif %}
+      </label>
+      {{ extra_html }}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro checkboxLang(name, id='', label='', value='', checked=false, placeholder='', error="", classes=[], attrs={}, mandatory='', content=[],  moreInfo='', showLabel=true, idOther='', keyOther='', valueOther='', title='') %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, title or label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo, showLabel=showLabel) %}
+
+    <div style="padding-left:10px;padding-right:10px;">
+
+      {% if content != '' %}
+        {% for paragraph in content %}
+           <p class="descriptionAboutField">{{ paragraph }}</p>
+        {% endfor %}
+      {% endif %}
+
+      <label class="checkbox" for="{{ id or name }}">
+        <input autocomplete="off" id="{{ id or name }}__key" type="hidden" name="{{ id }}__key" value="{{name}}" {{ attributes(attrs) }} />
+        <input autocomplete="off" id="{{ id or name }}__value" type="checkbox" name="{{ id }}__value" value="{{ value | empty_and_escape }}" {{ "checked " if checked }} {{ attributes(attrs) }} />
+
+        {{ label or name }}
+
+        {% if idOther %}
+          <input autocomplete="off" id="{{idOther}}__key" type="hidden" name="{{idOther}}__key" value="{{keyOther}}" />
+          <input autocomplete="off" id="{{idOther}}__value" style="width:600px;" type="text" name="{{idOther}}__value" value="{{valueOther}}"/>
+        {% endif %}
+
+        {% if error and error is iterable %}<strong class="error-inline">{{ error|join(', ') }}</strong>{% endif %}
+      </label>
+        {{ extra_html }}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+
+{#
+Creates all the markup required for an select element. Handles matching labels to
+inputs and error messages.
+
+A field should be a dict with a "value" key and an optional "text" key which
+will be displayed to the user. We use a dict to easily allow extension in
+future should extra options be required.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+options     - A list/tuple of fields to be used as <options>.
+selected    - The value of the selected <option>.
+error       - A list of error strings for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.select('year', label=_('Year'), options={2010: 2010, 2011: 2011}, selected=2011, error=errors.year) }}
+
+#}
+{% macro select(name, id='', label='', options='', optionsDict='', selected='', selectedValue='', error='', classes=[], attrs={}, mandatory='', content=[],  moreInfo='') %}
+  {% set classes = (classes|list) %}
+  {% do classes.append('control-select') %}
+
+  {%- set extra_html = caller() if caller -%}
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+    {% if content != '' %}
+      {% for paragraph in content %}
+         <p class="descriptionAboutField">{{ paragraph }}</p>
+      {% endfor %}
+    {% endif %}
+
+    <select id="{{ id or name }}" name="{{ name }}" {{ attributes(attrs) }}>
+
+      {% for option in options %}
+        <option value="{{ option }}"{% if option == selected %} selected {% endif %} >{{ optionsDict[option] }}</option>
+      {% endfor %}
+    </select>
+  {% endcall %}
+{% endmacro %}
+
+{#
+Creates all the markup required for a Markdown textarea element. Handles
+matching labels to inputs, selected item and error messages.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+value       - The value of the input.
+placeholder - Some placeholder text.
+error       - A list of error strings for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.markdown('desc', id='field-description', label=_('Description'), value=data.desc, error=errors.desc) }}
+
+#}
+{% macro markdown(name, id='', label='', value='', placeholder='', error="", classes=[], attrs={}, mandatory='', content=[], moreInfo='') %}
+  {% set classes = (classes|list) %}
+  {% do classes.append('control-full') %}
+
+  {%- set extra_html = caller() if caller -%}
+  {% call input_block(id or name, label or name, error, classes, control_classes=["editor"], extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+  {% if content != '' %}
+    {% for paragraph in content %}
+       <p class="descriptionAboutField">{{ paragraph }}</p>
+    {% endfor %}
+  {% endif %}
+    <textarea autocomplete="off" id="{{ id or name }}" name="{{ name }}" style="width:780px;" rows="5" placeholder="{{ placeholder }}" {{ attributes(attrs) }}>{{ value | empty_and_escape }}</textarea>
+  {% endcall %}
+{% endmacro %}
+
+{#
+Creates all the markup required for a plain textarea element. Handles
+matching labels to inputs, selected item and error messages.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+value       - The value of the input.
+placeholder - Some placeholder text.
+error       - A list of error strings for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.textarea('desc', id='field-description', label=_('Description'), value=data.desc, error=errors.desc) }}
+
+#}
+{% macro textarea(name, id='', label='', value='', placeholder='', error="", classes=[], attrs={}, mandatory='', content='', moreInfo='') %}
+  {% set classes = (classes|list) %}
+  {% do classes.append('control-full') %}
+
+  {%- set extra_html = caller() if caller -%}
+  {% call input_block(id or name, label or name, error, classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+  {% if content != '' %}
+    <p class="descriptionAboutField">{{ content }}</p>
+  {% endif %}
+    <textarea autocomplete="off" id="{{ id or name }}" name="{{ name }}" cols="20" rows="5" placeholder="{{ placeholder }}" {{ attributes(attrs) }}>{{ value | empty_and_escape }}</textarea>
+  {% endcall %}
+{% endmacro %}
+
+{#
+Creates all the markup required for an input element with a prefixed segment.
+These are useful for showing url slugs and other fields where the input
+information forms only part of the saved data.
+
+name        - The name of the form parameter.
+id          - The id to use on the input and label. Convention is to prefix with 'field-'.
+label       - The human readable label.
+prepend     - The text that will be prepended before the input.
+value       - The value of the input.
+              which will use the name key as the value.
+placeholder - Some placeholder text.
+error       - A list of error strings for the field  or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.prepend('slug', id='field-slug', prepend='/dataset/', label=_('Slug'), value=data.slug, error=errors.slug) }}
+
+#}
+{% macro prepend(name, id='', label='', prepend='', value='', placeholder='', type='text', error="", classes=[], attrs={}, mandatory='', content='', moreInfo='') %}
+  {# We manually append the error here as it needs to be inside the .input-prepend block #}
+  {% set classes = (classes|list) %}
+  {% do classes.append('error') if error %}
+  {%- set extra_html = caller() if caller -%}
+
+  {% call input_block(id or name, label or name, error='', classes=classes, extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+  {% if content != '' %}
+    <p class="descriptionAboutField">{{ content }}</p>
+  {% endif %}
+    <div class="input-prepend">
+      {% if prepend %}<span class="add-on">{{ prepend }}</span>{%- endif -%}
+      <input autocomplete="off" id="{{ id or name }}" type="{{ type }}" name="{{ name }}" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" {{ attributes(attrs) }} />
+      {% if error and error is iterable %}<span class="error-block">{{ error|join(', ') }}</span>{% endif %}
+    </div>
+      <div style="height:22px"></div>
+  {% endcall %}
+{% endmacro %}
+
+{#
+Creates all the markup required for an custom key/value input. These are usually
+used to let the user provide custom meta data. Each "field" has three inputs
+one for the key, one for the value and a checkbox to remove it. So the arguments
+for this macro are nearly all tuples containing values for the
+(key, value, delete) fields respectively.
+
+name        - A tuple of names for the three fields.
+id          - An id string to be used for each input.
+label       - The human readable label for the main label.
+values      - A tuple of values for the (key, value, delete) fields. If delete
+              is truthy the checkbox will be checked.
+placeholder - A tuple of placeholder text for the (key, value) fields.
+error       - A list of error strings for the field or just true to highlight the field.
+classes     - An array of classes to apply to the control-group.
+
+Examples:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.custom(
+    names=('custom_key', 'custom_value', 'custom_deleted'),
+    id='field-custom',
+    label=_('Custom Field'),
+    values=(extra.key, extra.value, extra.deleted),
+    error=''
+  ) }}
+#}
+{% macro custom(names=(), id="", label="", values=(), placeholders=(), error="", classes=[], attrs={}, mandatory='', moreInfo='') %}
+  {%- set classes = (classes|list) -%}
+  {%- set label_id = (id or names[0]) ~ "-key" -%}
+  {%- set extra_html = caller() if caller -%}
+  {%- do classes.append('control-custom') -%}
+
+  {% call input_block(label_id, label or name, error, classes, control_classes=["editor"], extra_html=extra_html, mandatory=mandatory, moreInfo=moreInfo) %}
+    <div class="input-prepend" {{ attributes(attrs) }}>
+      <label for="{{ label_id }}" class="add-on" style="padding-right:5px;">Clave:</label><input autocomplete="off" id="{{ id or names[0] }}-key" style="width:200px; "type="text" name="{{ names[0] }}" value="{{ values[0] | empty_and_escape }}" placeholder="{{ placeholders[0] }}" />
+      <label for="{{ id or names[1] }}-value" class="add-on" style="padding-left:15px;padding-right:5px;">Valor:</label><input autocomplete="off" id="{{ id or names[1] }}-value" style="width:605px; "type="text" name="{{ names[1] }}" value="{{ values[1] | empty_and_escape }}" placeholder="{{ placeholders[1] }}" />
+      {# if values[0] or values[1] or error %}
+        <label class="checkbox" for="{{ id or names[2] }}-remove">
+          <input autocomplete="off" type="checkbox" id="{{ id or names[2] }}-remove" name="{{ names[2] }}"{% if values[2] %} checked{% endif %} /> <span>{{ _('Remove') }}</span>
+        </label>
+      {% endif #}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{#
+A generic input_block for providing the default markup for CKAN form elements.
+It is expected to be called using a {% call %} block, the contents of which
+will be inserted into the .controls element.
+
+for     - The id for the input that the label should match.
+label   - A human readable label.
+error   - A list of error strings for the field or just true.
+classes - An array of custom classes for the outer element.
+control_classes - An array of custom classes for the .control wrapper.
+extra_html - An html string to be inserted after the errors eg. info text.
+
+Example:
+
+  {% import 'macros/form.html' as form %}
+  {% call form.input_block("field", "My Field") %}
+    <input autocomplete="off" id="field" type="text" name="{{ name }}" value="{{ value | empty_and_escape }}" />
+  {% endcall %}
+
+#}
+{% macro input_block(for, label="", error="", classes=[], control_classes=[], extra_html="", mandatory="", moreInfo="", showLabel=true) %}
+  <div class="control-group{{ " error" if error }}{{ " " ~ classes | join(' ') }}">
+    {% if showLabel %}
+      <label class="control-label fieldName" for="{{ for }}">{{ label or _('Custom') }}</label>
+      {% if mandatory != "" %}
+        <div class="mandatory" title="Obligatorio">*</div>
+      {%  endif %}
+      {% if moreInfo != "" %}
+        <div class="hintPopup i_i hintPopupHelp" title="{{ moreInfo }}">i</div>
+      {%  endif %}
+      <div style="height:44px"></div>  
+    {%  endif %}
+
+    <div class="controls{{ " " ~ control_classes | join(' ') }}">
+      <div style="padding-left:10px;padding-right:10px;">{{ caller() }}</div>
+      {% if error and error is iterable %}<span class="error-block">{{ error|join(', ') }}</span>{% endif %}
+      {{ extra_html }}
+    </div>
+  </div>
+{% endmacro %}
+
+{#
+Builds a list of errors for the current form.
+
+errors  - A dict of field/message pairs.
+type    - The alert-* class that should be applied (default: "error")
+classes - A list of classes to apply to the wrapper (default: [])
+
+Example:
+
+  {% import 'macros/form.html' as form %}
+  {{ form.errors(error_summary, type="warning") }}
+
+#}
+{% macro errors(errors={}, type="error", classes=[]) %}
+  {% if errors %}
+    <div class="error-explanation alert alert-{{ type }}{{ " " ~ classes | join(' ') }}">
+      <p>{{ _('The form contains invalid entries:') }}</p>
+      <ul>
+        {% for key, error in errors.items() %}
+          <li data-field-label="{{ key }}">{% if key %}{{ key }}: {% endif %}{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{#
+Renders an info box with a description. This will usually be used with in a
+call block when creating an input element.
+
+text    - The text to include in the box.
+inline  - If true displays the info box inline with the input.
+classes - A list of classes to add to the info box.
+
+Example
+
+  {% import 'macros/form.html' as form %}
+  {% call form.input('name') %}
+    {{ form.info(_('My useful help text')) }}
+  {% endcall %}
+
+#}
+{% macro info(text='', inline=false, classes=[]) %}
+  {%- if text -%}
+    <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
+      <i class="icon-info-sign"></i>
+      {{ text }}
+    </div>
+  {%- endif -%}
+{% endmacro %}
+
+{#
+Builds a single hidden input.
+
+name  - name of the hidden input
+value - value of the hidden input
+
+Example
+  {% import 'macros/form.html' as form %}
+  {{ form.hidden('name', 'value') }}
+
+#}
+{% macro hidden(name, value) %}
+  <input autocomplete="off" type="hidden" name="{{ name }}" value="{{ value }}" />
+{% endmacro %}
+
+{#
+Contructs hidden inputs for each name-value pair.
+
+fields - [('name1', 'value1'), ('name2', 'value2'), ...]
+
+Two parameter for excluding several names or name-value pairs.
+
+except_names - list of names to be excluded
+except       - list of name-value pairs to be excluded
+
+
+Example:
+    {% import 'macros/form.html' as form %}
+    {% form.hidden_from_list(fields=c.fields, except=[('topic', 'xyz')]) %}
+    {% form.hidden_from_list(fields=c.fields, except_names=['time_min', 'time_max']) %}
+#}
+{% macro hidden_from_list(fields, except_names=None, except=None) %}
+  {% set except_names = except_names or [] %}
+  {% set except = except or [] %}
+
+  {% for name, value in fields %}
+    {% if name and value and name not in except_names and (name, value) not in except %}
+      {{ hidden(name, value) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{#
+Builds a space seperated list of html attributes from a dict of key/value pairs.
+Generally only used internally by macros.
+
+attrs - A dict of attribute/value pairs
+
+Example
+
+  {% import 'macros/form.html' as form %}
+  {{ form.attributes({}) }}
+
+#}
+{%- macro attributes(attrs={}) -%}
+  {%- for key, value in attrs.items() -%}
+  {{ " " }}{{ key }}{% if value != "" %}="{{ value }}"{% endif %}
+  {%- endfor -%}
+{%- endmacro -%}
+
+
+{% macro resourceItem(pkg_id, action, name='', format='', mimetype='', mimetype_inner='', resource_type='', url='', resource_id='', idx, formatLabelList=[], formatValueList=[]) %}
+<form autocomplete="off" class="dataset-form dataset-resource-form form-horizontal" method="post" action="{{ action }}" id="resourceForm{{idx}}" target="hiddenIframe">
+  <input autocomplete="off" name="id" value="{{ resource_id }}" type="hidden"/>
+  <input autocomplete="off" name="package_id" value="{{ pkg_id }}" type="hidden"/>
+
+  <input autocomplete="off" id="format{{idx}}" name="format" value="{{ format }}" type="hidden"/>
+
+        <table style="table-layout:fixed;padding:10px;width:100%;">
+          <tr><td class="fieldNameName"><p class="i_i">NOMBRE DEL RECURSO</p></td><td style="width:100px"></td><td class="fieldNameNotName"><p class="i_i">FORMATO DE DESCARGA</p></td><td class="fieldNameNotName"><p class="i_i">MODO DE ACCESO</p></td><td style="width:20px"></td></tr>
+          <tr>
+            <td colspan="2"><input onchange="changesOnResource({{idx}})" autocomplete="off" id="nameRes{{ idx }}" style="width:350px;" type="text" name="name" value="{{ name }}" placeholder="Nombre" /></td>
+            <td class="small">
+              <select id="mimetype_innerSelect{{idx}}" name="mimetype_inner" onchange="changesOnResource({{idx}})">
+                <option value="" {% if mimetype_inner == '' %} selected {% endif %}>-</option>
+                {% for option in formatLabelList %}
+                  <option value="{{ option }}"{% if mimetype_inner == option %} selected {% endif %} >{{ formatValueList[option] }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td class="small">
+              <select id="mimetypeSelect{{idx}}" name="mimetype" onchange="changesOnResource({{idx}})">
+                <option value="" {% if mimetype == '' %} selected {% endif %}>-</option>
+                {% for option in formatLabelList %}
+                  <option value="{{ option }}"{% if mimetype == option %} selected {% endif %} >{{ formatValueList[option] }}</option>
+                {% endfor %}
+              </select>
+            </td>
+            <td>
+            {% if resource_id %}
+              <a id="removeResourceButton{{ idx }}" class="hintPopup hintPopupRemove d_d" title="Borrar" href="javascript:removeExistingResource('{% url_for controller='package', action='resource_delete', resource_id=resource_id, id=pkg_id %}', '{{idx}}');">-</a>
+              <!--input autocomplete="off" id="format{{ idx }}" style="width:170px;" type="hidden" name="format" value="{{ format }}" placeholder="Formato de descarga" /-->
+            {% else %}
+              <a id="removeResourceButton{{ idx }}" class="hintPopup hintPopupRemove d_d" title="Borrar" href="javascript:removeNewResource('{{idx}}');">-</a>
+              
+            {% endif %}
+            </td>
+          </tr>
+          <tr><td class="fieldNameName" colspan="5" style="padding-top:5px;"><p class="i_i">ACCESO AL RECURSO</p></td></tr>
+          <tr>
+            <td style="vertical-align:top;">
+              <select id="resType{{ idx }}" name="resource_type">
+               <option {% if resource_type != 'vista' %}  selected {% endif %} value="file">Enlaza a un archivo público</option>
+               <option {% if resource_type == 'vista' %} selected {% endif %} value="vista">Vista de base de datos</option>
+               {% if not resource_id %}
+               <option value="file.upload">Sube fichero a AOD</option>
+               {% endif %}
+              </select>
+            </td>
+            <td colspan="3" style="padding-bottom:20px;">
+              <input autocomplete="off" id="url_resType{{ idx }}" type="hidden" name="url" value="" />
+              <input autocomplete="off" id="vista_id_resType{{ idx }}" type="hidden" name="vista_id" value="" />
+
+              <div id="datos_resType{{ idx }}" class="{% if resource_type == 'vista' %} oculto {% endif %}">
+                <input onchange="changesOnResource({{idx}})" autocomplete="off" id="urlText_resType{{ idx }}" style="width:463px;" type="text" name="urlText" value="{{ url}}" placeholder="http://..." />
+              </div>
+
+              <div id="vista_resType{{ idx }}" class="{% if resource_type != 'vista' %} oculto {% endif %}" >
+                <select onchange="changesOnResource({{idx}})" id="vistas_value_resType{{ idx }}" name="vistas_value">
+                  <option value="-1">Seleccione una vista</option>
+                </select>
+                <input class="recuadroRecto" type="button" value="Ver datos" onclick="cargarVista(true,'resType{{ idx }}')" style="margin:0;">
+                <input type="hidden" id="filtro_resType{{ idx }}" name="filtro" value="">
+              </div>
+              <div id="uploadFile_resType{{ idx }}" class="oculto">
+                <input autocomplete="off" id="uploadUrl_resType{{ idx }}" style="width:463px;" type="text" name="uploadUrl" value="" disabled="" />
+                <span data-module="resource-upload-field" class="oculto" id="loadUrl_resType{{ idx }}">
+                </span>
+              </div>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <!--tr>
+            <td colspan="5">
+              <div id="botonesDiv_resType{{ idx }}" style="margin-top: 10px;">
+              </div>
+              <br/>
+              <div style="display:none;margin-top:20px;width:780px;overflow:scroll;" id="vistaDiv_resType{{ idx }}">
+              </div>
+            </td>
+          </tr-->
+        </table>
+
+</form>
+{% endmacro %}

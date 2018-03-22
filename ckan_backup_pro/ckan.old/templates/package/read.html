@@ -1,0 +1,62 @@
+{% extends "package/read_base.html" %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block subtitle %}{{ pkg.title or pkg.name }}{% endblock %}
+
+{% block primary_content_inner %}
+  {{ super() }}
+  {% block package_description %}
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="icon-lock"></i>
+        {{ _('Private') }}
+      </span>
+    {% endif %}
+    <h1 class="i_i tituloDataset">
+      {% block page_heading %}
+        {{ pkg.title or pkg.name }}
+      {% endblock %}
+    </h1>
+    
+    {% block package_social %}
+	    {% snippet "snippets/socialAOD.html" %}
+    {% endblock %}
+    
+  {% endblock %}
+
+  {% block data_preview %}
+     {% set vars = {'XLS': None, 'JPG': None, 'CSV': None, 'GML': None, 'XML': None } %}
+
+     {% for resource in pkg.resources %}
+       {% if (resource.format|upper == 'XLS') %}
+          {% if resource.size|int > 2000000  %}
+          {% else %}
+             {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+	  {% endif %}
+       {% else %}
+           {% if vars.update({resource.format|upper: resource}) %}{% endif %}
+       {% endif %}
+     {% endfor %}
+     
+     {% if (vars.XLS != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.XLS, pkg)}}</div>
+     {% elif (vars.CSV != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.CSV, pkg)}}</div>
+      {% elif vars.GML  != None %}
+           {{vars.GML}}
+     {% elif (vars.JPG != None) %}
+         <div class="previewZone">{{h.resource_preview(vars.JPG, pkg)}}</div>
+     {% else %}
+         <div class="failWarning">Previsualizaci&oacute;n no disponible</div>
+      {% endif %}
+  {% endblock %}  
+  
+  <div class="metadataZone">
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg, c_aux=c %}
+  </div>
+  <div class="resourceZone">
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  </div>
+  <div class="huecoInicioPagina"></div>
+{% endblock %}

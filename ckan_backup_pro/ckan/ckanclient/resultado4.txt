@@ -1,0 +1,1385 @@
+Removing files from /data/ckan_tmp
+http://opendata.aragon.es/catalogo/downloadIaest
+
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2007 updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2007 updated
+Group empleo already created, skipping
+Dataset afiliados-ministerio-de-empleo-y-seguridad-social-series-mensuales updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2002-comarcas updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2004-municipios updated
+Group medio-ambiente already created, skipping
+Dataset corine-land-cover updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2003-comarcas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2008-comarcas updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2006 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2004-provincias-y-comarcas updated
+Group seguridad already created, skipping
+Dataset elecciones-a-cortes-de-aragon-2011 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2012 updated
+Group energia already created, skipping
+Dataset potencia-electrica-instalada updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2010 updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-grupos-de-edad-provincias updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2006 updated
+Group turismo already created, skipping
+Dataset establecimientos-y-plazas-de-alojamiento-de-turistas-segun-tipo-por-municipios-comarcas-y-provinci updated
+Group empleo already created, skipping
+Dataset paro-registrado-series-mensuales updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2010-provincias-y-comarcas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2010-municipios updated
+Group transporte already created, skipping
+Dataset accidentes-de-circulacion-y-victimas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2005-municipios updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-nupcialidad-natalidad-y-mortalidad updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2000-provincias-y-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-hogares-segun-empleo-del-tiempo updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2011 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2002-provincias-y-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-gastos-del-hogar updated
+Group seguridad already created, skipping
+Dataset elecciones-municipales-aragon-anyo-2011 updated
+Group turismo already created, skipping
+Dataset indicadores-de-rentabilidad-del-sector-hotelero updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2011 updated
+Group turismo already created, skipping
+Dataset oferta-de-los-servicios-de-restauracion-aragon-y-provincias-serie updated
+Group economia already created, skipping
+Dataset actividades-economicas-en-el-territorio-por-divisiones-de-actividad updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2000-municipios updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2005 updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-poblacion updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2004 updated
+Group empleo already created, skipping
+Dataset poblacion-laboral-epa-2005-series-trimestrales updated
+Group cultura-ocio already created, skipping
+Dataset estadisticas-de-museos-y-colecciones-museograficas-serie-historica updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2002-municipios updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2010-municipios updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2006-aragon updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-comarcas updated
+Group turismo already created, skipping
+Dataset encuesta-de-ocupacion-en-alojamientos-de-turismo-rural-series-mensuales updated
+Group salud already created, skipping
+Dataset poblacion-de-usuaria-del-sas-por-sexo-y-grandes-grupos-de-edad updated
+Group energia already created, skipping
+Dataset recogida-de-vidrio-kilogramos-y-numero-de-contenedores-por-municipios-y-provincias-aragon-anyos-19 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-1998-comarcas updated
+Group educacion already created, skipping
+Dataset estadistica-de-la-ensenyanza-universitariaserie-historica updated
+Group economia already created, skipping
+Dataset actividades-economicas-en-el-territorio-por-sectores-y-agrupaciones-de-actividad updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2002-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2012-comarcas updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-continente-y-area-de-nacionalidad-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-caracteristicas-de-los-hogares updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-hogares-segun-uso-de-las-tic updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2003 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2004 updated
+Group legislacion-justicia already created, skipping
+Dataset nomenclator-anyo-2012 updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-situacion-economica-de-los-hogares updated
+Group sociedad-bienestar already created, skipping
+Dataset situacion-mensual-dependencia-en-aragon-solicitudes updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2006-provincias-y-comarcas updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2012 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-1999-municipios updated
+Group seguridad already created, skipping
+Dataset elecciones-a-cortes-de-aragon-2007 updated
+Group medio-ambiente already created, skipping
+Dataset n-de-incendios-y-superficie-afectada-por-municipios-y-comarcas-aragon-anyos-2005-2011 updated
+Group economia already created, skipping
+Dataset actividades-economicas-en-el-territorio-municipal-serie-1996-2008 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2010-comarcas updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-pais-de-nacionalidad-provincias updated
+Group turismo already created, skipping
+Dataset encuesta-de-ocupacion-hotelera-series-mensuales updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-caracteristicas-de-la-vivienda updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-pais-de-nacimiento-provincias updated
+Group turismo already created, skipping
+Dataset indice-de-precios-hoteleros updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2013 updated
+Group comercio already created, skipping
+Dataset indices-de-comercio-al-por-menor-base-2010 updated
+Group sociedad-bienestar already created, skipping
+Dataset gasto-mensual-medio-por-hogar-segun-dificultad-para-llegar-a-fin-de-mes updated
+Group sociedad-bienestar already created, skipping
+Dataset gasto-mensual-medio-por-hogar-segun-situacion-frente-a-la-actividad-de-sus-miembros updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-tienen-que-pagar-cuota-hipotecaria-de-la-vivienda-principal-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset importe-medio-de-la-cuota-hipotecaria-mensual-pagada-por-los-hogares-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset renta-anual-neta-media-por-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-renta-anual-neta-del-hogar-y-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset renta-anual-neta-media-del-hogar-segun-tipo-de-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset renta-anual-neta-media-del-hogar-segun-tamanyo-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset renta-anual-neta-media-del-hogar-segun-situacion-con-respecto-a-la-actividad-de-sus-miembros updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-recibieron-prestaciones-por-jubilacion-o-supervivencia-segun-territorio updated
+Group salud already created, skipping
+Dataset casos-notificados-de-enfermedades-de-declaracion-obligatoria updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-recibieron-prestaciones-por-desempleo updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-ingresos-minimos-para-llegar-a-fin-de-mes updated
+Group sociedad-bienestar already created, skipping
+Dataset ingreso-minimo-medio-para-llegar-a-final-de-mes-segun-tamanyo-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset ingreso-minimo-medio-para-llegar-a-final-de-mes-segun-tramos-de-ingresos-anuales-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-disponen-de-determinados-bienes-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-disponen-de-ordenador-o-coche-segun-renta-neta-anual-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset indicadores-de-exclusion-social updated
+Group medio-ambiente already created, skipping
+Dataset precipitaciones-y-temperaturas-medias-mensuales-y-anuales-en-las-estaciones-climatologicas-selecci updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2009 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2001-municipios updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-1998 updated
+Group urbanismo-infraestructuras already created, skipping
+Dataset estaciones-depuradoras-de-aguas-residuales-en-aragon updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2006-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-1998-municipios updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2012 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2010-aragon updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2004-aragon updated
+Group turismo already created, skipping
+Dataset encuesta-de-ocupacion-en-campings-series-mensuales updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2008-provincias-y-comarcas updated
+Group medio-rural already created, skipping
+Dataset censo-agrario updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-actividad-economica-de-los-hogares updated
+Group medio-ambiente already created, skipping
+Dataset inventario-de-emisiones-a-la-atmosfera updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2009 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2006-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2009-comarcas updated
+Group deporte already created, skipping
+Dataset encuesta-de-habitos-deportivos-anyo-2010 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2000-aragon updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2002 updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2008 updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2001 updated
+Group medio-ambiente already created, skipping
+Dataset evaluacion-semanal-de-la-reserva-hidrica-de-los-embalses-de-aragon updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-ingresos-del-hogar updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2006 updated
+Group turismo already created, skipping
+Dataset oferta-de-alojamiento-turistico-aragon-y-provincias-serie updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2008 updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2008-municipios updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2000-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2007-municipios updated
+Group turismo already created, skipping
+Dataset encuesta-de-ocupacion-en-apartamentos-turisticos-series-mensuales updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2008-aragon updated
+Group vivienda already created, skipping
+Dataset licencias-municipales-de-obra-municipios-de-aragon updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-resultados-de-las-empresas-de-comercio-con-sede-en-aragon updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2007 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2004 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2001 updated
+Group economia already created, skipping
+Dataset cuentas-del-sector-servicios-en-aragon-cnae-93-2007 updated
+Group economia already created, skipping
+Dataset resultados-de-los-establecimientos-de-servicios-en-aragon-principales-magnitudes-por-sectores-de-a updated
+Group economia already created, skipping
+Dataset cuentas-del-sector-servicios-en-aragon-cnae-93-2006 updated
+Group economia already created, skipping
+Dataset cuentas-del-sector-servicios-en-aragon-cnae-93-2005 updated
+Group economia already created, skipping
+Dataset cuentas-del-sector-servicios-en-aragon-cnae-93-2000-2004 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2006 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2000 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2002 updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2005 updated
+Group energia already created, skipping
+Dataset produccion-de-energia-termica-y-electrica-y-consumo-de-combustibles-en-las-centrales-de-cogeneraci updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-cnae-93-anyo-2003 updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset tamanyo-medio-del-hogar-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-numero-de-miembros-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-numero-de-adultos-en-el-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-tipo-de-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-tipo-de-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-con-viviendas-ubicadas-en-edificios-por-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-numero-de-habitaciones-de-la-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-el-peso-que-suponen-los-gastos-totales-de-la-vivienda-para-el-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-no-pueden-permitirse-pagar-unas-vacaciones-de-una-semana-al-anyo-fuera-de-casa-segun-c updated
+Group sociedad-bienestar already created, skipping
+Dataset ingresos-medios-anuales-de-los-hogares-segun-posibilidad-de-irse-de-vacaciones-fuera-de-casa updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-no-tienen-capacidad-para-afrontar-gastos-imprevistos-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset ingresos-medios-anuales-de-los-hogares-segun-capacidad-para-afrontar-gastos-imprevistos updated
+Group sociedad-bienestar already created, skipping
+Dataset estado-general-de-salud updated
+Group sociedad-bienestar already created, skipping
+Dataset estado-general-de-salud-de-las-personas-de-16-y-mas-anyos-segun-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset estado-general-de-salud-de-las-personas-de-16-y-mas-anyos-segun-edad updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-la-jacetania updated
+Group cultura-ocio already created, skipping
+Dataset estadistica-de-bibliotecas-anyo-2002-aragon updated
+Group seguridad already created, skipping
+Dataset elecciones-municipales-aragon-anyo-2007 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2005-comarcas updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2002 updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-grupos-de-edad-comarcas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2012-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2011-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-estado-de-salud-de-los-miembros-del-hogar updated
+Group energia already created, skipping
+Dataset consumo-de-productos-petroliferos updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2004-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-y-familia-hogares-y-discapacidad updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2010 updated
+Group deporte already created, skipping
+Dataset encuesta-de-habitos-deportivos-anyo-2005 updated
+Group educacion already created, skipping
+Dataset estadistica-de-pruebas-de-acceso-a-la-universidad-2005 updated
+Group salud already created, skipping
+Dataset infraestructura-sanitaria-anyo-2010 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2007-comarcas updated
+Group economia already created, skipping
+Dataset directorio-central-de-empresas-dirce-2013 updated
+Group legislacion-justicia already created, skipping
+Dataset nomenclator-anyo-2013 updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2013-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2013-comarcas updated
+Group economia already created, skipping
+Dataset resultados-de-los-establecimientos-de-servicios-en-aragon-principales-magnitudes-por-divisiones-de updated
+Group economia already created, skipping
+Dataset resultados-de-las-empresas-de-servicios-con-sede-en-aragon-principales-magnitudes-por-divisiones-d updated
+Group economia already created, skipping
+Dataset resultados-de-las-empresas-de-servicios-con-sede-en-aragon-principales-magnitudes-por-sectores-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012hogares-segun-grado-de-dificultad-para-llegar-a-fi updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-segun-grado-de-dificultad-para-llegar-a-f updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-segun-grado-de-dificultad-para-llegar-a-f updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-segun-grado-de-dificultad-para-llegar-a-f updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012-personas-que-no-pueden-permitirse-ir-de-vacacione updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-que-no-pueden-permitirse-ir-de-vacaciones updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-que-no-tienen-capacidad-para-afrontar-gas updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-que-no-tienen-capacidad-para-afrontar-gas updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012renta-mediana-de-los-pobres-segun-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012indicador-hi-poverty-gap-ratio updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012ratio-s80-s20 updated
+Group economia already created, skipping
+Dataset empleo-toral-y-asalariado-huesca-teruel-y-zaragoza updated
+Group economia already created, skipping
+Dataset otras-magnitudes-de-la-contabilidad-regional-de-espanya-aragon-y-espanya updated
+Group economia already created, skipping
+Dataset producto-interior-bruto-a-precios-de-mercado-y-valor-anyadido-bruto-a-precios-basicos-huesca-terue updated
+Group economia already created, skipping
+Dataset producto-interior-bruto-a-precios-de-mercado-por-provincias updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-que-viven-en-hogares-sin-empleo-o-con-baj updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-en-riesgo-de-pobreza-o-exclusion-social-e updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-en-riesgo-de-pobreza-o-exclusion-social-e updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012hogares-con-carencia-de-un-determinado-numero-de-c updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-con-carencia-de-un-determinado-numero-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012importe-de-los-umbrales-de-riesgo-de-pobreza-segun- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012adultos-situados-por-debajo-del-umbral-de-pobreza-6 updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-para-los-distintos-umbral updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group economia already created, skipping
+Dataset renta-disponible-bruta-per-capita-de-los-hogares-por-provincias updated
+Group educacion already created, skipping
+Dataset zonas-escolares-e-infantil-y-e-primaria-capitales-de-provincia updated
+Group educacion already created, skipping
+Dataset zonas-escolares-eso-bachillerato-y-ciclos-grado-medio-zaragoza-capital updated
+Group educacion already created, skipping
+Dataset centros-por-titularidad-del-centro-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset profesorado-por-titularidad-del-centro-municipios-de-mas-de-10000-habitantes updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012brecha-de-pobreza updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012renta-mediana-de-los-pobres-segun-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012indice-de-gini updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012indicador-hi-poverty-gap-ratio updated
+Group educacion already created, skipping
+Dataset centros-escolares-de-ensenyanzas-de-regimen-general updated
+Group educacion already created, skipping
+Dataset centros-escolares-de-ensenyanzas-de-regimen-especial updated
+Group educacion already created, skipping
+Dataset centros-rurales-agrupados-cra updated
+Group educacion already created, skipping
+Dataset alumnado-por-titularidad-del-centro-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset alumnado-por-sexo-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset alumnado-por-nivel-de-ensenyanza-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset variacion-con-respecto-al-curso-anterior-del-alumnado-matriculado-en-ensenyanzas-de-regimen-genera updated
+Group educacion already created, skipping
+Dataset tasa-de-variacion-con-respecto-al-curso-anterior-del-alumnado-matriculado-en-ensenyanzas-de-regime updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-por-sexo-segun-nivel-de-ensenyanza updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-por-titularidad-del-centro-segun-nivel-de-ensenyanza updated
+Group educacion already created, skipping
+Dataset distribucion-de-las-unidades--grupos-por-titularidad-del-centro-segun-nivel-de-ensenyanza updated
+Group educacion already created, skipping
+Dataset distribucion-del-profesorado-por-sexo-segun-nivel-de-ensenyanza updated
+Group educacion already created, skipping
+Dataset distribucion-del-profesorado-por-titularidad-del-centro-segun-nivel-de-ensenyanza updated
+Group educacion already created, skipping
+Dataset tasa-de-idoneidad-por-edad updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-situacion-con-respecto-a-la-actividad-de-sus-miembros updated
+Group sociedad-bienestar already created, skipping
+Dataset tamanyo-medio-de-la-vivienda-por-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-anyo-de-compra-o-instalacion-en-la-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-regimen-de-tenencia-de-la-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-por-regimen-de-tenencia-de-la-vivienda-y-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-por-regimen-de-tenencia-de-la-vivienda-y-tamanyo-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-por-regimen-de-tenencia-de-la-vivienda-y-situacion-de-sus-miembros-frente-a-la-actividad updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-por-regimen-de-tenencia-de-la-vivienda-y-renta-disponible-total-del-hogar-en-el-anyo-anter updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-no-sufren-problemas-en-su-vivienda-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-regimen-de-tenencia-de-la-vivienda-y-problemas-en-su-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-dificultad-para-llegar-a-fin-de-mes-y-problemas-en-su-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset gasto-mensual-medio-por-hogar-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset gasto-mensual-medio-por-hogar-segun-tamanyo-del-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset gasto-mensual-medio-por-hogar-segun-tipo-de-vivienda updated
+Group economia already created, skipping
+Dataset producto-interior-bruto-a-precios-de-mercado-por-comunidades-autonomas updated
+Group economia already created, skipping
+Dataset producto-interior-bruto-a-precios-de-mercado-y-valor-anyadido-bruto-a-precios-basicos-aragon-y-esp updated
+Group sociedad-bienestar already created, skipping
+Dataset enfermedades-cronicas-padecidas-por-las-personas-de-16-y-mas-anyos-segun-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset enfermedades-cronicas-padecidas-por-las-personas-de-16-y-mas-anyos-segun-edad updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-limitacion-en-el-desarrollo-de-la-actividad-diaria-debido-a-un-pr updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-nivel-de-estudios-terminado-y-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-nivel-de-estudios-terminado-y-edad updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-nivel-de-estudios-terminado-y-situacion-frente-a-la-actividad updated
+Group sociedad-bienestar already created, skipping
+Dataset renta-neta-monetaria-o-cuasimonetaria-media-de-los-asalariados-segun-nivel-de-estudios-terminado updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-estan-cursando-algun-tipo-de-estudios-o-de-formacion-segun-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-estan-cursando-algun-tipo-de-estudios-o-de-formacion-segun-tipo-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset situacion-laboral-actual-de-las-personas-de-16-y-mas-anyos updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-no-estan-trabajando-y-buscan-empleo updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-no-estan-trabajando-segun-su-situacion-laboral-anterior updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-estan-trabajando-segun-tamanyo-del-establecimiento-donde-trabajan updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-el-numero-de-horas-semanales-dedicadas-al-trabajo-principal updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-han-trabajado-alguna-vez-segun-edad-a-la-que-empezaron-a-trabajar updated
+Group economia already created, skipping
+Dataset cuenta-de-distribucion-secundaria-de-la-renta-aragon updated
+Group economia already created, skipping
+Dataset renta-disponible-bruta-de-los-hogares-por-provincias updated
+Group economia already created, skipping
+Dataset cuenta-de-asignacion-de-la-renta-primaria-huesca-teruel-y-zaragoza updated
+Group economia already created, skipping
+Dataset cuenta-de-distribucion-secundaria-de-la-renta-huesca-teruel-y-zaragoza updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012adultos-situados-por-debajo-del-umbral-de-pobreza- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-para-los-distintos-umbra updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-d updated
+Group economia already created, skipping
+Dataset renta-disponible-bruta-per-capita-de-los-hogares-por-comunidades-autonomas updated
+Group economia already created, skipping
+Dataset cuenta-de-redistribucion-de-la-renta-en-especie-aragon updated
+Group economia already created, skipping
+Dataset valor-anyadido-bruto-serie-2008-2012-aragon-y-comarcas updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-sobrarbe updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-ciclos-formativos-grado-superior-por-sexo updated
+Group educacion already created, skipping
+Dataset tablas-resumen-centros-existentes-por-titularidad-por-municipios updated
+Group cultura-ocio already created, skipping
+Dataset gasto-liquidado-en-cultura-por-la-administracion-autonomica-por-destino-del-gasto updated
+Group cultura-ocio already created, skipping
+Dataset gasto-liquidado-en-cultura-por-la-administracion-autonomica-por-naturaleza-economica-del-gasto updated
+Group cultura-ocio already created, skipping
+Dataset gasto-liquidado-en-cultura-por-la-administracion-local-por-destino-del-gasto updated
+Group cultura-ocio already created, skipping
+Dataset gasto-liquidado-en-cultura-por-la-administracion-local-por-naturaleza-economica-del-gasto updated
+Group cultura-ocio already created, skipping
+Dataset primeras-inscripciones-de-derechos-de-propiedad-intelectual-realizadas-en-el-registro-general-de-p updated
+Group cultura-ocio already created, skipping
+Dataset titulares-de-primeras-inscripciones-de-derechos-de-propiedad-intelectual-realizadas-en-el-registro updated
+Group cultura-ocio already created, skipping
+Dataset viajes-de-residentes-en-espanya-realizados-principalmente-por-motivos-culturales-segun-origen-y-de updated
+Group cultura-ocio already created, skipping
+Dataset entradas-de-turistas-internacionales-que-realizan-actividades-culturales-segun-destino updated
+Group cultura-ocio already created, skipping
+Dataset gasto-total-en-viajes-de-turistas-internacionales-que-realizan-actividades-culturales-segun-destin updated
+Group cultura-ocio already created, skipping
+Dataset alumnado-matriculado-en-ensenyanzas-culturales-por-tipo-de-ensenyanza updated
+Group cultura-ocio already created, skipping
+Dataset bienes-muebles-e-inmuebles-inscritos-como-bienes-de-interes-cultural-por-tipo-bien-y-situacion updated
+Group educacion already created, skipping
+Dataset tablas-resumen-alumnado-por-nivel-de-ensenyanza-cursado-y-titularidad-del-centro-por-municipios updated
+Group educacion already created, skipping
+Dataset tablas-resumen-alumnado-por-nivel-de-ensenyanza-cursado-y-sexo-del-alumnado-por-municipios updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-unidades-por-curso-y-titularidad-del-centro-por-provincias updated
+Group cultura-ocio already created, skipping
+Dataset centros-que-cuentan-con-zonas-diferenciadas-en-la-biblioteca-segun-tipo-de-zona-y-titularidad-del- updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-censados-y-que-cumplimentaron-la-estadistica updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-tipologia updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-titularidad-y-entidad-gestora updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-periodo-de-creacion-y-apertura updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-segun-existencia-de-patronato-y-asociacion-de-amigos updated
+Group cultura-ocio already created, skipping
+Dataset apertura-de-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset accesibilidad-de-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset infraestructura-de-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-disponibilidad-de-servicios updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-disponibilidad-y-utilidad-de-ordenador updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-disponibilidad-y-uso-de-la-pagina-web updated
+Group cultura-ocio already created, skipping
+Dataset fondos-pertenecientes-a-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset clasificacion-tematica-de-fondos-de-la-coleccion-estable updated
+Group cultura-ocio already created, skipping
+Dataset exposiciones-temporales updated
+Group cultura-ocio already created, skipping
+Dataset museos-que-editaron-publicaciones-por-tipo-de-soporte-de-la-publicacion updated
+Group cultura-ocio already created, skipping
+Dataset idioma-de-edicion-de-guias updated
+Group economia already created, skipping
+Dataset producto-interior-buto-a-precios-de-mercado-per-capita-por-provincias updated
+Group economia already created, skipping
+Dataset renta-disponible-bruta-de-los-hogares-por-comunidades-autonomas updated
+Group economia already created, skipping
+Dataset cuenta-de-asignacion-de-la-renta-primaria-aragon updated
+Group cultura-ocio already created, skipping
+Dataset museos-y-colecciones-museograficas-por-actividades-realizadas updated
+Group cultura-ocio already created, skipping
+Dataset visitantes-de-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset personal-adscrito-en-museos-y-colecciones-museograficas updated
+Group cultura-ocio already created, skipping
+Dataset libros-inscritos-en-isbn-segun-caracteristicas updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-y-area-de-nacionalidad-de-la-mujer-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-situacion-laboral-de updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-metodos-anticoncepti updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-y-semanas-de-gestacion-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-numero-de-abortos-voluntarios-anteriores updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-semanas-de-gestacion updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-en-mujeres-menores-de-20-anyos-segun-grupo-de-edad updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-en-mujeres-menores-de-20-anyos-segun-utilizacion-de-centro-de updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-en-mujeres-menores-de-20-anyos-segun-semanas-de-gestacion updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-en-mujeres-menores-de-20-anyos-segun-utilizacion-de-metodos-a updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-en-mujeres-menores-de-20-anyos-segun-lugar-donde-se-informo updated
+Group salud already created, skipping
+Dataset evolucion-de-la-razon-de-abortos updated
+Group cultura-ocio already created, skipping
+Dataset editores-titulos-editados-ejemplares-y-tirada-media updated
+Group educacion already created, skipping
+Dataset tablas-resumen-centros-por-nivel-de-ensenyanza-por-municipios updated
+Group educacion already created, skipping
+Dataset tablas-resumen-centros-rurales-agrupados-por-municipios updated
+Group educacion already created, skipping
+Dataset tablas-resumen-profesorado-por-nivel-de-ensenyanza-que-imparten-y-titularidad-del-centro-por-munic updated
+Group cultura-ocio already created, skipping
+Dataset empleo-cultural updated
+Group cultura-ocio already created, skipping
+Dataset empresas-culturales-por-tipo updated
+Group cultura-ocio already created, skipping
+Dataset indicadores-del-gasto-liquidado-en-cultura-por-la-administracion-autonomica updated
+Group educacion already created, skipping
+Dataset tasa-de-idoneidad-por-edad-y-sexo-aragon updated
+Group educacion already created, skipping
+Dataset tasa-neta-de-escolaridad-por-edad updated
+Group educacion already created, skipping
+Dataset tasa-neta-de-escolaridad-por-edad-y-sexo-aragon updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-estudios-postobligatorios-de-regimen-general-por-tipo-de- updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-bachillerato-diurno-y-nocturno-por-tipo-de-estudio updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-bachillerato-diurno-y-nocturno-por-sexo updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-ciclos-formativos-grado-medio-por-tipo-de-estudio updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-ciclos-formativos-grado-medio-por-sexo updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-ciclos-formativos-grado-superior-por-tipo-de-estudio updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-estan-trabajando-segun-si-han-cambiado-de-puesto-de-trabajo-en-los- updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-segun-si-han-cambiado-su-situacion-respecto-a-la-actividad-en-los-ultim updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-situadas-por-debajo-de-los-distintos-umbr updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-motivo-de-interrupcion-arag updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-metodo-de-interrupcion-empl updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-motivo-de-la-interrupcion-anyos-2002-a-2009 updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-lugar-donde-se-informo updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-utilizacion-de-metodos-anticonceptivos updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-por-metodo-empleado-en-la-interrupcion-a updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-la-ribagorza updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-cinco-villas updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-hoya-de-huesca---plana-de-uesca updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-somontano-de-barbastro updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-cinca-medio updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-la-litera---la-llitera updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2006-comarcas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2009-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2003-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2000-comarcas updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-continente-y-area-de-nacionalidad-provincias updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-pais-de-nacimiento-comarcas updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-incoados-y-expedientes-finalizados updated
+Group legislacion-justicia already created, skipping
+Dataset situacion-de-los-expedientes-recibidos updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-incoados-que-han-sido-rechazados-segun-razon-alegada updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-archivados-segun-razon-de-archivo updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-incoados-segun-medio-usado-para-su-presentacion updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-incoados-segun-quien-ha-presentado-la-queja updated
+Group legislacion-justicia already created, skipping
+Dataset expedientes-incoados-segun-materias updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-por-edad-y-sexo updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-nacionalidad-y-sexo updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-nacionalidad-y-edad updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-numero-de-infracciones-cometidas-y-edad updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-sexo-y-numero-de-infracciones-cometidas updated
+Group seguridad already created, skipping
+Dataset menores-condenados-segun-lugar-de-condena-nacionalidad-y-numero-de-infracciones-cometidas updated
+Group seguridad already created, skipping
+Dataset infracciones-penales-cometidas-por-menores-segun-lugar-de-condena-sexo-y-tipo-de-delito-falta updated
+Group seguridad already created, skipping
+Dataset infracciones-penales-cometidas-por-menores-segun-lugar-de-condena-por-edad-y-tipo-de-delito-falta updated
+Group seguridad already created, skipping
+Dataset infracciones-penales-cometidas-por-menores-por-lugar-de-condena-segun-nacionalidad-y-tipo-de-delit updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-motivo-de-la-interrupcion-anyo-2010 updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-utilizacion-de-centro-de-planificacion-familiar updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-por-metodo-empleado-en-la-interrupcion-a updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-y-motivo-de-la-interrupcion-aragon-anyos updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-y-motivo-de-la-interrupcion-aragon-anyo- updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-y-motivo-de-la-interrupcion-aragon-anyos updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-tipo-de-centro-y-semanas-de-gestacion-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-metodo-de-interrupcion-empl updated
+Group salud already created, skipping
+Dataset evolucion-de-la-tasa-de-abortividad-de-las-mujeres-entre-15-y-44-anyos updated
+Group salud already created, skipping
+Dataset personal-sanitario-anyo-2010 updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-municipios updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-y-pais-de-nacionalidad-comarcas updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-puestos-posibles-de-lectura-consulta-y-titularidad-del-centro updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-uso-exclusivo-de-gestion-bibli updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-uso-exclusivo-de-gestion-bibli updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-usuarios-segun-titularidad-del updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-usuarios-segun-tamanyo-del-cen updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-usuarios-con-acceso-a-internet updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-ordenadores-terminales-informaticos-para-usuarios-con-acceso-a-internet updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-tamanyo-de-la-coleccion-de-fondos-y-titularidad-del-centro updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-tamanyo-de-la-coleccion-de-fondos-adaptada-al-alumnado-con-necesidades-educativas-es updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-tipo-de-fondo-y-titularidad-del-centro updated
+Group cultura-ocio already created, skipping
+Dataset centros-que-cuentan-con-proyecto-de-biblioteca-integrado-en-el-proyecto-educativo-y-que-tienen-rel updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-numero-de-horas-de-apertura-de-la-biblioteca-en-una-semana-normal updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-numero-de-horas-de-apertura-de-la-biblioteca-en-horario-no-escolar updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-tipo-de-usuarios-con-acceso-permitido-a-la-biblioteca updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-numero-de-prestamos-domiciliarios-por-titularidad updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-gasto-en-adquisicion-de-fondos updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-numero-de-personas-que-trabajan-en-la-biblioteca updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-sexo-del-personal-que-trabaja-en-la-biblioteca updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-dedicacion-horaria-del-personal-que-trabaja-en-la-biblioteca updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-motivo-de-interrupcion-arag updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-alto-gallego updated
+Group salud already created, skipping
+Dataset infraestructura-sanitaria-anyo-2011 updated
+Group salud already created, skipping
+Dataset infraestructura-sanitaria-anyo-2012 updated
+Group salud already created, skipping
+Dataset infraestructura-sanitaria-anyo-2013 updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-los-monegros updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-bajo-cinca---baix-cinca updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-tarazona-y-el-moncayo updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-campo-de-borja updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-aranda updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-ribera-alta-del-ebro updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-dc-zaragoza updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-ribera-baja-del-ebro updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-bajo-aragon--caspe---baix-arago--casp updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-comunidad-de-calatayud updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-campo-de-carinyena updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-campo-de-belchite updated
+Group cultura-ocio already created, skipping
+Dataset representaciones-de-obras-teatrales-espectadores-y-recaudacion updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-por-tipo-de-convivencia-ara updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-y-por-estado-civil-de-la-mujer-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-y-nivel-de-instruccion-de-la-mujer-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-tipo-de-habitat-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-numero-de-hijos-vivos-actua updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-numero-de-abortos-voluntari updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-metodos-anticonceptivos-uti updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-utilizacion-de-centro-de-pl updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-lugar-donde-se-informo-arag updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-tipo-de-centro-donde-se-rea updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-semanas-de-gestacion-aragon updated
+Group cultura-ocio already created, skipping
+Dataset representaciones-de-genero-lirico-y-de-danza-espectadores-y-recaudacion updated
+Group cultura-ocio already created, skipping
+Dataset cines-salas-de-exhibicion-y-peliculas-exhibidas updated
+Group cultura-ocio already created, skipping
+Dataset espectadores-por-nacionalidad-de-la-pelicula updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-y-lugar-de-nacimiento-de-la-mujer-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-motivo-de-la-interru updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-numero-de-hijos-que-viven-en-la-actualidad updated
+Group salud already created, skipping
+Dataset interrupciones-voluntarias-de-embarazo-por-lugar-de-realizacion updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-motivo-de-la-interrupcion-anyos-2011-y-2012 updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-grupo-de-edad-de-la-mujer-y-motivo-de-interrupcion-arag updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-motivo-de-la-interru updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-1999-comarcas updated
+Group deporte already created, skipping
+Dataset participantes-en-juegos-escolares updated
+Group deporte already created, skipping
+Dataset participantes-federados-en-juegos-escolares updated
+Group deporte already created, skipping
+Dataset equipos-participantes-en-juegos-escolares updated
+Group educacion already created, skipping
+Dataset artes-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset artes-alumnado-matriculado-por-tipo-de-estudio-y-sexo-del-alumnado-por-comarcas updated
+Group educacion already created, skipping
+Dataset artes-alumnado-matriculado-por-tipo-de-estudio-y-edad-del-alumnado-por-comarcas updated
+Group educacion already created, skipping
+Dataset musica-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset musica-alumnado-matriculado-por-tipo-de-estudio-y-sexo-del-alumnado-por-comarcas updated
+Group educacion already created, skipping
+Dataset musica-alumnado-matriculado-por-edad-del-alumnado-por-comarcas updated
+Group demografia already created, skipping
+Dataset extranjeros-empadronados-en-aragon-por-sexo-provincias updated
+Group industria already created, skipping
+Dataset principales-variables-economicas-por-agrupaciones-de-actividad-14-agrupaciones updated
+Group industria already created, skipping
+Dataset principales-variables-economicas-por-subagrupaciones-de-actividad-20-agrupaciones updated
+Group industria already created, skipping
+Dataset principales-variables-economicas-por-ramas-de-actividad-78-ramas updated
+Group industria already created, skipping
+Dataset principales-variables-economicas-por-estratos-de-empleo updated
+Group industria already created, skipping
+Dataset seleccion-de-variables-por-subagrupaciones-de-actividad-aragon-y-espanya updated
+Group sociedad-bienestar already created, skipping
+Dataset situacion-mensual-dependencia-en-aragon-dictamenes updated
+Group sociedad-bienestar already created, skipping
+Dataset situacion-mensual-dependencia-en-aragon-valoraciones updated
+Group sociedad-bienestar already created, skipping
+Dataset situacion-mensual-dependencia-en-aragon-beneficiarios updated
+Group sociedad-bienestar already created, skipping
+Dataset sitaucion-mensual-dependencia-en-aragon-prestaciones updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-matriculado-por-titularidad-del-centro-y-sexo-del-al updated
+Group salud already created, skipping
+Dataset personal-sanitario-anyo-2011 updated
+Group salud already created, skipping
+Dataset personal-sanitario-anyo-2012 updated
+Group salud already created, skipping
+Dataset personal-sanitario-anyo-2013 updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-comunidad-de-teruel updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-maestrazgo updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-sierra-de-albarracin updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-gudar-javalambre updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-matarranya-matarranya updated
+Group comercio already created, skipping
+Dataset encuesta-anual-de-comercio-resultados-de-los-establecimientos-comerciales-en-aragon updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-matriculado-por-titularidad-del-centro-y-edad-del-al updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-matriculado-por-edad-y-sexo-del-alumnado-por-comarca updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-usuario-de-los-servicios-complementarios-por-comarca updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-extranjero-matriculado-por-continente-de-origen-del- updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-extranjero-matriculado-por-continente-de-origen-y-se updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-alumnado-extranjero-matriculado-por-pais-de-origen-del-alumna updated
+Group educacion already created, skipping
+Dataset distribucion-del-alumnado-matriculado-en-estudios-postobligatorios-de-regimen-general-por-sexo updated
+Group educacion already created, skipping
+Dataset musica-alumnado-matriculado-por-tipo-de-estudio-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset tablas-resumen-profesorado-por-nivel-de-ensenyanza-que-imparten-y-sexo-del-profesorado-por-municip updated
+Group educacion already created, skipping
+Dataset musica-alumnado-matriculado-por-instrumento-por-comarcas updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-bajo-martin updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-campo-de-daroca updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-jiloca updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-cuencas-mineras updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-andorra-sierra-de-arcos updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-bajo-aragon updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group ciencia-tecnologia already created, skipping
+Dataset viviendas updated
+Group ciencia-tecnologia already created, skipping
+Dataset personas-variables-sociodemograficas updated
+Group ciencia-tecnologia already created, skipping
+Dataset personas-variables-socioeconomicas updated
+Group salud already created, skipping
+Dataset tasa-por-100000-habitantes-de-los-casos-notificados-de-enfermedades-de-declaracion-obligatoria updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2004-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2008-municipios updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2001-comarcas updated
+Group demografia already created, skipping
+Dataset cifras-de-poblacion-revision-del-padron-municipal-2011-municipios updated
+Group educacion already created, skipping
+Dataset educacion-infantil-1-ciclo-0-3-anyos-centros-por-titularidad-por-provincias updated
+Group educacion already created, skipping
+Dataset centros-por-titularidad-y-nivel-de-ensenyanza-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset profesorado-por-titularidad-y-nivel-de-ensenyanza-municipios-de-mas-de-10000-habitantes updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-extranjero-matriculado-por-continente-de-origen-y-sexo-del-alumnado-se updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-extranjero-matriculado-por-pais-de-origen-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-resultados-academicos-por-curso-y-titularidad-del-centro-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-resultados-academicos-curso-y-sexo-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-matriculado-por-titularidad-del-centro-y-sexo-del-al updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-matriculado-por-titularidad-del-centro-y-edad-del-al updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-matriculado-por-edad-y-sexo-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-usuario-de-los-servicios-complementarios-por-comarca updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-matriculado-por-idioma-cursado-y-titularidad-del-cen updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-extranjero-matriculado-por-continente-de-origen-del- updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-extranjero-matriculado-por-continente-de-origen-y-se updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2007 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2009 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2008 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2005 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2003 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2011 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2000 updated
+Group demografia already created, skipping
+Dataset piramides-de-poblacion-2010 updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-titularidad-del-centro-y-curso-en-el-que-esta-matricul updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-edad-y-sexo-del-alumnado-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-usuario-de-los-servicios-complementarios-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-idioma-cursado-y-titularidad-del-centro-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-titularidad-del-centro-y-edad-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-titularidad-del-centro-y-curso-segun-comarcas updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-rama-de-estudios-y-curso-en-el-que-e updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-rama-de-estudios-y-curso-en-el-que-esta-matriculado updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-rama-de-estudios-y-titularidad-del-centro-segun-comar updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-resultados-academicos-curso-y-rama-de-estudio-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-titularidad-del-centro-y-sexo-del-alumnado-segun-co updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-edad-y-sexo-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-extranjero-matriculado-por-continente-de-origen-del-alumnado-y-titula updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-extranjero-matriculado-por-continente-de-origen-y-sexo-del-alumnado-s updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-resultados-academicos-curso-y-sexo-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-titularidad-del-centro-y-curso-segun-com updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-idioma-cursado-y-obligatoriedad-del-mismo-segun-comar updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-idioma-cursado-y-titularidad-del-centro-segun-comarca updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-titularidad-del-centro-y-sexo-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-edad-y-sexo-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-usuario-de-los-servicios-complementarios-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-idioma-cursado-y-curso-en-que-esta-matriculado-segun- updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-extranjero-matriculado-por-pais-de-origen-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-resultados-academicos-por-curso-y-titularidad-del-centro-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-titularidad-del-centro-y-edad-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-titularidad-del-centro-y-curso-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-diurno-alumnado-matriculado-por-rama-de-estudios-y-sexo-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-idioma-cursado-y-curso-en-que-esta-matriculado-segun-c updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-extranjero-matriculado-por-continente-de-origen-del-alumnado-y-titular updated
+Group educacion already created, skipping
+Dataset educacion-infantil-2-ciclo-3-6-anyos-alumnado-extranjero-matriculado-por-pais-de-origen-del-alumna updated
+Group educacion already created, skipping
+Dataset educacion-primaria-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-unidades-por-curso-y-titularidad-del-centro-por-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-titularidad-del-centro-y-sexo-del-alumnado-por-comarca updated
+Group educacion already created, skipping
+Dataset educacion-primaria-alumnado-matriculado-por-titularidad-del-centro-y-edad-del-alumnado-por-comarca updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-idioma-cursado-y-titularidad-del-centro- updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-idioma-cursado-y-curso-en-que-esta-matri updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-extranjero-matriculado-por-continente-de-origen-del-alum updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-extranjero-matriculado-por-continente-de-origen-y-sexo-d updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-extranjero-matriculado-por-pais-de-origen-del-alumnado-s updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-resultados-academicos-por-curso-y-titularidad-del-centro-segun-co updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-resultados-academicos-curso-y-sexo-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-rama-de-estudios-y-sexo-del-alumnado updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-edad-y-sexo-segun-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-decil-de-renta-por-unidad-de-consumo updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-centros-por-titularidad-por-comarcas updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-unidades-por-curso-y-titularidad-del-centro-segun-comarcas updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-titularidad-del-centro-y-sexo-del-al updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-titularidad-del-centro-y-edad-del-al updated
+Group educacion already created, skipping
+Dataset ciclos-formativos-grado-medio-diurno-alumnado-matriculado-por-titularidad-del-centro-y-curso-en-el updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-importe-de-los-umbrales-de-riesgo-de-pobreza-segun-tipo-de-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-adultos-situados-por-debajo-del-umbral-de-pobreza-60-de-la-renta-me updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-hogares-segun-grado-de-dificultad-para-llegar-a-fin-de-mes updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-segun-grado-de-dificultad-para-llegar-a-fin-de-mes updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-segun-grado-de-dificultad-para-llegar-a-fin-de-mes-y-sexo updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-brecha-de-pobreza updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-que-no-pueden-permitirse-ir-de-vacaciones-al-menos-una-sem updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-que-no-pueden-permitirse-ir-de-vacaciones-al-menos-una-sem updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-hogares-que-no-pueden-permitirse-ir-de-vacaciones-al-menos-una-sema updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-que-no-tienen-capacidad-para-afrontar-gastos-imprevistos-p updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-que-no-tienen-capacidad-para-afrontar-gastos-imprevistos-p updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-hogares-que-no-tienen-capacidad-para-afrontar-gastos-imprevistos updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-segun-grado-de-dificultad-para-llegar-a-fin-de-mes-y-edad updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-adultos-situados-por-debajo-del-umbral-de-pobreza-60-de-la-renta-me updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-rama-de-estudios-y-sexo-del-alumnado-segun-comarcas updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-rama-de-estudios-y-titularidad-del-centro-segun-com updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-matriculado-por-idioma-cursado-y-titularidad-del-centro-segun-comar updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-extranjero-matriculado-por-continente-de-origen-y-titularidad-del-c updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-alumnado-extranjero-matriculado-por-continente-de-origen-y-sexo-del-alumnado updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-resultados-academicos-por-curso-y-titularidad-del-centro-segun-provincias updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-resultados-academicos-por-curso-y-sexo-del-alumnado-segun-provincias updated
+Group educacion already created, skipping
+Dataset bachillerato-nocturno-resultados-academicos-por-curso-y-rama-de-estudio-segun-provincias updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-titularidad-del-centro-y-sexo-segun-coma updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-titularidad-del-centro-y-edad-del-alumna updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-matriculado-por-edad-y-sexo-segun-comarcas updated
+Group educacion already created, skipping
+Dataset educacion-secundaria-obligatoria-alumnado-usuario-de-los-servicios-complementarios-por-comarcas updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012hogares-que-no-pueden-permitirse-ir-de-vacaciones- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012brecha-de-pobreza updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-importe-de-los-umbrales-de-riesgo-de-pobreza-segun-tipo-de-hogar updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-situadas-por-debajo-de-los-distintos-umbrales-de-riesgo-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-adultos-situados-por-debajo-del-umbral-de-pobreza-60-de-la-renta-med updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-adultos-situados-por-debajo-del-umbral-de-pobreza-60-de-la-renta-med updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-brecha-de-pobreza updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-renta-mediana-de-los-pobres-segun-sexo updated
+Group economia already created, skipping
+Dataset ranking-de-los-productos-industriales-de-aragon-por-cifra-de-ventas-aragon updated
+Group economia already created, skipping
+Dataset cifra-de-ventas-de-los-productos-industriales-por-agrupaciones-de-actividad-aragon-y-espanya updated
+Group salud already created, skipping
+Dataset personas-que-senyalan-discapacidad-segun-nivel-de-foramcion updated
+Group vivienda already created, skipping
+Dataset visados-de-direccion-de-obra-municipios updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-segun-renta-disponible-total-del-hogar-en-el-anyo-anterior-y-problemas-en-su-vivienda updated
+Group sociedad-bienestar already created, skipping
+Dataset ingreso-minimo-medio-para-llegar-a-final-de-mes-segun-comunidad-autonoma updated
+Group sociedad-bienestar already created, skipping
+Dataset hogares-que-disponen-de-ordenador-o-coche-segun-dificultad-para-llegar-a-fin-de-mes updated
+Group sociedad-bienestar already created, skipping
+Dataset personas-de-16-y-mas-anyos-que-han-trabajo-alguna-vez-segun-el-numero-de-anyos-trabajados updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012adultos-situados-por-debajo-del-umbral-de-pobreza- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012hogares-que-no-tienen-capacidad-para-afrontar-gast updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012indice-de-gini updated
+Group economia already created, skipping
+Dataset producto-interior-buto-a-precios-de-mercado-per-capita-por-comunidades-autonomas updated
+Group economia already created, skipping
+Error while creating indices-de-volumen-encadenados-anyo-2008=100-del-producto-interior-bruto-y-del-valor-anyadido-brut:
+409
+Group economia already created, skipping
+Dataset empleo-serie-2008-2012-aragon-y-comarcas updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-el-equipamientos-y-recursos-para-servicios-bibliotecarios updated
+Group cultura-ocio already created, skipping
+Dataset centros-segun-los-metodos-utilizados-para-clasificar-los-fondos-y-titularidad-del-centro updated
+Group vivienda already created, skipping
+Dataset visados-de-direccion-de-obra-provincias updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-situadas-por-debajo-de-los-distintos-umbra updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012adultos-situados-por-debajo-del-umbral-de-pobreza-6 updated
+Group cultura-ocio already created, skipping
+Dataset recaudacion-por-nacionalidad-de-la-pelicula updated
+Group cultura-ocio already created, skipping
+Dataset museos-que-editaron-publicaciones-por-tipo-de-publicacion updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-indicador-hi-poverty-gap-ratio updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-situadas-por-debajo-de-los-distintos-umbrales-de-riesgo-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-indice-de-gini updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-indicador-hi-poverty-gap-ratio updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-por-decil-de-renta-por-unidad-de-consumo updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-ratio-s80-s20 updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-que-viven-en-hogares-sin-empleo-o-con-baja-intensidad-en-e updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-en-riesgo-de-pobreza-o-exclusion-social-estrategia-europa- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-personas-en-riesgo-de-pobreza-o-exclusion-social-estrategia-europa- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-anyos-2004-a-2012tasa-de-riesgo-de-pobreza-60-de-la-renta-mediana-de updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012importe-de-los-umbrales-de-riesgo-de-pobreza-segun updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-anyos-2004-a-2012personas-por-debajo-del-umbral-de-pobreza-60-de-la updated
+Group cultura-ocio already created, skipping
+Dataset centros-que-utilizan-la-biblioteca-para-la-realizacion-de-actividades-por-tipo-de-actividad updated
+Group cultura-ocio already created, skipping
+Dataset gasto-total-en-viajes-de-residentes-en-espanya-realizados-principalmente-por-motivos-culturales-se updated
+Group cultura-ocio already created, skipping
+Dataset bienes-inmuebles-inscritos-como-bienes-de-interes-cultural-por-categoria-del-bien updated
+Group cultura-ocio already created, skipping
+Dataset conciertos-de-musica-espectadores-y-recaudacion updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-y-situacion-laboral-de-la-mujer-ar updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-utilizacion-de-centr updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-y-lugar-donde-se-informo-aragon updated
+Group salud already created, skipping
+Dataset interrupcion-voluntaria-del-embarazo-segun-nivel-de-instruccion-de-la-mujer-y-motivo-de-la-interru updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-personas-por-debajo-del-umbral-de-pobreza-60-de-la-renta-mediana-de- updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-aragon-indice-de-gini updated
+Group sociedad-bienestar already created, skipping
+Dataset umbrales-de-pobreza-de-espanya-renta-mediana-de-los-pobres-segun-sexo updated
+Group economia already created, skipping
+Dataset estructura-productiva-de-valdejalon updated
+Group economia already created, skipping
+Dataset cifra-de-ventas-de-los-productos-industriales-por-clase-de-producto-aragon updated
+None

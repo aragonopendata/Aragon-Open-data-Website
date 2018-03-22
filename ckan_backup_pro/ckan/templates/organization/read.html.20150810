@@ -1,0 +1,21 @@
+{% extends "organization/read_base.html" %}
+{% import 'macros/form.html' as form %}
+
+{% block page_primary_action %}
+{% endblock %}
+
+
+{% block primary_content_inner %}
+
+<h1>Información sobre: {{c.group_dict.title}}</h1>
+<div class="clear"></div>
+<div class="hueco30"></div>
+
+<div class="clear"></div>
+<div class="contenidoDashboard">
+  {% snippet 'snippets/info_organization_read.html', group_dict=c.group_dict %}
+</div>
+
+<div class="huecoInicioPagina"></div>
+
+{% endblock %}

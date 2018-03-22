@@ -1,0 +1,112 @@
+{% extends "user/edit_base.html" %}
+{% import 'macros/form.html' as form %}
+
+{% block breadcrumb_content %}
+{% endblock %}
+
+{% block secondary %}{% endblock %}
+
+{% block actions_content %}
+  <li>{% link_for _('Edit settings'), controller='user', action='edit', id=user.name, class_='btn', icon='cog' %}</li>
+{% endblock %}
+
+{% block primary_content_inner %}
+<h1>PIZARRA DE ADMINISTRACIÓN</h1>
+<br>
+<div class="clear"></div>
+<h2 class="azul">{{c.user_dict.display_name}}</h2>
+<div class="hueco30"></div>
+<div>
+<ul class="dashboardZone">
+<li><div class="blockDashboard" id="dashboardZone0" title="Info organización"><a>INFO ORGANIZACIÓN</a></div></li>
+<li><div class="blockDashboard" id="dashboardZone1" title="Mis datos"><a>MIS DATOS</a></div></li>
+<li><div class="blockDashboardSelected" id="dashboardZone2" title="Mi actividad"><a>MI ACTIVIDAD</a></div></li>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="contenidoDashboard">
+<div id="dashboardZonePage0" style="display:none">
+  {% snippet 'snippets/info_organization_edit.html', group_dict=c.group_dict, email=c.user_dict.email, user=c.user %}
+  <hr>
+  {% snippet 'snippets/info_user.html', user=c.user %}
+</div>
+
+<div id="dashboardZonePage1" style="display:none">
+  <p class="letraGrande bigButton i_i">Estos son mis conjuntos de datos:</p>
+
+  {% if h.check_access('package_create', {'organization_id': c.group_dict.id}) %}
+    {% link_for _('Add Dataset'), controller='package', action='new', class_='recuadroRecto letraGrande bigButton d_d' %}
+  {% endif %}
+
+  <div class="clear"></div>
+  <div style="padding-bottom:20px"></div>
+  
+  <form id="orgDatasetQueryForm" action="/catalogo/pizarra/datos">
+  <div class="filtros">
+    <div class="filtro">
+      <ul class="searchTypesOptions">
+        <li class="i_i"><img title="Datos con el texto" alt="DATOS CON EL TEXTO" src="/public/i/buscaDatos/datosTexto.png"></li>
+        <li class="i_i"><label class="oculto" for="cajaDeBusqInputLibre">DATOS CON EL TEXTO </label></li>
+        <li class="i_i"><input type="text" class="search anchoSearchBanner placeholderCajaDeBusq" value="{{ h.unquote_decode(c.query_q) }}" name="q" id="textQueryOrgDataset"></li>
+        <li class="i_i"><a title="BUSCAR DATOS" href="javascript:submitTxtQueryOrg();">
+          <img title="BUSCAR DATOS" alt="BUSCAR DATOS" src="/public/i/lupa.jpg">      
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  {% block packages_list %}
+      {% if c.search_result.results %}
+      La query es  {{c.query_q}}
+      {% set vars = {'title_string_asc': False, 'title_string_desc': False, 'views_total_asc': False, 'views_total_desc': False, 'metadata_modified_asc': False, 'metadata_modified_desc': False } %}
+        {% if c.sort_by_selected %}
+          {% set activeSortList = [] %}
+          {% for value in ''.join(c.sort_by_selected).split(',') %}
+              {% if value.strip().replace(' ', '_') in vars %}
+                <input type="hidden" value="{{value.strip() }}" name="sort" id="sortQueryOrgDataset">
+              {% endif %}
+
+              {% set finalValue = value.strip().replace(' ', '_') %}
+              {% if vars.update({finalValue: True}) %}{% endif %}
+          {% endfor %}
+        {% else %}
+        {% endif %}
+       <table class="tablaResultadosDataset">
+         <tr>
+          <th class="cabeceraTablaResultadosDashboard">
+           <div class="labelCabeceraTablaResultadosDataset">{% snippet 'snippets/search_result_text.html', query=None, count=c.search_result.count, type='dataset' %}</div>
+	   {% snippet 'snippets/orderButtons.html', orderType='title_string', asc_selected=vars.title_string_asc, desc_selected=vars.title_string_desc, destination='/catalogo/pizarra/datos' %}
+          </th>
+          <th class="cabeceraTablaResultadosDashboard tamEstrecho">
+           <div class="labelCabeceraTablaResultadosDataset">FECHA (ACT)</div>
+           {% snippet 'snippets/orderButtons.html', orderType='metadata_modified', asc_selected=vars.metadata_modified_asc, desc_selected=vars.metadata_modified_desc, destination='/catalogo/pizarra/datos'  %}
+
+          <th class="cabeceraTablaResultadosDashboard tamMuyEstrecho">
+            <div class="labelCabeceraTablaResultadosDatasetSinOrden">EDITAR</div>
+            <div style="visibility:hidden;">
+              {% snippet 'snippets/orderButtons.html', orderType='metadata_modified', asc_selected=vars.metadata_modified_asc, desc_selected=vars.metadata_modified_desc, destination='/catalogo/pizarra/datos'  %}
+            </div>
+          </th>
+        </tr>
+        {{ h.snippet('snippets/package_list.html', packages=c.page.items, edit_mode=True) }}       </table>
+      {% else %}
+        No hay datos en la organización
+      {% endif %}
+  {% endblock %}
+  
+  
+
+
+  {% block page_pagination %}
+    {{ c.page.pager(q=c.q) }}
+  {% endblock %}
+  </form>
+
+</div>
+<div id="dashboardZonePage2">
+{{ c.dashboard_activity_stream2 }}
+</div>
+{% endblock %}
+

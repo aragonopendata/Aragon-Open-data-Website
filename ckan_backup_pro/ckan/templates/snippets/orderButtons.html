@@ -1,0 +1,28 @@
+{#
+Displays a list of datasets.
+
+sorting_selected       - Actual order types applied
+asc_selected     - show asc as selected
+desc_selected     - show asc as selected
+Example:
+
+  {% snippet 'snippets/orderButtons.html', orderType='title_string', asc_selected=vars.title_string_asc, desc_selected=vars.title_string_desc %}
+
+#}
+
+<ul class="d_d">
+         <li><a href="javascript:changeOrder('sort={{orderType}}+asc', '{{destination}}')"  title="Orden ascendente">
+		{% if asc_selected %}
+			<img src="/public/i/buscaDatos/flechaBlancaUp.png" alt="Orden ascendente">
+		{% else %}
+			<img src="/public/i/buscaDatos/flechaAzulUp.png" alt="Orden ascendente">
+		{% endif %}
+	</a></li>
+         <li><a href="javascript:changeOrder('sort={{orderType}}+desc', '{{destination}}')"  title="Orden descendente">
+		{% if desc_selected %}
+			<img src="/public/i/buscaDatos/flechaBlancaDown.png" alt="Orden descendente">
+		{% else %}
+			<img src="/public/i/buscaDatos/flechaAzulDown.png" alt="Orden descendente">
+		{% endif %}
+	 </a></li>
+</ul>

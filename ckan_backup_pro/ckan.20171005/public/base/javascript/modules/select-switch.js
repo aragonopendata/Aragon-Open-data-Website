@@ -1,1 +1,0 @@
-this.ckan.module("select-switch",{options:{target:"select"},initialize:function(){var a=this;this.el.on("change",this.options.target,function(){a.el.submit()})}});

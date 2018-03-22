@@ -1,1 +1,0 @@
-this.ckan=this.ckan||{};(function(c,d,a){var b={"":{domain:"ckan",lang:"en",plural_forms:"nplurals=2; plural=(n != 1);"}};c.i18n=new a({domain:"ckan",locale_data:{ckan:b}});c.i18n.translate=d.proxy(c.i18n.translate,c.i18n);c.i18n.load=function(e){if(e&&e[""]){d.extend(b,e)}};c.sandbox.extend({i18n:c.i18n,translate:c.i18n.translate})})(this.ckan,this.jQuery,this.Jed);

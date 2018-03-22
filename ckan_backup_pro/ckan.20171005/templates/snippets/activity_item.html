@@ -1,6 +1,0 @@
-<tr onmouseout="javascript:this.className='';" onmouseover="javascript:this.className='over';">
-		{{ h.literal(activity.msg.format(**activity.data)) }}
-	<td>
-		<span class="date">{{ h.time_ago_in_words_from_str(activity.timestamp, 'hour') }}</span>
-	</td>
-</tr>

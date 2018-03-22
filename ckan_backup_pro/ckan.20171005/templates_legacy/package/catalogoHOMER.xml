@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlOggetti xmlns:py="http://genshi.edgewall.org/"
-	   totale="${len(c.pkg)}" baseUrl="http://opendata.aragon.es/catalogo/homer/" >
- <py:for each="item in c.pkg">
-	<urlOggetto>${item.get('name')}</urlOggetto>
- </py:for>
-</urlOggetti>

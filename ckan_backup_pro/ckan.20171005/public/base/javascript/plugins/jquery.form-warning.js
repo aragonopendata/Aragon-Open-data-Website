@@ -1,1 +1,0 @@
-(function(a){a.fn.incompleteFormWarning=function(b){return this.each(function(){var c=a(this);var e=c.serialize();function d(f){if(f.originalEvent.returnValue){f.originalEvent.returnValue=b}return b}c.on({change:function(){var f=c.serialize()===e?"off":"on";a(window)[f]("beforeunload",d)},submit:function(){a(window).off("beforeunload",d)}})})}})(this.jQuery);
